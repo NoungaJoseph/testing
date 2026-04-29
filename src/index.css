@@ -1,0 +1,416 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+    /* === Brand Colors — Navy & Teal Palette === */
+    --color-primary: #001F5B;
+    --color-primary-dark: #000D26;
+    --color-primary-light: #1E4A89;
+    --color-primary-muted: #E8F0F7;
+
+    --color-secondary: #00C2C7;
+    --color-navy: #001F5B;
+    --color-navy-light: #1E4A89;
+
+    --color-background-light: #FFFFFF;
+    --color-background-dark: #001F5B;
+    --color-brand-navy: #001F5B;
+
+    /* Accent / CTA */
+    --color-accent: #00C2C7;
+
+    /* Premium UI Tokens */
+    --shadow-soft: 0 40px 100px -20px rgba(0, 0, 0, 0.05);
+    --shadow-premium: 0 50px 120px -30px rgba(15, 23, 42, 0.15);
+    --shadow-green: 0 20px 60px -10px rgba(22, 163, 74, 0.25);
+    --radius-premium: 2.5rem;
+    --radius-super: 4rem;
+
+    /* Typography: Playfair Display (headings) + Poppins (body) */
+    --font-display: "Playfair Display", Georgia, serif;
+    --font-serif: "Playfair Display", Georgia, serif;
+    --font-sans: "Poppins", sans-serif;
+
+    /* === Warm Palette (Wix-inspired) === */
+    --color-warm-cream: #FDFBF7;
+    --color-warm-yellow: #FEF08A;
+    --color-soft-green: #BBF7D0;
+    --color-soft-purple: #E9D5FF;
+    --color-soft-peach: #FED7AA;
+    --color-wix-teal: #00BFA5;
+
+    /* Slate scale */
+    --color-slate-50: #F8FAFC;
+    --color-slate-100: #F1F5F9;
+    --color-slate-200: #E2E8F0;
+    --color-slate-300: #CBD5E1;
+    --color-slate-400: #94A3B8;
+    --color-slate-500: #64748B;
+    --color-slate-600: #475569;
+    --color-slate-700: #334155;
+    --color-slate-800: #1E293B;
+    --color-slate-900: #0F172A;
+    --color-slate-950: #020617;
+
+    /* Map green overrides -> Navy theme */
+    --color-green-400: #001F5B;
+    --color-green-500: #001F5B;
+    --color-green-600: #001F5B;
+    --color-emerald-400: #001F5B;
+    --color-emerald-500: #001F5B;
+    --color-emerald-600: #001F5B;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    scrollbar-gutter: stable both-edges;
+}
+
+body {
+    font-family: "Playfair Display", Georgia, serif;
+    background-color: #FFFFFF;
+    color: #0f172a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100%;
+}
+
+body {
+    top: 0 !important;
+}
+
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+
+#google_translate_element {
+    position: fixed;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* === GLOBAL TYPOGRAPHY: All headings use Playfair Display === */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-style: normal !important;
+    letter-spacing: -0.01em;
+}
+
+/* Kill italic utility classes on headings */
+h1.italic,
+h2.italic,
+h3.italic,
+h4.italic,
+h5.italic,
+h6.italic,
+h1 .italic,
+h2 .italic,
+h3 .italic,
+h4 .italic,
+h5 .italic,
+h6 .italic {
+    font-style: normal !important;
+}
+
+/* === Links & Buttons base === */
+a,
+button {
+    font-family: "Playfair Display", Georgia, serif;
+}
+
+/* === Material Symbols === */
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* === Utility: No italic anywhere === */
+.no-italic {
+    font-style: normal !important;
+}
+
+/* === Heading serif helper class === */
+.font-serif-display {
+    font-family: "Playfair Display", Georgia, serif !important;
+}
+
+/* === Custom scrollbar === */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #001F5B;
+    border-radius: 3px;
+}
+
+/* Keep green utility classes aligned with Navy theme */
+[class*="text-green"],
+.text-green-600,
+.text-green-700 {
+    color: #001F5B !important;
+}
+
+[class*="border-green"],
+.border-green-100,
+.border-green-200 {
+    border-color: #001F5B !important;
+}
+
+[class*="ring-green"],
+[class*="focus:ring-green"] {
+    box-shadow: 0 0 0 4px rgba(0, 31, 91, 0.12) !important;
+}
+
+/* Best-practice interaction defaults */
+a {
+    text-decoration: none;
+}
+
+button,
+[type="button"],
+[type="submit"] {
+    text-decoration: none !important;
+}
+
+/* ===================================================
+   SECTION BACKGROUND HELPERS (Wix-inspired palette)
+=================================================== */
+.section-cream {
+    background-color: #FDFBF7;
+}
+
+.section-yellow {
+    background-color: #FEF08A;
+}
+
+.section-soft-green {
+    background-color: #BBF7D0;
+}
+
+.section-purple {
+    background-color: #E9D5FF;
+}
+
+.section-peach {
+    background-color: #FED7AA;
+}
+
+.section-teal {
+    background-color: #00BFA5;
+}
+
+.section-navy {
+    background-color: #001B44;
+}
+
+/* === Pill Button Helpers === */
+.btn-pill {
+    border-radius: 9999px !important;
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    text-decoration: none !important;
+    white-space: nowrap;
+}
+
+.btn-pill-primary {
+    background-color: #001B44;
+    color: #ffffff;
+}
+
+.btn-pill-primary:hover {
+    background-color: #002060;
+    transform: scale(1.03);
+}
+
+.btn-pill-outline {
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    color: #ffffff;
+    background: transparent;
+}
+
+.btn-pill-outline:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.btn-pill-teal {
+    background-color: #00BFA5;
+    color: #001B44;
+}
+
+.btn-pill-teal:hover {
+    background-color: #00a896;
+    transform: scale(1.03);
+}
+
+.btn-pill-white {
+    background-color: #ffffff;
+    color: #001B44;
+}
+
+.btn-pill-white:hover {
+    background-color: #f0f4ff;
+    transform: scale(1.03);
+}
+
+/* WhatsApp pulse accent */
+.whatsapp-pulse::before {
+    background: #00C2C7;
+}
+
+/* === Smooth dropdown animations === */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulseRing {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
+/* WhatsApp float animation */
+.whatsapp-pulse::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: #25D366;
+    animation: pulseRing 2s ease-out infinite;
+    z-index: -1;
+}
+
+/* === CameroonMap: restore original greens inside the map component === */
+.cameroon-preserve [class*="bg-green"],
+.cameroon-preserve [class*="from-green"],
+.cameroon-preserve [class*="to-green"],
+.cameroon-preserve [class*="via-green"] {
+    background-image: none !important;
+}
+
+.cameroon-preserve [class*="text-green"],
+.cameroon-preserve .text-green-600,
+.cameroon-preserve .text-green-700 {
+    color: #16A34A !important;
+}
+
+.cameroon-preserve .text-green-700 {
+    color: #15803D !important;
+}
+
+.cameroon-preserve .bg-green-50 {
+    background-color: #F0FDF4 !important;
+}
+
+.cameroon-preserve .bg-green-100 {
+    background-color: #DCFCE7 !important;
+}
+
+.cameroon-preserve .bg-green-600 {
+    background-color: #16A34A !important;
+}
+
+.cameroon-preserve .bg-green-700 {
+    background-color: #15803D !important;
+}
+
+.cameroon-preserve .border-green-100 {
+    border-color: #DCFCE7 !important;
+}
+
+.cameroon-preserve .border-green-200 {
+    border-color: #BBF7D0 !important;
+}
+
+/* Re-enable rounded corners inside the Cameroon map area */
+.cameroon-preserve [class*="rounded"],
+.cameroon-preserve .rounded-full,
+.cameroon-preserve .rounded-2xl,
+.cameroon-preserve .rounded-3xl,
+.cameroon-preserve .rounded-xl {
+    border-radius: revert !important;
+}
+
+/* === Map region highlight === */
+.map-region {
+    transition: opacity 0.4s ease, fill 0.4s ease;
+}
+
+.map-marker {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.map-marker:hover {
+    transform: scale(1.2);
+}
+
+/* Unified professional box style for all forms */
+.form-shell {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    box-shadow: 0 18px 50px -28px rgba(15, 23, 42, 0.45);
+}
+
+@media (min-width: 768px) {
+    .form-shell {
+        padding: 2rem;
+    }
+}
