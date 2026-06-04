@@ -41,12 +41,12 @@ const Footer = () => {
                             </span>
                         </a>
                         <a
-                            href="tel:+237670671249"
+                            href="tel:+237 6 78 45 79 26"
                             className="flex items-center gap-3 group"
                         >
                             <img src="/assets/charity/contact us/phone.png" alt="phone" className="w-6 h-6 object-contain flex-shrink-0" />
                             <span className="text-[#001B44] font-semibold text-base group-hover:opacity-80 transition-opacity">
-                                +237 6 70 67 12 49
+                                +237 6 78 45 79 26
                             </span>
                         </a>
                         <div className="flex items-center gap-3">

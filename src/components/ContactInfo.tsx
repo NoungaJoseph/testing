@@ -10,9 +10,9 @@ const ContactInfo = () => {
         {
             icon: '/assets/charity/contact us/phone.png',
             title: "Call Us",
-            value: "+237 6 70 67 12 49",
+            value: "+237 6 78 45 79 26",
             description: "Mon-Fri from 9am to 6pm",
-            href: "tel:+237670671249"
+            href: "tel:+237 6 78 45 79 26"
         },
         {
             icon: '/assets/charity/contact us/location.png',

@@ -160,9 +160,9 @@ const Navbar = () => {
                     <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
                         {/* Left: Contact */}
                         <div className="flex items-center gap-8 text-[13px] font-bold tracking-wide">
-                            <a href="tel:+237670671249" className="flex items-center gap-2.5 hover:text-[#00C2C7] transition-all group">
+                            <a href="tel:+237 6 78 45 79 26" className="flex items-center gap-2.5 hover:text-[#00C2C7] transition-all group">
                                 <img src="/assets/charity/contact us/phone.png" alt="phone" className="w-3.5 h-3.5 object-contain group-hover:scale-110 transition-transform" />
-                                <span className="hidden sm:inline">+237 6 70 67 12 49</span>
+                                <span className="hidden sm:inline">+237 6 78 45 79 26</span>
                             </a>
                             <a href="mailto:enakooutreach@gmail.com" className="flex items-center gap-2.5 hover:text-[#00C2C7] transition-all group">
                                 <img src="/assets/charity/contact us/email.png" alt="email" className="w-3.5 h-3.5 object-contain group-hover:scale-110 transition-transform" />
@@ -391,8 +391,8 @@ const Navbar = () => {
 
                             {/* Contact bar */}
                             <div className="flex items-center gap-4 px-6 py-3 bg-transparent border-b border-transparent text-sm text-slate-700 font-medium">
-                                <a href="tel:+237670671249" className="flex items-center gap-2">
-                                    <img src="/assets/charity/contact us/phone.png" alt="phone" className="w-4 h-4 object-contain" />+237 6 70 67 12 49
+                                <a href="tel:+237 6 78 45 79 26" className="flex items-center gap-2">
+                                    <img src="/assets/charity/contact us/phone.png" alt="phone" className="w-4 h-4 object-contain" />+237 6 78 45 79 26
                                 </a>
                             </div>
 

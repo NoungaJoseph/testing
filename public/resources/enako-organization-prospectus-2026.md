@@ -55,7 +55,7 @@ Pilot and active expansion in core communities across Cameroon, with phased scal
 
 ## Contact
 - Email: enakooutreach@gmail.com
-- Phone: +237 6 70 67 12 49
+- Phone: +237 6 78 45 79 26
 - Location: Akwa, Douala, Cameroon
 
 ## Closing Note

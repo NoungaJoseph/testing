@@ -28,7 +28,7 @@ Empower communities in Cameroon through quality education support, healthcare in
 
 ## 📞 Contact Us
 
-- **Phone:** +237 6 70 67 12 49
+- **Phone:** +237 6 78 45 79 26
 - **Email:** enakooutreach@gmail.com
 - **Location:** Akwa, Douala · Cameroon
 

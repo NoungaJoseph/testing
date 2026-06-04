@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, MessageCircle } from 'lucide-react';
 
-const WHATSAPP_NUMBER = '237600000000';
+const WHATSAPP_NUMBER = '237678457926';
 const PRESET_MESSAGE = 'Hello Enako Outreach, I need assistance.';
 const WA_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(PRESET_MESSAGE)}`;
 
