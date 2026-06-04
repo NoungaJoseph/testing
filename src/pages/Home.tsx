@@ -154,7 +154,7 @@ const Home = () => {
                     </section>
 
                     {/* 3. CTA Action Cards */}
-                    <section className="py-16 relative min-h-screen bg-cover bg-center bg-no-repeat bg-fixed" style={{ backgroundImage: "url('/assets/images/scholarship-success.png')" }}>
+                    <section className="py-16 relative min-h-screen bg-cover bg-center bg-no-repeat bg-fixed" style={{ backgroundImage: "url('/enako/assets/images/scholarship-success.png')" }}>
                         <div className="absolute inset-0 bg-black/50" />
                         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
                             <FadeIn direction="up" scale={0.92} threshold={0.3} className="text-center mb-12">

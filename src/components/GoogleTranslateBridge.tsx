@@ -63,7 +63,7 @@ const GoogleTranslateBridge = () => {
 
     const timer = window.setTimeout(applyLanguage, 250);
     return () => window.clearTimeout(timer);
-  }, [lang, location.pathname]);
+  }, [lang]);
 
   return <div id="google_translate_element" className="sr-only" aria-hidden="true" />;
 };
