@@ -102,6 +102,8 @@ const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [activeSub, setActiveSub] = useState<string | null>(null);
+    const [isVisible, setIsVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
     const { lang, setLang } = useLanguage();
     const location = useLocation();
 
@@ -118,15 +120,43 @@ const Navbar = () => {
         return () => { document.body.style.overflow = ''; };
     }, [isMobileMenuOpen]);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            
+            // Show navbar when at the top
+            if (currentScrollY < 100) {
+                setIsVisible(true);
+            } 
+            // Hide navbar when scrolling down
+            else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                setIsVisible(false);
+            } 
+            // Show navbar when scrolling up
+            else if (currentScrollY < lastScrollY) {
+                setIsVisible(true);
+            }
+            
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [lastScrollY]);
+
     const navbarFontStyle = { fontFamily: '"Playfair Display", Georgia, serif' };
 
     return (
         <>
             {/* ═══════════════════ FIXED HEADER WRAPPER ═══════════════════ */}
-            <div className="fixed top-0 left-0 right-0 z-50 shadow-xl shadow-black/10">
+            <motion.div 
+                className="fixed top-0 left-0 right-0 z-50"
+                animate={{ y: isVisible ? 0 : -200 }}
+                transition={{ duration: 0.3 }}
+            >
 
                 {/* ── TOP INFO BAR ── */}
-                <div className="hidden md:block bg-[#FDFBF7] text-[#001F5B] border-b border-slate-200/60 py-2.5">
+                <div className="hidden md:block bg-transparent text-white border-b border-transparent py-2.5" style={{textShadow: '0 1px 3px rgba(0,0,0,0.6)'}}>
                     <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
                         {/* Left: Contact */}
                         <div className="flex items-center gap-8 text-[13px] font-bold tracking-wide">
@@ -166,14 +196,14 @@ const Navbar = () => {
                 </div>
 
                 {/* ── MAIN NAVBAR ── */}
-                <header className="bg-white/98 backdrop-blur-xl border-b border-slate-100 py-0" style={navbarFontStyle}>
+                <header className="bg-black/10 backdrop-blur-md border-b border-transparent py-0" style={navbarFontStyle}>
                     <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between gap-3 md:gap-4" style={{ minHeight: '72px' }}>
 
                         {/* Logo */}
                         <Link to="/" className="flex items-center gap-2 sm:gap-2.5 group flex-shrink min-w-0">
                             <img src="/assets/logo/enako.png" alt="Enako Outreach logo" className="h-11 sm:h-14 md:h-[72px] w-auto object-contain group-hover:scale-105 transition-all duration-500" />
                             <div className="flex flex-col justify-center leading-none pt-1 min-w-0">
-                                <p className="font-black text-[11px] sm:text-xs md:text-base uppercase tracking-[0.03em] sm:tracking-[0.05em] md:tracking-[0.07em] text-[#001F5B] whitespace-nowrap">ENAKO OUTREACH</p>
+                                <p className="font-black text-[11px] sm:text-xs md:text-base uppercase tracking-[0.03em] sm:tracking-[0.05em] md:tracking-[0.07em] text-white whitespace-nowrap" style={{textShadow: '0 1px 3px rgba(0,0,0,0.6)'}}>ENAKO OUTREACH</p>
                                 <p className="text-[#00C2C7] text-[7px] sm:text-[8px] md:text-[9px] font-semibold uppercase tracking-[0.12em] sm:tracking-[0.16em] md:tracking-[0.22em] mt-1 whitespace-nowrap">Community Impact</p>
                             </div>
                         </Link>
@@ -191,9 +221,10 @@ const Navbar = () => {
                                         to={link.href}
                                         className={`text-[14px] font-semibold transition-colors duration-200 flex items-center gap-1.5 whitespace-nowrap px-2 py-1 rounded-md ${location.pathname === link.href ||
                                                 (link.dropdown && link.dropdown.some(d => d.items.some(i => i.href === location.pathname)))
-                                                ? 'text-[#00C2C7] bg-[#001F5B]/6'
-                                                : 'text-[#001F5B] hover:text-[#00C2C7]'
+                                                ? 'text-[#00C2C7] bg-white/10'
+                                                : 'text-white hover:text-[#00C2C7]'
                                             }`}
+                                        style={{textShadow: '0 1px 2px rgba(0,0,0,0.5)'}}
                                     >
                                         {link.name}
                                         {link.dropdown && (
@@ -296,9 +327,10 @@ const Navbar = () => {
                             </Link>
 
                             <button
-                                className="xl:hidden flex items-center justify-center transition-all duration-300 active:scale-90 text-slate-700 bg-transparent w-9 h-9"
+                                className="xl:hidden flex items-center justify-center transition-all duration-300 active:scale-90 text-white bg-transparent w-9 h-9"
                                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                                 aria-label="Toggle Menu"
+                                style={{textShadow: '0 1px 2px rgba(0,0,0,0.5)'}}
                             >
                                 <AnimatePresence mode="wait" initial={false}>
                                     {isMobileMenuOpen ? (
@@ -315,7 +347,7 @@ const Navbar = () => {
                         </div>
                     </div>
                 </header>
-            </div>
+            </motion.div>
 
             {/* ═══════════════════ MOBILE MENU ═══════════════════ */}
             <AnimatePresence>

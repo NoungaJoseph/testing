@@ -136,14 +136,14 @@ const Home = () => {
                                     </Link>
                                 </FadeIn>
                                 <FadeIn direction="right" scale={0.95}>
-                                    <div className="grid grid-cols-2 gap-4">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                         {missionPoints.map((item, i) => (
                                             <FadeIn key={i} delay={i * 0.1} scale={0.9} direction={i % 2 === 0 ? 'right' : 'left'}>
                                                 <motion.div whileHover={{ y: -5, scale: 1.02 }} transition={{ duration: 0.3 }}
-                                                    className="p-6 transition-all duration-300">
-                                                    <img src={item.icon} alt={item.label} className="w-32 h-32 object-contain mb-4" />
-                                                    <h4 className="font-black text-slate-900 text-2xl mb-2">{item.label}</h4>
-                                                    <p className="text-slate-600 text-base leading-relaxed">{item.desc}</p>
+                                                    className="p-6 transition-all duration-300 text-center">
+                                                    <img src={item.icon} alt={item.label} className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain mb-4 mx-auto" />
+                                                    <h4 className="font-black text-slate-900 text-lg md:text-xl lg:text-2xl mb-2">{item.label}</h4>
+                                                    <p className="text-slate-600 text-sm md:text-base leading-relaxed">{item.desc}</p>
                                                 </motion.div>
                                             </FadeIn>
                                         ))}
@@ -154,15 +154,21 @@ const Home = () => {
                     </section>
 
                     {/* 3. CTA Action Cards */}
-                    <section className="py-16 bg-white">
-                        <div className="max-w-7xl mx-auto px-6 md:px-12">
+                    <section className="py-16 relative min-h-screen bg-cover bg-center bg-no-repeat bg-fixed" style={{ backgroundImage: "url('/assets/images/scholarship-success.png')" }}>
+                        <div className="absolute inset-0 bg-black/50" />
+                        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
                             <FadeIn direction="up" scale={0.92} threshold={0.3} className="text-center mb-12">
-                                <h2 className="text-slate-900 font-black text-3xl md:text-4xl mb-3">How Can We Help You?</h2>
-                                <p className="text-slate-600 text-lg">Take action — whether you need assistance or want to give it.</p>
+                                <h2 className="text-white font-black text-3xl md:text-4xl mb-3">How Can We Help You?</h2>
+                                <p className="text-white/90 text-lg">Take action — whether you need assistance or want to give it.</p>
                             </FadeIn>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 {ctaCards.map((card, i) => (
-                                    <FadeIn key={card.title} direction="up" delay={i * 0.1} scale={0.9} threshold={0.2}>
+                                    <motion.div key={card.title} 
+                                        initial={{ opacity: 0, x: -50 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        transition={{ duration: 0.6, delay: i * 0.15, ease: "easeOut" }}
+                                        viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+                                    >
                                         <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.3 }}>
                                             <Link to={card.to} className="no-underline relative block group h-[360px] overflow-hidden" style={{ borderRadius: '2rem' }}>
                                                 <img
@@ -170,17 +176,17 @@ const Home = () => {
                                                     alt={card.title}
                                                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                                 />
-                                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/45 to-transparent" />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent" />
                                                 <div className="relative z-10 h-full flex flex-col justify-end p-8">
                                                     <h3 className="font-black text-3xl text-white mb-2">{card.title}</h3>
-                                                    <p className="text-white/90 text-base leading-relaxed mb-4 max-w-xl">{card.desc}</p>
+                                                    <p className="text-white/95 text-base leading-relaxed mb-4 max-w-xl">{card.desc}</p>
                                                     <span className="inline-flex items-center gap-1.5 text-[#00C2C7] font-black text-sm uppercase tracking-widest group-hover:gap-3 transition-all">
                                                         {card.label} <ArrowRight className="w-3.5 h-3.5" />
                                                     </span>
                                                 </div>
                                             </Link>
                                         </motion.div>
-                                    </FadeIn>
+                                    </motion.div>
                                 ))}
                             </div>
                         </div>
