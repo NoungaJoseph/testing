@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
 import { motion } from 'framer-motion';
 import { Search, BookOpen, Rss, Archive } from 'lucide-react';
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import AnimatedNetworkBg from '../components/AnimatedNetworkBg';
 import { useTranslation } from 'react-i18next';
 
