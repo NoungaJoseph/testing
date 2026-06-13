@@ -7,28 +7,28 @@ const ImpactTimeline = () => {
             title: "Foundation Establishment",
             description: "Establishing our central mission in Africa and identifying our key community hubs for 2024.",
             icon: "foundation",
-            image: "/assets/charity/our-expertize-in-action.png"
+            image: "/assets/images/new_assets/timeline_1.png"
         },
         {
             year: "Phase 2: Pilot",
             title: "Inaugural Scholarships",
             description: "Targeting the first 50 scholarship recipients with full tuition and resource coverage.",
             icon: "school",
-            image: "/assets/charity/our-expertize-in-action.png"
+            image: "/assets/images/new_assets/timeline_1.png"
         },
         {
             year: "Phase 3: Community",
             title: "Infrastructure Initiative",
             description: "Implementing sustainable solar power and clean water systems in target local villages.",
             icon: "handyman",
-            image: "/assets/charity/our-expertize-in-action.png"
+            image: "/assets/images/new_assets/timeline_1.png"
         },
         {
             year: "Phase 4: Expansion",
             title: "Cross-Border Scaling",
             description: "Expanding our proven humanitarian models across 12 countries in the region.",
             icon: "public",
-            image: "/assets/charity/our-expertize-in-action.png"
+            image: "/assets/images/new_assets/timeline_1.png"
         }
     ];
 

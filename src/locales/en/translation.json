@@ -1,0 +1,1371 @@
+{
+  "nav": {
+    "home": "Home",
+    "about_us": "About Us",
+    "programs": "Programs",
+    "projects": "Projects",
+    "focus_communities": "Focus Communities",
+    "blog": "Blog",
+    "get_involved": "Get Involved",
+    "contact_us": "Contact Us",
+    "donate_now": "Donate Now",
+    "donate": "Donate",
+    "education": "Education",
+    "scholarships": "Scholarships",
+    "primary_support": "Primary School Support",
+    "secondary_support": "Secondary School Support",
+    "university_support": "University Support",
+    "school_registration": "School Partnership Registration",
+    "teacher_rewards": "Teacher Rewards",
+    "youth_empowerment": "Youth Empowerment",
+    "community_health": "Community & Health",
+    "clean_water": "Clean Water Initiative",
+    "health_support": "Community Health Support",
+    "single_mothers": "Single Mothers Assistance",
+    "articles": "Articles",
+    "latest_news": "Latest News",
+    "blog_posts": "Blog Posts",
+    "archives": "Archives",
+    "language": "Language"
+  },
+  "carousel": {
+    "slide1_title": "Empowering Futures",
+    "slide1_subtitle": "Quality education and scholarships transforming lives across Cameroon",
+    "slide1_btn": "Learn More",
+    "slide2_title": "Building Communities",
+    "slide2_subtitle": "Creating sustainable development through grassroots partnerships",
+    "slide2_btn": "Get Involved",
+    "slide3_title": "Creating Impact",
+    "slide3_subtitle": "Every contribution funds essential services for vulnerable families",
+    "slide3_btn": "Support Us"
+  },
+  "footer": {
+    "organisation": "Organisation",
+    "about_us": "About Us",
+    "our_impact": "Our Impact",
+    "success_stories": "Success Stories",
+    "blog": "Blog",
+    "partnership": "Partnership",
+    "programs": "Programs",
+    "scholarships": "Scholarships",
+    "clean_water": "Clean Water",
+    "teacher_rewards": "Teacher Rewards",
+    "health_support": "Health Support",
+    "single_mothers": "Single Mothers",
+    "youth_empowerment": "Youth Empowerment",
+    "communities": "Communities",
+    "focus_communities": "Focus Communities",
+    "littoral_region": "Littoral Region",
+    "centre_region": "Centre Region",
+    "north_west": "North West",
+    "south_west": "South West",
+    "west_region": "West Region",
+    "get_involved": "Get Involved",
+    "donate": "Donate",
+    "volunteer": "Volunteer",
+    "partner_with_us": "Partner With Us",
+    "apply_scholarship": "Apply for Scholarship",
+    "apply_help": "Apply for Help",
+    "report_case": "Report a Case",
+    "community_impact_foundation": "Community Impact Foundation",
+    "location": "Akwa, Douala · Cameroon",
+    "all_rights_reserved": "All rights reserved",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service",
+    "cookie_policy": "Cookie Policy"
+  },
+  "home": {
+    "mission": {
+      "badge": "Our Mission",
+      "title": "Transforming Lives Across",
+      "title_highlight": "Cameroon",
+      "desc": "Enako Outreach is a registered humanitarian NGO dedicated to empowering communities across Cameroon. We work at the grassroots level — partnering with local leaders, schools, and health workers to deliver targeted, sustainable programmes where they matter most.",
+      "tags": [
+        "Education",
+        "Healthcare",
+        "Clean Water",
+        "Women Empowerment",
+        "Youth",
+        "Emergency Relief"
+      ],
+      "btn": "Learn About Our Work",
+      "points": [
+        {
+          "label": "Education Access",
+          "desc": "Scholarships from primary to university level"
+        },
+        {
+          "label": "Clean Water",
+          "desc": "Boreholes and purification for rural communities"
+        },
+        {
+          "label": "Healthcare",
+          "desc": "Mobile clinics and community health workers"
+        },
+        {
+          "label": "Women Support",
+          "desc": "Empowering single mothers and widows"
+        },
+        {
+          "label": "Youth Empowerment",
+          "desc": "Skills training and entrepreneurship support"
+        },
+        {
+          "label": "Emergency Relief",
+          "desc": "Rapid response for crisis-affected families"
+        }
+      ]
+    },
+    "cta": {
+      "title": "How Can We Help You?",
+      "subtitle": "Take action — whether you need assistance or want to give it.",
+      "cards": [
+        {
+          "title": "Apply for Help",
+          "desc": "Need support for education, healthcare, or emergency assistance? Apply through our programme intake.",
+          "label": "Start Application"
+        },
+        {
+          "title": "Report Community Issue",
+          "desc": "Know of a community in need of clean water, healthcare, or urgent humanitarian support?",
+          "label": "Report a Case"
+        },
+        {
+          "title": "Donate Now",
+          "desc": "Every contribution funds education, clean water, and healthcare for families across Cameroon.",
+          "label": "Donate Today"
+        },
+        {
+          "title": "Partner With Us",
+          "desc": "Organisations and individuals can partner with Enako Outreach to amplify our community impact.",
+          "label": "Start Partnership"
+        }
+      ]
+    },
+    "regional_mapping": {
+      "badge": "Regional Mapping",
+      "title": "Following the Route",
+      "title_highlight": "Across Cameroon",
+      "desc": "This visual line-map shows how our outreach path connects communities across Cameroon. It gives context to where programmes are delivered and why we prioritise each region.",
+      "points": [
+        "Shows key places connected by one outreach route.",
+        "Complements the regional map below for deeper exploration.",
+        "Helps donors and partners quickly understand geographic reach."
+      ]
+    },
+    "focus_communities": {
+      "badge": "Where We Work",
+      "title": "Focus Communities",
+      "title_highlight": "Across Cameroon",
+      "desc": "We operate in 5 key regions of Cameroon — Littoral, Centre, North West, South West, and West. Click on any marker to explore our work in each region.",
+      "btn": "Explore All Regions",
+      "regions": [
+        {
+          "name": "Littoral (Douala)",
+          "work": "Clean Water, Healthcare, Emergency Relief"
+        },
+        {
+          "name": "Centre (Yaoundé)",
+          "work": "Scholarships, School Rehab, Teacher Rewards"
+        },
+        {
+          "name": "North West (Bamenda)",
+          "work": "Emergency Relief, Women Support"
+        },
+        {
+          "name": "South West (Buea)",
+          "work": "Emergency Relief, Clean Water"
+        },
+        {
+          "name": "West (Bafoussam)",
+          "work": "Women Empowerment, Healthcare"
+        }
+      ]
+    },
+    "reviews": {
+      "badge": "Real Impact",
+      "title": "Community Reviews",
+      "subtitle": "Behind every statistic is a real person whose life has been transformed by your support.",
+      "btn": "Read More Stories",
+      "stories": [
+        {
+          "name": "Amina Bello",
+          "region": "North West Region",
+          "program": "Single Mothers Assistance",
+          "quote": "After losing my husband, I had no income and three children to feed. Enako gave me skills training and startup funds — I now run my own tailoring business and can pay my children's school fees."
+        },
+        {
+          "name": "Emmanuel Fon",
+          "region": "West Region",
+          "program": "University Scholarship",
+          "quote": "I scored top marks in my BEPC but my family couldn't afford university. Enako's scholarship paid my entire engineering degree. Today I work at a construction firm in Douala."
+        },
+        {
+          "name": "Clarisse Mbah",
+          "region": "Littoral Region",
+          "program": "Clean Water Initiative",
+          "quote": "Our village women used to walk 4km each morning for water. Since the borehole was installed last year, we have clean water 50 metres from our homes. It has changed everything."
+        }
+      ]
+    },
+    "donation_cta": {
+      "badge": "Make A Difference",
+      "title": "Your Donation Changes",
+      "title_highlight": "Real Lives",
+      "desc": "Every contribution funds education, clean water, and healthcare for families across Cameroon.",
+      "btn_donate": "Donate Now",
+      "btn_partner": "Partner With Us"
+    }
+  },
+  "about": {
+    "hero": {
+      "est": "Est. 2024",
+      "title": "Driven by Purpose.",
+      "title_highlight": "Guided by Impact.",
+      "desc": "Empowering communities and advancing education across Cameroon through sustainable humanitarian initiatives that foster growth and resilience from our base in Douala.",
+      "breadcrumb_home": "Home",
+      "breadcrumb_about": "About Us",
+      "mission_badge": "Our Mission",
+      "mission_title": "Building a foundation for the leaders of tomorrow.",
+      "mission_desc": "Enako Outreach is dedicated to creating lasting change by focusing on grassroots education and holistic community development projects in Cameroon. With our first 5 partner schools in Douala, we are about to carry out our inaugural charity mission to provide immediate support to the leaders of tomorrow.",
+      "pillars": [
+        {
+          "title": "Education First",
+          "desc": "Providing resources and building classrooms to ensure every child has access to quality learning environments."
+        },
+        {
+          "title": "Health & Wellness",
+          "desc": "Implementing clean water projects and medical outreach programs to improve community well-being."
+        },
+        {
+          "title": "Local Partnership",
+          "desc": "Working directly with community leaders to design programs that address specific local needs."
+        }
+      ]
+    },
+    "mission_vision": {
+      "badge": "Our Purpose",
+      "title": "Building a Legacy of Hope in Cameroon",
+      "desc": "We are dedicated to long-term sustainable growth by addressing the core pillars of community development and educational excellence.",
+      "mission_title": "Our Mission",
+      "mission_desc": "To empower Cameroonian communities by providing sustainable access to quality education, essential resources, and innovative development programs.",
+      "mission_points": [
+        "Equitable Resource Distribution",
+        "Sustainable Education Models"
+      ],
+      "vision_title": "Our Vision",
+      "vision_desc": "A future where every child in Cameroon has the opportunity to reach their full potential through world-class education and comprehensive community support.",
+      "vision_points": [
+        "100% Literacy and Literacy Access",
+        "Innovation Hubs for Youth"
+      ]
+    },
+    "leadership": {
+      "badge": "Governance & Vision",
+      "title": "Our Leadership Team",
+      "desc": "Meet the founder guiding Enako Outreach with a clear commitment to education, community dignity, and measurable impact.",
+      "founder": {
+        "role": "Founder",
+        "name": "Ndolo Nako",
+        "bio": "Ndolo Nako founded Enako Outreach to expand educational opportunity and practical community support for underserved families in Cameroon. Her leadership is centered on local partnership, accountability, and long-term impact that helps children, women, and communities move forward with dignity."
+      },
+      "cta_title": "Join Our Mission",
+      "cta_desc": "We are always looking for passionate individuals and corporate partners who share our vision for a brighter future in Africa. Let's build something lasting together.",
+      "cta_btn1": "Get in Touch",
+      "cta_btn2": "View Careers"
+    }
+  },
+  "impact": {
+    "hero": {
+      "badge": "Measurable Change",
+      "title": "Driving Real",
+      "title_highlight": "Transformation.",
+      "desc": "Our data-driven approach ensures every resource reaches the communities that need it most.",
+      "stats": [
+        {
+          "v": "120+",
+          "l": "Lives Targeted"
+        },
+        {
+          "v": "8",
+          "l": "Communities"
+        },
+        {
+          "v": "Pilot",
+          "l": "Phase"
+        }
+      ]
+    },
+    "kpi": {
+      "badge": "Our Numbers",
+      "title": "Impact in",
+      "title_highlight": "Focus.",
+      "stats": [
+        {
+          "value": "120+",
+          "label": "Students Targeted"
+        },
+        {
+          "value": "8",
+          "label": "Schools Targeted"
+        },
+        {
+          "value": "6",
+          "label": "Teachers Recognized"
+        },
+        {
+          "value": "8",
+          "label": "Communities Helped"
+        }
+      ]
+    },
+    "timeline": {
+      "badge": "Our Journey",
+      "title": "Our Story of Growth",
+      "milestones": [
+        {
+          "year": "Phase 1",
+          "title": "Douala Launch",
+          "desc": "Enako Outreach establishes headquarters in Douala with 5 partner schools."
+        },
+        {
+          "year": "Phase 2",
+          "title": "First Charity Mission",
+          "desc": "Launching our inaugural charity mission to provide immediate educational support."
+        },
+        {
+          "year": "Phase 3",
+          "title": "Regional Expansion",
+          "desc": "Expanding coverage to 8 partner schools across target communities."
+        }
+      ]
+    },
+    "dashboard": {
+      "badge": "Live Dashboard",
+      "title": "Our Impact Dashboard",
+      "desc": "Track how your contributions are making a difference across Cameroon in real time.",
+      "stats": [
+        {
+          "label": "Partner Schools",
+          "value": "5",
+          "suffix": ""
+        },
+        {
+          "label": "Target Students",
+          "value": "120",
+          "suffix": "+"
+        },
+        {
+          "label": "Schools planned",
+          "value": "8",
+          "suffix": ""
+        },
+        {
+          "label": "Regions Covered",
+          "value": "2",
+          "suffix": ""
+        }
+      ],
+      "chart_title": "Program Distribution",
+      "chart_labels": [
+        "Scholarships",
+        "Teacher Awards",
+        "Community Dev",
+        "Orphanage Support"
+      ]
+    },
+    "reports": {
+      "badge": "Transparency",
+      "title": "Strategic",
+      "title_highlight": "Resources",
+      "view_all": "View All Reports",
+      "org_name": "Enako Outreach Foundation",
+      "download": "Download Resource",
+      "items": [
+        {
+          "title": "2026-2028 Strategic Plan"
+        },
+        {
+          "title": "Organization Prospectus 2026"
+        }
+      ]
+    }
+  },
+  "programs": {
+    "hero": {
+      "breadcrumb_home": "Home",
+      "breadcrumb_programs": "Programs",
+      "title": "Our Programs",
+      "title_highlight": "Lasting",
+      "title_suffix": "Impact",
+      "desc": "Through education, recognition, and community development, Enako Outreach empowers individuals and transforms communities across Africa.",
+      "focus_badge": "Our Focus Areas",
+      "focus_title": "Nurturing growth through strategic pillars.",
+      "focus_desc": "At Enako Outreach, we are dedicated to fostering sustainable growth through targeted humanitarian initiatives.",
+      "pillars": [
+        {
+          "title": "Scholarships",
+          "desc": "Empowering the next generation of African leaders through academic support and financial grants."
+        },
+        {
+          "title": "Teacher Awards",
+          "desc": "Recognizing excellence in education and honoring the dedicated mentors shaping the future."
+        },
+        {
+          "title": "Community Dev",
+          "desc": "Building sustainable local infrastructure and clean water systems for self-reliant villages."
+        },
+        {
+          "title": "Orphanage Support",
+          "desc": "Providing a safe haven, nutritional support, and emotional care for children in need."
+        }
+      ]
+    },
+    "overview": {
+      "badge_prefix": "Enako Impact",
+      "btn_view": "View Full Programme",
+      "btn_donate": "Donate Now",
+      "items": [
+        {
+          "id": "scholarships",
+          "badge": "Education Support",
+          "title": "Scholarships for Academic Excellence",
+          "desc": "Our flagship scholarship programme provides full-tuition coverage, textbooks, uniforms, and mentorship for high-achieving students from low-income families across Cameroon. We support students from primary level through to university.",
+          "highlights": [
+            "Full Tuition Coverage",
+            "Mentorship Program",
+            "Primary to University"
+          ],
+          "stats": [
+            "8 Scholars",
+            "Strong Retention",
+            "4 Schools",
+            "2 Regions"
+          ],
+          "imageCaption": "Empowering future leaders"
+        },
+        {
+          "id": "clean-water-initiative",
+          "badge": "Infrastructure",
+          "title": "Clean Water Initiative",
+          "desc": "Providing safe, accessible drinking water to rural and water-scarce communities through borehole drilling, water purification systems, and local maintenance training. We believe clean water is the first step to health.",
+          "highlights": [
+            "Borehole Drilling",
+            "Water Purification",
+            "Maintenance Training"
+          ],
+          "stats": [
+            "18 Boreholes",
+            "28k+ People",
+            "22 Villages",
+            "3 Regions"
+          ],
+          "imageCaption": "Safe water for every village"
+        },
+        {
+          "id": "teacher-rewards",
+          "badge": "Teacher Excellence",
+          "title": "Teacher Rewards Programme",
+          "desc": "Recognising and rewarding dedicated educators in underserved communities. We provide financial grants, professional development, and community recognition to those who go above and beyond for their students.",
+          "highlights": [
+            "Financial Grants",
+            "Professional Training",
+            "Peer Network"
+          ],
+          "stats": [
+            "6 Teachers",
+            "2 Regions",
+            "4 Sessions",
+            "Pilot Cohort"
+          ],
+          "imageCaption": "Honouring dedicated educators"
+        },
+        {
+          "id": "community-health-support",
+          "badge": "Healthcare",
+          "title": "Community Health Support",
+          "desc": "Mobile healthcare clinics and medical outreach programs that bring doctors, nurses, and essential medication directly to families in remote and underserved areas of Cameroon.",
+          "highlights": [
+            "Mobile Clinics",
+            "Maternal Health",
+            "Malaria Prevention"
+          ],
+          "stats": [
+            "42k+ Patients",
+            "6 Clinics",
+            "85 Trained",
+            "5 Regions"
+          ],
+          "imageCaption": "Healthcare within reach"
+        },
+        {
+          "id": "single-mothers-assistance",
+          "badge": "Social Support",
+          "title": "Single Mothers Assistance",
+          "desc": "Empowering single mothers and widows through micro-grants, vocational skills training (tailoring, catering, ICT), trauma counselling, and childcare support to foster economic independence.",
+          "highlights": [
+            "Micro-grants",
+            "Skills Training",
+            "Trauma Support"
+          ],
+          "stats": [
+            "10 Women",
+            "4 Businesses",
+            "7 Active",
+            "2 Regions"
+          ],
+          "imageCaption": "Restoring hope and dignity"
+        },
+        {
+          "id": "youth-empowerment",
+          "badge": "Youth Development",
+          "title": "Youth Empowerment Programme",
+          "desc": "Building the next generation of Cameroonian changemakers through leadership development, vocational skills training, digital literacy bootcamps, and seed funding for young entrepreneurs.",
+          "highlights": [
+            "Leadership Training",
+            "Digital Skills",
+            "Seed Funding"
+          ],
+          "stats": [
+            "12 Youth",
+            "3 Ventures",
+            "Ongoing Placement",
+            "2 Regions"
+          ],
+          "imageCaption": "Building tomorrow's leaders"
+        }
+      ]
+    },
+    "transparency": {
+      "goal": "Goal: 120 Lives Targeted",
+      "report_summary": "Annual report 2023 summary",
+      "title": "Our work is guided by transparency and radical empathy.",
+      "desc": "We believe that by providing the right tools—education, infrastructure, and healthcare—communities can build their own prosperous futures. Every dollar donated goes directly toward our program execution.",
+      "stat1_val": "92%",
+      "stat1_label": "Funds to programs",
+      "stat2_val": "1",
+      "stat2_label": "Country active",
+      "btn": "Read Our Impact Report"
+    }
+  },
+  "program_detail": {
+    "not_found": {
+      "title": "Programme Not Found",
+      "desc": "We couldn't locate this programme. Browse all our programmes below.",
+      "btn": "View All Programs"
+    },
+    "sections": {
+      "about": "About This Programme",
+      "goals": "Programme Goals",
+      "serve": "Who We Serve",
+      "gallery": "Programme Gallery",
+      "milestones": "Milestones",
+      "apply": {
+        "title": "Apply for Support",
+        "desc": "Think you or someone you know qualifies for this programme? Fill in our application form and our team will be in touch.",
+        "btn_apply": "Apply Now",
+        "btn_donate": "Donate to This Programme"
+      },
+      "partner": {
+        "title": "Partner or Volunteer",
+        "desc": "Organisations and individuals can partner with us to scale this programme.",
+        "btn": "Partner With Us"
+      },
+      "back": "Back to All Programmes"
+    },
+    "programs": {
+      "scholarships": {
+        "title": "Scholarships Programme",
+        "subtitle": "Education for Every Child in Cameroon",
+        "category": "Education",
+        "description": "Our flagship scholarship programme provides full-tuition coverage, textbooks, uniforms, and mentorship for high-achieving students from low-income families across Cameroon.",
+        "longDesc": "Every talented child in Cameroon deserves the opportunity to pursue their education regardless of their family's financial situation. Our scholarship programme removes financial barriers by funding primary, secondary, and university education. We identify top-performing students through partner schools and community nominations, then provide comprehensive support that goes beyond fees to include stationery, uniforms, and access to mentorship networks.",
+        "goals": [
+          "Support 10 new students in the next intake cycle",
+          "Maintain strong completion and retention for all scholars",
+          "Build active collaboration with 4 partner schools",
+          "Start a mentor circle for scholarship beneficiaries"
+        ],
+        "beneficiaries": [
+          "Primary school pupils aged 6–12",
+          "Secondary school students aged 13–18",
+          "University students aged 18–25",
+          "Students from displaced or conflict-affected families"
+        ],
+        "stats": [
+          {
+            "label": "Students Funded",
+            "value": "8"
+          },
+          {
+            "label": "Graduation Rate",
+            "value": "92%"
+          },
+          {
+            "label": "Partner Schools",
+            "value": "4"
+          }
+        ],
+        "milestones": [
+          {
+            "year": "2025",
+            "event": "Launched with 3 inaugural scholarship recipients."
+          },
+          {
+            "year": "2025",
+            "event": "Expanded to cover university-level education in Yaoundé and Douala."
+          },
+          {
+            "year": "2026",
+            "event": "Reached 8 active scholarship beneficiaries."
+          }
+        ]
+      },
+      "scholarships-primary": {
+        "title": "Primary School Support",
+        "subtitle": "Building Foundations for the Future",
+        "category": "Education",
+        "description": "Covering full school fees, uniforms, textbooks, and school supplies for primary school children from families in financial hardship.",
+        "longDesc": "Primary education is the critical foundation for lifelong learning. Our primary school support streams ensure that no child is turned away from school due to inability to pay fees. We work with community leaders to identify the most in-need families and provide complete academic packages so children can attend school with dignity.",
+        "goals": [
+          "Support 6 primary pupils this academic year",
+          "Provide full stationery kits each term",
+          "Train supported children in digital literacy basics"
+        ],
+        "beneficiaries": [
+          "Children aged 6–12",
+          "Orphans and children of single mothers",
+          "Children in rural and peri-urban areas"
+        ],
+        "stats": [
+          {
+            "label": "Children Supported",
+            "value": "6"
+          },
+          {
+            "label": "Schools Covered",
+            "value": "3"
+          },
+          {
+            "label": "Regions",
+            "value": "5"
+          }
+        ],
+        "milestones": [
+          {
+            "year": "2025",
+            "event": "First cohort of 3 primary pupils enrolled."
+          },
+          {
+            "year": "2026",
+            "event": "Expanded to 6 supported children across 2 regions."
+          }
+        ]
+      },
+      "scholarships-secondary": {
+        "title": "Secondary School Support",
+        "subtitle": "Supporting the Critical Teen Years",
+        "category": "Education",
+        "description": "Comprehensive secondary school scholarship covering fees, boarding where needed, textbooks, and exam preparation support for BEPC and GCE candidates.",
+        "longDesc": "Secondary school is where many Cameroonian students drop out due to financial pressure — especially when boarding school fees are involved. Our secondary programme provides holistic support including boarding allowances, examination preparation classes, and career guidance to help students make informed choices about higher education.",
+        "goals": [
+          "Fund 5 secondary students this academic year",
+          "Improve exam readiness through mentorship support",
+          "Provide practical career guidance for each student"
+        ],
+        "beneficiaries": [
+          "Students aged 13–18",
+          "Students in boarding or distant schools",
+          "First-generation secondary students"
+        ],
+        "stats": [
+          {
+            "label": "Students Funded",
+            "value": "5"
+          },
+          {
+            "label": "Exam Readiness",
+            "value": "88%"
+          },
+          {
+            "label": "Boarding Grants",
+            "value": "2"
+          }
+        ],
+        "milestones": [
+          {
+            "year": "2025",
+            "event": "Secondary track launched with 2 students."
+          },
+          {
+            "year": "2026",
+            "event": "91% national exam pass rate recorded."
+          }
+        ]
+      },
+      "scholarships-university": {
+        "title": "University Support",
+        "subtitle": "Fuelling the Next Generation of Leaders",
+        "category": "Education",
+        "description": "University grants covering tuition, accommodation support, and access to professional mentorship networks for high-performing students at Cameroonian universities.",
+        "longDesc": "University-level funding is among the most impactful interventions we make. A university-educated graduate changes the trajectory of their entire family. Our university grants are merit-based with financial need priority, covering fees at public and accredited private universities in Cameroon, supplemented by mentorship from professionals in the student's field of study.",
+        "goals": [
+          "Fund 3 university students in the current cycle",
+          "Connect students with internship and mentorship opportunities",
+          "Support graduation and transition planning"
+        ],
+        "beneficiaries": [
+          "Undergraduates at Cameroonian universities",
+          "Students in STEM, Healthcare, Law, and Education fields",
+          "First-generation university students"
+        ],
+        "stats": [
+          {
+            "label": "University Grants",
+            "value": "3"
+          },
+          {
+            "label": "Academic Standing",
+            "value": "Good"
+          },
+          {
+            "label": "Mentorship Matches",
+            "value": "3"
+          }
+        ],
+        "milestones": [
+          {
+            "year": "2025",
+            "event": "First university scholarship awarded in Yaounde."
+          },
+          {
+            "year": "2026",
+            "event": "87% employment rate for programme graduates."
+          }
+        ]
+      },
+      "clean-water-initiative": {
+        "title": "Clean Water Initiative",
+        "subtitle": "Safe Water for Every Cameroonian Family",
+        "category": "Infrastructure",
+        "description": "Drilling boreholes, installing water purification systems, and building sanitation facilities in water-scarce communities across Cameroon.",
+        "longDesc": "Access to clean water is a fundamental human right, yet millions of Cameroonians still walk hours daily to collect unsafe water. Our clean water initiative identifies communities with the highest need, funds borehole drilling and pump installation, trains local maintenance committees, and conducts hygiene education to ensure long-term sustainability of each project.",
+        "goals": [
+          "Complete 3 borehole projects in priority communities",
+          "Reach nearby households with safe water access",
+          "Train maintenance committees in 100% of project communities",
+          "Conduct quarterly water quality testing"
+        ],
+        "beneficiaries": [
+          "Rural households without pipe-borne water",
+          "Schools lacking safe drinking water",
+          "Health centres in underserved areas",
+          "Women who currently carry water over long distances"
+        ],
+        "stats": [
+          {
+            "label": "Boreholes Drilled",
+            "value": "3"
+          },
+          {
+            "label": "Beneficiaries",
+            "value": "120+"
+          },
+          {
+            "label": "Communities",
+            "value": "3"
+          }
+        ],
+        "milestones": [
+          {
+            "year": "2025",
+            "event": "First borehole completed in Littoral region."
+          },
+          {
+            "year": "2025",
+            "event": "Expanded to South West and North West regions."
+          },
+          {
+            "year": "2026",
+            "event": "Three boreholes operational with local maintenance teams."
+          }
+        ]
+      },
+      "teacher-rewards": {
+        "title": "Teacher Rewards Programme",
+        "subtitle": "Honouring the Backbone of Education",
+        "category": "Education",
+        "description": "Financial grants, professional development, and public recognition for outstanding teachers who go above and beyond for their students in underserved communities.",
+        "longDesc": "Teachers are the most powerful force in any education system. In Cameroon, dedicated teachers often work in difficult conditions with minimal resources. Our Teacher Rewards Programme identifies, publicly celebrates, and financially supports exceptional teachers nominated by their school communities. Beyond financial rewards, we fund professional training, provide teaching materials, and create a peer network of excellence.",
+        "goals": [
+          "Recognize 6 teachers through pilot awards",
+          "Provide modest classroom grants to selected teachers",
+          "Host practical training sessions for partner teachers",
+          "Document teacher-impact case studies"
+        ],
+        "beneficiaries": [
+          "Primary and secondary school teachers",
+          "Teachers in rural and hard-to-reach areas",
+          "Recently-qualified teachers lacking resources"
+        ],
+        "stats": [
+          {
+            "label": "Teachers Awarded",
+            "value": "6"
+          },
+          {
+            "label": "Regions Covered",
+            "value": "2"
+          },
+          {
+            "label": "Training Sessions",
+            "value": "4"
+          }
+        ],
+        "milestones": [
+          {
+            "year": "2025",
+            "event": "Pilot recognition ceremony held in Yaounde."
+          },
+          {
+            "year": "2026",
+            "event": "Programme expanded to 2 regions with 6 teachers recognized."
+          }
+        ]
+      },
+      "community-health-support": {
+        "title": "Community Health Support",
+        "subtitle": "Bringing Healthcare Closer to Every Family",
+        "category": "Healthcare",
+        "description": "Mobile health clinics, medication supply campaigns, maternal health programmes, and preventive care outreach for underserved communities.",
+        "longDesc": "Quality healthcare remains out of reach for millions of Cameroonians due to distance, cost, and lack of health workers. Our community health programme deploys mobile clinics to underserved areas, staffed by volunteer nurses, doctors, and community health workers. We run malaria prevention, maternal and child health, nutrition, and screening programmes — ensuring every family can access basic healthcare regardless of location or income.",
+        "goals": [
+          "Run 4 mobile outreach clinic days monthly",
+          "Serve identified families with essential care",
+          "Train 8 community health volunteers",
+          "Achieve 80% malaria net coverage in target areas"
+        ],
+        "beneficiaries": [
+          "Pregnant women and new mothers",
+          "Children under 5",
+          "Elderly community members",
+          "Residents more than 5km from the nearest health facility"
+        ],
+        "stats": [
+          {
+            "label": "Patients Served",
+            "value": "90+"
+          },
+          {
+            "label": "Mobile Clinics",
+            "value": "2"
+          },
+          {
+            "label": "Health Workers Trained",
+            "value": "8"
+          }
+        ],
+        "milestones": [
+          {
+            "year": "2025",
+            "event": "First mobile clinic deployed in North West region."
+          },
+          {
+            "year": "2026",
+            "event": "Two recurring clinic points established in partner communities."
+          }
+        ]
+      },
+      "single-mothers-assistance": {
+        "title": "Single Mothers Assistance",
+        "subtitle": "Supporting Women Who Support Families",
+        "category": "Social Support",
+        "description": "Micro-grants, skills training, trauma counselling, childcare support, and livelihood assistance for single mothers and widows across Cameroon.",
+        "longDesc": "Single mothers in Cameroon bear immense burdens — raising children alone, often with no income source, no formal education, and no support network. Our programme wraps around each beneficiary: financial micro-grants to start small businesses, practical skills training in tailoring, catering, cosmetology, and agriculture; trauma and psychosocial counselling; and access to childcare to free mothers for training and work. We track outcomes for 12 months post-programme to ensure lasting impact.",
+        "goals": [
+          "Enroll 10 single mothers and widows in the pilot cycle",
+          "Provide practical livelihood coaching",
+          "Support small business starter grants",
+          "Establish childcare partnerships in 5 regions"
+        ],
+        "beneficiaries": [
+          "Single mothers with children under 18",
+          "War widows and conflict-affected women",
+          "Women who have experienced domestic violence",
+          "Women with no formal income source"
+        ],
+        "stats": [
+          {
+            "label": "Women Enrolled",
+            "value": "10"
+          },
+          {
+            "label": "Businesses Started",
+            "value": "4"
+          },
+          {
+            "label": "Active Graduates",
+            "value": "7"
+          }
+        ],
+        "milestones": [
+          {
+            "year": "2025",
+            "event": "Programme launched in Bafoussam with an initial pilot cohort."
+          },
+          {
+            "year": "2026",
+            "event": "Expanded support to 10 women in active training and livelihood support."
+          }
+        ]
+      },
+      "youth-empowerment": {
+        "title": "Youth Empowerment",
+        "subtitle": "Building the Changemakers of Tomorrow",
+        "category": "Youth",
+        "description": "Leadership development, vocational training, digital skills, and entrepreneurship programmes for young people aged 15–35 across Cameroon.",
+        "longDesc": "Youth account for over 60% of Cameroon's population yet face high unemployment and limited opportunities. Our Youth Empowerment programme combines leadership training, practical vocational skills (welding, plumbing, ICT, agriculture), digital literacy, and business mentorship with seed funding for promising youth entrepreneurs. We run residential bootcamps, apprenticeships, and ongoing coaching sessions throughout the year.",
+        "goals": [
+          "Train 12 young people in the first cohort",
+          "Offer employability and entrepreneurship coaching",
+          "Support 3 youth-led micro ventures",
+          "Build a starter mentorship network"
+        ],
+        "beneficiaries": [
+          "Youth aged 15–35 without formal employment",
+          "School dropouts seeking vocational paths",
+          "Young entrepreneurs with business ideas",
+          "University graduates who are unemployed"
+        ],
+        "stats": [
+          {
+            "label": "Youth Trained",
+            "value": "12"
+          },
+          {
+            "label": "Businesses Funded",
+            "value": "3"
+          },
+          {
+            "label": "Placement Progress",
+            "value": "Ongoing"
+          }
+        ],
+        "milestones": [
+          {
+            "year": "2025",
+            "event": "First youth pilot cohort completed training sessions."
+          },
+          {
+            "year": "2026",
+            "event": "Three youth-led ventures received starter support."
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "programs_grid": {
+      "badge": "What We Do",
+      "title": "Our Core",
+      "title_highlight": "Initiatives",
+      "desc": "Six targeted programmes designed to create lasting change in the communities that need it most.",
+      "btn_view_all": "View All Programs",
+      "btn_explore": "Explore Programme",
+      "programs": [
+        {
+          "name": "Scholarships",
+          "desc": "Full and partial scholarships for primary, secondary, and university students from low-income families across Cameroon."
+        },
+        {
+          "name": "Clean Water Initiative",
+          "desc": "Installing boreholes, water purification systems and sanitation infrastructure in water-scarce communities."
+        },
+        {
+          "name": "Teacher Rewards",
+          "desc": "Recognising and rewarding dedicated teachers with financial grants and professional development across all regions."
+        },
+        {
+          "name": "Community Health Support",
+          "desc": "Mobile health clinics, medication supply, and preventive care campaigns reaching thousands of families quarterly."
+        },
+        {
+          "name": "Single Mothers Assistance",
+          "desc": "Empowering single mothers and widows with micro-grants, skills training, trauma support, and childcare assistance."
+        },
+        {
+          "name": "Youth Empowerment",
+          "desc": "Leadership training, vocational skills, and entrepreneurship programmes for youth aged 15-35 across Cameroon."
+        }
+      ]
+    },
+    "impact_dashboard": {
+      "badge": "Community Impact In Motion",
+      "title": "Real Outreach, Real People, Real Change",
+      "desc": "This live field footage highlights how Enako Outreach is delivering clean water and essential support to communities across Cameroon.",
+      "btn": "View Full Impact Report"
+    },
+    "beneficiary_stories": {
+      "badge": "Human Stories",
+      "title": "Voices of",
+      "title_highlight": "Transformation.",
+      "story_badge": "Community Impact Story",
+      "btn": "Read More Stories",
+      "stories": [
+        {
+          "name": "Sarah Akot",
+          "role": "Young Entrepreneur, Douala",
+          "text": "The business training programme helped me start my own community garden, providing fresh produce for my village and financial independence for my family. Enako Outreach changed everything."
+        },
+        {
+          "name": "David Obi",
+          "role": "Computer Science Scholar",
+          "text": "Thanks to the technology grant, I completed my degree and launched a local tech hub that now trains fifty youth each month. This foundation believed in me before I believed in myself."
+        },
+        {
+          "name": "Abena Osei",
+          "role": "Scholarship Recipient, Yaounde",
+          "text": "Being selected as top student in my district opened doors I only dreamed of. The Enako Outreach scholarship changed my entire family's trajectory - it is the reason I am in university today."
+        }
+      ]
+    },
+    "latest_blog": {
+      "badge": "Latest News",
+      "title": "Insight &",
+      "title_highlight": "Impact.",
+      "desc": "Stay informed about the issues that matter most to communities in Cameroon.",
+      "btn_view_all": "View All Articles",
+      "btn_read_more": "Read More"
+    },
+    "newsletter_cta": {
+      "badge": "Stay Updated",
+      "title": "Insights from the",
+      "title_highlight": "Frontlines.",
+      "desc": "Subscribe to receive our monthly impact reports, community stories, and humanitarian bulletins directly in your inbox.",
+      "success_title": "Thank you! 🎉",
+      "success_desc": "You're now subscribed to our newsletter.",
+      "placeholder": "your@email.com",
+      "btn": "Subscribe",
+      "privacy": "* We respect your privacy. Unsubscribe anytime."
+    },
+    "volunteer_cta": {
+      "ghost_text": "Join",
+      "active_volunteers": "Active Volunteers",
+      "badge": "Community First",
+      "title": "Join the",
+      "title_highlight": "Movement.",
+      "desc": "Let's take Cameroon's education and humanitarian mission to the next level — together. Share your skills and change a child's future.",
+      "form": {
+        "name": "Your Name *",
+        "email": "Your Email *",
+        "message": "How would you like to help? ..."
+      },
+      "btn_submit": "Get in Touch",
+      "btn_learn": "Learn More"
+    }
+  },
+  "volunteer": {
+    "hero": {
+      "badge": "Volunteer Opportunity",
+      "title": "Be Part of",
+      "title_highlight": "the Change.",
+      "desc": "Your time and talent can transform lives. Join our global network of dedicated volunteers working across Africa to empower the next generation.",
+      "btn_start": "Start Volunteering",
+      "btn_learn": "Learn More",
+      "stats_text": "Join 18+ changemakers in our pilot network"
+    },
+    "roles": {
+      "badge": "Ways to Act",
+      "title": "Where We",
+      "title_highlight": "Need You.",
+      "btn_learn": "Learn More",
+      "items": [
+        {
+          "title": "Education Support",
+          "desc": "Assist in local schools, provide tutoring, and help build learning resource centers for children."
+        },
+        {
+          "title": "Community Outreach",
+          "desc": "Work directly with leaders to implement sustainable development projects and health programs."
+        },
+        {
+          "title": "Skill Development",
+          "desc": "Share your expertise in technology, business, or trades to empower youth with marketable skills."
+        }
+      ]
+    },
+    "apply": {
+      "badge": "Join the Mission",
+      "title": "Application.",
+      "desc": "We'll review your application and respond with potential placements within 48 hours.",
+      "form": {
+        "name_label": "Full Name *",
+        "name_placeholder": "John Doe",
+        "email_label": "Email Address *",
+        "email_placeholder": "john@example.com",
+        "phone_label": "Phone Number",
+        "phone_placeholder": "+1 (555) 000-0000",
+        "role_label": "Preferred Role *",
+        "role_options": {
+          "default": "Select a role...",
+          "edu": "Education Support",
+          "outreach": "Community Outreach",
+          "skill": "Skill Development",
+          "fund": "Fundraising",
+          "remote": "Remote / Digital"
+        },
+        "motivation_label": "Your Motivation",
+        "motivation_placeholder": "Tell us why you'd like to join our community...",
+        "btn_submit": "Submit Application",
+        "secure_text": "Verified Secure Application"
+      }
+    },
+    "final_cta": {
+      "title": "Ready to",
+      "title_highlight": "Act?",
+      "desc": "Join our growing family of volunteers changing lives across 12 countries in Africa.",
+      "btn_apply": "Apply Now",
+      "btn_donate": "Donate"
+    }
+  },
+  "partnership": {
+    "hero": {
+      "badge": "Institutional Collaboration",
+      "title": "Building",
+      "title_highlight": "Together.",
+      "desc": "We partner with forward-thinking organizations to deliver transformative education and sustainable energy solutions across Africa."
+    },
+    "types": [
+      {
+        "title": "Public Sector",
+        "desc": "Collaborating with local governments to align with national education agendas."
+      },
+      {
+        "title": "Corporate Social",
+        "desc": "Crafting bespoke CSR initiatives that deliver measurable ESG results."
+      },
+      {
+        "title": "NGO Alliances",
+        "desc": "Scaling impact through shared resources and ground-level expertise."
+      }
+    ],
+    "inquiry": {
+      "title": "Start a",
+      "title_highlight": "Partnership",
+      "title_end": "Inquiry.",
+      "desc": "Our partnership team is ready to discuss how we can align our resources for maximum impact. Fill out the details and we'll be in touch within 48 hours.",
+      "features": [
+        {
+          "title": "Expert Consultation",
+          "desc": "Strategic planning for your CSR goals."
+        },
+        {
+          "title": "Logistical Support",
+          "desc": "End-to-end ground implementation."
+        }
+      ],
+      "form": {
+        "name_label": "Contact Name",
+        "name_placeholder": "First & Last Name",
+        "org_label": "Organization",
+        "org_placeholder": "Company Name",
+        "email_label": "Work Email",
+        "email_placeholder": "your@email.com",
+        "interest_label": "Project Interest",
+        "interest_placeholder": "Briefly describe your partnership goals...",
+        "btn_submit": "Submit Partnership Request"
+      }
+    }
+  },
+  "donate": {
+    "hero": {
+      "badge": "Secure Donation",
+      "title": "Give Once. Give Monthly.",
+      "title_highlight": "Build Lasting Impact.",
+      "desc": "Inspired by top global donation experiences, this page is designed for clarity: simple amount selection, minimal form fields, clear payment options, and transparent impact preview."
+    },
+    "features": [
+      {
+        "title": "Education Support",
+        "desc": "Books, fees, mentoring."
+      },
+      {
+        "title": "Community Relief",
+        "desc": "Water, health, essentials."
+      }
+    ],
+    "form": {
+      "type_label": "Donation Type",
+      "type_one_time": "One-Time",
+      "type_monthly": "Monthly",
+      "amount_label": "Choose Amount (XAF)",
+      "amount_custom_placeholder": "Custom amount",
+      "method_label": "Payment Method",
+      "name_placeholder": "Full name",
+      "email_placeholder": "Email address",
+      "phone_placeholder": "Phone number",
+      "impact_preview_label": "Your Impact Preview",
+      "donation_amount": "Donation amount:",
+      "btn_submit": "Donate Securely",
+      "success_title": "Thank you for your support",
+      "success_desc": "Your {{frequency}} pledge of",
+      "success_desc_end": "XAF has been recorded.",
+      "btn_another": "Make another donation"
+    },
+    "impact_lines": {
+      "low": [
+        "Supports school supplies for one child.",
+        "Adds to emergency support reserve."
+      ],
+      "med": [
+        "Supports learning kits for 2 children.",
+        "Contributes to one community outreach day."
+      ],
+      "high": [
+        "Supports a partial scholarship package.",
+        "Contributes to local health outreach transport."
+      ],
+      "max": [
+        "Supports one full student support cycle.",
+        "Contributes to clean-water and education field logistics."
+      ]
+    }
+  },
+  "blog": {
+    "hero": {
+      "badge": "Enako Insights",
+      "title": "Stories from",
+      "title_highlight": "Cameroon",
+      "desc": "Deep dives into the challenges, triumphs, and stories shaping education and communities across Cameroon.",
+      "nav_posts": "Blog Posts",
+      "nav_news": "Latest News",
+      "nav_archives": "Archives"
+    },
+    "filters": {
+      "search_placeholder": "Search articles..."
+    },
+    "empty": {
+      "title": "No articles found.",
+      "desc": "Try adjusting your search or category filter."
+    }
+  },
+  "stories": {
+    "hero": {
+      "badge": "Community Narratives",
+      "title": "Voices of",
+      "title_highlight": "Transformation.",
+      "desc": "Real narratives of change from students, teachers, and communities across Africa.",
+      "btn_explore": "Explore Narratives",
+      "btn_impact": "Our Impact Report"
+    },
+    "stats": [
+      {
+        "v": "120+",
+        "l": "Lives Targeted"
+      },
+      {
+        "v": "8",
+        "l": "Communities"
+      },
+      {
+        "v": "Pilot",
+        "l": "Stage"
+      }
+    ],
+    "highlight": {
+      "badge": "The Highlight",
+      "title": "Featured",
+      "title_highlight": "Narrative."
+    },
+    "latest": {
+      "badge": "Latest Insights",
+      "title": "More",
+      "title_highlight": "Evidence."
+    },
+    "items": [
+      {
+        "category": "Student Success",
+        "title": "\"From a Village Classroom to a University in Accra\"",
+        "author": "Abena Osei, Scholarship Recipient",
+        "country": "Ghana",
+        "excerpt": "When I was selected as the top student in my district, I never imagined it would open doors I had only dreamed of. The Enako Outreach scholarship didn't just pay my fees — it changed my entire family's trajectory."
+      },
+      {
+        "category": "Teacher Award",
+        "title": "\"Being Recognized Changed How I Teach\"",
+        "author": "Mr. Emmanuel Asante, Teacher",
+        "country": "Nigeria",
+        "excerpt": "The award was more than money; it was validation. For the first time in 15 years of teaching, someone said \"we see you.\" My students noticed the change in my energy immediately."
+      },
+      {
+        "category": "Community Impact",
+        "title": "\"Our Village Now Has Clean Water\"",
+        "author": "Chief Yaw Darko, Community Leader",
+        "country": "Kenya",
+        "excerpt": "Before Enako came, our children walked 3 km each morning just to reach water. Now that borehole in our compound has freed our children to attend school instead."
+      }
+    ],
+    "newsletter": {
+      "title": "Stay Inspired",
+      "desc": "Get the latest stories of impact delivered directly to your inbox.",
+      "email_placeholder": "Your email address",
+      "btn_subscribe": "Subscribe"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Get in Touch",
+      "title_highlight": "With Us",
+      "desc": "Whether you have a question about our programs, want to partner with us, or need assistance, our team is here to help.",
+      "breadcrumb_home": "Home",
+      "breadcrumb_contact": "Contact"
+    },
+    "info": {
+      "title": "Reach Out to Us",
+      "desc": "We'd love to hear from you. Choose the most convenient way to reach us below.",
+      "address_label": "Our Office",
+      "address_val": "Douala, Cameroon",
+      "phone_label": "Phone Number",
+      "phone_val": "+237 6 78 45 79 26",
+      "email_label": "Email Address",
+      "email_val": "enakooutreach@gmail.com",
+      "social_label": "Follow Us"
+    },
+    "form": {
+      "title": "Send Us a Message",
+      "desc": "Fill out the form below and we'll get back to you as soon as possible.",
+      "name_label": "Full Name",
+      "name_placeholder": "John Doe",
+      "email_label": "Email Address",
+      "email_placeholder": "john@example.com",
+      "subject_label": "Subject",
+      "subject_placeholder": "How can we help?",
+      "message_label": "Message",
+      "message_placeholder": "Your message here...",
+      "submit_btn": "Send Message"
+    },
+    "info_items": [
+      {
+        "icon": "/assets/charity/contact us/email.png",
+        "title": "Email Us",
+        "value": "enakooutreach@gmail.com",
+        "description": "For general inquiries and partnerships",
+        "href": "mailto:enakooutreach@gmail.com"
+      },
+      {
+        "icon": "/assets/charity/contact us/phone.png",
+        "title": "Call Us",
+        "value": "+237 6 78 45 79 26",
+        "description": "Mon-Fri from 9am to 6pm",
+        "href": "tel:+237 6 78 45 79 26"
+      },
+      {
+        "icon": "/assets/charity/contact us/location.png",
+        "title": "Visit Us",
+        "value": "Akwa, Akwa Douala, Cameroon ",
+        "description": "Littoral Region - Main Office",
+        "href": "https://maps.google.com/?q=Akwa+Douala+Cameroon"
+      }
+    ]
+  }
+}

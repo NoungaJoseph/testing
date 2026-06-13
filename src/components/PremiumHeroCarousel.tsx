@@ -2,30 +2,32 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ACTION_LINKS } from '../constants/actionLinks';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const PremiumHeroCarousel = () => {
     const [currentImage, setCurrentImage] = useState(0);
+    const { t } = useTranslation();
 
     const slides = [
         {
             image: '/assets/updates/5.png',
-            title: 'Empowering Futures',
-            subtitle: 'Quality education and scholarships transforming lives across Cameroon',
-            buttonText: 'Learn More',
+            title: t('carousel.slide1_title'),
+            subtitle: t('carousel.slide1_subtitle'),
+            buttonText: t('carousel.slide1_btn'),
             buttonLink: '/programs/scholarships',
         },
         {
             image: '/assets/updates/6.png',
-            title: 'Building Communities',
-            subtitle: 'Creating sustainable development through grassroots partnerships',
-            buttonText: 'Get Involved',
+            title: t('carousel.slide2_title'),
+            subtitle: t('carousel.slide2_subtitle'),
+            buttonText: t('carousel.slide2_btn'),
             buttonLink: ACTION_LINKS.applyHelp,
         },
         {
             image: '/assets/updates/8.png',
-            title: 'Creating Impact',
-            subtitle: 'Every contribution funds essential services for vulnerable families',
-            buttonText: 'Support Us',
+            title: t('carousel.slide3_title'),
+            subtitle: t('carousel.slide3_subtitle'),
+            buttonText: t('carousel.slide3_btn'),
             buttonLink: '/donate',
         },
     ];
@@ -64,7 +66,7 @@ const PremiumHeroCarousel = () => {
                                 }`}
                             >
                                 <div className="text-center max-w-3xl">
-                                    <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-8 md:p-12">
+                                    <div className="rounded-2xl p-8 md:p-12">
                                         <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] font-black leading-[1.08] tracking-tight mb-4 md:mb-6">
                                             {slide.title}
                                         </h1>

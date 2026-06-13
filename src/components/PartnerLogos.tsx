@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import FadeIn from './FadeIn';
 
 const logos = [
-    { src: '/assets/charity/our-expertize-in-action.png', alt: 'Global Education Fund' },
-    { src: '/assets/charity/our-expertize-in-action.png', alt: 'African Development' },
-    { src: '/assets/charity/our-expertize-in-action.png', alt: 'Literacy Worldwide' },
-    { src: '/assets/charity/our-expertize-in-action.png', alt: 'Sustainable Communities' },
-    { src: '/assets/charity/our-expertize-in-action.png', alt: 'Unity Foundation' },
-    { src: '/assets/charity/our-expertize-in-action.png', alt: 'Heritage Trust' },
+    { src: '/assets/charity/education-access.png', alt: 'Global Education Fund' },
+    { src: '/assets/charity/education-access.png', alt: 'African Development' },
+    { src: '/assets/charity/education-access.png', alt: 'Literacy Worldwide' },
+    { src: '/assets/charity/education-access.png', alt: 'Sustainable Communities' },
+    { src: '/assets/charity/education-access.png', alt: 'Unity Foundation' },
+    { src: '/assets/charity/education-access.png', alt: 'Heritage Trust' },
 ];
 
 const PartnerLogos = () => {

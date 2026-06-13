@@ -53,7 +53,7 @@ const pageContent: Record<ApplicationType, {
     'program-support': {
         badge: 'Programme Intake',
         title: 'Programme Support Application',
-        image: '/assets/charity/our-expertize-in-action.png',
+        image: '/assets/images/new_assets/story_student.png',
         description: 'Apply for support tied to a specific programme and share full context for beneficiaries.',
         points: [
             'Select and mention the target programme.',

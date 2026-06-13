@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import FadeIn from './FadeIn';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const programs = [
     {
@@ -85,6 +86,9 @@ const programs = [
 ];
 
 const ProgramsGrid = () => {
+    const { t } = useTranslation();
+    const programsT = t('components.programs_grid.programs', { returnObjects: true }) as any[];
+
     return (
         <section className="py-24 px-6 md:px-12 overflow-hidden" style={{ backgroundColor: '#FDFBF7' }}>
             <div className="max-w-7xl mx-auto">
@@ -95,21 +99,21 @@ const ProgramsGrid = () => {
                             className="font-bold tracking-[0.3em] uppercase text-xs mb-4 block"
                             style={{ color: '#001F5B' }}
                         >
-                            What We Do
+                            {t('components.programs_grid.badge')}
                         </span>
                         <h2 className="text-slate-900 text-4xl md:text-5xl leading-tight">
-                            Our Core{' '}
+                            {t('components.programs_grid.title')}{' '}
                             <span className="block" style={{ color: '#00BFA5' }}>
-                                Initiatives
+                                {t('components.programs_grid.title_highlight')}
                             </span>
                         </h2>
                     </FadeIn>
                     <FadeIn direction="left" className="max-w-sm">
                         <p className="text-slate-500 text-lg leading-relaxed mb-6">
-                            Six targeted programmes designed to create lasting change in the communities that need it most.
+                            {t('components.programs_grid.desc')}
                         </p>
                         <Link to="/programs" className="btn-pill btn-pill-primary text-sm">
-                            View All Programs <ArrowRight className="w-4 h-4" />
+                            {t('components.programs_grid.btn_view_all')} <ArrowRight className="w-4 h-4" />
                         </Link>
                     </FadeIn>
                 </div>
@@ -155,7 +159,7 @@ const ProgramsGrid = () => {
                                             className="text-2xl md:text-3xl leading-snug mb-3"
                                             style={{ color: program.textColor }}
                                         >
-                                            {program.name}
+                                            {programsT[i]?.name || program.name}
                                         </h3>
 
                                         {/* Description */}
@@ -163,7 +167,7 @@ const ProgramsGrid = () => {
                                             className="text-sm leading-relaxed mb-6 flex-1"
                                             style={{ color: program.textColor, opacity: 0.72 }}
                                         >
-                                            {program.desc}
+                                            {programsT[i]?.desc || program.desc}
                                         </p>
 
                                         {/* CTA link */}
@@ -171,7 +175,7 @@ const ProgramsGrid = () => {
                                             className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest group-hover:gap-4 transition-all duration-300"
                                             style={{ color: program.textColor }}
                                         >
-                                            Explore Programme <ArrowRight className="w-3.5 h-3.5" />
+                                            {t('components.programs_grid.btn_explore')} <ArrowRight className="w-3.5 h-3.5" />
                                         </span>
                                     </div>
                                 </Link>

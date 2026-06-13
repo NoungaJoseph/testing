@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Send, Mail } from 'lucide-react';
 import FadeIn from './FadeIn';
+import { useTranslation } from 'react-i18next';
 
 const NewsletterCTA = () => {
+    const { t } = useTranslation();
     const [email, setEmail] = useState('');
     const [submitted, setSubmitted] = useState(false);
 
@@ -36,14 +38,14 @@ const NewsletterCTA = () => {
                                     className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.3em] mb-6"
                                     style={{ backgroundColor: 'rgba(0,191,165,0.15)', color: '#00BFA5' }}
                                 >
-                                    <Mail className="w-3 h-3" /> Stay Updated
+                                    <Mail className="w-3 h-3" /> {t('components.newsletter_cta.badge')}
                                 </span>
                                 <h2 className="text-4xl md:text-5xl leading-tight mb-5" style={{ color: '#001B44' }}>
-                                    Insights from the{' '}
-                                    <span style={{ color: '#00BFA5' }}>Frontlines.</span>
+                                    {t('components.newsletter_cta.title')}{' '}
+                                    <span style={{ color: '#00BFA5' }}>{t('components.newsletter_cta.title_highlight')}</span>
                                 </h2>
                                 <p className="text-lg leading-relaxed" style={{ color: '#475569' }}>
-                                    Subscribe to receive our monthly impact reports, community stories, and humanitarian bulletins directly in your inbox.
+                                    {t('components.newsletter_cta.desc')}
                                 </p>
                             </FadeIn>
                         </div>
@@ -57,10 +59,10 @@ const NewsletterCTA = () => {
                                         style={{ backgroundColor: 'rgba(0,191,165,0.12)' }}
                                     >
                                         <p className="text-2xl mb-2" style={{ color: '#001B44', fontFamily: '"Playfair Display", serif' }}>
-                                            Thank you! 🎉
+                                            {t('components.newsletter_cta.success_title')}
                                         </p>
                                         <p className="text-sm" style={{ color: '#475569' }}>
-                                            You're now subscribed to our newsletter.
+                                            {t('components.newsletter_cta.success_desc')}
                                         </p>
                                     </div>
                                 ) : (
@@ -70,7 +72,7 @@ const NewsletterCTA = () => {
                                                 type="email"
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}
-                                                placeholder="your@email.com"
+                                                placeholder={t('components.newsletter_cta.placeholder')}
                                                 required
                                                 className="w-full h-16 pl-6 pr-6 text-base font-medium transition-all focus:outline-none"
                                                 style={{
@@ -85,10 +87,10 @@ const NewsletterCTA = () => {
                                             type="submit"
                                             className="btn-pill btn-pill-primary w-full justify-center text-sm"
                                         >
-                                            Subscribe <Send className="w-4 h-4" />
+                                            {t('components.newsletter_cta.btn')} <Send className="w-4 h-4" />
                                         </button>
                                         <p className="text-[10px] font-bold text-center uppercase tracking-widest" style={{ color: '#94A3B8' }}>
-                                            * We respect your privacy. Unsubscribe anytime.
+                                            {t('components.newsletter_cta.privacy')}
                                         </p>
                                     </form>
                                 )}

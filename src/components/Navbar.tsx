@@ -5,90 +5,90 @@ import {
     ChevronDown, Menu, X, GraduationCap, Award, Users,
     Droplets, Stethoscope, HandHeart, Newspaper, BookOpen, Archive
 } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext';
+import { useTranslation } from 'react-i18next';
 
 /* ─── Language Switcher state ─── */
 
 /* ─── Nav structure ─── */
 const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about' },
+    { nameKey: 'nav.home', href: '/' },
+    { nameKey: 'nav.about_us', href: '/about' },
     {
-        name: 'Programs',
+        nameKey: 'nav.programs',
         href: '/programs',
         dropdown: [
             {
-                title: 'Education',
+                titleKey: 'nav.education',
                 items: [
                     {
-                        name: 'Scholarships',
+                        nameKey: 'nav.scholarships',
                         href: '/programs/scholarships',
                         icon: <GraduationCap className="w-8 h-8" />,
-                        desc: 'Primary, Secondary & University',
+                        descKey: 'nav.scholarships_desc',
                         sub: [
-                            { name: 'Primary School Support', href: '/programs/scholarships-primary' },
-                            { name: 'Secondary School Support', href: '/programs/scholarships-secondary' },
-                            { name: 'University Support', href: '/programs/scholarships-university' },
-                            { name: 'School Partnership Registration', href: '/school-registration' },
+                            { nameKey: 'nav.primary_support', href: '/programs/scholarships-primary' },
+                            { nameKey: 'nav.secondary_support', href: '/programs/scholarships-secondary' },
+                            { nameKey: 'nav.university_support', href: '/programs/scholarships-university' },
+                            { nameKey: 'nav.school_registration', href: '/school-registration' },
                         ],
                     },
                     {
-                        name: 'Teacher Rewards',
+                        nameKey: 'nav.teacher_rewards',
                         href: '/programs/teacher-rewards',
                         icon: <Award className="w-8 h-8" />,
-                        desc: 'Honouring dedicated educators',
+                        descKey: 'nav.teacher_rewards_desc',
                     },
                     {
-                        name: 'Youth Empowerment',
+                        nameKey: 'nav.youth_empowerment',
                         href: '/programs/youth-empowerment',
                         icon: <Users className="w-8 h-8" />,
-                        desc: 'Skills & leadership for youth',
+                        descKey: 'nav.youth_empowerment_desc',
                     },
                 ],
             },
             {
-                title: 'Community & Health',
+                titleKey: 'nav.community_health',
                 items: [
                     {
-                        name: 'Clean Water Initiative',
+                        nameKey: 'nav.clean_water',
                         href: '/programs/clean-water-initiative',
                         icon: <Droplets className="w-8 h-8" />,
-                        desc: 'Safe water for every family',
+                        descKey: 'nav.clean_water_desc',
                     },
                     {
-                        name: 'Community Health Support',
+                        nameKey: 'nav.health_support',
                         href: '/programs/community-health-support',
                         icon: <Stethoscope className="w-8 h-8" />,
-                        desc: 'Healthcare & medical outreach',
+                        descKey: 'nav.health_support_desc',
                     },
                     {
-                        name: 'Single Mothers Assistance',
+                        nameKey: 'nav.single_mothers',
                         href: '/programs/single-mothers-assistance',
                         icon: <HandHeart className="w-8 h-8" />,
-                        desc: 'Support for women & families',
+                        descKey: 'nav.single_mothers_desc',
                     },
                 ],
             },
         ],
     },
-    { name: 'Projects', href: '/impact' },
-    { name: 'Focus Communities', href: '/focus-communities' },
+    { nameKey: 'nav.projects', href: '/impact' },
+    { nameKey: 'nav.focus_communities', href: '/focus-communities' },
     {
-        name: 'Blog',
+        nameKey: 'nav.blog',
         href: '/blog',
         dropdown: [
             {
-                title: 'Articles',
+                titleKey: 'nav.articles',
                 items: [
-                    { name: 'Latest News', href: '/blog/latest-news', icon: <Newspaper className="w-8 h-8" />, desc: 'Breaking stories & updates' },
-                    { name: 'Blog Posts', href: '/blog/posts', icon: <BookOpen className="w-8 h-8" />, desc: 'Insights & community stories' },
-                    { name: 'Archives', href: '/blog/archives', icon: <Archive className="w-8 h-8" />, desc: 'Past articles & resources' },
+                    { nameKey: 'nav.latest_news', href: '/blog/latest-news', icon: <Newspaper className="w-8 h-8" />, descKey: 'nav.latest_news_desc' },
+                    { nameKey: 'nav.blog_posts', href: '/blog/posts', icon: <BookOpen className="w-8 h-8" />, descKey: 'nav.blog_posts_desc' },
+                    { nameKey: 'nav.archives', href: '/blog/archives', icon: <Archive className="w-8 h-8" />, descKey: 'nav.archives_desc' },
                 ],
             },
         ],
     },
-    { name: 'Get Involved', href: '/get-involved' },
-    { name: 'Contact Us', href: '/contact' },
+    { nameKey: 'nav.get_involved', href: '/get-involved' },
+    { nameKey: 'nav.contact_us', href: '/contact' },
 ];
 
 const socialLinks = [
@@ -103,8 +103,12 @@ const Navbar = () => {
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [activeSub, setActiveSub] = useState<string | null>(null);
     const [isVisible, setIsVisible] = useState(true);
+    const [isScrolled, setIsScrolled] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
-    const { lang, setLang } = useLanguage();
+    const [langDropdownOpen, setLangDropdownOpen] = useState(false);
+    const { t, i18n } = useTranslation();
+    const lang = i18n.language.toUpperCase();
+    const setLang = (l: string) => { i18n.changeLanguage(l.toLowerCase()); setLangDropdownOpen(false); };
     const location = useLocation();
 
     useEffect(() => {
@@ -123,7 +127,9 @@ const Navbar = () => {
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
-            
+            // Update background state
+            setIsScrolled(currentScrollY > 20);
+
             // Show navbar when at the top
             if (currentScrollY < 100) {
                 setIsVisible(true);
@@ -156,7 +162,7 @@ const Navbar = () => {
             >
 
                 {/* ── TOP INFO BAR ── */}
-                <div className="hidden md:block bg-transparent text-white border-b border-transparent py-2.5" style={{textShadow: '0 1px 3px rgba(0,0,0,0.6)'}}>
+                <div className={`hidden md:block text-white border-b border-transparent py-2.5 transition-colors duration-300 ${isScrolled ? 'bg-[#001B44]' : 'bg-transparent'}`} style={{textShadow: '0 1px 3px rgba(0,0,0,0.6)'}}>
                     <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
                         {/* Left: Contact */}
                         <div className="flex items-center gap-8 text-[13px] font-bold tracking-wide">
@@ -179,62 +185,79 @@ const Navbar = () => {
                                     </a>
                                 ))}
                             </div>
-                            {/* Language Switcher */}
-                            <div className="flex items-center gap-0.5 bg-transparent p-0">
-                                {(['EN', 'FR'] as const).map((l) => (
-                                    <button
-                                        key={l}
-                                        onClick={() => setLang(l)}
-                                        className={`px-3 py-1 text-[13px] font-black transition-all ${lang === l ? 'text-[#00C2C7]' : 'text-slate-400 hover:text-slate-600'}`}
-                                    >
-                                        {l}
-                                    </button>
-                                ))}
+                            {/* Language Dropdown */}
+                            <div className="relative">
+                                <button
+                                    onClick={() => setLangDropdownOpen(!langDropdownOpen)}
+                                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-700 hover:border-[#00C2C7] transition-colors text-[13px] font-black"
+                                >
+                                    {lang} <ChevronDown className="w-3.5 h-3.5" />
+                                </button>
+                                <AnimatePresence>
+                                    {langDropdownOpen && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: -5 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -5 }}
+                                            className="absolute right-0 top-full mt-2 w-24 bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden z-[100]"
+                                        >
+                                            {(['EN', 'FR'] as const).map((l) => (
+                                                <button
+                                                    key={l}
+                                                    onClick={() => setLang(l)}
+                                                    className={`w-full text-left px-4 py-2 text-[13px] font-bold transition-all ${lang === l ? 'bg-green-50 text-[#00C2C7]' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'}`}
+                                                >
+                                                    {l}
+                                                </button>
+                                            ))}
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 {/* ── MAIN NAVBAR ── */}
-                <header className="bg-black/10 backdrop-blur-md border-b border-transparent py-0" style={navbarFontStyle}>
-                    <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between gap-3 md:gap-4" style={{ minHeight: '72px' }}>
+                <header className={`backdrop-blur-md border-b border-transparent py-0 transition-colors duration-300 ${isScrolled ? 'bg-[#001B44]/95' : 'bg-black/10'}`} style={navbarFontStyle}>
+                    <div className="max-w-7xl mx-auto px-2 md:px-4 xl:px-6 2xl:px-8 flex items-center justify-between gap-2 md:gap-4" style={{ minHeight: '72px' }}>
 
                         {/* Logo */}
-                        <Link to="/" className="flex items-center gap-2 sm:gap-2.5 group flex-shrink min-w-0">
-                            <img src="/assets/logo/enako.png" alt="Enako Outreach logo" className="h-11 sm:h-14 md:h-[72px] w-auto object-contain group-hover:scale-105 transition-all duration-500" />
+                        <Link to="/" className="flex items-center gap-2 group flex-shrink-0 min-w-0">
+                            <img src="/assets/logo/enako.png" alt="Enako Outreach logo" className="h-10 sm:h-12 md:h-14 2xl:h-[72px] w-auto object-contain group-hover:scale-105 transition-all duration-500" />
                             <div className="flex flex-col justify-center leading-none pt-1 min-w-0">
-                                <p className="font-black text-[11px] sm:text-xs md:text-base uppercase tracking-[0.03em] sm:tracking-[0.05em] md:tracking-[0.07em] text-white whitespace-nowrap" style={{textShadow: '0 1px 3px rgba(0,0,0,0.6)'}}>ENAKO OUTREACH</p>
-                                <p className="text-[#00C2C7] text-[7px] sm:text-[8px] md:text-[9px] font-semibold uppercase tracking-[0.12em] sm:tracking-[0.16em] md:tracking-[0.22em] mt-1 whitespace-nowrap">Community Impact</p>
+                                <p className="font-black text-[10px] sm:text-xs md:text-sm 2xl:text-base uppercase tracking-[0.03em] sm:tracking-[0.05em] md:tracking-[0.07em] text-white whitespace-nowrap" style={{textShadow: '0 1px 3px rgba(0,0,0,0.6)'}}>ENAKO OUTREACH</p>
+                                <p className="text-[#00C2C7] text-[6px] sm:text-[7px] md:text-[8px] 2xl:text-[9px] font-semibold uppercase tracking-[0.12em] sm:tracking-[0.16em] md:tracking-[0.22em] mt-1 whitespace-nowrap">Community Impact</p>
                             </div>
                         </Link>
 
                         {/* Desktop Nav */}
-                        <nav className="hidden xl:flex items-center gap-4 ml-6">
+                        <nav className="hidden xl:flex items-center gap-0.5 2xl:gap-1.5 ml-1 2xl:ml-2">
                             {navLinks.map((link) => (
                                 <div
-                                    key={link.name}
+                                    key={link.nameKey}
                                     className="relative"
-                                    onMouseEnter={() => link.dropdown && setActiveDropdown(link.name)}
+                                    onMouseEnter={() => link.dropdown && setActiveDropdown(link.nameKey)}
                                     onMouseLeave={() => { setActiveDropdown(null); setActiveSub(null); }}
                                 >
                                     <Link
                                         to={link.href}
-                                        className={`text-[14px] font-semibold transition-colors duration-200 flex items-center gap-1.5 whitespace-nowrap px-2 py-1 rounded-md ${location.pathname === link.href ||
+                                        className={`text-[12px] 2xl:text-[13px] font-semibold transition-colors duration-200 flex items-center gap-0.5 2xl:gap-1 whitespace-nowrap px-1.5 py-1 rounded-md ${location.pathname === link.href ||
                                                 (link.dropdown && link.dropdown.some(d => d.items.some(i => i.href === location.pathname)))
                                                 ? 'text-[#00C2C7] bg-white/10'
                                                 : 'text-white hover:text-[#00C2C7]'
                                             }`}
                                         style={{textShadow: '0 1px 2px rgba(0,0,0,0.5)'}}
                                     >
-                                        {link.name}
+                                        {t(link.nameKey)}
                                         {link.dropdown && (
-                                            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />
+                                            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === link.nameKey ? 'rotate-180' : ''}`} />
                                         )}
                                     </Link>
 
                                     {/* Mega Dropdown */}
                                     <AnimatePresence>
-                                        {link.dropdown && activeDropdown === link.name && (
+                                        {link.dropdown && activeDropdown === link.nameKey && (
                                             <motion.div
                                                 initial={{ opacity: 0, y: 12, scale: 0.97 }}
                                                 animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -245,16 +268,16 @@ const Navbar = () => {
                                                 <div className="bg-white rounded-2xl shadow-2xl shadow-black/15 border border-slate-100 overflow-hidden p-5">
                                                     <div className={`grid gap-6 ${link.dropdown.length > 1 ? 'grid-cols-2' : 'grid-cols-1'}`}>
                                                         {link.dropdown.map((section) => (
-                                                            <div key={section.title}>
+                                                            <div key={section.titleKey}>
                                                                 <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-green-600 border-b border-slate-100 pb-2 mb-3">
-                                                                    {section.title}
+                                                                    {t(section.titleKey)}
                                                                 </h4>
                                                                 <div className="space-y-0.5">
                                                                     {section.items.map((sub) => (
                                                                         <div
-                                                                            key={sub.name}
+                                                                            key={sub.nameKey}
                                                                             className="relative"
-                                                                            onMouseEnter={() => 'sub' in sub && sub.sub && setActiveSub(sub.name)}
+                                                                            onMouseEnter={() => 'sub' in sub && sub.sub && setActiveSub(sub.nameKey)}
                                                                             onMouseLeave={() => setActiveSub(null)}
                                                                         >
                                                                             <Link
@@ -263,17 +286,17 @@ const Navbar = () => {
                                                                             >
                                                                                 <div className="flex-1">
                                                                                     <div className="flex items-center gap-1">
-                                                                                        <span className="text-slate-800 font-semibold text-sm group-hover:text-green-700">{sub.name}</span>
+                                                                                        <span className="text-slate-800 font-semibold text-sm group-hover:text-green-700">{t(sub.nameKey)}</span>
                                                                                         {'sub' in sub && sub.sub && (
                                                                                             <ChevronDown className="w-3 h-3 text-slate-400 -rotate-90" />
                                                                                         )}
                                                                                     </div>
-                                                                                    <div className="text-xs text-slate-400">{sub.desc}</div>
+                                                                                    <div className="text-xs text-slate-400">{t(sub.descKey as any)}</div>
                                                                                 </div>
                                                                             </Link>
                                                                             {/* Sub-dropdown */}
                                                                             <AnimatePresence>
-                                                                                {'sub' in sub && sub.sub && activeSub === sub.name && (
+                                                                                {'sub' in sub && sub.sub && activeSub === sub.nameKey && (
                                                                                     <motion.div
                                                                                         initial={{ opacity: 0, x: 8 }}
                                                                                         animate={{ opacity: 1, x: 0 }}
@@ -283,12 +306,12 @@ const Navbar = () => {
                                                                                     >
                                                                                         {sub.sub.map((s) => (
                                                                                             <Link
-                                                                                                key={s.name}
+                                                                                                key={s.nameKey}
                                                                                                 to={s.href}
                                                                                                 className="flex items-center gap-2 px-3 py-2.5 rounded-lg hover:bg-green-50 hover:text-green-700 text-sm text-slate-700 font-medium transition-colors"
                                                                                             >
                                                                                                 <span className="w-1.5 h-1.5 rounded-full bg-green-500 flex-shrink-0" />
-                                                                                                {s.name}
+                                                                                                {t(s.nameKey)}
                                                                                             </Link>
                                                                                         ))}
                                                                                     </motion.div>
@@ -309,21 +332,21 @@ const Navbar = () => {
                         </nav>
 
                         {/* Right: Donate + Hamburger */}
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-2 md:gap-4">
                             <div className="hidden md:flex xl:hidden items-center gap-2 flex-shrink-0">
                                 <Link to="/contact" className="px-4 py-2 text-xs font-bold text-[#001F5B] border border-slate-200 rounded-full hover:border-[#00BFA5] hover:text-[#00BFA5] transition-colors whitespace-nowrap">
-                                    Contact Us
+                                    {t('nav.contact_us')}
                                 </Link>
                                 <Link to="/donate" className="px-4 py-2 text-xs font-bold text-white rounded-full shadow-md hover:shadow-lg transition-all whitespace-nowrap" style={{ backgroundColor: '#00C2C7' }}>
-                                    Donate
+                                    {t('nav.donate')}
                                 </Link>
                             </div>
                             <Link
                                 to="/donate"
-                                className="hidden xl:inline-flex items-center gap-2 px-7 py-3 font-bold text-sm tracking-wide transition-all duration-300 text-white rounded-full hover:opacity-90 whitespace-nowrap flex-shrink-0"
+                                className="hidden xl:inline-flex items-center gap-2 px-4 py-2 2xl:px-7 2xl:py-3 font-bold text-[12px] 2xl:text-sm tracking-wide transition-all duration-300 text-white rounded-full hover:opacity-90 whitespace-nowrap flex-shrink-0"
                                 style={{ backgroundColor: '#00C2C7' }}
                             >
-                                Donate Now
+                                {t('nav.donate_now')}
                             </Link>
 
                             <button
@@ -399,18 +422,18 @@ const Navbar = () => {
                             {/* Nav Links */}
                             <div className="flex-1 overflow-y-auto px-4 py-4">
                                 {navLinks.map((link) => (
-                                    <div key={link.name}>
+                                    <div key={link.nameKey}>
                                         {link.dropdown ? (
                                             <div className="mb-1">
                                                 <button
-                                                    onClick={() => setActiveDropdown(activeDropdown === link.name ? null : link.name)}
+                                                    onClick={() => setActiveDropdown(activeDropdown === link.nameKey ? null : link.nameKey)}
                                                     className="w-full text-left text-slate-800 text-base font-semibold py-3 px-4 flex items-center justify-between rounded-xl hover:bg-green-50 transition-colors"
                                                 >
-                                                    {link.name}
-                                                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 text-slate-400 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />
+                                                    {t(link.nameKey)}
+                                                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 text-slate-400 ${activeDropdown === link.nameKey ? 'rotate-180' : ''}`} />
                                                 </button>
                                                 <AnimatePresence>
-                                                    {activeDropdown === link.name && (
+                                                    {activeDropdown === link.nameKey && (
                                                         <motion.div
                                                             initial={{ height: 0, opacity: 0 }}
                                                             animate={{ height: 'auto', opacity: 1 }}
@@ -420,29 +443,29 @@ const Navbar = () => {
                                                         >
                                                             <div className="mx-2 mb-2 bg-slate-50 rounded-xl p-3 space-y-3">
                                                                 {link.dropdown.map((section) => (
-                                                                    <div key={section.title}>
-                                                                        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-green-600 mb-2">{section.title}</p>
+                                                                    <div key={section.titleKey}>
+                                                                        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-green-600 mb-2">{t(section.titleKey)}</p>
                                                                         <div className="space-y-0.5">
                                                                             {section.items.map((sub) => (
-                                                                                <div key={sub.name}>
+                                                                                <div key={sub.nameKey}>
                                                                                     <Link
                                                                                         to={sub.href}
                                                                                         className="flex items-center gap-2.5 py-2 px-3 rounded-lg hover:bg-white transition-colors"
                                                                                         onClick={() => setIsMobileMenuOpen(false)}
                                                                                     >
-                                                                                        <span className="text-slate-700 font-semibold text-sm">{sub.name}</span>
+                                                                                        <span className="text-slate-700 font-semibold text-sm">{t(sub.nameKey)}</span>
                                                                                     </Link>
                                                                                     {'sub' in sub && sub.sub && (
                                                                                         <div className="ml-10 space-y-0.5 mt-0.5">
                                                                                             {sub.sub.map((s) => (
                                                                                                 <Link
-                                                                                                    key={s.name}
+                                                                                                    key={s.nameKey}
                                                                                                     to={s.href}
                                                                                                     className="flex items-center gap-2 py-1.5 px-3 rounded-lg hover:bg-green-50 text-slate-500 text-xs font-medium transition-colors"
                                                                                                     onClick={() => setIsMobileMenuOpen(false)}
                                                                                                 >
                                                                                                     <span className="w-1 h-1 rounded-full bg-green-400" />
-                                                                                                    {s.name}
+                                                                                                    {t(s.nameKey)}
                                                                                                 </Link>
                                                                                             ))}
                                                                                         </div>
@@ -466,7 +489,7 @@ const Navbar = () => {
                                                     }`}
                                                 onClick={() => setIsMobileMenuOpen(false)}
                                             >
-                                                {link.name}
+                                                {t(link.nameKey)}
                                                 <ChevronDown className="-rotate-90 w-4 h-4 text-slate-300" />
                                             </Link>
                                         )}
@@ -477,7 +500,7 @@ const Navbar = () => {
                             {/* Language + Donate CTA */}
                             <div className="p-5 border-t border-slate-100 space-y-3">
                                 <div className="flex items-center justify-center gap-2">
-                                    <span className="text-xs text-slate-400 font-medium">Language:</span>
+                                    <span className="text-xs text-slate-400 font-medium">{t('nav.language')}:</span>
                                     {(['EN', 'FR'] as const).map((l) => (
                                         <button
                                             key={l}
@@ -494,7 +517,7 @@ const Navbar = () => {
                                     style={{ backgroundColor: '#00C2C7' }}
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
-                                    Donate Now
+                                    {t('nav.donate_now')}
                                 </Link>
                             </div>
                         </motion.nav>

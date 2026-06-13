@@ -22,13 +22,11 @@ import ScholarshipTrackApplication from './pages/ScholarshipTrackApplication';
 import RequirementDetail from './pages/RequirementDetail';
 import ScrollToTop from './components/ScrollToTop';
 import WhatsAppFloat from './components/WhatsAppFloat';
-import GoogleTranslateBridge from './components/GoogleTranslateBridge';
 
 function App() {
   return (
     <Router>
       <ScrollToTop />
-      <GoogleTranslateBridge />
       <WhatsAppFloat />
       <Routes>
         <Route path="/" element={<Home />} />

@@ -1,10 +1,18 @@
+import { useTranslation } from 'react-i18next';
+
 const ContactHero = () => {
+    const { t } = useTranslation();
+
     return (
         <section className="relative py-12 px-4 md:px-8 bg-transparent dark:bg-slate-950 overflow-hidden">
             <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-6">
-                    <h1 className="text-navy dark:text-white text-4xl md:text-5xl font-black leading-tight">Get in <span className="text-secondary">Touch</span>.</h1>
-                    <p className="text-slate-600 dark:text-slate-300 text-base md:text-lg mt-2">We're located in <span className="font-bold">Akwa, Douala</span>. Visit or contact us.</p>
+                    <h1 className="text-navy dark:text-white text-4xl md:text-5xl font-black leading-tight">
+                        {t('contact.hero.title', 'Get in')} <span className="text-secondary">{t('contact.hero.title_highlight', 'Touch.')}</span>
+                    </h1>
+                    <p className="text-slate-600 dark:text-slate-300 text-base md:text-lg mt-2">
+                        {t('contact.hero.desc', "We're located in Akwa, Douala. Visit or contact us.")}
+                    </p>
                 </div>
 
                 <div className="rounded-2xl overflow-hidden shadow-none border-0">

@@ -8,7 +8,7 @@ const ImpactHero = () => {
                 <img
                     alt="Modern sustainable school building in a vibrant rural African community"
                     className="h-full w-full object-cover"
-                    src="/assets/charity/our-expertize-in-action.png"
+                    src="/assets/images/new_assets/impact_hero.png"
                 />
                 <div className="absolute inset-0 bg-navy/60 dark:bg-black/80"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-navy to-transparent"></div>

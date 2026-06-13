@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { GOLD_UNDERLINE_LINK_CLASS } from '../constants/actionLinks';
+import { useTranslation } from 'react-i18next';
 
 const intentContent: Record<string, { title: string; hint: string; placeholder: string }> = {
     'general-help': {
@@ -26,6 +27,7 @@ const intentContent: Record<string, { title: string; hint: string; placeholder: 
 };
 
 const ContactForm = () => {
+    const { t } = useTranslation();
     const [searchParams] = useSearchParams();
     const intent = searchParams.get('intent') ?? '';
     const selectedContent = useMemo(() => intentContent[intent], [intent]);
@@ -52,31 +54,37 @@ const ContactForm = () => {
                     <div className="md:w-96 md:h-96 w-full">
                         <form className="form-shell space-y-6 bg-white dark:bg-slate-800 h-full flex flex-col justify-between">
                             <div className="space-y-2">
-                                <label className="text-sm font-bold text-navy dark:text-white uppercase tracking-wider pl-1 font-display">Your Name</label>
+                                <label className="text-sm font-bold text-navy dark:text-white uppercase tracking-wider pl-1 font-display">
+                                    {t('contact.form.name_label')}
+                                </label>
                                 <input
                                     type="text"
-                                    placeholder="Full Name"
+                                    placeholder={t('contact.form.name_placeholder')}
                                     className="w-full px-6 py-4 rounded-xl bg-white dark:bg-slate-800 border-none focus:ring-2 focus:ring-secondary text-navy dark:text-white transition-all"
                                 />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-sm font-bold text-navy dark:text-white uppercase tracking-wider pl-1 font-display">Email Address</label>
+                                <label className="text-sm font-bold text-navy dark:text-white uppercase tracking-wider pl-1 font-display">
+                                    {t('contact.form.email_label')}
+                                </label>
                                 <input
                                     type="email"
-                                    placeholder="hello@company.com"
+                                    placeholder={t('contact.form.email_placeholder')}
                                     className="w-full px-6 py-4 rounded-xl bg-white dark:bg-slate-800 border-none focus:ring-2 focus:ring-secondary text-navy dark:text-white transition-all"
                                 />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-sm font-bold text-navy dark:text-white uppercase tracking-wider pl-1 font-display">Message</label>
+                                <label className="text-sm font-bold text-navy dark:text-white uppercase tracking-wider pl-1 font-display">
+                                    {t('contact.form.message_label')}
+                                </label>
                                 <textarea
                                     rows={6}
-                                    placeholder={selectedContent?.placeholder ?? 'How can we help?'}
+                                    placeholder={selectedContent?.placeholder ?? t('contact.form.message_placeholder')}
                                     className="w-full px-6 py-4 rounded-xl bg-white dark:bg-slate-800 border-none focus:ring-2 focus:ring-secondary text-navy dark:text-white transition-all resize-none"
                                 ></textarea>
                             </div>
                             <button type="submit" className="w-full py-5 bg-secondary text-[#001F5B] font-black rounded-xl text-lg hover:brightness-110 active:scale-95 transition-all">
-                                Send Message
+                                {t('contact.form.submit_btn')}
                             </button>
                         </form>
                     </div>

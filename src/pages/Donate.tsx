@@ -3,11 +3,13 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
 import AnimatedNetworkBg from '../components/AnimatedNetworkBg';
+import { useTranslation } from 'react-i18next';
 
 const oneTimeAmounts = [2000, 5000, 10000, 25000];
 const monthlyAmounts = [1500, 3000, 7000, 12000];
 
 const Donate = () => {
+    const { t } = useTranslation();
     const [frequency, setFrequency] = useState<'one-time' | 'monthly'>('one-time');
     const [amount, setAmount] = useState<number>(5000);
     const [customAmount, setCustomAmount] = useState('');
@@ -21,29 +23,30 @@ const Donate = () => {
     const presetAmounts = frequency === 'one-time' ? oneTimeAmounts : monthlyAmounts;
 
     const impactLines = useMemo(() => {
+        const linesT = t('donate.impact_lines', { returnObjects: true }) as any;
         if (selectedAmount < 3000) {
-            return [
+            return linesT.low || [
                 'Supports school supplies for one child.',
                 'Adds to emergency support reserve.',
             ];
         }
         if (selectedAmount < 8000) {
-            return [
+            return linesT.med || [
                 'Supports learning kits for 2 children.',
                 'Contributes to one community outreach day.',
             ];
         }
         if (selectedAmount < 15000) {
-            return [
+            return linesT.high || [
                 'Supports a partial scholarship package.',
                 'Contributes to local health outreach transport.',
             ];
         }
-        return [
+        return linesT.max || [
             'Supports one full student support cycle.',
             'Contributes to clean-water and education field logistics.',
         ];
-    }, [selectedAmount]);
+    }, [selectedAmount, t]);
 
     const submitDonation = () => {
         setIsComplete(true);
@@ -67,28 +70,27 @@ const Donate = () => {
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-[#001F5B]/85 via-[#001F5B]/35 to-transparent" />
                                         <div className="absolute bottom-6 left-6 right-6">
-                                            <p className="text-[#00C2C7] text-xs font-bold uppercase tracking-widest mb-2">Secure Donation</p>
+                                            <p className="text-[#00C2C7] text-xs font-bold uppercase tracking-widest mb-2">{t('donate.hero.badge')}</p>
                                             <h1 className="text-white text-3xl md:text-4xl font-black leading-tight">
-                                                Give Once. Give Monthly.
-                                                <span className="block">Build Lasting Impact.</span>
+                                                {t('donate.hero.title')}
+                                                <span className="block">{t('donate.hero.title_highlight')}</span>
                                             </h1>
                                         </div>
                                     </div>
                                     <div className="p-6 md:p-8">
                                         <p className="text-slate-600 leading-relaxed mb-6">
-                                            Inspired by top global donation experiences, this page is designed for clarity: simple amount selection, minimal form fields,
-                                            clear payment options, and transparent impact preview.
+                                            {t('donate.hero.desc')}
                                         </p>
                                         <div className="grid sm:grid-cols-2 gap-4">
                                             <div className="rounded-2xl border border-slate-200 p-4">
                                                 <img src="/assets/charity/scholarship.png" alt="Scholarship icon" className="w-8 h-8 object-contain mb-2" />
-                                                <p className="text-[#001F5B] font-bold text-sm">Education Support</p>
-                                                <p className="text-slate-500 text-xs">Books, fees, mentoring.</p>
+                                                <p className="text-[#001F5B] font-bold text-sm">{(t('donate.features', { returnObjects: true }) as any[])[0]?.title}</p>
+                                                <p className="text-slate-500 text-xs">{(t('donate.features', { returnObjects: true }) as any[])[0]?.desc}</p>
                                             </div>
                                             <div className="rounded-2xl border border-slate-200 p-4">
                                                 <img src="/assets/charity/clean-water.png" alt="Water icon" className="w-8 h-8 object-contain mb-2" />
-                                                <p className="text-[#001F5B] font-bold text-sm">Community Relief</p>
-                                                <p className="text-slate-500 text-xs">Water, health, essentials.</p>
+                                                <p className="text-[#001F5B] font-bold text-sm">{(t('donate.features', { returnObjects: true }) as any[])[1]?.title}</p>
+                                                <p className="text-slate-500 text-xs">{(t('donate.features', { returnObjects: true }) as any[])[1]?.desc}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -100,17 +102,17 @@ const Donate = () => {
                                     {isComplete ? (
                                         <div className="text-center py-10">
                                             <img src="/assets/charity/donate-now.png" alt="Donation complete" className="w-20 h-20 object-contain mx-auto mb-5" />
-                                            <h2 className="text-3xl font-black text-[#001F5B] mb-2">Thank you for your support</h2>
+                                            <h2 className="text-3xl font-black text-[#001F5B] mb-2">{t('donate.form.success_title')}</h2>
                                             <p className="text-slate-600 mb-6">
-                                                Your {frequency === 'monthly' ? 'monthly' : 'one-time'} pledge of{' '}
-                                                <span className="font-black text-[#001F5B]">{Number(selectedAmount || 0).toLocaleString()} XAF</span> has been recorded.
+                                                {t('donate.form.success_desc', { frequency: frequency === 'monthly' ? t('donate.form.type_monthly') : t('donate.form.type_one_time') }).replace('{{frequency}}', frequency === 'monthly' ? t('donate.form.type_monthly') : t('donate.form.type_one_time'))}{' '}
+                                                <span className="font-black text-[#001F5B]">{Number(selectedAmount || 0).toLocaleString()} XAF</span> {t('donate.form.success_desc_end')}
                                             </p>
                                             <button
                                                 type="button"
                                                 onClick={() => setIsComplete(false)}
                                                 className="h-11 px-5 rounded-lg bg-[#001F5B] text-white font-bold hover:bg-[#0D1B3E] transition-colors"
                                             >
-                                                Make another donation
+                                                {t('donate.form.btn_another')}
                                             </button>
                                         </div>
                                     ) : (
@@ -122,7 +124,7 @@ const Donate = () => {
                                             }}
                                         >
                                             <div>
-                                                <p className="text-xs font-black uppercase tracking-widest text-[#001F5B] mb-3">Donation Type</p>
+                                                <p className="text-xs font-black uppercase tracking-widest text-[#001F5B] mb-3">{t('donate.form.type_label')}</p>
                                                 <div className="grid grid-cols-2 gap-2 bg-slate-100 rounded-xl p-1">
                                                     <button
                                                         type="button"
@@ -133,7 +135,7 @@ const Donate = () => {
                                                         }}
                                                         className={`h-10 rounded-lg text-sm font-bold transition-colors ${frequency === 'one-time' ? 'bg-white text-[#001F5B]' : 'text-slate-500'}`}
                                                     >
-                                                        One-Time
+                                                        {t('donate.form.type_one_time')}
                                                     </button>
                                                     <button
                                                         type="button"
@@ -144,13 +146,13 @@ const Donate = () => {
                                                         }}
                                                         className={`h-10 rounded-lg text-sm font-bold transition-colors ${frequency === 'monthly' ? 'bg-white text-[#001F5B]' : 'text-slate-500'}`}
                                                     >
-                                                        Monthly
+                                                        {t('donate.form.type_monthly')}
                                                     </button>
                                                 </div>
                                             </div>
 
                                             <div>
-                                                <p className="text-xs font-black uppercase tracking-widest text-[#001F5B] mb-3">Choose Amount (XAF)</p>
+                                                <p className="text-xs font-black uppercase tracking-widest text-[#001F5B] mb-3">{t('donate.form.amount_label')}</p>
                                                 <div className="grid grid-cols-2 gap-2 mb-3">
                                                     {presetAmounts.map((amt) => (
                                                         <button
@@ -175,13 +177,13 @@ const Donate = () => {
                                                     min={1000}
                                                     value={customAmount}
                                                     onChange={(e) => setCustomAmount(e.target.value)}
-                                                    placeholder="Custom amount"
+                                                    placeholder={t('donate.form.amount_custom_placeholder')}
                                                     className="w-full h-11 px-4 rounded-lg border border-slate-200 text-[#001F5B] focus:outline-none focus:border-[#00C2C7]"
                                                 />
                                             </div>
 
                                             <div>
-                                                <p className="text-xs font-black uppercase tracking-widest text-[#001F5B] mb-3">Payment Method</p>
+                                                <p className="text-xs font-black uppercase tracking-widest text-[#001F5B] mb-3">{t('donate.form.method_label')}</p>
                                                 <div className="grid sm:grid-cols-3 gap-2">
                                                     {[
                                                         { key: 'mtn' as const, label: 'MTN MoMo' },
@@ -208,7 +210,7 @@ const Donate = () => {
                                                 <input
                                                     value={fullName}
                                                     onChange={(e) => setFullName(e.target.value)}
-                                                    placeholder="Full name"
+                                                    placeholder={t('donate.form.name_placeholder')}
                                                     className="h-11 px-4 rounded-lg border border-slate-200 text-[#001F5B] focus:outline-none focus:border-[#00C2C7]"
                                                     required
                                                 />
@@ -216,26 +218,26 @@ const Donate = () => {
                                                     value={email}
                                                     onChange={(e) => setEmail(e.target.value)}
                                                     type="email"
-                                                    placeholder="Email address"
+                                                    placeholder={t('donate.form.email_placeholder')}
                                                     className="h-11 px-4 rounded-lg border border-slate-200 text-[#001F5B] focus:outline-none focus:border-[#00C2C7]"
                                                     required
                                                 />
                                                 <input
                                                     value={phone}
                                                     onChange={(e) => setPhone(e.target.value)}
-                                                    placeholder="Phone number"
+                                                    placeholder={t('donate.form.phone_placeholder')}
                                                     className="h-11 px-4 rounded-lg border border-slate-200 text-[#001F5B] focus:outline-none focus:border-[#00C2C7] sm:col-span-2"
                                                     required
                                                 />
                                             </div>
 
                                             <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                                                <p className="text-xs font-black uppercase tracking-widest text-[#001F5B] mb-2">Your Impact Preview</p>
+                                                <p className="text-xs font-black uppercase tracking-widest text-[#001F5B] mb-2">{t('donate.form.impact_preview_label')}</p>
                                                 <p className="text-sm text-slate-700 mb-2">
-                                                    Donation amount: <span className="font-black text-[#001F5B]">{Number(selectedAmount || 0).toLocaleString()} XAF</span>
+                                                    {t('donate.form.donation_amount')} <span className="font-black text-[#001F5B]">{Number(selectedAmount || 0).toLocaleString()} XAF</span>
                                                 </p>
                                                 <ul className="text-xs text-slate-600 space-y-1 list-disc pl-4">
-                                                    {impactLines.map((line) => (
+                                                    {impactLines.map((line: string) => (
                                                         <li key={line}>{line}</li>
                                                     ))}
                                                 </ul>
@@ -245,7 +247,7 @@ const Donate = () => {
                                                 type="submit"
                                                 className="w-full h-12 rounded-lg bg-[#00C2C7] text-[#001F5B] font-black hover:bg-[#0099A1] transition-colors"
                                             >
-                                                Donate Securely
+                                                {t('donate.form.btn_submit')}
                                             </button>
                                         </form>
                                     )}

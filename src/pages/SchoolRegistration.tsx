@@ -50,7 +50,7 @@ const SchoolRegistrationPage = () => {
                         <div className="lg:w-1/2 min-h-[400px] lg:min-h-full relative w-full">
                             <FadeIn direction="left" className="h-full">
                                 <img
-                                    src="/assets/charity/our-expertize-in-action.png"
+                                    src="/assets/images/new_assets/story_student.png"
                                     alt="School students"
                                     className="absolute inset-0 w-full h-full object-cover"
                                 />

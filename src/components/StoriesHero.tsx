@@ -7,7 +7,7 @@ const StoriesHero = () => {
                 <img
                     alt="African student studying in a modern library"
                     className="h-full w-full object-cover"
-                    src="/assets/charity/our-expertize-in-action.png"
+                    src="/assets/images/new_assets/story_hero.png"
                 />
                 <div className="absolute inset-0 bg-navy   " />
             </div>

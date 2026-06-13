@@ -7,7 +7,7 @@ const VolunteerHero = () => {
                 <img
                     alt="Volunteers working with children in a sunny outdoor setting"
                     className="h-full w-full object-cover"
-                    src="/assets/charity/our-expertize-in-action.png"
+                    src="/assets/images/new_assets/volunteer_hero.png"
                 />
                 <div className="absolute inset-0 bg-navy " />
                 <div className="absolute inset-0 bg-navy    " />

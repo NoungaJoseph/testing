@@ -6,22 +6,22 @@ const steps = [
         number: '01',
         title: 'Digital Equity Mission',
         desc: 'We identify remote schools with the greatest digital divide and deploy solar-powered computer labs to close the gap permanently.',
-        illustration: '/assets/charity/our-expertize-in-action.png',
-        illFallback: '/assets/charity/our-expertize-in-action.png',
+        illustration: '/assets/images/new_assets/transparency_image.png',
+        illFallback: '/assets/images/new_assets/transparency_image.png',
     },
     {
         number: '02',
         title: 'Micro‑Grant Engine',
         desc: 'A direct-giving platform connects donors with teachers for targeted classroom supplies and project funding — every franc is tracked.',
-        illustration: '/assets/charity/our-expertize-in-action.png',
-        illFallback: '/assets/charity/our-expertize-in-action.png',
+        illustration: '/assets/images/new_assets/transparency_image.png',
+        illFallback: '/assets/images/new_assets/transparency_image.png',
     },
     {
         number: '03',
         title: 'Vocation Hubs',
         desc: 'School facilities transform into evening vocational centres providing adult literacy, technical skill-building and community empowerment.',
-        illustration: '/assets/charity/our-expertize-in-action.png',
-        illFallback: '/assets/charity/our-expertize-in-action.png',
+        illustration: '/assets/images/new_assets/transparency_image.png',
+        illFallback: '/assets/images/new_assets/transparency_image.png',
     },
 ];
 

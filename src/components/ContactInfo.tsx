@@ -1,5 +1,10 @@
+import { useTranslation } from 'react-i18next';
+
 const ContactInfo = () => {
-    const infoItems = [
+    const { t } = useTranslation();
+    const infoItemsT = t('contact.info_items', { returnObjects: true }) as any[];
+
+    const fallbackItems = [
         {
             icon: '/assets/charity/contact us/email.png',
             title: "Email Us",
@@ -23,6 +28,8 @@ const ContactInfo = () => {
         }
     ];
 
+    const infoItems = infoItemsT && infoItemsT.length > 0 ? infoItemsT : fallbackItems;
+
     return (
         <section className="py-12 px-6 md:px-12 max-w-6xl mx-auto bg-transparent">
             <div className="flex flex-col md:flex-row gap-6">
@@ -30,8 +37,8 @@ const ContactInfo = () => {
                     <a
                         key={item.title}
                         href={item.href}
-                        target={item.title === 'Visit Us' ? '_blank' : undefined}
-                        rel={item.title === 'Visit Us' ? 'noopener noreferrer' : undefined}
+                        target={item.href && item.href.includes('maps') ? '_blank' : undefined}
+                        rel={item.href && item.href.includes('maps') ? 'noopener noreferrer' : undefined}
                         className="flex-1 flex flex-col items-start p-2 md:p-4 bg-transparent text-left"
                     >
                         <img src={item.icon} alt={item.title} className="w-14 h-14 mb-3 object-contain" />

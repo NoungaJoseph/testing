@@ -1,19 +1,24 @@
 import { Target, Eye, CheckCircle2, Sparkles } from 'lucide-react';
 import FadeIn from './FadeIn';
+import { useTranslation } from 'react-i18next';
 
 const MissionVision = () => {
+    const { t } = useTranslation();
+    const missionPointsT = t('about.mission_vision.mission_points', { returnObjects: true }) as string[];
+    const visionPointsT = t('about.mission_vision.vision_points', { returnObjects: true }) as string[];
+    
     return (
         <section className="bg-transparent flex flex-col items-center px-6 py-16 md:px-20 lg:px-40 relative overflow-hidden">
             <div className="relative z-10 w-full flex flex-col items-center">
                 {/* Header */}
                 <FadeIn direction="up">
                     <div className="max-w-4xl text-center mb-16">
-                        <span className="text-secondary font-semibold tracking-widest uppercase text-xs">Our Purpose</span>
+                        <span className="text-secondary font-semibold tracking-widest uppercase text-xs">{t('about.mission_vision.badge')}</span>
                         <h2 className="text-navy tracking-tight text-4xl md:text-5xl font-extrabold leading-tight mt-4 mb-6">
-                            Building a Legacy of Hope in Cameroon
+                            {t('about.mission_vision.title')}
                         </h2>
                         <p className="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
-                            We are dedicated to long-term sustainable growth by addressing the core pillars of community development and educational excellence.
+                            {t('about.mission_vision.desc')}
                         </p>
                     </div>
                 </FadeIn>
@@ -26,13 +31,13 @@ const MissionVision = () => {
                             <div className="mb-8 w-20 h-20 rounded-2xl flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all duration-500">
                                 <Target className="w-10 h-10" />
                             </div>
-                            <h3 className="text-navy text-3xl font-bold mb-6">Our Mission</h3>
+                            <h3 className="text-navy text-3xl font-bold mb-6">{t('about.mission_vision.mission_title')}</h3>
                             <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                                To empower Cameroonian communities by providing sustainable access to quality education, essential resources, and innovative development programs.
+                                {t('about.mission_vision.mission_desc')}
                             </p>
                             <div className="mt-auto pt-4 border-t border-slate-100 w-full">
                                 <ul className="space-y-3">
-                                    {['Equitable Resource Distribution', 'Sustainable Education Models'].map((item) => (
+                                    {missionPointsT.map((item: string) => (
                                         <li key={item} className="flex items-center gap-3 text-slate-500 text-sm font-medium">
                                             <CheckCircle2 className="w-5 h-5 text-secondary" />
                                             {item}
@@ -49,13 +54,13 @@ const MissionVision = () => {
                             <div className="mb-8 w-20 h-20 rounded-2xl flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all duration-500">
                                 <Eye className="w-10 h-10" />
                             </div>
-                            <h3 className="text-navy text-3xl font-bold mb-6">Our Vision</h3>
+                            <h3 className="text-navy text-3xl font-bold mb-6">{t('about.mission_vision.vision_title')}</h3>
                             <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                                A future where every child in Cameroon has the opportunity to reach their full potential through world-class education and comprehensive community support.
+                                {t('about.mission_vision.vision_desc')}
                             </p>
                             <div className="mt-auto pt-4 border-t border-slate-100 w-full">
                                 <ul className="space-y-3">
-                                    {['100% Literacy and Literacy Access', 'Innovation Hubs for Youth'].map((item) => (
+                                    {visionPointsT.map((item: string) => (
                                         <li key={item} className="flex items-center gap-3 text-slate-500 text-sm font-medium">
                                             <Sparkles className="w-5 h-5 text-secondary" />
                                             {item}
@@ -71,7 +76,7 @@ const MissionVision = () => {
                 <FadeIn direction="up" className="w-full max-w-7xl">
                     <div className="mt-20 w-full aspect-[21/9] rounded-[3rem] overflow-hidden relative group">
                         <img
-                            src="/assets/charity/our-expertize-in-action.png"
+                            src="/assets/images/new_assets/transparency_image.png"
                             alt="African community gathering"
                             className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
                         />

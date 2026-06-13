@@ -17,7 +17,7 @@ const HomeHero = () => {
                     >
                         <div
                             className="w-full h-full bg-cover bg-center"
-                            style={{ backgroundImage: 'url("/assets/charity/our-expertize-in-action.png")' }}
+                            style={{ backgroundImage: 'url("/assets/images/new_assets/story_hero.png")' }}
                         ></div>
                     </motion.div>
                     <div className="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/80 to-navy z-10"></div>

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import FadeIn from './FadeIn';
 import { ArrowRight, CheckCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const programDetails = [
     {
@@ -72,6 +73,9 @@ const programDetails = [
 ];
 
 const ProgramsOverview = () => {
+    const { t } = useTranslation();
+    const overviewItemsT = t('programs.overview.items', { returnObjects: true }) as any[];
+
     return (
         <section className="py-20 px-6 lg:px-20 bg-transparent overflow-hidden">
             <div className="max-w-7xl mx-auto space-y-32">
@@ -87,10 +91,10 @@ const ProgramsOverview = () => {
                                     <img src={prog.image} alt={prog.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                                     {/* Overlay badge */}
                                     <div className="absolute top-6 left-6 p-1 flex items-center gap-3">
-                                        <img src={prog.icon} alt={`${prog.title} icon`} className="w-12 h-12 object-contain" />
+                                        <img src={prog.icon} alt={`${overviewItemsT[idx]?.title || prog.title} icon`} className="w-12 h-12 object-contain" />
                                         <div>
-                                            <p className="text-slate-900 font-black text-sm leading-none">{prog.imageCaption}</p>
-                                            <p className="text-green-600 text-[10px] font-bold uppercase tracking-widest mt-1">Enako Impact</p>
+                                            <p className="text-slate-900 font-black text-sm leading-none">{overviewItemsT[idx]?.imageCaption || prog.imageCaption}</p>
+                                            <p className="text-green-600 text-[10px] font-bold uppercase tracking-widest mt-1">{t('programs.overview.badge_prefix')}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -101,17 +105,17 @@ const ProgramsOverview = () => {
                         <div className="lg:w-1/2 flex flex-col gap-6 w-full">
                             <FadeIn direction={idx % 2 === 0 ? "left" : "right"}>
                                 <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-green-50 text-green-700 text-xs font-black uppercase tracking-[0.2em] border border-green-100">
-                                    {prog.badge}
+                                    {overviewItemsT[idx]?.badge || prog.badge}
                                 </span>
                                 <h2 className="text-slate-900 text-3xl lg:text-5xl font-black leading-tight mt-4">
-                                    {prog.title}
+                                    {overviewItemsT[idx]?.title || prog.title}
                                 </h2>
                                 <p className="text-slate-500 text-lg leading-relaxed mt-4 font-medium">
-                                    {prog.desc}
+                                    {overviewItemsT[idx]?.desc || prog.desc}
                                 </p>
                                 
                                 <div className="grid sm:grid-cols-2 gap-4 mt-6">
-                                    {prog.highlights.map((h) => (
+                                    {(overviewItemsT[idx]?.highlights || prog.highlights).map((h: string) => (
                                         <div key={h} className="flex items-center gap-3 p-4 rounded-2xl group hover:shadow-lg transition-all duration-300">
                                             <CheckCircle className="text-green-600 w-5 h-5 flex-shrink-0" />
                                             <span className="text-slate-800 text-sm font-bold">{h}</span>
@@ -120,7 +124,7 @@ const ProgramsOverview = () => {
                                 </div>
 
                                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-slate-100 mt-4">
-                                    {prog.stats.map((s) => (
+                                    {(overviewItemsT[idx]?.stats || prog.stats).map((s: string) => (
                                         <div key={s} className="text-left">
                                             <p className="text-green-600 text-xl font-black leading-none mb-1">{s.split(' ')[0]}</p>
                                             <p className="text-slate-400 text-[10px] font-bold uppercase tracking-wider">{s.split(' ').slice(1).join(' ')}</p>
@@ -130,10 +134,10 @@ const ProgramsOverview = () => {
 
                                 <div className="flex flex-wrap gap-4 pt-8">
                                     <Link to={`/programs/${prog.id}`} className="flex items-center justify-center gap-2 rounded-xl h-14 px-8 bg-green-600 text-white font-bold hover:bg-green-700 hover:scale-105 active:scale-95 transition-all shadow-lg shadow-green-600/20 text-sm">
-                                        View Full Programme <ArrowRight className="w-4 h-4" />
+                                        {t('programs.overview.btn_view')} <ArrowRight className="w-4 h-4" />
                                     </Link>
                                     <Link to="/donate" className="flex items-center justify-center rounded-xl h-14 px-8 border-2 border-slate-200 text-slate-800 font-bold hover:bg-slate-50 transition-all text-sm">
-                                        Donate Now
+                                        {t('programs.overview.btn_donate')}
                                     </Link>
                                 </div>
                             </FadeIn>

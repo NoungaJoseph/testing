@@ -5,19 +5,19 @@ const videos = [
     {
         title: "Building Futures in Lagos",
         duration: "3:45",
-        thumbnail: "/assets/charity/our-expertize-in-action.png",
+        thumbnail: "/assets/images/new_assets/timeline_1.png",
         category: "Community Impact"
     },
     {
         title: "Teacher Excellence 2024",
         duration: "2:15",
-        thumbnail: "/assets/charity/our-expertize-in-action.png",
+        thumbnail: "/assets/images/new_assets/timeline_1.png",
         category: "Foundation Programs"
     },
     {
         title: "Scholarship Journey",
         duration: "5:30",
-        thumbnail: "/assets/charity/our-expertize-in-action.png",
+        thumbnail: "/assets/images/new_assets/timeline_1.png",
         category: "Success Stories"
     }
 ];

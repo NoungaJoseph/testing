@@ -1,0 +1,1371 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about_us": "À Propos",
+    "programs": "Programmes",
+    "projects": "Projets",
+    "focus_communities": "Communautés Cibles",
+    "blog": "Blog",
+    "get_involved": "S'impliquer",
+    "contact_us": "Nous Contacter",
+    "donate_now": "Faire un Don",
+    "donate": "Donner",
+    "education": "Éducation",
+    "scholarships": "Bourses d'études",
+    "primary_support": "Soutien École Primaire",
+    "secondary_support": "Soutien École Secondaire",
+    "university_support": "Soutien Universitaire",
+    "school_registration": "Enregistrement Partenariat Scolaire",
+    "teacher_rewards": "Récompenses Enseignants",
+    "youth_empowerment": "Autonomisation des Jeunes",
+    "community_health": "Communauté et Santé",
+    "clean_water": "Initiative Eau Potable",
+    "health_support": "Soutien Santé Communautaire",
+    "single_mothers": "Assistance Mères Célibataires",
+    "articles": "Articles",
+    "latest_news": "Dernières Nouvelles",
+    "blog_posts": "Articles de Blog",
+    "archives": "Archives",
+    "language": "Langue"
+  },
+  "carousel": {
+    "slide1_title": "Valoriser les Avenirs",
+    "slide1_subtitle": "Une éducation de qualité et des bourses qui transforment des vies à travers le Cameroun",
+    "slide1_btn": "En Savoir Plus",
+    "slide2_title": "Bâtir des Communautés",
+    "slide2_subtitle": "Créer un développement durable grâce aux partenariats locaux",
+    "slide2_btn": "S'impliquer",
+    "slide3_title": "Créer un Impact",
+    "slide3_subtitle": "Chaque contribution finance des services essentiels pour les familles vulnérables",
+    "slide3_btn": "Nous Soutenir"
+  },
+  "footer": {
+    "organisation": "Organisation",
+    "about_us": "À Propos",
+    "our_impact": "Notre Impact",
+    "success_stories": "Histoires de Réussite",
+    "blog": "Blog",
+    "partnership": "Partenariat",
+    "programs": "Programmes",
+    "scholarships": "Bourses",
+    "clean_water": "Eau Potable",
+    "teacher_rewards": "Récompenses Enseignants",
+    "health_support": "Soutien Santé",
+    "single_mothers": "Mères Célibataires",
+    "youth_empowerment": "Autonomisation des Jeunes",
+    "communities": "Communautés",
+    "focus_communities": "Communautés Cibles",
+    "littoral_region": "Région du Littoral",
+    "centre_region": "Région du Centre",
+    "north_west": "Nord-Ouest",
+    "south_west": "Sud-Ouest",
+    "west_region": "Région de l'Ouest",
+    "get_involved": "S'impliquer",
+    "donate": "Faire un Don",
+    "volunteer": "Bénévolat",
+    "partner_with_us": "Devenir Partenaire",
+    "apply_scholarship": "Demander une Bourse",
+    "apply_help": "Demander de l'Aide",
+    "report_case": "Signaler un Cas",
+    "community_impact_foundation": "Fondation pour l'Impact Communautaire",
+    "location": "Akwa, Douala · Cameroun",
+    "all_rights_reserved": "Tous droits réservés",
+    "privacy_policy": "Politique de Confidentialité",
+    "terms_of_service": "Conditions d'Utilisation",
+    "cookie_policy": "Politique des Cookies"
+  },
+  "home": {
+    "mission": {
+      "badge": "Notre Mission",
+      "title": "Transformer des Vies à Travers le",
+      "title_highlight": "Cameroun",
+      "desc": "Enako Outreach est une ONG humanitaire enregistrée dédiée à l'autonomisation des communautés à travers le Cameroun. Nous travaillons à la base — en partenariat avec des leaders locaux, des écoles et des agents de santé pour offrir des programmes ciblés et durables là où ils sont le plus nécessaires.",
+      "tags": [
+        "Éducation",
+        "Santé",
+        "Eau Potable",
+        "Autonomisation des Femmes",
+        "Jeunesse",
+        "Secours d'Urgence"
+      ],
+      "btn": "Découvrez Notre Travail",
+      "points": [
+        {
+          "label": "Accès à l'Éducation",
+          "desc": "Bourses du primaire au niveau universitaire"
+        },
+        {
+          "label": "Eau Potable",
+          "desc": "Forages et purification pour les communautés rurales"
+        },
+        {
+          "label": "Santé",
+          "desc": "Cliniques mobiles et agents de santé communautaires"
+        },
+        {
+          "label": "Soutien aux Femmes",
+          "desc": "Autonomisation des mères célibataires et des veuves"
+        },
+        {
+          "label": "Autonomisation des Jeunes",
+          "desc": "Formation professionnelle et soutien à l'entrepreneuriat"
+        },
+        {
+          "label": "Secours d'Urgence",
+          "desc": "Réponse rapide pour les familles touchées par des crises"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Comment Pouvons-Nous Vous Aider ?",
+      "subtitle": "Agissez — que vous ayez besoin d'aide ou que vous souhaitiez en apporter.",
+      "cards": [
+        {
+          "title": "Demander de l'Aide",
+          "desc": "Besoin de soutien pour l'éducation, la santé ou une aide d'urgence ? Postulez via notre programme.",
+          "label": "Commencer la Demande"
+        },
+        {
+          "title": "Signaler un Problème",
+          "desc": "Vous connaissez une communauté ayant besoin d'eau potable, de soins ou de soutien humanitaire urgent ?",
+          "label": "Signaler un Cas"
+        },
+        {
+          "title": "Faire un Don",
+          "desc": "Chaque contribution finance l'éducation, l'eau potable et la santé pour des familles à travers le Cameroun.",
+          "label": "Faire un Don"
+        },
+        {
+          "title": "Devenir Partenaire",
+          "desc": "Les organisations et individus peuvent s'associer à Enako Outreach pour amplifier notre impact.",
+          "label": "Devenir Partenaire"
+        }
+      ]
+    },
+    "regional_mapping": {
+      "badge": "Cartographie Régionale",
+      "title": "Suivre l'Itinéraire",
+      "title_highlight": "À Travers le Cameroun",
+      "desc": "Cette carte visuelle montre comment notre parcours d'intervention relie les communautés. Elle contextualise la livraison des programmes et nos priorités.",
+      "points": [
+        "Affiche les lieux clés connectés par une route d'intervention.",
+        "Complète la carte régionale pour une exploration approfondie.",
+        "Aide les donateurs et partenaires à comprendre notre portée."
+      ]
+    },
+    "focus_communities": {
+      "badge": "Où Nous Travaillons",
+      "title": "Communautés Cibles",
+      "title_highlight": "Au Cameroun",
+      "desc": "Nous opérons dans 5 régions clés — Littoral, Centre, Nord-Ouest, Sud-Ouest et Ouest. Cliquez sur un marqueur pour explorer notre travail.",
+      "btn": "Explorer Toutes les Régions",
+      "regions": [
+        {
+          "name": "Littoral (Douala)",
+          "work": "Eau Potable, Santé, Secours d'Urgence"
+        },
+        {
+          "name": "Centre (Yaoundé)",
+          "work": "Bourses, Réhab. Écoles, Récompenses Enseignants"
+        },
+        {
+          "name": "Nord-Ouest (Bamenda)",
+          "work": "Secours d'Urgence, Soutien aux Femmes"
+        },
+        {
+          "name": "Sud-Ouest (Buéa)",
+          "work": "Secours d'Urgence, Eau Potable"
+        },
+        {
+          "name": "Ouest (Bafoussam)",
+          "work": "Autonomisation des Femmes, Santé"
+        }
+      ]
+    },
+    "reviews": {
+      "badge": "Impact Réel",
+      "title": "Avis de la Communauté",
+      "subtitle": "Derrière chaque statistique se cache une personne dont la vie a été transformée par votre soutien.",
+      "btn": "Lire Plus d'Histoires",
+      "stories": [
+        {
+          "name": "Amina Bello",
+          "region": "Région du Nord-Ouest",
+          "program": "Assistance aux Mères Célibataires",
+          "quote": "Après avoir perdu mon mari, je n'avais aucun revenu et trois enfants à nourrir. Enako m'a offert une formation et des fonds. Je gère maintenant ma propre entreprise de couture et paie les frais scolaires."
+        },
+        {
+          "name": "Emmanuel Fon",
+          "region": "Région de l'Ouest",
+          "program": "Bourse Universitaire",
+          "quote": "J'ai eu d'excellentes notes au BEPC, mais ma famille ne pouvait pas payer l'université. La bourse d'Enako a financé mon diplôme d'ingénieur. Aujourd'hui, je travaille dans la construction à Douala."
+        },
+        {
+          "name": "Clarisse Mbah",
+          "region": "Région du Littoral",
+          "program": "Initiative Eau Potable",
+          "quote": "Les femmes de notre village marchaient 4 km chaque matin pour l'eau. Depuis le forage l'année dernière, nous avons de l'eau potable à 50 mètres. Cela a tout changé."
+        }
+      ]
+    },
+    "donation_cta": {
+      "badge": "Faire une Différence",
+      "title": "Votre Don Change",
+      "title_highlight": "Des Vies Réelles",
+      "desc": "Chaque contribution finance l'éducation, l'eau potable et la santé pour des familles à travers le Cameroun.",
+      "btn_donate": "Faire un Don",
+      "btn_partner": "Devenir Partenaire"
+    }
+  },
+  "about": {
+    "hero": {
+      "est": "Fondé en 2024",
+      "title": "Poussés par un But.",
+      "title_highlight": "Guidés par l'Impact.",
+      "desc": "Autonomiser les communautés et faire progresser l'éducation à travers le Cameroun grâce à des initiatives humanitaires durables qui favorisent la croissance et la résilience depuis notre base à Douala.",
+      "breadcrumb_home": "Accueil",
+      "breadcrumb_about": "À Propos",
+      "mission_badge": "Notre Mission",
+      "mission_title": "Bâtir les fondations des leaders de demain.",
+      "mission_desc": "Enako Outreach est dédié à la création d'un changement durable en se concentrant sur l'éducation de base et les projets de développement communautaire holistique au Cameroun. Avec nos 5 premières écoles partenaires à Douala, nous sommes sur le point de mener notre mission inaugurale de charité.",
+      "pillars": [
+        {
+          "title": "L'Éducation d'Abord",
+          "desc": "Fournir des ressources et construire des salles de classe pour garantir que chaque enfant ait accès à des environnements d'apprentissage de qualité."
+        },
+        {
+          "title": "Santé et Bien-être",
+          "desc": "Mettre en œuvre des projets d'eau potable et des programmes de sensibilisation médicale pour améliorer le bien-être."
+        },
+        {
+          "title": "Partenariat Local",
+          "desc": "Travailler directement avec les leaders communautaires pour concevoir des programmes qui répondent aux besoins locaux."
+        }
+      ]
+    },
+    "mission_vision": {
+      "badge": "Notre Objectif",
+      "title": "Bâtir un Héritage d'Espoir au Cameroun",
+      "desc": "Nous sommes dédiés à une croissance durable à long terme en abordant les piliers fondamentaux du développement communautaire et de l'excellence éducative.",
+      "mission_title": "Notre Mission",
+      "mission_desc": "Autonomiser les communautés camerounaises en offrant un accès durable à une éducation de qualité, aux ressources essentielles et à des programmes de développement innovants.",
+      "mission_points": [
+        "Distribution Équitable des Ressources",
+        "Modèles d'Éducation Durables"
+      ],
+      "vision_title": "Notre Vision",
+      "vision_desc": "Un avenir où chaque enfant au Cameroun a la possibilité d'atteindre son plein potentiel grâce à une éducation de classe mondiale et un soutien communautaire complet.",
+      "vision_points": [
+        "Accès 100% à l'Alphabétisation",
+        "Centres d'Innovation pour les Jeunes"
+      ]
+    },
+    "leadership": {
+      "badge": "Gouvernance et Vision",
+      "title": "Notre Équipe Dirigeante",
+      "desc": "Rencontrez la fondatrice qui guide Enako Outreach avec un engagement clair envers l'éducation, la dignité et un impact mesurable.",
+      "founder": {
+        "role": "Fondatrice",
+        "name": "Ndolo Nako",
+        "bio": "Ndolo Nako a fondé Enako Outreach pour élargir les opportunités éducatives et le soutien pratique aux familles mal desservies au Cameroun. Son leadership est centré sur le partenariat local, la responsabilité et un impact à long terme."
+      },
+      "cta_title": "Rejoignez Notre Mission",
+      "cta_desc": "Nous sommes toujours à la recherche de personnes passionnées et d'entreprises partenaires qui partagent notre vision pour un avenir meilleur en Afrique. Bâtissons ensemble quelque chose de durable.",
+      "cta_btn1": "Nous Contacter",
+      "cta_btn2": "Voir les Carrières"
+    }
+  },
+  "impact": {
+    "hero": {
+      "badge": "Changement Mesurable",
+      "title": "Conduire une Vraie",
+      "title_highlight": "Transformation.",
+      "desc": "Notre approche basée sur les données garantit que chaque ressource atteint les communautés qui en ont le plus besoin.",
+      "stats": [
+        {
+          "v": "120+",
+          "l": "Vies Ciblées"
+        },
+        {
+          "v": "8",
+          "l": "Communautés"
+        },
+        {
+          "v": "Pilote",
+          "l": "Phase"
+        }
+      ]
+    },
+    "kpi": {
+      "badge": "Nos Chiffres",
+      "title": "L'Impact en",
+      "title_highlight": "Lumière.",
+      "stats": [
+        {
+          "value": "120+",
+          "label": "Étudiants Ciblés"
+        },
+        {
+          "value": "8",
+          "label": "Écoles Ciblées"
+        },
+        {
+          "value": "6",
+          "label": "Enseignants Reconnus"
+        },
+        {
+          "value": "8",
+          "label": "Communautés Aidées"
+        }
+      ]
+    },
+    "timeline": {
+      "badge": "Notre Parcours",
+      "title": "Notre Histoire de Croissance",
+      "milestones": [
+        {
+          "year": "Phase 1",
+          "title": "Lancement à Douala",
+          "desc": "Enako Outreach établit son siège à Douala avec 5 écoles partenaires."
+        },
+        {
+          "year": "Phase 2",
+          "title": "Première Mission de Charité",
+          "desc": "Lancement de notre mission inaugurale pour fournir un soutien éducatif immédiat."
+        },
+        {
+          "year": "Phase 3",
+          "title": "Expansion Régionale",
+          "desc": "Extension de la couverture à 8 écoles partenaires dans les communautés cibles."
+        }
+      ]
+    },
+    "dashboard": {
+      "badge": "Tableau de Bord",
+      "title": "Notre Tableau de Bord d'Impact",
+      "desc": "Suivez comment vos contributions font une différence à travers le Cameroun en temps réel.",
+      "stats": [
+        {
+          "label": "Écoles Partenaires",
+          "value": "5",
+          "suffix": ""
+        },
+        {
+          "label": "Étudiants Ciblés",
+          "value": "120",
+          "suffix": "+"
+        },
+        {
+          "label": "Écoles Prévues",
+          "value": "8",
+          "suffix": ""
+        },
+        {
+          "label": "Régions Couvertes",
+          "value": "2",
+          "suffix": ""
+        }
+      ],
+      "chart_title": "Distribution des Programmes",
+      "chart_labels": [
+        "Bourses",
+        "Prix Enseignants",
+        "Dév. Communautaire",
+        "Soutien Orphelinat"
+      ]
+    },
+    "reports": {
+      "badge": "Transparence",
+      "title": "Ressources",
+      "title_highlight": "Stratégiques",
+      "view_all": "Voir Tous les Rapports",
+      "org_name": "Fondation Enako Outreach",
+      "download": "Télécharger la Ressource",
+      "items": [
+        {
+          "title": "Plan Stratégique 2026-2028"
+        },
+        {
+          "title": "Prospectus de l'Organisation 2026"
+        }
+      ]
+    }
+  },
+  "programs": {
+    "hero": {
+      "breadcrumb_home": "Accueil",
+      "breadcrumb_programs": "Programmes",
+      "title": "Nos Programmes",
+      "title_highlight": "Durable",
+      "title_suffix": "Impact",
+      "desc": "À travers l'éducation, la reconnaissance et le développement communautaire, Enako Outreach autonomise les individus et transforme les communautés à travers l'Afrique.",
+      "focus_badge": "Nos Domaines d'Action",
+      "focus_title": "Favoriser la croissance grâce à des piliers stratégiques.",
+      "focus_desc": "Chez Enako Outreach, nous nous engageons à favoriser une croissance durable grâce à des initiatives humanitaires ciblées.",
+      "pillars": [
+        {
+          "title": "Bourses d'Études",
+          "desc": "Autonomiser la prochaine génération de leaders africains grâce à un soutien académique et des subventions financières."
+        },
+        {
+          "title": "Prix pour les Enseignants",
+          "desc": "Reconnaître l'excellence dans l'éducation et honorer les mentors dévoués qui façonnent l'avenir."
+        },
+        {
+          "title": "Dév. Communautaire",
+          "desc": "Construire des infrastructures locales durables et des systèmes d'eau potable pour des villages autonomes."
+        },
+        {
+          "title": "Soutien aux Orphelinats",
+          "desc": "Fournir un refuge sûr, un soutien nutritionnel et des soins émotionnels aux enfants dans le besoin."
+        }
+      ]
+    },
+    "overview": {
+      "badge_prefix": "Impact Enako",
+      "btn_view": "Voir le Programme Complet",
+      "btn_donate": "Faire un Don",
+      "items": [
+        {
+          "id": "scholarships",
+          "badge": "Soutien à l'Éducation",
+          "title": "Bourses pour l'Excellence Académique",
+          "desc": "Notre programme de bourses phare offre une couverture totale des frais de scolarité, des manuels scolaires, des uniformes et un mentorat pour les étudiants très performants issus de familles à faible revenu à travers le Cameroun. Nous soutenons les étudiants du niveau primaire jusqu'à l'université.",
+          "highlights": [
+            "Frais de Scolarité Couverts",
+            "Programme de Mentorat",
+            "Du Primaire à l'Université"
+          ],
+          "stats": [
+            "8 Boursiers",
+            "Forte Rétention",
+            "4 Écoles",
+            "2 Régions"
+          ],
+          "imageCaption": "Autonomiser les futurs leaders"
+        },
+        {
+          "id": "clean-water-initiative",
+          "badge": "Infrastructure",
+          "title": "Initiative pour l'Eau Potable",
+          "desc": "Fournir de l'eau potable salubre et accessible aux communautés rurales et confrontées à la pénurie d'eau grâce au forage de puits, à des systèmes de purification de l'eau et à la formation à l'entretien local. Nous croyons que l'eau potable est la première étape vers la santé.",
+          "highlights": [
+            "Forage de Puits",
+            "Purification de l'Eau",
+            "Formation à l'Entretien"
+          ],
+          "stats": [
+            "18 Puits",
+            "28k+ Personnes",
+            "22 Villages",
+            "3 Régions"
+          ],
+          "imageCaption": "De l'eau potable pour chaque village"
+        },
+        {
+          "id": "teacher-rewards",
+          "badge": "Excellence Enseignante",
+          "title": "Programme de Récompenses des Enseignants",
+          "desc": "Reconnaître et récompenser les éducateurs dévoués dans les communautés mal desservies. Nous offrons des subventions financières, un développement professionnel et une reconnaissance communautaire à ceux qui se surpassent pour leurs étudiants.",
+          "highlights": [
+            "Subventions Financières",
+            "Formation Professionnelle",
+            "Réseau de Pairs"
+          ],
+          "stats": [
+            "6 Enseignants",
+            "2 Régions",
+            "4 Sessions",
+            "Cohorte Pilote"
+          ],
+          "imageCaption": "Honorer les éducateurs dévoués"
+        },
+        {
+          "id": "community-health-support",
+          "badge": "Soins de Santé",
+          "title": "Soutien à la Santé Communautaire",
+          "desc": "Des cliniques de santé mobiles et des programmes de sensibilisation médicale qui amènent des médecins, des infirmières et des médicaments essentiels directement aux familles dans les zones éloignées et mal desservies du Cameroun.",
+          "highlights": [
+            "Cliniques Mobiles",
+            "Santé Maternelle",
+            "Prévention du Paludisme"
+          ],
+          "stats": [
+            "42k+ Patients",
+            "6 Cliniques",
+            "85 Formés",
+            "5 Régions"
+          ],
+          "imageCaption": "Soins de santé à portée de main"
+        },
+        {
+          "id": "single-mothers-assistance",
+          "badge": "Soutien Social",
+          "title": "Assistance aux Mères Célibataires",
+          "desc": "Autonomiser les mères célibataires et les veuves grâce à des micro-subventions, une formation professionnelle (couture, restauration, TIC), un soutien psychologique post-traumatique et une aide à la garde d'enfants pour favoriser l'indépendance économique.",
+          "highlights": [
+            "Micro-subventions",
+            "Formation Professionnelle",
+            "Soutien Traumatique"
+          ],
+          "stats": [
+            "10 Femmes",
+            "4 Entreprises",
+            "7 Actives",
+            "2 Régions"
+          ],
+          "imageCaption": "Restaurer l'espoir et la dignité"
+        },
+        {
+          "id": "youth-empowerment",
+          "badge": "Développement des Jeunes",
+          "title": "Programme d'Autonomisation des Jeunes",
+          "desc": "Construire la prochaine génération d'acteurs du changement camerounais grâce au développement du leadership, à la formation professionnelle, à des camps d'entraînement à la littératie numérique et à un financement de démarrage pour les jeunes entrepreneurs.",
+          "highlights": [
+            "Formation en Leadership",
+            "Compétences Numériques",
+            "Financement de Démarrage"
+          ],
+          "stats": [
+            "12 Jeunes",
+            "3 Entreprises",
+            "Placement Continu",
+            "2 Régions"
+          ],
+          "imageCaption": "Construire les leaders de demain"
+        }
+      ]
+    },
+    "transparency": {
+      "goal": "Objectif : 120 Vies Ciblées",
+      "report_summary": "Résumé du rapport annuel 2023",
+      "title": "Notre travail est guidé par la transparence et l'empathie radicale.",
+      "desc": "Nous croyons qu'en fournissant les bons outils (éducation, infrastructure et soins de santé), les communautés peuvent bâtir leur propre avenir prospère. Chaque dollar donné va directement à l'exécution de nos programmes.",
+      "stat1_val": "92%",
+      "stat1_label": "Fonds aux programmes",
+      "stat2_val": "1",
+      "stat2_label": "Pays actif",
+      "btn": "Lire Notre Rapport d'Impact"
+    }
+  },
+  "program_detail": {
+    "not_found": {
+      "title": "Programme Introuvable",
+      "desc": "Nous n'avons pas pu localiser ce programme. Parcourez tous nos programmes ci-dessous.",
+      "btn": "Voir Tous les Programmes"
+    },
+    "sections": {
+      "about": "À Propos de ce Programme",
+      "goals": "Objectifs du Programme",
+      "serve": "Ceux Que Nous Servons",
+      "gallery": "Galerie du Programme",
+      "milestones": "Jalons",
+      "apply": {
+        "title": "Demander de l'Aide",
+        "desc": "Pensez-vous que vous ou quelqu'un que vous connaissez êtes éligible à ce programme ? Remplissez notre formulaire de candidature et notre équipe vous contactera.",
+        "btn_apply": "Postuler Maintenant",
+        "btn_donate": "Faire un Don à ce Programme"
+      },
+      "partner": {
+        "title": "Partenaire ou Bénévole",
+        "desc": "Les organisations et les individus peuvent s'associer à nous pour étendre ce programme.",
+        "btn": "S'associer avec Nous"
+      },
+      "back": "Retour à Tous les Programmes"
+    },
+    "programs": {
+      "scholarships": {
+        "title": "Programme de Bourses",
+        "subtitle": "L'Éducation pour Chaque Enfant au Cameroun",
+        "category": "Éducation",
+        "description": "Notre programme de bourses phare offre une couverture totale des frais de scolarité, des manuels scolaires, des uniformes et un mentorat pour les étudiants très performants issus de familles à faible revenu à travers le Cameroun.",
+        "longDesc": "Chaque enfant talentueux au Cameroun mérite l'opportunité de poursuivre ses études indépendamment de la situation financière de sa famille. Notre programme de bourses élimine les obstacles financiers en finançant l'enseignement primaire, secondaire et universitaire. Nous identifions les élèves les plus performants par l'intermédiaire d'écoles partenaires et de nominations communautaires, puis nous fournissons un soutien complet qui va au-delà des frais pour inclure la papeterie, les uniformes et l'accès à des réseaux de mentorat.",
+        "goals": [
+          "Soutenir 10 nouveaux étudiants lors du prochain cycle d'admission",
+          "Maintenir un fort taux d'achèvement et de rétention pour tous les boursiers",
+          "Construire une collaboration active avec 4 écoles partenaires",
+          "Créer un cercle de mentorat pour les bénéficiaires de bourses"
+        ],
+        "beneficiaries": [
+          "Élèves du primaire âgés de 6 à 12 ans",
+          "Élèves du secondaire âgés de 13 à 18 ans",
+          "Étudiants universitaires âgés de 18 à 25 ans",
+          "Étudiants issus de familles déplacées ou touchées par un conflit"
+        ],
+        "stats": [
+          {
+            "label": "Étudiants Financés",
+            "value": "8"
+          },
+          {
+            "label": "Taux d'Obtention de Diplôme",
+            "value": "92%"
+          },
+          {
+            "label": "Écoles Partenaires",
+            "value": "4"
+          }
+        ],
+        "milestones": [
+          {
+            "year": "2025",
+            "event": "Lancement avec 3 boursiers inauguraux."
+          },
+          {
+            "year": "2025",
+            "event": "Expansion pour couvrir l'enseignement universitaire à Yaoundé et Douala."
+          },
+          {
+            "year": "2026",
+            "event": "Atteint 8 bénéficiaires actifs de bourses."
+          }
+        ]
+      },
+      "scholarships-primary": {
+        "title": "Soutien à l'École Primaire",
+        "subtitle": "Bâtir les Fondations pour l'Avenir",
+        "category": "Éducation",
+        "description": "Couverture complète des frais de scolarité, uniformes, manuels et fournitures scolaires pour les enfants du primaire issus de familles en difficulté financière.",
+        "longDesc": "L'enseignement primaire est le fondement critique de l'apprentissage tout au long de la vie. Nos filières de soutien à l'école primaire garantissent qu'aucun enfant n'est renvoyé de l'école en raison de son incapacité à payer les frais. Nous travaillons avec des leaders communautaires pour identifier les familles qui en ont le plus besoin et fournissons des packages académiques complets pour que les enfants puissent aller à l'école dans la dignité.",
+        "goals": [
+          "Soutenir 6 élèves du primaire cette année académique",
+          "Fournir des kits de papeterie complets chaque trimestre",
+          "Former les enfants soutenus aux bases de la littératie numérique"
+        ],
+        "beneficiaries": [
+          "Enfants âgés de 6 à 12 ans",
+          "Orphelins et enfants de mères célibataires",
+          "Enfants des zones rurales et périurbaines"
+        ],
+        "stats": [
+          {
+            "label": "Enfants Soutenus",
+            "value": "6"
+          },
+          {
+            "label": "Écoles Couvertes",
+            "value": "3"
+          },
+          {
+            "label": "Régions",
+            "value": "5"
+          }
+        ],
+        "milestones": [
+          {
+            "year": "2025",
+            "event": "Première cohorte de 3 élèves du primaire inscrits."
+          },
+          {
+            "year": "2026",
+            "event": "Expansion à 6 enfants soutenus dans 2 régions."
+          }
+        ]
+      },
+      "scholarships-secondary": {
+        "title": "Soutien à l'École Secondaire",
+        "subtitle": "Soutenir les Années Critiques de l'Adolescence",
+        "category": "Éducation",
+        "description": "Bourse complète pour l'école secondaire couvrant les frais, l'internat si nécessaire, les manuels scolaires et le soutien à la préparation des examens pour les candidats au BEPC et au GCE.",
+        "longDesc": "L'école secondaire est l'endroit où de nombreux étudiants camerounais abandonnent en raison de pressions financières, en particulier lorsque des frais d'internat sont impliqués. Notre programme secondaire offre un soutien holistique comprenant des allocations d'internat, des cours de préparation aux examens et une orientation professionnelle pour aider les étudiants à faire des choix éclairés concernant l'enseignement supérieur.",
+        "goals": [
+          "Financer 5 élèves du secondaire cette année académique",
+          "Améliorer la préparation aux examens grâce à un soutien par mentorat",
+          "Fournir une orientation professionnelle pratique à chaque élève"
+        ],
+        "beneficiaries": [
+          "Étudiants âgés de 13 à 18 ans",
+          "Étudiants en internat ou dans des écoles éloignées",
+          "Étudiants du secondaire de première génération"
+        ],
+        "stats": [
+          {
+            "label": "Étudiants Financés",
+            "value": "5"
+          },
+          {
+            "label": "Préparation aux Examens",
+            "value": "88%"
+          },
+          {
+            "label": "Bourses d'Internat",
+            "value": "2"
+          }
+        ],
+        "milestones": [
+          {
+            "year": "2025",
+            "event": "Filière secondaire lancée avec 2 étudiants."
+          },
+          {
+            "year": "2026",
+            "event": "Taux de réussite à l'examen national de 91% enregistré."
+          }
+        ]
+      },
+      "scholarships-university": {
+        "title": "Soutien Universitaire",
+        "subtitle": "Alimenter la Prochaine Génération de Leaders",
+        "category": "Éducation",
+        "description": "Subventions universitaires couvrant les frais de scolarité, l'aide au logement et l'accès à des réseaux de mentorat professionnel pour les étudiants très performants des universités camerounaises.",
+        "longDesc": "Le financement au niveau universitaire est l'une de nos interventions les plus percutantes. Un diplômé ayant fait des études universitaires change la trajectoire de toute sa famille. Nos subventions universitaires sont fondées sur le mérite avec priorité aux besoins financiers, couvrant les frais dans les universités publiques et privées accréditées au Cameroun, complétées par le mentorat de professionnels dans le domaine d'études de l'étudiant.",
+        "goals": [
+          "Financer 3 étudiants universitaires dans le cycle actuel",
+          "Connecter les étudiants aux opportunités de stage et de mentorat",
+          "Soutenir la planification de l'obtention du diplôme et de la transition"
+        ],
+        "beneficiaries": [
+          "Étudiants de premier cycle dans les universités camerounaises",
+          "Étudiants dans les domaines STEM, de la Santé, du Droit et de l'Éducation",
+          "Étudiants universitaires de première génération"
+        ],
+        "stats": [
+          {
+            "label": "Subventions Universitaires",
+            "value": "3"
+          },
+          {
+            "label": "Statut Académique",
+            "value": "Bon"
+          },
+          {
+            "label": "Correspondances de Mentorat",
+            "value": "3"
+          }
+        ],
+        "milestones": [
+          {
+            "year": "2025",
+            "event": "Première bourse universitaire accordée à Yaoundé."
+          },
+          {
+            "year": "2026",
+            "event": "Taux d'emploi de 87% pour les diplômés du programme."
+          }
+        ]
+      },
+      "clean-water-initiative": {
+        "title": "Initiative pour l'Eau Potable",
+        "subtitle": "De l'Eau Salubre pour Chaque Famille Camerounaise",
+        "category": "Infrastructure",
+        "description": "Forage de puits, installation de systèmes de purification de l'eau et construction d'installations sanitaires dans les communautés confrontées à la pénurie d'eau à travers le Cameroun.",
+        "longDesc": "L'accès à l'eau potable est un droit humain fondamental, pourtant des millions de Camerounais marchent encore des heures chaque jour pour collecter de l'eau insalubre. Notre initiative pour l'eau potable identifie les communautés où les besoins sont les plus importants, finance le forage de puits et l'installation de pompes, forme des comités d'entretien locaux et dispense une éducation à l'hygiène pour assurer la viabilité à long terme de chaque projet.",
+        "goals": [
+          "Achever 3 projets de puits dans les communautés prioritaires",
+          "Permettre aux ménages voisins d'accéder à l'eau potable",
+          "Former des comités d'entretien dans 100% des communautés de projet",
+          "Effectuer des tests trimestriels de qualité de l'eau"
+        ],
+        "beneficiaries": [
+          "Ménages ruraux sans eau courante",
+          "Écoles manquant d'eau potable",
+          "Centres de santé dans les zones mal desservies",
+          "Femmes qui transportent actuellement de l'eau sur de longues distances"
+        ],
+        "stats": [
+          {
+            "label": "Puits Forés",
+            "value": "3"
+          },
+          {
+            "label": "Bénéficiaires",
+            "value": "120+"
+          },
+          {
+            "label": "Communautés",
+            "value": "3"
+          }
+        ],
+        "milestones": [
+          {
+            "year": "2025",
+            "event": "Premier puits achevé dans la région du Littoral."
+          },
+          {
+            "year": "2025",
+            "event": "Expansion dans les régions du Sud-Ouest et du Nord-Ouest."
+          },
+          {
+            "year": "2026",
+            "event": "Trois puits opérationnels avec des équipes d'entretien locales."
+          }
+        ]
+      },
+      "teacher-rewards": {
+        "title": "Programme de Récompenses des Enseignants",
+        "subtitle": "Honorer la Colonne Vertébrale de l'Éducation",
+        "category": "Éducation",
+        "description": "Subventions financières, développement professionnel et reconnaissance publique pour les enseignants exceptionnels qui se surpassent pour leurs étudiants dans les communautés mal desservies.",
+        "longDesc": "Les enseignants sont la force la plus puissante de tout système éducatif. Au Cameroun, les enseignants dévoués travaillent souvent dans des conditions difficiles avec des ressources minimales. Notre programme de récompenses des enseignants identifie, célèbre publiquement et soutient financièrement les enseignants exceptionnels nominés par leurs communautés scolaires. Au-delà des récompenses financières, nous finançons la formation professionnelle, fournissons du matériel pédagogique et créons un réseau de pairs d'excellence.",
+        "goals": [
+          "Reconnaître 6 enseignants par le biais de récompenses pilotes",
+          "Fournir de modestes subventions de classe à des enseignants sélectionnés",
+          "Organiser des sessions de formation pratique pour les enseignants partenaires",
+          "Documenter les études de cas sur l'impact des enseignants"
+        ],
+        "beneficiaries": [
+          "Enseignants des écoles primaires et secondaires",
+          "Enseignants dans les zones rurales et difficiles d'accès",
+          "Enseignants récemment qualifiés manquant de ressources"
+        ],
+        "stats": [
+          {
+            "label": "Enseignants Récompensés",
+            "value": "6"
+          },
+          {
+            "label": "Régions Couvertes",
+            "value": "2"
+          },
+          {
+            "label": "Sessions de Formation",
+            "value": "4"
+          }
+        ],
+        "milestones": [
+          {
+            "year": "2025",
+            "event": "Cérémonie pilote de reconnaissance tenue à Yaoundé."
+          },
+          {
+            "year": "2026",
+            "event": "Programme étendu à 2 régions avec 6 enseignants reconnus."
+          }
+        ]
+      },
+      "community-health-support": {
+        "title": "Soutien à la Santé Communautaire",
+        "subtitle": "Rapprocher les Soins de Santé de Chaque Famille",
+        "category": "Soins de Santé",
+        "description": "Cliniques de santé mobiles, campagnes de fourniture de médicaments, programmes de santé maternelle et actions de soins préventifs pour les communautés mal desservies.",
+        "longDesc": "Des soins de santé de qualité restent hors de portée pour des millions de Camerounais en raison de la distance, du coût et du manque d'agents de santé. Notre programme de santé communautaire déploie des cliniques mobiles dans les zones mal desservies, composées d'infirmières, de médecins et d'agents de santé communautaires bénévoles. Nous menons des programmes de prévention du paludisme, de santé maternelle et infantile, de nutrition et de dépistage — en veillant à ce que chaque famille puisse accéder aux soins de santé de base indépendamment de son emplacement ou de ses revenus.",
+        "goals": [
+          "Gérer 4 jours de cliniques mobiles de proximité par mois",
+          "Servir les familles identifiées avec des soins essentiels",
+          "Former 8 bénévoles en santé communautaire",
+          "Atteindre une couverture en moustiquaires de 80% dans les zones cibles"
+        ],
+        "beneficiaries": [
+          "Femmes enceintes et nouvelles mères",
+          "Enfants de moins de 5 ans",
+          "Membres âgés de la communauté",
+          "Résidents à plus de 5 km du centre de santé le plus proche"
+        ],
+        "stats": [
+          {
+            "label": "Patients Servis",
+            "value": "90+"
+          },
+          {
+            "label": "Cliniques Mobiles",
+            "value": "2"
+          },
+          {
+            "label": "Agents de Santé Formés",
+            "value": "8"
+          }
+        ],
+        "milestones": [
+          {
+            "year": "2025",
+            "event": "Première clinique mobile déployée dans la région du Nord-Ouest."
+          },
+          {
+            "year": "2026",
+            "event": "Deux points de clinique récurrents établis dans les communautés partenaires."
+          }
+        ]
+      },
+      "single-mothers-assistance": {
+        "title": "Assistance aux Mères Célibataires",
+        "subtitle": "Soutenir les Femmes qui Soutiennent les Familles",
+        "category": "Soutien Social",
+        "description": "Micro-subventions, formation professionnelle, conseil psychologique, aide à la garde d'enfants et aide aux moyens de subsistance pour les mères célibataires et les veuves à travers le Cameroun.",
+        "longDesc": "Les mères célibataires au Cameroun portent d'immenses fardeaux — élever des enfants seules, souvent sans source de revenus, sans éducation formelle et sans réseau de soutien. Notre programme entoure chaque bénéficiaire : des micro-subventions financières pour démarrer de petites entreprises, une formation pratique en couture, restauration, cosmétologie et agriculture ; des conseils psychologiques et post-traumatiques ; et un accès à des services de garde pour libérer les mères pour la formation et le travail. Nous suivons les résultats pendant 12 mois après le programme pour assurer un impact durable.",
+        "goals": [
+          "Inscrire 10 mères célibataires et veuves dans le cycle pilote",
+          "Fournir un encadrement pratique pour les moyens de subsistance",
+          "Soutenir les subventions de démarrage pour les petites entreprises",
+          "Établir des partenariats de garde d'enfants dans 5 régions"
+        ],
+        "beneficiaries": [
+          "Mères célibataires avec des enfants de moins de 18 ans",
+          "Veuves de guerre et femmes touchées par un conflit",
+          "Femmes ayant subi des violences domestiques",
+          "Femmes sans source de revenus formelle"
+        ],
+        "stats": [
+          {
+            "label": "Femmes Inscrites",
+            "value": "10"
+          },
+          {
+            "label": "Entreprises Démarrées",
+            "value": "4"
+          },
+          {
+            "label": "Diplômées Actives",
+            "value": "7"
+          }
+        ],
+        "milestones": [
+          {
+            "year": "2025",
+            "event": "Programme lancé à Bafoussam avec une cohorte pilote initiale."
+          },
+          {
+            "year": "2026",
+            "event": "Soutien étendu à 10 femmes en formation active et en soutien aux moyens de subsistance."
+          }
+        ]
+      },
+      "youth-empowerment": {
+        "title": "Autonomisation des Jeunes",
+        "subtitle": "Construire les Acteurs du Changement de Demain",
+        "category": "Jeunesse",
+        "description": "Développement du leadership, formation professionnelle, compétences numériques et programmes d'entrepreneuriat pour les jeunes âgés de 15 à 35 ans à travers le Cameroun.",
+        "longDesc": "Les jeunes représentent plus de 60% de la population du Cameroun, mais ils sont confrontés à un chômage élevé et à des opportunités limitées. Notre programme d'autonomisation des jeunes associe formation en leadership, compétences professionnelles pratiques (soudure, plomberie, TIC, agriculture), littératie numérique et mentorat d'entreprise avec un financement de démarrage pour les jeunes entrepreneurs prometteurs. Nous organisons des camps de base résidentiels, des apprentissages et des sessions de coaching continu tout au long de l'année.",
+        "goals": [
+          "Former 12 jeunes dans la première cohorte",
+          "Offrir un encadrement en employabilité et en entrepreneuriat",
+          "Soutenir 3 micro-entreprises dirigées par des jeunes",
+          "Construire un réseau de mentorat de démarrage"
+        ],
+        "beneficiaries": [
+          "Jeunes de 15 à 35 ans sans emploi formel",
+          "Décrocheurs scolaires cherchant des voies professionnelles",
+          "Jeunes entrepreneurs ayant des idées d'affaires",
+          "Diplômés universitaires au chômage"
+        ],
+        "stats": [
+          {
+            "label": "Jeunes Formés",
+            "value": "12"
+          },
+          {
+            "label": "Entreprises Financées",
+            "value": "3"
+          },
+          {
+            "label": "Progrès du Placement",
+            "value": "En cours"
+          }
+        ],
+        "milestones": [
+          {
+            "year": "2025",
+            "event": "La première cohorte pilote de jeunes a terminé ses sessions de formation."
+          },
+          {
+            "year": "2026",
+            "event": "Trois entreprises dirigées par des jeunes ont reçu un soutien de démarrage."
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "programs_grid": {
+      "badge": "Ce Que Nous Faisons",
+      "title": "Nos Initiatives",
+      "title_highlight": "Principales",
+      "desc": "Six programmes ciblés conçus pour créer un changement durable dans les communautés qui en ont le plus besoin.",
+      "btn_view_all": "Voir Tous les Programmes",
+      "btn_explore": "Explorer le Programme",
+      "programs": [
+        {
+          "name": "Bourses d'Études",
+          "desc": "Bourses complètes et partielles pour les élèves du primaire, du secondaire et de l'université issus de familles à faible revenu à travers le Cameroun."
+        },
+        {
+          "name": "Initiative pour l'Eau Potable",
+          "desc": "Installation de puits, de systèmes de purification de l'eau et d'infrastructures d'assainissement dans les communautés où l'eau est rare."
+        },
+        {
+          "name": "Récompenses des Enseignants",
+          "desc": "Reconnaître et récompenser les enseignants dévoués avec des subventions financières et un développement professionnel dans toutes les régions."
+        },
+        {
+          "name": "Soutien à la Santé Communautaire",
+          "desc": "Cliniques de santé mobiles, approvisionnement en médicaments et campagnes de soins préventifs touchant des milliers de familles chaque trimestre."
+        },
+        {
+          "name": "Assistance aux Mères Célibataires",
+          "desc": "Autonomiser les mères célibataires et les veuves avec des micro-subventions, une formation professionnelle, un soutien psychologique et une aide à la garde d'enfants."
+        },
+        {
+          "name": "Autonomisation des Jeunes",
+          "desc": "Formation en leadership, compétences professionnelles et programmes d'entrepreneuriat pour les jeunes âgés de 15 à 35 ans à travers le Cameroun."
+        }
+      ]
+    },
+    "impact_dashboard": {
+      "badge": "L'Impact Communautaire en Mouvement",
+      "title": "Réelle Proximité, Vraies Personnes, Vrai Changement",
+      "desc": "Ces images de terrain montrent comment Enako Outreach fournit de l'eau potable et un soutien essentiel aux communautés à travers le Cameroun.",
+      "btn": "Voir le Rapport d'Impact Complet"
+    },
+    "beneficiary_stories": {
+      "badge": "Histoires Humaines",
+      "title": "Voix de la",
+      "title_highlight": "Transformation.",
+      "story_badge": "Histoire d'Impact Communautaire",
+      "btn": "Lire Plus d'Histoires",
+      "stories": [
+        {
+          "name": "Sarah Akot",
+          "role": "Jeune Entrepreneure, Douala",
+          "text": "Le programme de formation en affaires m'a aidée à démarrer mon propre jardin communautaire, fournissant des produits frais à mon village et une indépendance financière à ma famille. Enako Outreach a tout changé."
+        },
+        {
+          "name": "David Obi",
+          "role": "Boursier en Informatique",
+          "text": "Grâce à la subvention technologique, j'ai obtenu mon diplôme et lancé un pôle technologique local qui forme aujourd'hui une cinquantaine de jeunes chaque mois. Cette fondation a cru en moi avant que je ne croie en moi-même."
+        },
+        {
+          "name": "Abena Osei",
+          "role": "Boursière, Yaoundé",
+          "text": "Être sélectionnée comme meilleure élève de mon district m'a ouvert des portes dont je ne faisais que rêver. La bourse Enako Outreach a changé la trajectoire de toute ma famille - c'est la raison pour laquelle je suis à l'université aujourd'hui."
+        }
+      ]
+    },
+    "latest_blog": {
+      "badge": "Dernières Nouvelles",
+      "title": "Perspectives &",
+      "title_highlight": "Impact.",
+      "desc": "Restez informé des questions qui comptent le plus pour les communautés au Cameroun.",
+      "btn_view_all": "Voir Tous les Articles",
+      "btn_read_more": "Lire la Suite"
+    },
+    "newsletter_cta": {
+      "badge": "Restez Informé",
+      "title": "Actualités de la",
+      "title_highlight": "Ligne de Front.",
+      "desc": "Abonnez-vous pour recevoir nos rapports d'impact mensuels, nos histoires communautaires et nos bulletins humanitaires directement dans votre boîte de réception.",
+      "success_title": "Merci ! 🎉",
+      "success_desc": "Vous êtes maintenant abonné à notre newsletter.",
+      "placeholder": "votre@email.com",
+      "btn": "S'abonner",
+      "privacy": "* Nous respectons votre vie privée. Désabonnez-vous à tout moment."
+    },
+    "volunteer_cta": {
+      "ghost_text": "Rejoindre",
+      "active_volunteers": "Bénévoles Actifs",
+      "badge": "La Communauté d'Abord",
+      "title": "Rejoindre le",
+      "title_highlight": "Mouvement.",
+      "desc": "Ensemble, faisons passer la mission éducative et humanitaire du Cameroun au niveau supérieur. Partagez vos compétences et changez l'avenir d'un enfant.",
+      "form": {
+        "name": "Votre Nom *",
+        "email": "Votre E-mail *",
+        "message": "Comment aimeriez-vous aider ? ..."
+      },
+      "btn_submit": "Nous Contacter",
+      "btn_learn": "En Savoir Plus"
+    }
+  },
+  "volunteer": {
+    "hero": {
+      "badge": "Opportunité de Bénévolat",
+      "title": "Faites Partie du",
+      "title_highlight": "Changement.",
+      "desc": "Votre temps et vos talents peuvent transformer des vies. Rejoignez notre réseau mondial de bénévoles dévoués travaillant à travers l'Afrique pour autonomiser la prochaine génération.",
+      "btn_start": "Commencer le Bénévolat",
+      "btn_learn": "En Savoir Plus",
+      "stats_text": "Rejoignez plus de 18 acteurs du changement dans notre réseau pilote"
+    },
+    "roles": {
+      "badge": "Façons d'Agir",
+      "title": "Là où Nous Avons",
+      "title_highlight": "Besoin de Vous.",
+      "btn_learn": "En Savoir Plus",
+      "items": [
+        {
+          "title": "Soutien à l'Éducation",
+          "desc": "Aider dans les écoles locales, offrir du tutorat et contribuer à la création de centres de ressources d'apprentissage pour les enfants."
+        },
+        {
+          "title": "Sensibilisation Communautaire",
+          "desc": "Travailler directement avec les leaders pour mettre en œuvre des projets de développement durable et des programmes de santé."
+        },
+        {
+          "title": "Développement des Compétences",
+          "desc": "Partagez votre expertise en technologie, en affaires ou dans les métiers pour doter les jeunes de compétences monnayables sur le marché du travail."
+        }
+      ]
+    },
+    "apply": {
+      "badge": "Rejoindre la Mission",
+      "title": "Candidature.",
+      "desc": "Nous examinerons votre candidature et vous répondrons avec des propositions de placement dans les 48 heures.",
+      "form": {
+        "name_label": "Nom Complet *",
+        "name_placeholder": "Jean Dupont",
+        "email_label": "Adresse E-mail *",
+        "email_placeholder": "jean@exemple.com",
+        "phone_label": "Numéro de Téléphone",
+        "phone_placeholder": "+33 (0)1 00 00 00 00",
+        "role_label": "Rôle Préféré *",
+        "role_options": {
+          "default": "Sélectionnez un rôle...",
+          "edu": "Soutien à l'Éducation",
+          "outreach": "Sensibilisation Communautaire",
+          "skill": "Développement des Compétences",
+          "fund": "Collecte de Fonds",
+          "remote": "Travail à Distance / Numérique"
+        },
+        "motivation_label": "Votre Motivation",
+        "motivation_placeholder": "Dites-nous pourquoi vous aimeriez rejoindre notre communauté...",
+        "btn_submit": "Soumettre la Candidature",
+        "secure_text": "Candidature Sécurisée Vérifiée"
+      }
+    },
+    "final_cta": {
+      "title": "Prêt à",
+      "title_highlight": "Agir ?",
+      "desc": "Rejoignez notre famille grandissante de bénévoles qui changent des vies dans 12 pays d'Afrique.",
+      "btn_apply": "Postuler Maintenant",
+      "btn_donate": "Faire un Don"
+    }
+  },
+  "partnership": {
+    "hero": {
+      "badge": "Collaboration Institutionnelle",
+      "title": "Construire",
+      "title_highlight": "Ensemble.",
+      "desc": "Nous nous associons à des organisations avant-gardistes pour fournir une éducation transformatrice et des solutions énergétiques durables à travers l'Afrique."
+    },
+    "types": [
+      {
+        "title": "Secteur Public",
+        "desc": "Collaboration avec les gouvernements locaux pour s'aligner sur les programmes d'éducation nationaux."
+      },
+      {
+        "title": "Responsabilité Sociétale",
+        "desc": "Création d'initiatives RSE sur mesure qui produisent des résultats ESG mesurables."
+      },
+      {
+        "title": "Alliances d'ONG",
+        "desc": "Améliorer l'impact grâce à des ressources partagées et à une expertise sur le terrain."
+      }
+    ],
+    "inquiry": {
+      "title": "Démarrer une Demande de",
+      "title_highlight": "Partenariat.",
+      "title_end": "",
+      "desc": "Notre équipe de partenariat est prête à discuter de la manière dont nous pouvons aligner nos ressources pour un impact maximal. Remplissez les détails et nous vous contacterons dans les 48 heures.",
+      "features": [
+        {
+          "title": "Consultation d'Experts",
+          "desc": "Planification stratégique pour vos objectifs RSE."
+        },
+        {
+          "title": "Soutien Logistique",
+          "desc": "Mise en œuvre sur le terrain de bout en bout."
+        }
+      ],
+      "form": {
+        "name_label": "Nom du Contact",
+        "name_placeholder": "Prénom et Nom",
+        "org_label": "Organisation",
+        "org_placeholder": "Nom de l'Entreprise",
+        "email_label": "E-mail Professionnel",
+        "email_placeholder": "votre@email.com",
+        "interest_label": "Intérêt du Projet",
+        "interest_placeholder": "Décrivez brièvement vos objectifs de partenariat...",
+        "btn_submit": "Soumettre la Demande de Partenariat"
+      }
+    }
+  },
+  "donate": {
+    "hero": {
+      "badge": "Don Sécurisé",
+      "title": "Donnez une Fois. Donnez Mensuellement.",
+      "title_highlight": "Créez un Impact Durable.",
+      "desc": "Inspirée des meilleures expériences mondiales de don, cette page est conçue pour la clarté : sélection de montant simple, champs de formulaire minimaux, options de paiement claires et aperçu d'impact transparent."
+    },
+    "features": [
+      {
+        "title": "Soutien à l'Éducation",
+        "desc": "Livres, frais, mentorat."
+      },
+      {
+        "title": "Secours Communautaire",
+        "desc": "Eau, santé, biens de première nécessité."
+      }
+    ],
+    "form": {
+      "type_label": "Type de Don",
+      "type_one_time": "Une Fois",
+      "type_monthly": "Mensuel",
+      "amount_label": "Choisissez le Montant (XAF)",
+      "amount_custom_placeholder": "Montant personnalisé",
+      "method_label": "Méthode de Paiement",
+      "name_placeholder": "Nom complet",
+      "email_placeholder": "Adresse e-mail",
+      "phone_placeholder": "Numéro de téléphone",
+      "impact_preview_label": "Aperçu de Votre Impact",
+      "donation_amount": "Montant du don :",
+      "btn_submit": "Donner en Toute Sécurité",
+      "success_title": "Merci pour votre soutien",
+      "success_desc": "Votre promesse de don {{frequency}} de",
+      "success_desc_end": "XAF a été enregistrée.",
+      "btn_another": "Faire un autre don"
+    },
+    "impact_lines": {
+      "low": [
+        "Fournit des fournitures scolaires pour un enfant.",
+        "S'ajoute à la réserve de soutien d'urgence."
+      ],
+      "med": [
+        "Fournit des kits d'apprentissage pour 2 enfants.",
+        "Contribue à une journée de sensibilisation communautaire."
+      ],
+      "high": [
+        "Soutient un programme de bourse partielle.",
+        "Contribue au transport pour les interventions de santé locales."
+      ],
+      "max": [
+        "Soutient un cycle complet d'accompagnement d'un étudiant.",
+        "Contribue à la logistique de terrain pour l'eau potable et l'éducation."
+      ]
+    }
+  },
+  "blog": {
+    "hero": {
+      "badge": "Aperçus d'Enako",
+      "title": "Histoires du",
+      "title_highlight": "Cameroun",
+      "desc": "Plongez dans les défis, les triomphes et les histoires qui façonnent l'éducation et les communautés à travers le Cameroun.",
+      "nav_posts": "Articles",
+      "nav_news": "Dernières Nouvelles",
+      "nav_archives": "Archives"
+    },
+    "filters": {
+      "search_placeholder": "Rechercher des articles..."
+    },
+    "empty": {
+      "title": "Aucun article trouvé.",
+      "desc": "Essayez d'ajuster votre recherche ou votre filtre de catégorie."
+    }
+  },
+  "stories": {
+    "hero": {
+      "badge": "Récits Communautaires",
+      "title": "Voix de la",
+      "title_highlight": "Transformation.",
+      "desc": "De véritables histoires de changement de la part d'étudiants, d'enseignants et de communautés à travers l'Afrique.",
+      "btn_explore": "Explorer les Récits",
+      "btn_impact": "Notre Rapport d'Impact"
+    },
+    "stats": [
+      {
+        "v": "120+",
+        "l": "Vies Ciblées"
+      },
+      {
+        "v": "8",
+        "l": "Communautés"
+      },
+      {
+        "v": "Pilote",
+        "l": "Étape"
+      }
+    ],
+    "highlight": {
+      "badge": "Le Fait Saillant",
+      "title": "Récit en",
+      "title_highlight": "Vedette."
+    },
+    "latest": {
+      "badge": "Dernières Idées",
+      "title": "Plus de",
+      "title_highlight": "Preuves."
+    },
+    "items": [
+      {
+        "category": "Réussite Étudiante",
+        "title": "\"D'une Salle de Classe de Village à une Université à Accra\"",
+        "author": "Abena Osei, Boursière",
+        "country": "Ghana",
+        "excerpt": "Lorsque j'ai été sélectionnée comme la meilleure élève de mon district, je n'aurais jamais imaginé que cela m'ouvrirait des portes dont je n'avais fait que rêver. La bourse Enako Outreach n'a pas seulement payé mes frais de scolarité, elle a changé la trajectoire de toute ma famille."
+      },
+      {
+        "category": "Prix de l'Enseignant",
+        "title": "\"Être Reconnu a Changé ma Façon d'Enseigner\"",
+        "author": "M. Emmanuel Asante, Enseignant",
+        "country": "Nigeria",
+        "excerpt": "Le prix était plus que de l'argent ; c'était une validation. Pour la première fois en 15 ans d'enseignement, quelqu'un m'a dit « nous vous voyons ». Mes élèves ont immédiatement remarqué le changement dans mon énergie."
+      },
+      {
+        "category": "Impact Communautaire",
+        "title": "\"Notre Village a Maintenant de l'Eau Potable\"",
+        "author": "Chef Yaw Darko, Chef Communautaire",
+        "country": "Kenya",
+        "excerpt": "Avant l'arrivée d'Enako, nos enfants marchaient 3 km chaque matin juste pour aller chercher de l'eau. Maintenant, ce forage dans notre enceinte a libéré nos enfants pour qu'ils puissent aller à l'école."
+      }
+    ],
+    "newsletter": {
+      "title": "Restez Inspiré",
+      "desc": "Recevez les dernières histoires d'impact directement dans votre boîte de réception.",
+      "email_placeholder": "Votre adresse e-mail",
+      "btn_subscribe": "S'abonner"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Entrez en Contact",
+      "title_highlight": "Avec Nous",
+      "desc": "Que vous ayez une question sur nos programmes, que vous souhaitiez vous associer à nous ou que vous ayez besoin d'aide, notre équipe est là pour vous aider.",
+      "breadcrumb_home": "Accueil",
+      "breadcrumb_contact": "Contact"
+    },
+    "info": {
+      "title": "Contactez-Nous",
+      "desc": "Nous serions ravis de vous entendre. Choisissez le moyen le plus pratique de nous joindre ci-dessous.",
+      "address_label": "Notre Bureau",
+      "address_val": "Douala, Cameroun",
+      "phone_label": "Numéro de Téléphone",
+      "phone_val": "+237 6 78 45 79 26",
+      "email_label": "Adresse E-mail",
+      "email_val": "enakooutreach@gmail.com",
+      "social_label": "Suivez-nous"
+    },
+    "form": {
+      "title": "Envoyez-Nous un Message",
+      "desc": "Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.",
+      "name_label": "Nom Complet",
+      "name_placeholder": "Jean Dupont",
+      "email_label": "Adresse E-mail",
+      "email_placeholder": "jean@exemple.com",
+      "subject_label": "Sujet",
+      "subject_placeholder": "Comment pouvons-nous aider ?",
+      "message_label": "Message",
+      "message_placeholder": "Votre message ici...",
+      "submit_btn": "Envoyer le Message"
+    },
+    "info_items": [
+      {
+        "icon": "/assets/charity/contact us/email.png",
+        "title": "Envoyez-nous un Email",
+        "value": "enakooutreach@gmail.com",
+        "description": "Pour les demandes générales et les partenariats",
+        "href": "mailto:enakooutreach@gmail.com"
+      },
+      {
+        "icon": "/assets/charity/contact us/phone.png",
+        "title": "Appelez-nous",
+        "value": "+237 6 78 45 79 26",
+        "description": "Du lundi au vendredi de 9h à 18h",
+        "href": "tel:+237 6 78 45 79 26"
+      },
+      {
+        "icon": "/assets/charity/contact us/location.png",
+        "title": "Visitez-nous",
+        "value": "Akwa, Akwa Douala, Cameroun ",
+        "description": "Région du Littoral - Bureau Principal",
+        "href": "https://maps.google.com/?q=Akwa+Douala+Cameroon"
+      }
+    ]
+  }
+}

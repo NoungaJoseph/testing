@@ -3,8 +3,12 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
 import AnimatedNetworkBg from '../components/AnimatedNetworkBg';
+import { useTranslation } from 'react-i18next';
 
 const Partnership = () => {
+    const { t } = useTranslation();
+    const typesT = t('partnership.types', { returnObjects: true }) as any[];
+    const featuresT = t('partnership.inquiry.features', { returnObjects: true }) as any[];
     return (
         <div className="min-h-screen bg-white">
             <Navbar />
@@ -15,13 +19,13 @@ const Partnership = () => {
                     <section className="px-6 md:px-12 max-w-7xl mx-auto mb-32">
                         <FadeIn direction="up">
                             <div className="max-w-4xl">
-                                <span className="text-secondary font-black tracking-[0.4em] uppercase text-[10px] block mb-6 px-1">Institutional Collaboration</span>
+                                <span className="text-secondary font-black tracking-[0.4em] uppercase text-[10px] block mb-6 px-1">{t('partnership.hero.badge')}</span>
                                 <h1 className="text-navy text-4xl md:text-6xl font-black leading-[0.85] tracking-tighter mb-8">
-                                    Building <br />
-                                    <span className="text-secondary ">Together.</span>
+                                    {t('partnership.hero.title')} <br />
+                                    <span className="text-secondary ">{t('partnership.hero.title_highlight')}</span>
                                 </h1>
                                 <p className="text-slate-500 text-xl font-medium leading-relaxed max-w-2xl">
-                                    We partner with forward-thinking organizations to deliver transformative education and sustainable energy solutions across Africa.
+                                    {t('partnership.hero.desc')}
                                 </p>
                             </div>
                         </FadeIn>
@@ -40,8 +44,8 @@ const Partnership = () => {
                                         <type.icon className="w-10 h-10" />
                                     </div>
                                     <div className="space-y-4">
-                                        <h3 className="text-2xl font-black text-navy tracking-tight">{type.title}</h3>
-                                        <p className="text-slate-500 font-medium leading-relaxed">{type.desc}</p>
+                                        <h3 className="text-2xl font-black text-navy tracking-tight">{typesT[i]?.title || type.title}</h3>
+                                        <p className="text-slate-500 font-medium leading-relaxed">{typesT[i]?.desc || type.desc}</p>
                                     </div>
                                 </div>
                             </FadeIn>
@@ -54,9 +58,9 @@ const Partnership = () => {
                         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 relative z-10">
                             <div className="lg:w-1/2 space-y-12">
                                 <div className="space-y-6">
-                                    <h2 className="text-navy text-5xl font-black tracking-tighter">Start a <br /><span className="text-secondary ">Partnership</span> Inquiry.</h2>
+                                    <h2 className="text-navy text-5xl font-black tracking-tighter">{t('partnership.inquiry.title')} <br /><span className="text-secondary ">{t('partnership.inquiry.title_highlight')}</span> {t('partnership.inquiry.title_end')}</h2>
                                     <p className="text-slate-500 text-lg font-medium leading-relaxed">
-                                        Our partnership team is ready to discuss how we can align our resources for maximum impact. Fill out the details and we'll be in touch within 48 hours.
+                                        {t('partnership.inquiry.desc')}
                                     </p>
                                 </div>
                                 <div className="space-y-6">
@@ -65,8 +69,8 @@ const Partnership = () => {
                                             <MessageSquare className="w-6 h-6" />
                                         </div>
                                         <div>
-                                            <p className="text-navy font-black text-sm uppercase tracking-widest">Expert Consultation</p>
-                                            <p className="text-slate-500 text-sm font-medium">Strategic planning for your CSR goals.</p>
+                                            <p className="text-navy font-black text-sm uppercase tracking-widest">{featuresT[0]?.title}</p>
+                                            <p className="text-slate-500 text-sm font-medium">{featuresT[0]?.desc}</p>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-6 p-6 rounded-3xl">
@@ -74,8 +78,8 @@ const Partnership = () => {
                                             <Globe className="w-6 h-6" />
                                         </div>
                                         <div>
-                                            <p className="text-navy font-black text-sm uppercase tracking-widest">Logistical Support</p>
-                                            <p className="text-slate-500 text-sm font-medium">End-to-end ground implementation.</p>
+                                            <p className="text-navy font-black text-sm uppercase tracking-widest">{featuresT[1]?.title}</p>
+                                            <p className="text-slate-500 text-sm font-medium">{featuresT[1]?.desc}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -84,24 +88,24 @@ const Partnership = () => {
                                 <form className="form-shell space-y-8" onSubmit={(e) => e.preventDefault()}>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                         <div className="space-y-2">
-                                            <label className="text-navy text-[10px] font-black uppercase tracking-widest px-2">Contact Name</label>
-                                            <input type="text" className="w-full h-16 bg-slate-50 border border-slate-100 rounded-2xl px-6 outline-none focus:border-secondary transition-colors text-navy font-bold" placeholder="First & Last Name" />
+                                            <label className="text-navy text-[10px] font-black uppercase tracking-widest px-2">{t('partnership.inquiry.form.name_label')}</label>
+                                            <input type="text" className="w-full h-16 bg-slate-50 border border-slate-100 rounded-2xl px-6 outline-none focus:border-secondary transition-colors text-navy font-bold" placeholder={t('partnership.inquiry.form.name_placeholder')} />
                                         </div>
                                         <div className="space-y-2">
-                                            <label className="text-navy text-[10px] font-black uppercase tracking-widest px-2">Organization</label>
-                                            <input type="text" className="w-full h-16 bg-slate-50 border border-slate-100 rounded-2xl px-6 outline-none focus:border-secondary transition-colors text-navy font-bold" placeholder="Company Name" />
+                                            <label className="text-navy text-[10px] font-black uppercase tracking-widest px-2">{t('partnership.inquiry.form.org_label')}</label>
+                                            <input type="text" className="w-full h-16 bg-slate-50 border border-slate-100 rounded-2xl px-6 outline-none focus:border-secondary transition-colors text-navy font-bold" placeholder={t('partnership.inquiry.form.org_placeholder')} />
                                         </div>
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-navy text-[10px] font-black uppercase tracking-widest px-2">Work Email</label>
-                                        <input type="email" className="w-full h-16 bg-slate-50 border border-slate-100 rounded-2xl px-6 outline-none focus:border-secondary transition-colors text-navy font-bold" placeholder="your@email.com" />
+                                        <label className="text-navy text-[10px] font-black uppercase tracking-widest px-2">{t('partnership.inquiry.form.email_label')}</label>
+                                        <input type="email" className="w-full h-16 bg-slate-50 border border-slate-100 rounded-2xl px-6 outline-none focus:border-secondary transition-colors text-navy font-bold" placeholder={t('partnership.inquiry.form.email_placeholder')} />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-navy text-[10px] font-black uppercase tracking-widest px-2">Project Interest</label>
-                                        <textarea rows={4} className="w-full bg-slate-50 border border-slate-100 rounded-2xl p-6 outline-none focus:border-secondary transition-colors text-navy font-bold resize-none" placeholder="Briefly describe your partnership goals..." />
+                                        <label className="text-navy text-[10px] font-black uppercase tracking-widest px-2">{t('partnership.inquiry.form.interest_label')}</label>
+                                        <textarea rows={4} className="w-full bg-slate-50 border border-slate-100 rounded-2xl p-6 outline-none focus:border-secondary transition-colors text-navy font-bold resize-none" placeholder={t('partnership.inquiry.form.interest_placeholder')} />
                                     </div>
                                     <button className="w-full h-20 bg-navy text-white rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:bg-secondary transition-all shadow-xl active:scale-[0.98]">
-                                        Submit Partnership Request
+                                        {t('partnership.inquiry.form.btn_submit')}
                                     </button>
                                 </form>
                             </div>

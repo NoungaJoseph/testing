@@ -6,8 +6,11 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
 import AnimatedNetworkBg from '../components/AnimatedNetworkBg';
+import { useTranslation } from 'react-i18next';
 
 const VolunteerPage = () => {
+    const { t } = useTranslation();
+    const rolesT = t('volunteer.roles.items', { returnObjects: true }) as any[];
     const [form, setForm] = useState({ name: '', email: '', phone: '', role: '', message: '' });
     return (
         <div className="flex flex-col min-h-screen bg-white">
@@ -25,7 +28,7 @@ const VolunteerPage = () => {
                                 className="w-full h-full"
                             >
                                 <img
-                                    src="/assets/charity/our-expertize-in-action.png"
+                                    src="/assets/images/new_assets/volunteer_hero.png"
                                     alt="Volunteers working"
                                     className="w-full h-full object-cover"
                                 />
@@ -35,21 +38,21 @@ const VolunteerPage = () => {
                         <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-20 w-full pt-32 pb-16">
                             <FadeIn direction="right">
                                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-[10px] font-black uppercase tracking-[0.3em] mb-8">
-                                    <Users className="w-3 h-3" /> Volunteer Opportunity
+                                    <Users className="w-3 h-3" /> {t('volunteer.hero.badge')}
                                 </div>
                                 <h2 className="text-white text-4xl md:text-6xl font-black leading-[0.9] tracking-tighter mb-8 max-w-4xl">
-                                    Be Part of <br />
-                                    <span className="text-secondary ">the Change.</span>
+                                    {t('volunteer.hero.title')} <br />
+                                    <span className="text-secondary ">{t('volunteer.hero.title_highlight')}</span>
                                 </h2>
                                 <p className="text-slate-300 text-xl font-medium max-w-2xl leading-relaxed mb-12">
-                                    Your time and talent can transform lives. Join our global network of dedicated volunteers working across Africa to empower the next generation.
+                                    {t('volunteer.hero.desc')}
                                 </p>
                                 <div className="flex flex-wrap gap-6 mb-16">
                                     <a href="#apply" className="group relative flex items-center justify-center overflow-hidden rounded-xl bg-secondary px-10 h-16 text-white font-black transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-secondary/40">
-                                        Start Volunteering
+                                        {t('volunteer.hero.btn_start')}
                                     </a>
                                     <Link to="/impact" className="flex items-center justify-center rounded-xl bg-white/5 backdrop-blur-md border border-white/20 px-10 h-16 text-white font-black hover:bg-white/10 transition-all text-lg">
-                                        Learn More
+                                        {t('volunteer.hero.btn_learn')}
                                     </Link>
                                 </div>
                                 {/* Mini volunteer stats */}
@@ -64,7 +67,7 @@ const VolunteerPage = () => {
                                             +18
                                         </div>
                                     </div>
-                                    <p className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em]">Join 18+ changemakers in our pilot network</p>
+                                    <p className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em]">{t('volunteer.hero.stats_text')}</p>
                                 </div>
                             </FadeIn>
                         </div>
@@ -75,10 +78,10 @@ const VolunteerPage = () => {
                         <div className="max-w-7xl mx-auto">
                             <nav className="flex items-center gap-3 text-slate-400 text-[10px] font-black uppercase tracking-widest">
                                 <Link to="/" className="hover:text-secondary flex items-center gap-2 transition-colors">
-                                    <Home className="w-3 h-3" /> Home
+                                    <Home className="w-3 h-3" /> {t('nav.home')}
                                 </Link>
                                 <ChevronRight className="w-3 h-3 text-slate-300" />
-                                <span className="text-secondary">Volunteer</span>
+                                <span className="text-secondary">{t('footer.volunteer')}</span>
                             </nav>
                         </div>
                     </section>
@@ -87,9 +90,9 @@ const VolunteerPage = () => {
                     <section className="py-24 px-6 lg:px-20 bg-transparent">
                         <div className="max-w-7xl mx-auto">
                             <div className="flex flex-col items-center text-center mb-20">
-                                <span className="text-secondary font-black tracking-[0.4em] uppercase text-[10px] block mb-6">Ways to Act</span>
+                                <span className="text-secondary font-black tracking-[0.4em] uppercase text-[10px] block mb-6">{t('volunteer.roles.badge')}</span>
                                 <h2 className="text-navy text-4xl md:text-6xl font-black tracking-tighter leading-none mb-8">
-                                    Where We <span className="text-secondary ">Need You.</span>
+                                    {t('volunteer.roles.title')} <span className="text-secondary ">{t('volunteer.roles.title_highlight')}</span>
                                 </h2>
                                 <div className="w-24 h-2 bg-secondary rounded-full" />
                             </div>
@@ -104,10 +107,10 @@ const VolunteerPage = () => {
                                             <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center text-navy group-hover:bg-secondary group-hover:text-white transition-all duration-500 mb-8">
                                                 <role.icon className="w-8 h-8" />
                                             </div>
-                                            <h3 className="text-2xl font-black mb-4 text-navy tracking-tight">{role.title}</h3>
-                                            <p className="text-slate-500 font-medium leading-relaxed flex-1">{role.desc}</p>
+                                            <h3 className="text-2xl font-black mb-4 text-navy tracking-tight">{rolesT[i]?.title || role.title}</h3>
+                                            <p className="text-slate-500 font-medium leading-relaxed flex-1">{rolesT[i]?.desc || role.desc}</p>
                                             <div className="mt-8 pt-8 border-t border-slate-50 flex items-center gap-2 text-secondary text-[10px] font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-                                                Learn More <ChevronRight className="w-3 h-3" />
+                                                {t('volunteer.roles.btn_learn')} <ChevronRight className="w-3 h-3" />
                                             </div>
                                         </div>
                                     </FadeIn>
@@ -120,80 +123,80 @@ const VolunteerPage = () => {
                     <section className="py-32 px-6 lg:px-20 bg-transparent" id="apply">
                         <div className="max-w-4xl mx-auto">
                             <div className="flex flex-col items-center text-center mb-20">
-                                <span className="text-slate-500 font-black tracking-[0.4em] uppercase text-[10px] block mb-6">Join the Mission</span>
-                                <h2 className="text-navy text-4xl md:text-6xl font-black tracking-tighter leading-none mb-8 ">Application.</h2>
-                                <p className="text-slate-500 font-medium max-w-xl">We'll review your application and respond with potential placements within 48 hours.</p>
+                                <span className="text-slate-500 font-black tracking-[0.4em] uppercase text-[10px] block mb-6">{t('volunteer.apply.badge')}</span>
+                                <h2 className="text-navy text-4xl md:text-6xl font-black tracking-tighter leading-none mb-8 ">{t('volunteer.apply.title')}</h2>
+                                <p className="text-slate-500 font-medium max-w-xl">{t('volunteer.apply.desc')}</p>
                             </div>
 
                             <div className="form-shell md:p-12">
                                 <form className="space-y-10" onSubmit={(e) => e.preventDefault()}>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                                         <div className="space-y-4">
-                                            <label className="text-[10px] font-black uppercase tracking-widest text-navy">Full Name *</label>
+                                            <label className="text-[10px] font-black uppercase tracking-widest text-navy">{t('volunteer.apply.form.name_label')}</label>
                                             <input
                                                 type="text"
                                                 value={form.name}
                                                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                                                 className="w-full h-16 px-8 bg-slate-50 rounded-2xl border-none focus:ring-2 focus:ring-secondary/20 transition-all text-navy font-bold"
-                                                placeholder="John Doe"
+                                                placeholder={t('volunteer.apply.form.name_placeholder')}
                                             />
                                         </div>
                                         <div className="space-y-4">
-                                            <label className="text-[10px] font-black uppercase tracking-widest text-navy">Email Address *</label>
+                                            <label className="text-[10px] font-black uppercase tracking-widest text-navy">{t('volunteer.apply.form.email_label')}</label>
                                             <input
                                                 type="email"
                                                 value={form.email}
                                                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                                                 className="w-full h-16 px-8 bg-slate-50 rounded-2xl border-none focus:ring-2 focus:ring-secondary/20 transition-all text-navy font-bold"
-                                                placeholder="john@example.com"
+                                                placeholder={t('volunteer.apply.form.email_placeholder')}
                                             />
                                         </div>
                                     </div>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                                         <div className="space-y-4">
-                                            <label className="text-[10px] font-black uppercase tracking-widest text-navy">Phone Number</label>
+                                            <label className="text-[10px] font-black uppercase tracking-widest text-navy">{t('volunteer.apply.form.phone_label')}</label>
                                             <input
                                                 type="tel"
                                                 value={form.phone}
                                                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
                                                 className="w-full h-16 px-8 bg-slate-50 rounded-2xl border-none focus:ring-2 focus:ring-secondary/20 transition-all text-navy font-bold appearance-none"
-                                                placeholder="+1 (555) 000-0000"
+                                                placeholder={t('volunteer.apply.form.phone_placeholder')}
                                             />
                                         </div>
                                         <div className="space-y-4">
-                                            <label className="text-[10px] font-black uppercase tracking-widest text-navy">Preferred Role *</label>
+                                            <label className="text-[10px] font-black uppercase tracking-widest text-navy">{t('volunteer.apply.form.role_label')}</label>
                                             <select
                                                 value={form.role}
                                                 onChange={(e) => setForm({ ...form, role: e.target.value })}
                                                 className="w-full h-16 px-8 bg-slate-50 rounded-2xl border-none focus:ring-2 focus:ring-secondary/20 transition-all text-navy font-bold appearance-none"
                                             >
-                                                <option value="">Select a role...</option>
-                                                <option>Education Support</option>
-                                                <option>Community Outreach</option>
-                                                <option>Skill Development</option>
-                                                <option>Fundraising</option>
-                                                <option>Remote / Digital</option>
+                                                <option value="">{t('volunteer.apply.form.role_options.default')}</option>
+                                                <option>{t('volunteer.apply.form.role_options.edu')}</option>
+                                                <option>{t('volunteer.apply.form.role_options.outreach')}</option>
+                                                <option>{t('volunteer.apply.form.role_options.skill')}</option>
+                                                <option>{t('volunteer.apply.form.role_options.fund')}</option>
+                                                <option>{t('volunteer.apply.form.role_options.remote')}</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div className="space-y-4">
-                                        <label className="text-[10px] font-black uppercase tracking-widest text-navy">Your Motivation</label>
+                                        <label className="text-[10px] font-black uppercase tracking-widest text-navy">{t('volunteer.apply.form.motivation_label')}</label>
                                         <textarea
                                             value={form.message}
                                             onChange={(e) => setForm({ ...form, message: e.target.value })}
                                             rows={5}
                                             className="w-full p-8 bg-slate-50 rounded-3xl border-none focus:ring-2 focus:ring-secondary/20 transition-all text-navy font-bold resize-none"
-                                            placeholder="Tell us why you'd like to join our community..."
+                                            placeholder={t('volunteer.apply.form.motivation_placeholder')}
                                         />
                                     </div>
                                     <button
                                         type="submit"
                                         className="w-full h-20 bg-navy rounded-2xl text-white font-black text-xs uppercase tracking-[0.2em] hover:bg-secondary transition-all shadow-2xl shadow-navy/20 flex items-center justify-center gap-4 group"
                                     >
-                                        Submit Application <Send className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+                                        {t('volunteer.apply.form.btn_submit')} <Send className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
                                     </button>
                                     <div className="flex items-center justify-center gap-4 text-slate-400 text-[10px] font-black uppercase tracking-widest ">
-                                        <CheckCircle2 className="w-3 h-3 text-secondary" /> Verified Secure Application
+                                        <CheckCircle2 className="w-3 h-3 text-secondary" /> {t('volunteer.apply.form.secure_text')}
                                     </div>
                                 </form>
                             </div>
@@ -205,17 +208,17 @@ const VolunteerPage = () => {
                         <div className="absolute top-0 right-0 w-1/3 h-full bg-secondary/5 -skew-x-12 translate-x-1/2 pointer-events-none" />
                         <FadeIn direction="up">
                             <h2 className="text-white text-4xl md:text-6xl font-black tracking-tighter mb-8 leading-none">
-                                Ready to <span className="text-secondary ">Act?</span>
+                                {t('volunteer.final_cta.title')} <span className="text-secondary ">{t('volunteer.final_cta.title_highlight')}</span>
                             </h2>
                             <p className="text-slate-400 max-w-xl mx-auto mb-16 text-xl font-medium leading-relaxed">
-                                Join our growing family of volunteers changing lives across 12 countries in Africa.
+                                {t('volunteer.final_cta.desc')}
                             </p>
                             <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-md mx-auto">
                                 <a href="#apply" className="group relative flex items-center justify-center overflow-hidden rounded-xl bg-secondary px-10 h-16 text-white font-black transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-secondary/40 w-full">
-                                    Apply Now
+                                    {t('volunteer.final_cta.btn_apply')}
                                 </a>
                                 <Link to="/donate" className="flex items-center justify-center rounded-xl bg-white/5 backdrop-blur-md border border-white/20 px-10 h-16 text-white font-black hover:bg-white/10 transition-all text-lg w-full">
-                                    Donate
+                                    {t('volunteer.final_cta.btn_donate')}
                                 </Link>
                             </div>
                         </FadeIn>

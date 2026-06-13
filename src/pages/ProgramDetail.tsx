@@ -5,6 +5,7 @@ import FadeIn from '../components/FadeIn';
 import { motion } from 'framer-motion';
 import { Heart, ArrowLeft, CheckCircle, Users, Target, ImageIcon } from 'lucide-react';
 import { ACTION_LINKS } from '../constants/actionLinks';
+import { useTranslation } from 'react-i18next';
 
 /* ─── All Programs Data ─── */
 const programData: Record<string, {
@@ -42,9 +43,9 @@ const programData: Record<string, {
         ],
         beneficiaries: ['Primary school pupils aged 6–12', 'Secondary school students aged 13–18', 'University students aged 18–25', 'Students from displaced or conflict-affected families'],
         gallery: [
-            '/assets/charity/our-expertize-in-action.png',
-            '/assets/charity/our-expertize-in-action.png',
-            '/assets/charity/our-expertize-in-action.png',
+            '/assets/images/new_assets/story_student.png',
+            '/assets/images/new_assets/story_student.png',
+            '/assets/images/new_assets/story_student.png',
         ],
         stats: [{ label: 'Students Funded', value: '8' }, { label: 'Graduation Rate', value: '92%' }, { label: 'Partner Schools', value: '4' }],
         milestones: [
@@ -109,12 +110,12 @@ const programData: Record<string, {
         color: 'bg-cyan-600',
         lightColor: 'bg-cyan-50',
         textColor: 'text-cyan-700',
-        image: '/assets/charity/our-expertize-in-action.png',
+        image: '/assets/images/new_assets/story_student.png',
         description: 'Drilling boreholes, installing water purification systems, and building sanitation facilities in water-scarce communities across Cameroon.',
         longDesc: 'Access to clean water is a fundamental human right, yet millions of Cameroonians still walk hours daily to collect unsafe water. Our clean water initiative identifies communities with the highest need, funds borehole drilling and pump installation, trains local maintenance committees, and conducts hygiene education to ensure long-term sustainability of each project.',
         goals: ['Complete 3 borehole projects in priority communities', 'Reach nearby households with safe water access', 'Train maintenance committees in 100% of project communities', 'Conduct quarterly water quality testing'],
         beneficiaries: ['Rural households without pipe-borne water', 'Schools lacking safe drinking water', 'Health centres in underserved areas', 'Women who currently carry water over long distances'],
-        gallery: ['/assets/charity/our-expertize-in-action.png', '/assets/charity/our-expertize-in-action.png'],
+        gallery: ['/assets/images/new_assets/story_student.png', '/assets/images/new_assets/story_student.png'],
         stats: [{ label: 'Boreholes Drilled', value: '3' }, { label: 'Beneficiaries', value: '120+' }, { label: 'Communities', value: '3' }],
         milestones: [
             { year: '2025', event: 'First borehole completed in Littoral region.' },
@@ -134,7 +135,7 @@ const programData: Record<string, {
         longDesc: 'Teachers are the most powerful force in any education system. In Cameroon, dedicated teachers often work in difficult conditions with minimal resources. Our Teacher Rewards Programme identifies, publicly celebrates, and financially supports exceptional teachers nominated by their school communities. Beyond financial rewards, we fund professional training, provide teaching materials, and create a peer network of excellence.',
         goals: ['Recognize 6 teachers through pilot awards', 'Provide modest classroom grants to selected teachers', 'Host practical training sessions for partner teachers', 'Document teacher-impact case studies'],
         beneficiaries: ['Primary and secondary school teachers', 'Teachers in rural and hard-to-reach areas', 'Recently-qualified teachers lacking resources'],
-        gallery: ['/assets/charity/teacher-rewards.png', '/assets/charity/our-expertize-in-action.png'],
+        gallery: ['/assets/charity/teacher-rewards.png', '/assets/images/new_assets/story_student.png'],
         stats: [{ label: 'Teachers Awarded', value: '6' }, { label: 'Regions Covered', value: '2' }, { label: 'Training Sessions', value: '4' }],
         milestones: [{ year: '2025', event: 'Pilot recognition ceremony held in Yaounde.' }, { year: '2026', event: 'Programme expanded to 2 regions with 6 teachers recognized.' }],
     },
@@ -145,12 +146,12 @@ const programData: Record<string, {
         color: 'bg-red-600',
         lightColor: 'bg-red-50',
         textColor: 'text-red-700',
-        image: '/assets/charity/our-expertize-in-action.png',
+        image: '/assets/images/new_assets/story_student.png',
         description: 'Mobile health clinics, medication supply campaigns, maternal health programmes, and preventive care outreach for underserved communities.',
         longDesc: 'Quality healthcare remains out of reach for millions of Cameroonians due to distance, cost, and lack of health workers. Our community health programme deploys mobile clinics to underserved areas, staffed by volunteer nurses, doctors, and community health workers. We run malaria prevention, maternal and child health, nutrition, and screening programmes — ensuring every family can access basic healthcare regardless of location or income.',
         goals: ['Run 4 mobile outreach clinic days monthly', 'Serve identified families with essential care', 'Train 8 community health volunteers', 'Achieve 80% malaria net coverage in target areas'],
         beneficiaries: ['Pregnant women and new mothers', 'Children under 5', 'Elderly community members', 'Residents more than 5km from the nearest health facility'],
-        gallery: ['/assets/charity/our-expertize-in-action.png', '/assets/charity/our-expertize-in-action.png'],
+        gallery: ['/assets/images/new_assets/story_student.png', '/assets/images/new_assets/story_student.png'],
         stats: [{ label: 'Patients Served', value: '90+' }, { label: 'Mobile Clinics', value: '2' }, { label: 'Health Workers Trained', value: '8' }],
         milestones: [{ year: '2025', event: 'First mobile clinic deployed in North West region.' }, { year: '2026', event: 'Two recurring clinic points established in partner communities.' }],
     },
@@ -161,12 +162,12 @@ const programData: Record<string, {
         color: 'bg-purple-600',
         lightColor: 'bg-purple-50',
         textColor: 'text-purple-700',
-        image: '/assets/charity/our-expertize-in-action.png',
+        image: '/assets/images/new_assets/story_student.png',
         description: 'Micro-grants, skills training, trauma counselling, childcare support, and livelihood assistance for single mothers and widows across Cameroon.',
         longDesc: 'Single mothers in Cameroon bear immense burdens — raising children alone, often with no income source, no formal education, and no support network. Our programme wraps around each beneficiary: financial micro-grants to start small businesses, practical skills training in tailoring, catering, cosmetology, and agriculture; trauma and psychosocial counselling; and access to childcare to free mothers for training and work. We track outcomes for 12 months post-programme to ensure lasting impact.',
         goals: ['Enroll 10 single mothers and widows in the pilot cycle', 'Provide practical livelihood coaching', 'Support small business starter grants', 'Establish childcare partnerships in 5 regions'],
         beneficiaries: ['Single mothers with children under 18', 'War widows and conflict-affected women', 'Women who have experienced domestic violence', 'Women with no formal income source'],
-        gallery: ['/assets/charity/our-expertize-in-action.png', '/assets/charity/our-expertize-in-action.png'],
+        gallery: ['/assets/images/new_assets/story_student.png', '/assets/images/new_assets/story_student.png'],
         stats: [{ label: 'Women Enrolled', value: '10' }, { label: 'Businesses Started', value: '4' }, { label: 'Active Graduates', value: '7' }],
         milestones: [{ year: '2025', event: 'Programme launched in Bafoussam with an initial pilot cohort.' }, { year: '2026', event: 'Expanded support to 10 women in active training and livelihood support.' }],
     },
@@ -177,19 +178,25 @@ const programData: Record<string, {
         color: 'bg-green-600',
         lightColor: 'bg-green-50',
         textColor: 'text-green-700',
-        image: '/assets/charity/our-expertize-in-action.png',
+        image: '/assets/images/new_assets/story_student.png',
         description: 'Leadership development, vocational training, digital skills, and entrepreneurship programmes for young people aged 15–35 across Cameroon.',
         longDesc: 'Youth account for over 60% of Cameroon\'s population yet face high unemployment and limited opportunities. Our Youth Empowerment programme combines leadership training, practical vocational skills (welding, plumbing, ICT, agriculture), digital literacy, and business mentorship with seed funding for promising youth entrepreneurs. We run residential bootcamps, apprenticeships, and ongoing coaching sessions throughout the year.',
         goals: ['Train 12 young people in the first cohort', 'Offer employability and entrepreneurship coaching', 'Support 3 youth-led micro ventures', 'Build a starter mentorship network'],
         beneficiaries: ['Youth aged 15–35 without formal employment', 'School dropouts seeking vocational paths', 'Young entrepreneurs with business ideas', 'University graduates who are unemployed'],
-        gallery: ['/assets/charity/our-expertize-in-action.png', '/assets/charity/our-expertize-in-action.png'],
+        gallery: ['/assets/images/new_assets/story_student.png', '/assets/images/new_assets/story_student.png'],
         stats: [{ label: 'Youth Trained', value: '12' }, { label: 'Businesses Funded', value: '3' }, { label: 'Placement Progress', value: 'Ongoing' }],
         milestones: [{ year: '2025', event: 'First youth pilot cohort completed training sessions.' }, { year: '2026', event: 'Three youth-led ventures received starter support.' }],
     },
 };
 
 const ProgramDetailPage = () => {
+    const { t } = useTranslation();
     const { id } = useParams();
+    
+    // We get the specific program translation based on the ID.
+    // If not found, we will fall back to English or handle the null gracefully.
+    const programT = t(`program_detail.programs.${id}`, { returnObjects: true }) as any;
+    
     const program = programData[id as keyof typeof programData];
     const applicationLink = id === 'scholarships-primary'
         ? '/apply/scholarship/primary'
@@ -210,10 +217,10 @@ const ProgramDetailPage = () => {
                         <div className="w-20 h-20 rounded-3xl bg-slate-100 flex items-center justify-center mx-auto mb-6">
                             <ImageIcon className="w-10 h-10 text-slate-400" />
                         </div>
-                        <h1 className="text-3xl font-black text-slate-900 mb-3">Programme Not Found</h1>
-                        <p className="text-slate-500 mb-6">We couldn't locate this programme. Browse all our programmes below.</p>
+                        <h1 className="text-3xl font-black text-slate-900 mb-3">{t('program_detail.not_found.title')}</h1>
+                        <p className="text-slate-500 mb-6">{t('program_detail.not_found.desc')}</p>
                         <Link to="/programs" className="bg-green-600 text-white font-bold px-8 py-3 rounded-xl hover:bg-green-700 transition-colors">
-                            View All Programs
+                            {t('program_detail.not_found.btn')}
                         </Link>
                     </div>
                 </main>
@@ -239,10 +246,10 @@ const ProgramDetailPage = () => {
                 <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pb-16">
                     <FadeIn direction="up">
                         <span className={`inline-block px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest ${program.lightColor} ${program.textColor} mb-4`}>
-                            {program.category}
+                            {programT?.category || program.category}
                         </span>
-                        <h1 className="text-white text-4xl md:text-6xl font-black leading-tight mb-3">{program.title}</h1>
-                        <p className="text-green-300 text-xl font-semibold">{program.subtitle}</p>
+                        <h1 className="text-white text-4xl md:text-6xl font-black leading-tight mb-3">{programT?.title || program.title}</h1>
+                        <p className="text-green-300 text-xl font-semibold">{programT?.subtitle || program.subtitle}</p>
                     </FadeIn>
                 </div>
             </section>
@@ -251,10 +258,10 @@ const ProgramDetailPage = () => {
             <section className="bg-slate-900 py-8">
                 <div className="max-w-7xl mx-auto px-6 md:px-12">
                     <div className="grid grid-cols-3 gap-8 divide-x divide-white/10">
-                        {program.stats.map((s) => (
-                            <div key={s.label} className="text-center px-4">
-                                <div className="text-green-400 text-3xl font-black mb-1">{s.value}</div>
-                                <div className="text-slate-400 text-xs font-bold uppercase tracking-widest">{s.label}</div>
+                        {program.stats.map((s, idx) => (
+                            <div key={idx} className="text-center px-4">
+                                <div className="text-green-400 text-3xl font-black mb-1">{programT?.stats?.[idx]?.value || s.value}</div>
+                                <div className="text-slate-400 text-xs font-bold uppercase tracking-widest">{programT?.stats?.[idx]?.label || s.label}</div>
                             </div>
                         ))}
                     </div>
@@ -268,9 +275,9 @@ const ProgramDetailPage = () => {
                         {/* Main content */}
                         <div className="lg:col-span-2 space-y-10">
                             <FadeIn direction="right">
-                                <h2 className="text-slate-900 text-3xl font-black mb-4">About This Programme</h2>
-                                <p className="text-slate-600 text-lg leading-relaxed mb-6">{program.description}</p>
-                                <p className="text-slate-500 leading-relaxed">{program.longDesc}</p>
+                                <h2 className="text-slate-900 text-3xl font-black mb-4">{t('program_detail.sections.about')}</h2>
+                                <p className="text-slate-600 text-lg leading-relaxed mb-6">{programT?.description || program.description}</p>
+                                <p className="text-slate-500 leading-relaxed">{programT?.longDesc || program.longDesc}</p>
                             </FadeIn>
 
                             {/* Goals */}
@@ -280,10 +287,10 @@ const ProgramDetailPage = () => {
                                         <div className="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center">
                                             <Target className="w-5 h-5 text-green-600" />
                                         </div>
-                                        <h3 className="text-slate-900 text-xl font-black">Programme Goals</h3>
+                                        <h3 className="text-slate-900 text-xl font-black">{t('program_detail.sections.goals')}</h3>
                                     </div>
                                     <ul className="space-y-3">
-                                        {program.goals.map((goal, i) => (
+                                        {(programT?.goals || program.goals).map((goal: string, i: number) => (
                                             <motion.li key={i}
                                                 initial={{ opacity: 0, x: -10 }}
                                                 whileInView={{ opacity: 1, x: 0 }}
@@ -305,10 +312,10 @@ const ProgramDetailPage = () => {
                                         <div className="w-10 h-10 rounded-xl bg-slate-200 flex items-center justify-center">
                                             <Users className="w-5 h-5 text-slate-600" />
                                         </div>
-                                        <h3 className="text-slate-900 text-xl font-black">Who We Serve</h3>
+                                        <h3 className="text-slate-900 text-xl font-black">{t('program_detail.sections.serve')}</h3>
                                     </div>
                                     <div className="grid sm:grid-cols-2 gap-3">
-                                        {program.beneficiaries.map((b, i) => (
+                                        {(programT?.beneficiaries || program.beneficiaries).map((b: string, i: number) => (
                                             <div key={i} className="flex items-start gap-2.5 bg-white rounded-xl p-3 border border-slate-100">
                                                 <span className="w-2 h-2 rounded-full bg-green-500 flex-shrink-0 mt-1.5" />
                                                 <span className="text-slate-600 text-sm font-medium">{b}</span>
@@ -321,7 +328,7 @@ const ProgramDetailPage = () => {
                             {/* Gallery */}
                             {program.gallery.length > 0 && (
                                 <FadeIn direction="up">
-                                    <h3 className="text-slate-900 text-xl font-black mb-5">Programme Gallery</h3>
+                                    <h3 className="text-slate-900 text-xl font-black mb-5">{t('program_detail.sections.gallery')}</h3>
                                     <div className="grid grid-cols-3 gap-3">
                                         {program.gallery.map((img, i) => (
                                             <motion.div key={i}
@@ -341,15 +348,15 @@ const ProgramDetailPage = () => {
                             {/* Timeline */}
                             <FadeIn direction="left">
                                 <div className="rounded-3xl p-7">
-                                    <h3 className="text-slate-900 font-black text-lg mb-6">Milestones</h3>
+                                    <h3 className="text-slate-900 font-black text-lg mb-6">{t('program_detail.sections.milestones')}</h3>
                                     <div className="space-y-6 relative before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-green-100">
                                         {program.milestones.map((m, i) => (
                                             <div key={i} className="relative pl-10">
                                                 <div className="absolute left-0 top-1.5 w-6 h-6 rounded-full border-2 border-green-600 bg-white flex items-center justify-center">
                                                     <span className="w-2 h-2 rounded-full bg-green-600" />
                                                 </div>
-                                                <div className="text-green-600 font-black text-xs mb-1 uppercase tracking-widest">{m.year}</div>
-                                                <p className="text-slate-600 text-sm font-medium leading-relaxed">{m.event}</p>
+                                                <div className="text-green-600 font-black text-xs mb-1 uppercase tracking-widest">{programT?.milestones?.[i]?.year || m.year}</div>
+                                                <p className="text-slate-600 text-sm font-medium leading-relaxed">{programT?.milestones?.[i]?.event || m.event}</p>
                                             </div>
                                         ))}
                                     </div>
@@ -359,17 +366,17 @@ const ProgramDetailPage = () => {
                             {/* Apply / Donate CTA */}
                             <FadeIn direction="left">
                                 <div id="apply-support" className="bg-gradient-to-br from-green-700 to-green-600 rounded-3xl p-7 text-white">
-                                    <h3 className="font-black text-xl mb-3">Apply for Support</h3>
+                                    <h3 className="font-black text-xl mb-3">{t('program_detail.sections.apply.title')}</h3>
                                     <p className="text-green-100 text-sm leading-relaxed mb-6">
-                                        Think you or someone you know qualifies for this programme? Fill in our application form and our team will be in touch.
+                                        {t('program_detail.sections.apply.desc')}
                                     </p>
                                     <Link to={applicationLink}
                                         className="flex items-center justify-center gap-2 w-full py-3.5 bg-white text-[#001F5B] font-bold rounded-xl hover:bg-green-50 transition-colors mb-3 text-sm">
-                                        Apply Now
+                                        {t('program_detail.sections.apply.btn_apply')}
                                     </Link>
                                     <Link to="/donate"
                                         className="flex items-center justify-center gap-2 w-full py-3.5 bg-green-800/50 text-white border border-white/20 font-bold rounded-xl hover:bg-green-800 transition-colors text-sm">
-                                        <Heart className="w-4 h-4" /> Donate to This Programme
+                                        <Heart className="w-4 h-4" /> {t('program_detail.sections.apply.btn_donate')}
                                     </Link>
                                 </div>
                             </FadeIn>
@@ -377,12 +384,12 @@ const ProgramDetailPage = () => {
                             {/* Partner */}
                             <FadeIn direction="left">
                                 <div className="bg-slate-50 rounded-3xl border border-slate-100 p-7">
-                                    <h3 className="text-slate-900 font-black text-base mb-3">Partner or Volunteer</h3>
+                                    <h3 className="text-slate-900 font-black text-base mb-3">{t('program_detail.sections.partner.title')}</h3>
                                     <p className="text-slate-500 text-sm mb-5 leading-relaxed">
-                                        Organisations and individuals can partner with us to scale this programme.
+                                        {t('program_detail.sections.partner.desc')}
                                     </p>
                                     <Link to="/partnership" className="flex items-center justify-center w-full py-3 border-2 border-green-600 text-green-700 font-bold rounded-xl hover:bg-green-50 transition-colors text-sm">
-                                        Partner With Us
+                                        {t('program_detail.sections.partner.btn')}
                                     </Link>
                                 </div>
                             </FadeIn>
@@ -395,7 +402,7 @@ const ProgramDetailPage = () => {
             <section className="py-10 border-t border-slate-100">
                 <div className="max-w-7xl mx-auto px-6 md:px-12">
                     <Link to="/programs" className="inline-flex items-center gap-2 text-slate-500 hover:text-green-600 font-semibold transition-colors text-sm">
-                        <ArrowLeft className="w-4 h-4" /> Back to All Programmes
+                        <ArrowLeft className="w-4 h-4" /> {t('program_detail.sections.back')}
                     </Link>
                 </div>
             </section>
