@@ -58,7 +58,7 @@ const NewsletterCTA = () => {
                                         className="rounded-2xl p-8 text-center"
                                         style={{ backgroundColor: 'rgba(0,191,165,0.12)' }}
                                     >
-                                        <p className="text-2xl mb-2" style={{ color: '#001B44', fontFamily: '"Playfair Display", serif' }}>
+                                        <p className="text-2xl mb-2 text-slate-800 font-bold">
                                             {t('components.newsletter_cta.success_title')}
                                         </p>
                                         <p className="text-sm" style={{ color: '#475569' }}>

@@ -20,6 +20,8 @@ import FocusCommunities from './pages/FocusCommunities';
 import ApplicationDetail from './pages/ApplicationDetail';
 import ScholarshipTrackApplication from './pages/ScholarshipTrackApplication';
 import RequirementDetail from './pages/RequirementDetail';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 import ScrollToTop from './components/ScrollToTop';
 import WhatsAppFloat from './components/WhatsAppFloat';
 
@@ -54,6 +56,9 @@ function App() {
         <Route path="/focus-communities/:slug" element={<FocusDetail />} />
         {/* Get Involved alias */}
         <Route path="/get-involved" element={<Volunteer />} />
+        {/* Legal routes */}
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
       </Routes>
     </Router>
   );

@@ -150,46 +150,55 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [lastScrollY]);
 
-    const navbarFontStyle = { fontFamily: '"Playfair Display", Georgia, serif' };
+    const navbarFontStyle = { fontFamily: '"Open Sans", sans-serif' };
 
     return (
         <>
             {/* ═══════════════════ FIXED HEADER WRAPPER ═══════════════════ */}
             <motion.div 
-                className="fixed top-0 left-0 right-0 z-50"
+                className="fixed top-0 left-0 right-0 z-50 bg-white"
                 animate={{ y: isVisible ? 0 : -200 }}
                 transition={{ duration: 0.3 }}
             >
+                {/* ── TOP INFO BAR (Search & Secondary Links) ── */}
+                <div className="hidden lg:block border-b border-slate-100 py-4">
+                    <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between gap-8">
+                        {/* Logo */}
+                        <Link to="/" className="flex items-center gap-3 flex-shrink-0 min-w-0">
+                            <img src="/assets/logo/enako.png" alt="Enako Outreach logo" className="h-12 md:h-14 2xl:h-16 w-auto object-contain" />
+                            <div className="flex flex-col justify-center leading-none pt-1">
+                                <p className="font-bold text-sm 2xl:text-base uppercase tracking-widest text-[#1c4980]">ENAKO OUTREACH</p>
+                                <p className="text-[#1eb4d4] text-[9px] font-semibold uppercase tracking-[0.2em] mt-1">Community Impact</p>
+                            </div>
+                        </Link>
 
-                {/* ── TOP INFO BAR ── */}
-                <div className={`hidden md:block text-white border-b border-transparent py-2.5 transition-colors duration-300 ${isScrolled ? 'bg-[#001B44]' : 'bg-transparent'}`} style={{textShadow: '0 1px 3px rgba(0,0,0,0.6)'}}>
-                    <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
-                        {/* Left: Contact */}
-                        <div className="flex items-center gap-8 text-[13px] font-bold tracking-wide">
-                            <a href="tel:+237 6 78 45 79 26" className="flex items-center gap-2.5 hover:text-[#00C2C7] transition-all group">
-                                <img src="/assets/charity/contact us/phone.png" alt="phone" className="w-3.5 h-3.5 object-contain group-hover:scale-110 transition-transform" />
-                                <span className="hidden sm:inline">+237 6 78 45 79 26</span>
-                            </a>
-                            <a href="mailto:enakooutreach@gmail.com" className="flex items-center gap-2.5 hover:text-[#00C2C7] transition-all group">
-                                <img src="/assets/charity/contact us/email.png" alt="email" className="w-3.5 h-3.5 object-contain group-hover:scale-110 transition-transform" />
-                                <span className="hidden md:inline">enakooutreach@gmail.com</span>
-                            </a>
+                        {/* Search Bar */}
+                        <div className="flex-1 max-w-lg flex items-center mx-4">
+                            <div className="flex w-full overflow-hidden border border-slate-300 rounded focus-within:border-[#1eb4d4] transition-colors shadow-sm">
+                                <input 
+                                    type="text" 
+                                    placeholder="Enter Keywords..." 
+                                    className="w-full px-4 py-2.5 text-sm text-slate-700 outline-none placeholder:text-slate-400"
+                                />
+                                <button className="bg-[#1eb4d4] text-white px-6 py-2.5 text-sm font-bold flex items-center gap-2 hover:bg-[#1593af] transition-colors">
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                                    Search
+                                </button>
+                            </div>
                         </div>
 
-                        {/* Right: Socials + Language */}
-                        <div className="flex items-center gap-4">
-                            <div className="hidden sm:flex items-center gap-6 mr-2">
-                                {socialLinks.map((s) => (
-                                    <a key={s.label} href={s.href} aria-label={s.label} className="inline-flex items-center hover:scale-110 transition-transform">
-                                        {s.icon}
-                                    </a>
-                                ))}
-                            </div>
-                            {/* Language Dropdown */}
-                            <div className="relative">
+                        {/* Top Right Links */}
+                        <div className="flex items-center gap-5 xl:gap-7 text-[#1eb4d4] text-[11px] 2xl:text-xs font-bold tracking-widest uppercase">
+                            <Link to="/about" className="hover:text-[#1c4980] transition-colors">ABOUT</Link>
+                            <Link to="/blog/latest-news" className="hover:text-[#1c4980] transition-colors">PRESS</Link>
+                            <Link to="/get-involved" className="hover:text-[#1c4980] transition-colors">GET INVOLVED</Link>
+                            <Link to="/contact" className="hover:text-[#1c4980] transition-colors">CONTACT</Link>
+                            
+                            {/* Language Dropdown (Small) */}
+                            <div className="relative ml-2">
                                 <button
                                     onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-                                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-700 hover:border-[#00C2C7] transition-colors text-[13px] font-black"
+                                    className="flex items-center gap-1 hover:text-[#1c4980] transition-colors"
                                 >
                                     {lang} <ChevronDown className="w-3.5 h-3.5" />
                                 </button>
@@ -199,13 +208,13 @@ const Navbar = () => {
                                             initial={{ opacity: 0, y: -5 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: -5 }}
-                                            className="absolute right-0 top-full mt-2 w-24 bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden z-[100]"
+                                            className="absolute right-0 top-full mt-2 w-24 bg-white rounded-md shadow-lg border border-slate-100 overflow-hidden z-[100]"
                                         >
                                             {(['EN', 'FR'] as const).map((l) => (
                                                 <button
                                                     key={l}
                                                     onClick={() => setLang(l)}
-                                                    className={`w-full text-left px-4 py-2 text-[13px] font-bold transition-all ${lang === l ? 'bg-green-50 text-[#00C2C7]' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'}`}
+                                                    className={`w-full text-left px-4 py-2 text-[12px] font-bold transition-all ${lang === l ? 'bg-[#f0f9fa] text-[#1eb4d4]' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'}`}
                                                 >
                                                     {l}
                                                 </button>
@@ -219,39 +228,65 @@ const Navbar = () => {
                 </div>
 
                 {/* ── MAIN NAVBAR ── */}
-                <header className={`backdrop-blur-md border-b border-transparent py-0 transition-colors duration-300 ${isScrolled ? 'bg-[#001B44]/95' : 'bg-black/10'}`} style={navbarFontStyle}>
-                    <div className="max-w-7xl mx-auto px-2 md:px-4 xl:px-6 2xl:px-8 flex items-center justify-between gap-2 md:gap-4" style={{ minHeight: '72px' }}>
+                <header className="bg-white shadow-sm" style={navbarFontStyle}>
+                    <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between lg:justify-center gap-4 min-h-[64px] lg:min-h-0">
+                        
+                        {/* Mobile Logo & Language (hidden on lg) */}
+                        <div className="lg:hidden flex items-center justify-between w-full">
+                            <Link to="/" className="flex items-center gap-2 group flex-shrink-0 min-w-0">
+                                <img src="/assets/logo/enako.png" alt="Enako Outreach logo" className="h-10 w-auto object-contain" />
+                                <div className="flex flex-col justify-center leading-none min-w-0">
+                                    <p className="font-black text-[11px] uppercase tracking-wider text-[#1c4980] whitespace-nowrap">ENAKO OUTREACH</p>
+                                </div>
+                            </Link>
 
-                        {/* Logo */}
-                        <Link to="/" className="flex items-center gap-2 group flex-shrink-0 min-w-0">
-                            <img src="/assets/logo/enako.png" alt="Enako Outreach logo" className="h-10 sm:h-12 md:h-14 2xl:h-[72px] w-auto object-contain group-hover:scale-105 transition-all duration-500" />
-                            <div className="flex flex-col justify-center leading-none pt-1 min-w-0">
-                                <p className="font-black text-[10px] sm:text-xs md:text-sm 2xl:text-base uppercase tracking-[0.03em] sm:tracking-[0.05em] md:tracking-[0.07em] text-white whitespace-nowrap" style={{textShadow: '0 1px 3px rgba(0,0,0,0.6)'}}>ENAKO OUTREACH</p>
-                                <p className="text-[#00C2C7] text-[6px] sm:text-[7px] md:text-[8px] 2xl:text-[9px] font-semibold uppercase tracking-[0.12em] sm:tracking-[0.16em] md:tracking-[0.22em] mt-1 whitespace-nowrap">Community Impact</p>
+                            <div className="flex items-center gap-4">
+                                <button
+                                    onClick={() => setLangDropdownOpen(!langDropdownOpen)}
+                                    className="text-[#1eb4d4] font-bold text-xs"
+                                >
+                                    {lang}
+                                </button>
+                                <button
+                                    className="flex items-center justify-center transition-all duration-300 active:scale-90 text-[#1c4980] w-9 h-9"
+                                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                                    aria-label="Toggle Menu"
+                                >
+                                    <AnimatePresence mode="wait" initial={false}>
+                                        {isMobileMenuOpen ? (
+                                            <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                                                <X className="w-7 h-7" />
+                                            </motion.div>
+                                        ) : (
+                                            <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                                                <Menu className="w-7 h-7" />
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </button>
                             </div>
-                        </Link>
+                        </div>
 
                         {/* Desktop Nav */}
-                        <nav className="hidden xl:flex items-center gap-0.5 2xl:gap-1.5 ml-1 2xl:ml-2">
-                            {navLinks.map((link) => (
+                        <nav className="hidden lg:flex items-center justify-center w-full">
+                            {navLinks.map((link, index) => (
                                 <div
                                     key={link.nameKey}
-                                    className="relative"
+                                    className={`relative flex items-center justify-center flex-1 ${index !== navLinks.length - 1 ? 'border-r border-slate-100' : ''}`}
                                     onMouseEnter={() => link.dropdown && setActiveDropdown(link.nameKey)}
                                     onMouseLeave={() => { setActiveDropdown(null); setActiveSub(null); }}
                                 >
                                     <Link
                                         to={link.href}
-                                        className={`text-[12px] 2xl:text-[13px] font-semibold transition-colors duration-200 flex items-center gap-0.5 2xl:gap-1 whitespace-nowrap px-1.5 py-1 rounded-md ${location.pathname === link.href ||
+                                        className={`w-full text-center text-[12px] 2xl:text-[13px] font-bold uppercase tracking-wider transition-colors duration-200 flex items-center justify-center gap-1.5 whitespace-nowrap py-4 ${location.pathname === link.href ||
                                                 (link.dropdown && link.dropdown.some(d => d.items.some(i => i.href === location.pathname)))
-                                                ? 'text-[#00C2C7] bg-white/10'
-                                                : 'text-white hover:text-[#00C2C7]'
+                                                ? 'text-[#1c4980]'
+                                                : 'text-slate-700 hover:text-[#1eb4d4]'
                                             }`}
-                                        style={{textShadow: '0 1px 2px rgba(0,0,0,0.5)'}}
                                     >
                                         {t(link.nameKey)}
                                         {link.dropdown && (
-                                            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === link.nameKey ? 'rotate-180' : ''}`} />
+                                            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 text-slate-400 ${activeDropdown === link.nameKey ? 'rotate-180 text-[#1eb4d4]' : ''}`} />
                                         )}
                                     </Link>
 
@@ -263,13 +298,13 @@ const Navbar = () => {
                                                 animate={{ opacity: 1, y: 0, scale: 1 }}
                                                 exit={{ opacity: 0, y: 6, scale: 0.97 }}
                                                 transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-                                                className="absolute top-full left-0 pt-3 min-w-[520px]"
+                                                className="absolute top-full left-1/2 -translate-x-1/2 pt-2 min-w-[520px] z-50"
                                             >
-                                                <div className="bg-white rounded-2xl shadow-2xl shadow-black/15 border border-slate-100 overflow-hidden p-5">
+                                                <div className="bg-white rounded-xl shadow-2xl shadow-black/15 border border-slate-200 overflow-hidden p-5">
                                                     <div className={`grid gap-6 ${link.dropdown.length > 1 ? 'grid-cols-2' : 'grid-cols-1'}`}>
                                                         {link.dropdown.map((section) => (
-                                                            <div key={section.titleKey}>
-                                                                <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-green-600 border-b border-slate-100 pb-2 mb-3">
+                                                            <div key={section.titleKey} className="text-left">
+                                                                <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#1eb4d4] border-b border-slate-100 pb-2 mb-3">
                                                                     {t(section.titleKey)}
                                                                 </h4>
                                                                 <div className="space-y-0.5">
@@ -282,16 +317,16 @@ const Navbar = () => {
                                                                         >
                                                                             <Link
                                                                                 to={sub.href}
-                                                                                className="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-green-50 transition-all"
+                                                                                className="group flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#f0f9fa] transition-all"
                                                                             >
-                                                                                <div className="flex-1">
+                                                                                <div className="flex-1 text-left">
                                                                                     <div className="flex items-center gap-1">
-                                                                                        <span className="text-slate-800 font-semibold text-sm group-hover:text-green-700">{t(sub.nameKey)}</span>
+                                                                                        <span className="text-slate-800 font-semibold text-sm group-hover:text-[#1c4980]">{t(sub.nameKey)}</span>
                                                                                         {'sub' in sub && sub.sub && (
                                                                                             <ChevronDown className="w-3 h-3 text-slate-400 -rotate-90" />
                                                                                         )}
                                                                                     </div>
-                                                                                    <div className="text-xs text-slate-400">{t(sub.descKey as any)}</div>
+                                                                                    <div className="text-xs text-slate-500 mt-1">{t(sub.descKey as any)}</div>
                                                                                 </div>
                                                                             </Link>
                                                                             {/* Sub-dropdown */}
@@ -302,15 +337,15 @@ const Navbar = () => {
                                                                                         animate={{ opacity: 1, x: 0 }}
                                                                                         exit={{ opacity: 0, x: 8 }}
                                                                                         transition={{ duration: 0.18 }}
-                                                                                        className="absolute left-full top-0 ml-2 w-56 bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden p-2 z-10"
+                                                                                        className="absolute left-full top-0 ml-2 w-56 bg-white rounded-lg shadow-xl border border-slate-200 overflow-hidden p-2 z-10"
                                                                                     >
                                                                                         {sub.sub.map((s) => (
                                                                                             <Link
                                                                                                 key={s.nameKey}
                                                                                                 to={s.href}
-                                                                                                className="flex items-center gap-2 px-3 py-2.5 rounded-lg hover:bg-green-50 hover:text-green-700 text-sm text-slate-700 font-medium transition-colors"
+                                                                                                className="flex items-center gap-2 px-3 py-2.5 rounded hover:bg-[#f0f9fa] hover:text-[#1c4980] text-sm text-slate-700 font-medium transition-colors"
                                                                                             >
-                                                                                                <span className="w-1.5 h-1.5 rounded-full bg-green-500 flex-shrink-0" />
+                                                                                                <span className="w-1.5 h-1.5 rounded-full bg-[#1eb4d4] flex-shrink-0" />
                                                                                                 {t(s.nameKey)}
                                                                                             </Link>
                                                                                         ))}
@@ -330,44 +365,6 @@ const Navbar = () => {
                                 </div>
                             ))}
                         </nav>
-
-                        {/* Right: Donate + Hamburger */}
-                        <div className="flex items-center gap-2 md:gap-4">
-                            <div className="hidden md:flex xl:hidden items-center gap-2 flex-shrink-0">
-                                <Link to="/contact" className="px-4 py-2 text-xs font-bold text-[#001F5B] border border-slate-200 rounded-full hover:border-[#00BFA5] hover:text-[#00BFA5] transition-colors whitespace-nowrap">
-                                    {t('nav.contact_us')}
-                                </Link>
-                                <Link to="/donate" className="px-4 py-2 text-xs font-bold text-white rounded-full shadow-md hover:shadow-lg transition-all whitespace-nowrap" style={{ backgroundColor: '#00C2C7' }}>
-                                    {t('nav.donate')}
-                                </Link>
-                            </div>
-                            <Link
-                                to="/donate"
-                                className="hidden xl:inline-flex items-center gap-2 px-4 py-2 2xl:px-7 2xl:py-3 font-bold text-[12px] 2xl:text-sm tracking-wide transition-all duration-300 text-white rounded-full hover:opacity-90 whitespace-nowrap flex-shrink-0"
-                                style={{ backgroundColor: '#00C2C7' }}
-                            >
-                                {t('nav.donate_now')}
-                            </Link>
-
-                            <button
-                                className="xl:hidden flex items-center justify-center transition-all duration-300 active:scale-90 text-white bg-transparent w-9 h-9"
-                                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                                aria-label="Toggle Menu"
-                                style={{textShadow: '0 1px 2px rgba(0,0,0,0.5)'}}
-                            >
-                                <AnimatePresence mode="wait" initial={false}>
-                                    {isMobileMenuOpen ? (
-                                        <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                                            <X className="w-5 h-5" />
-                                        </motion.div>
-                                    ) : (
-                                        <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                                            <Menu className="w-5 h-5" />
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-                            </button>
-                        </div>
                     </div>
                 </header>
             </motion.div>

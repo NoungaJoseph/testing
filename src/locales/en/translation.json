@@ -215,6 +215,45 @@
       "desc": "Every contribution funds education, clean water, and healthcare for families across Cameroon.",
       "btn_donate": "Donate Now",
       "btn_partner": "Partner With Us"
+    },
+    "tools": {
+      "title": "Quick Action Tools",
+      "apply_scholarship": {
+        "title": "Apply for Scholarship",
+        "desc": "Check eligibility and submit your application online."
+      },
+      "register_school": {
+        "title": "Register a School",
+        "desc": "Partner with us to bring resources to your school."
+      },
+      "volunteer": {
+        "title": "Volunteer Toolkit",
+        "desc": "Join our field team and make a real difference."
+      },
+      "report_case": {
+        "title": "Report a Need",
+        "desc": "Alert us to a community needing urgent intervention."
+      },
+      "donate": {
+        "title": "Make a Donation",
+        "desc": "Help fund clean water, education, and healthcare."
+      },
+      "partner": {
+        "title": "Partner With Us",
+        "desc": "Collaborate on large scale impact projects."
+      }
+    },
+    "faq": {
+      "badge": "Common Questions",
+      "title": "Frequently Asked Questions",
+      "q1_title": "How do I apply for a scholarship?",
+      "q1_desc": "Students with excellent academic records from low-income families are eligible. You can apply directly through our online portal. [Register Here](/apply/scholarship)",
+      "q2_title": "Who is eligible for assistance?",
+      "q2_desc": "We prioritize vulnerable communities, single mothers, and rural schools lacking basic amenities. Applications are reviewed on a case-by-case basis. [Learn More](/programs)",
+      "q3_title": "How is my donation used?",
+      "q3_desc": "100% of public donations go directly to our field programs (clean water, school supplies, healthcare). Administrative costs are covered by our core sponsors. [Donate Now](/donate)",
+      "q4_title": "Can my school partner with Enako?",
+      "q4_desc": "Yes, rural and underfunded schools can register to receive desks, books, and infrastructure support. [Register School](/school-registration)"
     }
   },
   "about": {
@@ -1367,5 +1406,11 @@
         "href": "https://maps.google.com/?q=Akwa+Douala+Cameroon"
       }
     ]
+  },
+  "legal": {
+    "privacy_policy_title": "Privacy Policy",
+    "privacy_policy_content": "This Privacy Policy describes how Enako Outreach collects, uses, and protects your personal information when you use our website or services. 1. Information Collection: We may collect personal data such as name, email, and location when you register for programs, donate, or subscribe to our newsletter. 2. Use of Information: Your data is used strictly for internal purposes to process applications, issue receipts, and communicate updates. We do not sell your personal data. 3. Data Security: We implement appropriate technical and organizational measures to protect your personal data against unauthorized access or disclosure. 4. Your Rights: You have the right to request access to or deletion of your personal data at any time by contacting us.",
+    "terms_of_service_title": "Terms of Service",
+    "terms_of_service_content": "These Terms of Service govern your use of the Enako Outreach website and its related services. 1. Acceptance of Terms: By accessing this website, you agree to be bound by these Terms of Service and all applicable laws and regulations. 2. Use License: Permission is granted to temporarily download one copy of the materials on the Enako Outreach website for personal, non-commercial transitory viewing only. 3. Donations & Contributions: All donations are final unless an error occurred during the transaction. Please contact our support team for any billing issues. 4. Disclaimer: The materials on the Enako Outreach website are provided on an 'as is' basis. We make no warranties, expressed or implied, regarding the accuracy or reliability of the use of these materials. 5. Modifications: We may revise these terms of service at any time without notice. By using this website you are agreeing to be bound by the current version of these terms."
   }
 }

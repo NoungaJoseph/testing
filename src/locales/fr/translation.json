@@ -215,6 +215,45 @@
       "desc": "Chaque contribution finance l'éducation, l'eau potable et la santé pour des familles à travers le Cameroun.",
       "btn_donate": "Faire un Don",
       "btn_partner": "Devenir Partenaire"
+    },
+    "tools": {
+      "title": "Outils d'Action Rapide",
+      "apply_scholarship": {
+        "title": "Demander une Bourse",
+        "desc": "Vérifiez votre éligibilité et soumettez votre demande en ligne."
+      },
+      "register_school": {
+        "title": "Inscrire une École",
+        "desc": "Associez-vous à nous pour apporter des ressources à votre école."
+      },
+      "volunteer": {
+        "title": "Boîte à Outils Bénévole",
+        "desc": "Rejoignez notre équipe de terrain et faites une réelle différence."
+      },
+      "report_case": {
+        "title": "Signaler un Besoin",
+        "desc": "Alertez-nous d'une communauté nécessitant une intervention urgente."
+      },
+      "donate": {
+        "title": "Faire un Don",
+        "desc": "Aidez à financer l'eau potable, l'éducation et la santé."
+      },
+      "partner": {
+        "title": "Devenir Partenaire",
+        "desc": "Collaborez sur des projets d'impact à grande échelle."
+      }
+    },
+    "faq": {
+      "badge": "Questions Fréquentes",
+      "title": "Foire Aux Questions",
+      "q1_title": "Comment faire une demande de bourse ?",
+      "q1_desc": "Les étudiants ayant un excellent dossier scolaire et issus de familles à faible revenu sont éligibles. Vous pouvez postuler via notre portail en ligne. [S'inscrire Ici](/apply/scholarship)",
+      "q2_title": "Qui est éligible à l'aide ?",
+      "q2_desc": "Nous donnons la priorité aux communautés vulnérables, aux mères célibataires et aux écoles rurales manquant de commodités de base. Les demandes sont examinées au cas par cas. [En Savoir Plus](/programs)",
+      "q3_title": "Comment mon don est-il utilisé ?",
+      "q3_desc": "100% des dons publics vont directement à nos programmes sur le terrain (eau potable, fournitures scolaires, santé). [Faire un Don](/donate)",
+      "q4_title": "Mon école peut-elle s'associer à Enako ?",
+      "q4_desc": "Oui, les écoles rurales et sous-financées peuvent s'inscrire pour recevoir des bureaux, des livres et un soutien infrastructurel. [Inscrire une École](/school-registration)"
     }
   },
   "about": {
@@ -1367,5 +1406,11 @@
         "href": "https://maps.google.com/?q=Akwa+Douala+Cameroon"
       }
     ]
+  },
+  "legal": {
+    "privacy_policy_title": "Politique de Confidentialité",
+    "privacy_policy_content": "Cette Politique de Confidentialité décrit comment Enako Outreach collecte, utilise et protège vos informations personnelles lorsque vous utilisez notre site web ou nos services. 1. Collecte d'Informations : Nous pouvons collecter des données personnelles telles que votre nom, email et adresse lorsque vous vous inscrivez aux programmes, faites un don ou vous abonnez à notre newsletter. 2. Utilisation des Informations : Vos données sont utilisées strictement à des fins internes pour traiter les candidatures, émettre des reçus et communiquer des mises à jour. Nous ne vendons pas vos données personnelles. 3. Sécurité des Données : Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données personnelles contre tout accès ou divulgation non autorisé. 4. Vos Droits : Vous avez le droit de demander l'accès à vos données personnelles ou leur suppression à tout moment en nous contactant.",
+    "terms_of_service_title": "Conditions d'Utilisation",
+    "terms_of_service_content": "Ces Conditions d'Utilisation régissent votre utilisation du site web d'Enako Outreach et de ses services associés. 1. Acceptation des Conditions : En accédant à ce site web, vous acceptez d'être lié par ces Conditions d'Utilisation et par toutes les lois et réglementations applicables. 2. Licence d'Utilisation : L'autorisation est accordée de télécharger temporairement une copie des documents sur le site web d'Enako Outreach à des fins de visionnage transitoire personnel et non commercial uniquement. 3. Dons & Contributions : Tous les dons sont définitifs, sauf en cas d'erreur survenue lors de la transaction. Veuillez contacter notre équipe d'assistance pour tout problème de facturation. 4. Avis de Non-responsabilité : Les documents sur le site web d'Enako Outreach sont fournis 'tels quels'. Nous n'offrons aucune garantie, expresse ou implicite, concernant l'exactitude ou la fiabilité de l'utilisation de ces documents. 5. Modifications : Nous pouvons réviser ces conditions d'utilisation à tout moment sans préavis. En utilisant ce site web, vous acceptez d'être lié par la version actuelle de ces conditions."
   }
 }

@@ -1,212 +1,94 @@
 import { Link } from 'react-router-dom';
-import { ACTION_LINKS } from '../constants/actionLinks';
+import { Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
-    const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
     const { t } = useTranslation();
 
+    const topLinks = [
+        { labelKey: 'nav.home', href: '/' },
+        { labelKey: 'nav.about_us', href: '/about' },
+        { labelKey: 'nav.programs', href: '/programs' },
+        { labelKey: 'nav.projects', href: '/impact' },
+        { labelKey: 'nav.focus_communities', href: '/focus-communities' },
+        { labelKey: 'nav.blog', href: '/blog' },
+        { labelKey: 'nav.get_involved', href: '/get-involved' },
+        { labelKey: 'nav.contact_us', href: '/contact' },
+    ];
+
+    const bottomLinks = [
+        { labelKey: 'legal.privacy_policy_title', href: '/privacy-policy' },
+        { labelKey: 'legal.terms_of_service_title', href: '/terms-of-service' },
+        { labelKey: 'nav.blog', href: '/blog' },
+        { labelKey: 'nav.about_us', href: '/about' },
+        { labelKey: 'nav.contact_us', href: '/contact' },
+    ];
+
     return (
-        <footer style={{ backgroundColor: '#00BFA5' }} className="overflow-hidden relative">
-
-            {/* ── TOP: Brand + Contact ── */}
-            <div className="max-w-7xl mx-auto px-6 md:px-16 pt-20 pb-12 border-b border-[#001B44]/15">
-                <div className="grid lg:grid-cols-2 gap-16 items-start">
-                    {/* Logo */}
-                    <div
-                        className="cursor-pointer group"
-                        onClick={scrollToTop}
-                        role="button"
-                        tabIndex={0}
-                        onKeyDown={(e) => e.key === 'Enter' && scrollToTop()}
-                    >
-                        <p
-                            className="text-[#001B44] text-4xl md:text-5xl font-black tracking-[0.06em] uppercase leading-none mb-3 group-hover:opacity-80 transition-opacity"
-                            style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
-                        >
-                            E NAKO<br />OUTREACH
-                        </p>
-                        <p className="text-[#001B44]/70 text-sm font-semibold uppercase tracking-[0.22em]">
-                            {t('footer.community_impact_foundation')}
-                        </p>
+        <footer className="w-full mt-auto">
+            {/* ── TOP SECTION (Light Background) ── */}
+            <div className="bg-[#f8f9fa] py-10 px-4 border-t border-slate-200">
+                <div className="max-w-7xl mx-auto flex flex-col items-center">
+                    <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-3 mb-6 text-[13px] text-[#1eb4d4] font-medium">
+                        {topLinks.map((link, index) => (
+                            <div key={link.href} className="flex items-center gap-2">
+                                <Link to={link.href} className="hover:underline hover:text-[#1593af] transition-colors">
+                                    {t(link.labelKey)}
+                                </Link>
+                                {index < topLinks.length - 1 && (
+                                    <span className="text-slate-300">|</span>
+                                )}
+                            </div>
+                        ))}
                     </div>
+                    <p className="text-slate-500 text-[13px]">
+                        Enako Outreach — {t('footer.community_impact_foundation')}
+                    </p>
+                </div>
+            </div>
 
-                    {/* Contact */}
-                    <div className="space-y-5">
-                        <a
-                            href="mailto:enakooutreach@gmail.com"
-                            className="flex items-center gap-3 group"
-                        >
-                            <img src="/assets/charity/contact us/email.png" alt="email" className="w-6 h-6 object-contain flex-shrink-0" />
-                            <span className="text-[#001B44] font-semibold text-base group-hover:opacity-80 transition-opacity">
-                                enakooutreach@gmail.com
-                            </span>
-                        </a>
-                        <a
-                            href="tel:+237 6 78 45 79 26"
-                            className="flex items-center gap-3 group"
-                        >
-                            <img src="/assets/charity/contact us/phone.png" alt="phone" className="w-6 h-6 object-contain flex-shrink-0" />
-                            <span className="text-[#001B44] font-semibold text-base group-hover:opacity-80 transition-opacity">
-                                +237 6 78 45 79 26
-                            </span>
-                        </a>
-                        <div className="flex items-center gap-3">
-                            <img src="/assets/charity/contact us/location.png" alt="location" className="w-6 h-6 object-contain flex-shrink-0" />
-                            <span className="text-[#001B44]/75 font-medium text-base">
-                                {t('footer.location')}
-                            </span>
+            {/* ── BOTTOM SECTION (Dark Blue Background) ── */}
+            <div className="bg-[#1c4980] pt-10 pb-12 px-4">
+                <div className="max-w-7xl mx-auto flex flex-col items-center gap-10">
+                    
+                    {/* Top Row: Copyright & Links */}
+                    <div className="w-full flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div className="text-[13px] text-white/80 font-medium text-center md:text-left">
+                            © {new Date().getFullYear()} Enako Outreach. {t('footer.all_rights_reserved')}
                         </div>
-
-                        {/* Socials */}
-                        <div className="flex gap-4 pt-2">
-                            {[
-                                { src: '/assets/charity/social/facebook.png', href: '#', label: 'Facebook' },
-                                { src: '/assets/charity/social/instagram.png', href: '#', label: 'Instagram' },
-                                { src: '/assets/charity/social/twitter.png', href: '#', label: 'Twitter' },
-                                { src: '/assets/charity/social/Youtube.png', href: '#', label: 'YouTube' },
-                            ].map((s) => (
-                                <a
-                                    key={s.label}
-                                    href={s.href}
-                                    aria-label={s.label}
-                                    className="hover:-translate-y-1 transition-transform"
+                        
+                        <div className="flex flex-wrap items-center justify-center gap-6 text-[13px] font-medium text-white/90">
+                            {bottomLinks.map((link) => (
+                                <Link 
+                                    key={link.labelKey} 
+                                    to={link.href} 
+                                    className="hover:text-white transition-colors"
                                 >
-                                    <img src={s.src} alt={s.label} className="w-8 h-8 object-contain hover:opacity-80 transition-opacity" />
-                                </a>
+                                    {t(link.labelKey)}
+                                </Link>
                             ))}
                         </div>
                     </div>
-                </div>
-            </div>
 
-            {/* ── MIDDLE: Navigation Links ── */}
-            <div className="max-w-7xl mx-auto px-6 md:px-16 py-12 border-b border-[#001B44]/15">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                    {/* Organisation */}
-                    <div className="space-y-4">
-                        <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#001B44]">
-                            {t('footer.organisation')}
-                        </h4>
-                        <ul className="space-y-2.5">
-                            {[
-                                { labelKey: 'footer.about_us', href: '/about' },
-                                { labelKey: 'footer.our_impact', href: '/impact' },
-                                { labelKey: 'footer.success_stories', href: '/stories' },
-                                { labelKey: 'footer.blog', href: '/blog' },
-                                { labelKey: 'footer.partnership', href: '/partnership' },
-                            ].map((item) => (
-                                <li key={item.labelKey}>
-                                    <Link
-                                        to={item.href}
-                                        className="text-[#001B44]/75 text-sm font-medium hover:text-[#001B44] transition-colors"
-                                    >
-                                        {t(item.labelKey)}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Programs */}
-                    <div className="space-y-4">
-                        <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#001B44]">
-                            {t('footer.programs')}
-                        </h4>
-                        <ul className="space-y-2.5">
-                            {[
-                                { labelKey: 'footer.scholarships', href: '/programs/scholarships' },
-                                { labelKey: 'footer.clean_water', href: '/programs/clean-water-initiative' },
-                                { labelKey: 'footer.teacher_rewards', href: '/programs/teacher-rewards' },
-                                { labelKey: 'footer.health_support', href: '/programs/community-health-support' },
-                                { labelKey: 'footer.single_mothers', href: '/programs/single-mothers-assistance' },
-                                { labelKey: 'footer.youth_empowerment', href: '/programs/youth-empowerment' },
-                            ].map((item) => (
-                                <li key={item.labelKey}>
-                                    <Link
-                                        to={item.href}
-                                        className="text-[#001B44]/75 text-sm font-medium hover:text-[#001B44] transition-colors"
-                                    >
-                                        {t(item.labelKey)}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Communities */}
-                    <div className="space-y-4">
-                        <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#001B44]">
-                            {t('footer.communities')}
-                        </h4>
-                        <ul className="space-y-2.5">
-                            {[
-                                { labelKey: 'footer.focus_communities', href: '/focus-communities' },
-                                { labelKey: 'footer.littoral_region', href: '/focus-communities' },
-                                { labelKey: 'footer.centre_region', href: '/focus-communities' },
-                                { labelKey: 'footer.north_west', href: '/focus-communities' },
-                                { labelKey: 'footer.south_west', href: '/focus-communities' },
-                                { labelKey: 'footer.west_region', href: '/focus-communities' },
-                            ].map((item) => (
-                                <li key={item.labelKey}>
-                                    <Link
-                                        to={item.href}
-                                        className="text-[#001B44]/75 text-sm font-medium hover:text-[#001B44] transition-colors"
-                                    >
-                                        {t(item.labelKey)}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Get Involved */}
-                    <div className="space-y-4">
-                        <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#001B44]">
-                            {t('footer.get_involved')}
-                        </h4>
-                        <ul className="space-y-2.5">
-                            {[
-                                { labelKey: 'footer.donate', href: '/donate' },
-                                { labelKey: 'footer.volunteer', href: '/get-involved' },
-                                { labelKey: 'footer.partner_with_us', href: '/partnership' },
-                                { labelKey: 'footer.apply_scholarship', href: ACTION_LINKS.applyScholarship },
-                                { labelKey: 'footer.apply_help', href: ACTION_LINKS.applyHelp },
-                                { labelKey: 'footer.report_case', href: ACTION_LINKS.reportCase },
-                            ].map((item) => (
-                                <li key={item.labelKey}>
-                                    <Link
-                                        to={item.href}
-                                        className="text-[#001B44]/75 text-sm font-medium hover:text-[#001B44] transition-colors"
-                                    >
-                                        {t(item.labelKey)}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            {/* ── BOTTOM: Copyright ── */}
-            <div className="max-w-7xl mx-auto px-6 md:px-16 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-                <p className="text-[#001B44]/65 text-xs font-medium">
-                    © {new Date().getFullYear()} Enako Outreach · {t('footer.all_rights_reserved')} · {t('footer.location')}
-                </p>
-                <div className="flex items-center gap-6 text-xs">
-                    {[
-                        { labelKey: 'footer.privacy_policy', href: '#' },
-                        { labelKey: 'footer.terms_of_service', href: '#' },
-                        { labelKey: 'footer.cookie_policy', href: '#' }
-                    ].map((item) => (
-                        <a
-                            key={item.labelKey}
-                            href={item.href}
-                            className="text-[#001B44]/65 hover:text-[#001B44] transition-colors font-medium"
-                        >
-                            {t(item.labelKey)}
+                    {/* Bottom Row: Socials */}
+                    <div className="flex items-center justify-center gap-6">
+                        <a href="#" className="text-white hover:text-[#1eb4d4] transition-colors" aria-label="Facebook">
+                            <Facebook className="w-5 h-5 fill-current" />
                         </a>
-                    ))}
+                        <a href="#" className="text-white hover:text-[#1eb4d4] transition-colors" aria-label="Twitter">
+                            <Twitter className="w-5 h-5 fill-current" />
+                        </a>
+                        <a href="#" className="text-white hover:text-[#1eb4d4] transition-colors" aria-label="Instagram">
+                            <Instagram className="w-5 h-5" />
+                        </a>
+                        <a href="#" className="text-white hover:text-[#1eb4d4] transition-colors" aria-label="LinkedIn">
+                            <Linkedin className="w-5 h-5 fill-current" />
+                        </a>
+                        <a href="#" className="text-white hover:text-[#1eb4d4] transition-colors" aria-label="YouTube">
+                            <Youtube className="w-6 h-6" />
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </footer>

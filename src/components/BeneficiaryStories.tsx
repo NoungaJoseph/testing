@@ -82,7 +82,7 @@ const BeneficiaryStories = () => {
                                     {t('components.beneficiary_stories.story_badge')}
                                 </span>
 
-                                <blockquote className="text-navy text-3xl md:text-4xl font-black leading-tight tracking-tight mb-8" style={{ fontFamily: 'Georgia, serif' }}>
+                                <blockquote className="text-navy text-3xl md:text-4xl font-black leading-tight tracking-tight mb-8">
                                     "{storiesT[current]?.text || story.text}"
                                 </blockquote>
 
