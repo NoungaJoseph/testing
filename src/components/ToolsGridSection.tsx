@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { GraduationCap, School, Users, AlertCircle, Heart, Handshake } from 'lucide-react';

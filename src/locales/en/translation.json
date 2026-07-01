@@ -24,8 +24,17 @@
     "single_mothers": "Single Mothers Assistance",
     "articles": "Articles",
     "latest_news": "Latest News",
+    "latest_news_desc": "Stay updated with our recent activities.",
     "blog_posts": "Blog Posts",
+    "blog_posts_desc": "Read stories and insights from the field.",
     "archives": "Archives",
+    "archives_desc": "Explore our past articles and reports.",
+    "scholarships_desc": "Support for primary to university education.",
+    "teacher_rewards_desc": "Recognizing excellence in education.",
+    "youth_empowerment_desc": "Skills training and leadership for youth.",
+    "clean_water_desc": "Boreholes and purification for communities.",
+    "health_support_desc": "Mobile clinics and community healthcare.",
+    "single_mothers_desc": "Empowering single mothers and widows.",
     "language": "Language"
   },
   "carousel": {

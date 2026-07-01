@@ -24,8 +24,17 @@
     "single_mothers": "Assistance Mères Célibataires",
     "articles": "Articles",
     "latest_news": "Dernières Nouvelles",
+    "latest_news_desc": "Restez informé de nos activités récentes.",
     "blog_posts": "Articles de Blog",
+    "blog_posts_desc": "Lisez des histoires et des témoignages du terrain.",
     "archives": "Archives",
+    "archives_desc": "Explorez nos anciens articles et rapports.",
+    "scholarships_desc": "Soutien de l'école primaire à l'université.",
+    "teacher_rewards_desc": "Reconnaissance de l'excellence dans l'éducation.",
+    "youth_empowerment_desc": "Formation et leadership pour les jeunes.",
+    "clean_water_desc": "Forages et purification pour les communautés.",
+    "health_support_desc": "Cliniques mobiles et soins de santé.",
+    "single_mothers_desc": "Autonomisation des mères célibataires et des veuves.",
     "language": "Langue"
   },
   "carousel": {

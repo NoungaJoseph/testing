@@ -3,7 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     ChevronDown, Menu, X, GraduationCap, Award, Users,
-    Droplets, Stethoscope, HandHeart, Newspaper, BookOpen, Archive
+    Droplets, Stethoscope, HandHeart, Newspaper, BookOpen, Archive,
+    Facebook, Twitter, Instagram, Linkedin
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -91,23 +92,17 @@ const navLinks = [
     { nameKey: 'nav.contact_us', href: '/contact' },
 ];
 
-const socialLinks = [
-    { icon: <img src="/assets/charity/social/facebook.png" alt="Facebook" className="w-7 h-7 object-contain" />, href: '#', label: 'Facebook' },
-    { icon: <img src="/assets/charity/social/twitter.png" alt="Twitter" className="w-7 h-7 object-contain" />, href: '#', label: 'Twitter' },
-    { icon: <img src="/assets/charity/social/instagram.png" alt="Instagram" className="w-7 h-7 object-contain" />, href: '#', label: 'Instagram' },
-    { icon: <img src="/assets/charity/social/Youtube.png" alt="YouTube" className="w-7 h-7 object-contain" />, href: '#', label: 'YouTube' },
-];
+
 
 const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [activeSub, setActiveSub] = useState<string | null>(null);
     const [isVisible, setIsVisible] = useState(true);
-    const [isScrolled, setIsScrolled] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
     const [langDropdownOpen, setLangDropdownOpen] = useState(false);
     const { t, i18n } = useTranslation();
-    const lang = i18n.language.toUpperCase();
+    const lang = (i18n.language || 'en').split('-')[0].toUpperCase();
     const setLang = (l: string) => { i18n.changeLanguage(l.toLowerCase()); setLangDropdownOpen(false); };
     const location = useLocation();
 
@@ -127,8 +122,6 @@ const Navbar = () => {
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
-            // Update background state
-            setIsScrolled(currentScrollY > 20);
 
             // Show navbar when at the top
             if (currentScrollY < 100) {
@@ -164,16 +157,12 @@ const Navbar = () => {
                 <div className="hidden lg:block border-b border-slate-100 py-4">
                     <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between gap-8">
                         {/* Logo */}
-                        <Link to="/" className="flex items-center gap-3 flex-shrink-0 min-w-0">
-                            <img src="/assets/logo/enako.png" alt="Enako Outreach logo" className="h-12 md:h-14 2xl:h-16 w-auto object-contain" />
-                            <div className="flex flex-col justify-center leading-none pt-1">
-                                <p className="font-bold text-sm 2xl:text-base uppercase tracking-widest text-[#1c4980]">ENAKO OUTREACH</p>
-                                <p className="text-[#1eb4d4] text-[9px] font-semibold uppercase tracking-[0.2em] mt-1">Community Impact</p>
-                            </div>
+                        <Link to="/" className="flex items-center flex-shrink-0 w-48 lg:w-64 -ml-4">
+                            <img src="/assets/logo/enakooutreach.png" alt="Enako Outreach logo" className="h-12 md:h-14 2xl:h-16 w-auto object-contain scale-[3] origin-left" />
                         </Link>
 
                         {/* Search Bar */}
-                        <div className="flex-1 max-w-lg flex items-center mx-4">
+                        <div className="flex-1 max-w-lg flex items-center justify-center mx-auto">
                             <div className="flex w-full overflow-hidden border border-slate-300 rounded focus-within:border-[#1eb4d4] transition-colors shadow-sm">
                                 <input 
                                     type="text" 
@@ -188,11 +177,11 @@ const Navbar = () => {
                         </div>
 
                         {/* Top Right Links */}
-                        <div className="flex items-center gap-5 xl:gap-7 text-[#1eb4d4] text-[11px] 2xl:text-xs font-bold tracking-widest uppercase">
-                            <Link to="/about" className="hover:text-[#1c4980] transition-colors">ABOUT</Link>
-                            <Link to="/blog/latest-news" className="hover:text-[#1c4980] transition-colors">PRESS</Link>
-                            <Link to="/get-involved" className="hover:text-[#1c4980] transition-colors">GET INVOLVED</Link>
-                            <Link to="/contact" className="hover:text-[#1c4980] transition-colors">CONTACT</Link>
+                        <div className="flex items-center justify-end w-48 lg:w-64 gap-4 text-[#1eb4d4]">
+                            <a href="#" className="hover:text-[#1c4980] transition-colors"><Facebook className="w-5 h-5" /></a>
+                            <a href="#" className="hover:text-[#1c4980] transition-colors"><Twitter className="w-5 h-5" /></a>
+                            <a href="#" className="hover:text-[#1c4980] transition-colors"><Instagram className="w-5 h-5" /></a>
+                            <a href="#" className="hover:text-[#1c4980] transition-colors"><Linkedin className="w-5 h-5" /></a>
                             
                             {/* Language Dropdown (Small) */}
                             <div className="relative ml-2">
@@ -234,15 +223,12 @@ const Navbar = () => {
                         {/* Mobile Logo & Language (hidden on lg) */}
                         <div className="lg:hidden flex items-center justify-between w-full">
                             <Link to="/" className="flex items-center gap-2 group flex-shrink-0 min-w-0">
-                                <img src="/assets/logo/enako.png" alt="Enako Outreach logo" className="h-10 w-auto object-contain" />
-                                <div className="flex flex-col justify-center leading-none min-w-0">
-                                    <p className="font-black text-[11px] uppercase tracking-wider text-[#1c4980] whitespace-nowrap">ENAKO OUTREACH</p>
-                                </div>
+                                <img src="/assets/logo/enakooutreach.png" alt="Enako Outreach logo" className="h-10 w-auto object-contain scale-[3] origin-left ml-4" />
                             </Link>
 
                             <div className="flex items-center gap-4">
                                 <button
-                                    onClick={() => setLangDropdownOpen(!langDropdownOpen)}
+                                    onClick={() => setLang(lang === 'EN' ? 'FR' : 'EN')}
                                     className="text-[#1eb4d4] font-bold text-xs"
                                 >
                                     {lang}
@@ -394,11 +380,7 @@ const Navbar = () => {
                             {/* Panel Header */}
                             <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 bg-transparent">
                                 <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2.5 min-w-0">
-                                    <img src="/assets/logo/enako.png" alt="Enako Outreach logo" className="h-12 w-auto object-contain" />
-                                    <div className="leading-none pt-1 min-w-0">
-                                        <p className="font-black text-sm uppercase tracking-[0.05em] text-slate-900 truncate">ENAKO OUTREACH</p>
-                                        <p className="text-[#00C2C7] text-[9px] font-semibold uppercase tracking-[0.16em] mt-1">Community Impact</p>
-                                    </div>
+                                    <img src="/assets/logo/enakooutreach.png" alt="Enako Outreach logo" className="h-12 w-auto object-contain scale-[3] origin-left ml-4" />
                                 </Link>
                                 <button
                                     onClick={() => setIsMobileMenuOpen(false)}
