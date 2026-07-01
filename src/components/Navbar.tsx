@@ -158,7 +158,7 @@ const Navbar = () => {
                     <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between gap-8">
                         {/* Logo */}
                         <Link to="/" className="flex items-center flex-shrink-0 w-48 lg:w-64 -ml-4">
-                            <img src="/assets/logo/enakooutreach.png" alt="Enako Outreach logo" className="h-24 md:h-28 w-auto object-contain" />
+                            <img src="/assets/logo/enakooutreach.png" alt="Enako Outreach logo" className="h-12 md:h-14 2xl:h-16 w-auto object-contain" />
                         </Link>
 
                         {/* Search Bar */}
@@ -223,7 +223,7 @@ const Navbar = () => {
                         {/* Mobile Logo & Language (hidden on lg) */}
                         <div className="lg:hidden flex items-center justify-between w-full">
                             <Link to="/" className="flex items-center gap-2 group flex-shrink-0 min-w-0">
-                                <img src="/assets/logo/enakooutreach.png" alt="Enako Outreach logo" className="h-16 sm:h-20 w-auto object-contain ml-2" />
+                                <img src="/assets/logo/enakooutreach.png" alt="Enako Outreach logo" className="h-10 w-auto object-contain ml-2" />
                             </Link>
 
                             <div className="flex items-center gap-4">
