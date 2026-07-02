@@ -5,9 +5,9 @@ import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
 
 // Static Data imports
-import blogPosts from '../data/blogPosts';
+import { blogPosts } from '../data/blogPosts';
 import focusItems from '../data/focusItems';
-import communitiesData from '../data/communitiesData';
+import { communitiesData } from '../data/communitiesData';
 
 type SearchResult = {
     title: string;
@@ -27,7 +27,7 @@ const Search = () => {
         const data: SearchResult[] = [];
         
         // Add Blog Posts
-        blogPosts.forEach(post => {
+        blogPosts.forEach((post: any) => {
             data.push({
                 title: post.title,
                 description: post.excerpt || post.content.substring(0, 150) + '...',
@@ -49,7 +49,7 @@ const Search = () => {
         });
 
         // Add Communities
-        Object.entries(communitiesData).forEach(([key, comm]) => {
+        Object.entries(communitiesData).forEach(([key, comm]: [string, any]) => {
             data.push({
                 title: comm.title,
                 description: comm.description || `Community in ${comm.region || 'Cameroon'}`,

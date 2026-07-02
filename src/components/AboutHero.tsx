@@ -74,7 +74,7 @@ const AboutHero = () => {
 
                 {/* 3 value pillars - Icon-less Watermark Number Style */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 pt-8">
-                    {[1, 2, 3].map((item, idx) => (
+                    {[1, 2, 3].map((_, idx) => (
                         <FadeIn key={idx} delay={idx * 0.1} direction="up" fullWidth>
                             <div className="relative group p-8 -m-8 hover:bg-slate-50 rounded-3xl transition-colors duration-500 flex flex-col justify-start overflow-hidden">
                                 {/* Giant Watermark Number */}

@@ -180,7 +180,7 @@ const ImpactPage = () => {
                             <h2 className="text-[#001B44] text-5xl font-black uppercase tracking-tighter">{t('impact.timeline.title')}</h2>
                         </div>
                         <div className="space-y-0">
-                            {data.milestones.map((item, i) => (
+                            {data.milestones.map((item) => (
                                 <motion.div 
                                     key={item.id} 
                                     initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}

@@ -3,12 +3,10 @@ import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
 import { useParams, Link } from 'react-router-dom';
 import { getCommunityData } from '../data/communitiesData';
-import { ACTION_LINKS } from '../constants/actionLinks';
-import { useTranslation } from 'react-i18next';
+
 
 const CommunityDetail = () => {
     const { slug } = useParams();
-    const { t } = useTranslation();
     const data = getCommunityData(slug || '');
 
     if (!data) {
@@ -75,7 +73,7 @@ const CommunityDetail = () => {
                                     <Link to="/donate" className="bg-[#001B44] hover:bg-[#00BFA5] transition-colors text-white px-8 py-4 rounded-[2px] font-black uppercase tracking-widest text-sm text-center">
                                         Fund a Project Here
                                     </Link>
-                                    <Link to={ACTION_LINKS.volunteer} className="bg-white border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white transition-colors px-8 py-4 rounded-[2px] font-black uppercase tracking-widest text-sm text-center">
+                                    <Link to="/volunteer" className="bg-white border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white transition-colors px-8 py-4 rounded-[2px] font-black uppercase tracking-widest text-sm text-center">
                                         Volunteer
                                     </Link>
                                 </div>

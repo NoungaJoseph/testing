@@ -373,7 +373,7 @@ const Navbar = () => {
                                                                                             <ChevronDown className="w-3 h-3 text-slate-400 -rotate-90" />
                                                                                         )}
                                                                                     </div>
-                                                                                    <div className="text-xs text-slate-500 mt-1">{t(sub.descKey as any)}</div>
+                                                                                    {'descKey' in sub && <div className="text-xs text-slate-500 mt-1">{t((sub as any).descKey)}</div>}
                                                                                 </div>
                                                                             </Link>
                                                                             {/* Sub-dropdown */}
