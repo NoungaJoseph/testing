@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import FadeIn from './FadeIn';
 import { useTranslation } from 'react-i18next';
+import { ArrowRight } from 'lucide-react';
 
 const founder = {
     name: 'Ndolo Nako',
@@ -12,50 +13,72 @@ const founder = {
 const LeadershipTeam = () => {
     const { t } = useTranslation();
     return (
-        <section className="px-6 lg:px-20 py-16 lg:py-24 max-w-7xl mx-auto">
-            <FadeIn direction="up">
-                <div className="flex flex-col gap-4 max-w-3xl mb-16">
-                    <span className="text-secondary font-bold tracking-widest uppercase text-sm">{t('about.leadership.badge')}</span>
-                    <h2 className="text-navy text-4xl lg:text-5xl font-black leading-tight tracking-tight">{t('about.leadership.title')}</h2>
-                    <p className="text-slate-600 text-lg leading-relaxed">
-                        {t('about.leadership.desc')}
-                    </p>
-                </div>
-            </FadeIn>
+        <section className="bg-white py-24 relative">
+            <div className="max-w-7xl mx-auto px-6 lg:px-20">
+                {/* Minimalist Header */}
+                <FadeIn direction="up">
+                    <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-20">
+                        <span className="text-secondary font-bold tracking-widest uppercase text-xs mb-4">
+                            {t('about.leadership.badge')}
+                        </span>
+                        <h2 className="text-navy tracking-tight text-4xl md:text-5xl font-black mb-6">
+                            {t('about.leadership.title')}
+                        </h2>
+                        <div className="w-16 h-1 bg-secondary rounded-full mb-8"></div>
+                        <p className="text-slate-500 text-lg leading-relaxed">
+                            {t('about.leadership.desc')}
+                        </p>
+                    </div>
+                </FadeIn>
 
-            <FadeIn direction="up" fullWidth>
-                <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center rounded-[2rem] bg-white p-6 md:p-8 shadow-sm border border-slate-100">
-                    <div className="relative overflow-hidden rounded-[1.75rem] aspect-[4/5]">
-                        <img
-                            src={founder.img}
-                            alt={founder.name}
-                            className="object-cover w-full h-full"
-                        />
-                    </div>
-                    <div className="flex flex-col gap-5">
-                        <span className="text-secondary font-semibold text-sm uppercase tracking-wide">{t('about.leadership.founder.role') || founder.role}</span>
-                        <h3 className="text-navy text-3xl md:text-4xl font-bold">{t('about.leadership.founder.name') || founder.name}</h3>
-                        <p className="text-slate-600 text-base leading-relaxed">{t('about.leadership.founder.bio') || founder.bio}</p>
-                    </div>
-                </div>
-            </FadeIn>
+                {/* Side-by-side Layout: Image directly on page, Text in a card */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full mb-24">
+                    {/* Image on the page itself */}
+                    <FadeIn direction="up" delay={0.1}>
+                        <div className="relative rounded-2xl overflow-hidden aspect-[4/5] shadow-lg border border-slate-100">
+                            <img
+                                src={founder.img}
+                                alt={founder.name}
+                                className="object-cover w-full h-full"
+                            />
+                        </div>
+                    </FadeIn>
 
-            <FadeIn direction="up">
-                <div className="mt-24 py-20 text-center">
-                    <h3 className="text-navy text-3xl md:text-4xl font-black mb-4">{t('about.leadership.cta_title')}</h3>
-                    <p className="text-slate-600 max-w-2xl mx-auto mb-8 text-lg leading-relaxed">
-                        {t('about.leadership.cta_desc')}
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link to="/volunteer" className="flex items-center justify-center gap-2 rounded-lg h-12 px-8 bg-secondary text-white font-bold hover:bg-[#00a8ae] transition-all">
-                            {t('about.leadership.cta_btn1')} <span className="material-symbols-outlined text-base">arrow_forward</span>
-                        </Link>
-                        <Link to="/volunteer" className="flex items-center justify-center rounded-lg h-12 px-8 border-2 border-slate-200 text-navy font-bold hover:bg-slate-50 transition-all">
-                            {t('about.leadership.cta_btn2')}
-                        </Link>
-                    </div>
+                    {/* Text Card (Styled like Option D) */}
+                    <FadeIn direction="up" delay={0.2}>
+                        <div className="bg-white border border-slate-200 p-10 md:p-12 rounded-2xl shadow-sm hover:shadow-xl hover:shadow-slate-200/50 hover:-translate-y-1 hover:border-secondary/30 transition-all duration-300 flex flex-col">
+                            <span className="text-secondary font-semibold tracking-wide uppercase text-sm mb-4">
+                                {t('about.leadership.founder.role') || founder.role}
+                            </span>
+                            <h3 className="text-navy text-4xl font-bold mb-6">
+                                {t('about.leadership.founder.name') || founder.name}
+                            </h3>
+                            <div className="w-12 h-1 bg-slate-200 rounded-full mb-8"></div>
+                            <p className="text-slate-500 text-lg leading-relaxed">
+                                {t('about.leadership.founder.bio') || founder.bio}
+                            </p>
+                        </div>
+                    </FadeIn>
                 </div>
-            </FadeIn>
+
+                {/* Minimalist CTA */}
+                <FadeIn direction="up">
+                    <div className="text-center max-w-2xl mx-auto">
+                        <h3 className="text-navy text-3xl font-black mb-6">{t('about.leadership.cta_title')}</h3>
+                        <p className="text-slate-500 text-lg leading-relaxed mb-10">
+                            {t('about.leadership.cta_desc')}
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Link to="/volunteer" className="flex items-center justify-center gap-2 rounded-xl h-14 px-8 bg-secondary text-white font-bold hover:bg-[#00a8ae] hover:shadow-lg hover:-translate-y-0.5 transition-all group">
+                                {t('about.leadership.cta_btn1')} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                            <Link to="/volunteer" className="flex items-center justify-center rounded-xl h-14 px-8 border border-slate-200 text-navy font-bold hover:bg-slate-50 hover:shadow-sm hover:-translate-y-0.5 transition-all">
+                                {t('about.leadership.cta_btn2')}
+                            </Link>
+                        </div>
+                    </div>
+                </FadeIn>
+            </div>
         </section>
     );
 };

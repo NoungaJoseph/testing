@@ -72,22 +72,25 @@ const AboutHero = () => {
                     </div>
                 </FadeIn>
 
-                {/* 3 value pillars */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    {[ 
-                        { icon: '/assets/charity website icons and photos/education access.png' },
-                        { icon: '/assets/charity website icons and photos/Healthcare.png' },
-                        { icon: '/assets/charity website icons and photos/partner with us.png' },
-                    ].map((item, idx) => (
+                {/* 3 value pillars - Icon-less Watermark Number Style */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 pt-8">
+                    {[1, 2, 3].map((item, idx) => (
                         <FadeIn key={idx} delay={idx * 0.1} direction="up" fullWidth>
-                            <div
-                                className="p-10 hover:-translate-y-2 transition-all duration-500 group border border-transparent hover:border-[#00BFA5] flex flex-col gap-8 h-full relative overflow-hidden"
-                                style={{ backgroundColor: '#FDFBF7', borderRadius: '2.5rem' }}
-                            >
-                                <img src={item.icon} alt={pillarsT[idx]?.title} className="w-16 h-16 md:w-20 md:h-20 object-contain" />
-                                <div className="space-y-4 relative z-10">
-                                    <h3 className="text-2xl" style={{ color: '#001B44' }}>{pillarsT[idx]?.title}</h3>
-                                    <p className="text-slate-500 font-medium leading-relaxed">{pillarsT[idx]?.desc}</p>
+                            <div className="relative group p-8 -m-8 hover:bg-slate-50 rounded-3xl transition-colors duration-500 flex flex-col justify-start overflow-hidden">
+                                {/* Giant Watermark Number */}
+                                <div className="absolute top-0 right-4 text-[150px] font-black text-slate-100 group-hover:text-secondary/10 transition-colors duration-500 pointer-events-none -z-10 select-none leading-none -translate-y-8">
+                                    0{idx + 1}
+                                </div>
+                                
+                                {/* Content */}
+                                <div className="pt-16 z-10 relative">
+                                    <div className="w-10 h-1 bg-secondary rounded-full mb-6 group-hover:w-16 transition-all duration-500"></div>
+                                    <h3 className="text-2xl font-black text-[#001B44] mb-4 group-hover:text-secondary transition-colors duration-300">
+                                        {pillarsT[idx]?.title}
+                                    </h3>
+                                    <p className="text-slate-500 font-medium leading-relaxed">
+                                        {pillarsT[idx]?.desc}
+                                    </p>
                                 </div>
                             </div>
                         </FadeIn>

@@ -1,4 +1,4 @@
-import { Target, Eye, CheckCircle2, Sparkles } from 'lucide-react';
+import { Rocket, Telescope, CheckCircle2, Sparkles, MoveRight } from 'lucide-react';
 import FadeIn from './FadeIn';
 import { useTranslation } from 'react-i18next';
 
@@ -8,39 +8,44 @@ const MissionVision = () => {
     const visionPointsT = t('about.mission_vision.vision_points', { returnObjects: true }) as string[];
     
     return (
-        <section className="bg-transparent flex flex-col items-center px-6 py-16 md:px-20 lg:px-40 relative overflow-hidden">
-            <div className="relative z-10 w-full flex flex-col items-center">
-                {/* Header */}
+        <section className="bg-white py-24 relative">
+            <div className="max-w-7xl mx-auto px-6 lg:px-20">
+                {/* Minimalist Header */}
                 <FadeIn direction="up">
-                    <div className="max-w-4xl text-center mb-16">
-                        <span className="text-secondary font-semibold tracking-widest uppercase text-xs">{t('about.mission_vision.badge')}</span>
-                        <h2 className="text-navy tracking-tight text-4xl md:text-5xl font-extrabold leading-tight mt-4 mb-6">
+                    <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-20">
+                        <span className="text-secondary font-bold tracking-widest uppercase text-xs mb-4">
+                            {t('about.mission_vision.badge')}
+                        </span>
+                        <h2 className="text-navy tracking-tight text-4xl md:text-5xl font-black mb-6">
                             {t('about.mission_vision.title')}
                         </h2>
-                        <p className="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
+                        <div className="w-16 h-1 bg-secondary rounded-full mb-8"></div>
+                        <p className="text-slate-500 text-lg leading-relaxed">
                             {t('about.mission_vision.desc')}
                         </p>
                     </div>
                 </FadeIn>
 
-                {/* Mission & Vision Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-[1100px]">
-                    {/* Mission */}
-                    <FadeIn direction="up" fullWidth>
-                        <div className="group rounded-xl p-10 flex flex-col items-start transition-all duration-300 h-full">
-                            <div className="mb-8 w-20 h-20 rounded-2xl flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all duration-500">
-                                <Target className="w-10 h-10" />
+                {/* Classic Grid layout */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full mb-16">
+                    {/* Mission Card */}
+                    <FadeIn direction="up" delay={0.1}>
+                        <div className="group h-full bg-white border border-slate-200 p-10 rounded-2xl hover:border-secondary/30 hover:shadow-xl hover:shadow-slate-200/50 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                            <div className="mb-6 flex items-center gap-4">
+                                <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
+                                    <Rocket className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-navy text-2xl font-bold">{t('about.mission_vision.mission_title')}</h3>
                             </div>
-                            <h3 className="text-navy text-3xl font-bold mb-6">{t('about.mission_vision.mission_title')}</h3>
-                            <p className="text-slate-600 text-lg leading-relaxed mb-8">
+                            <p className="text-slate-500 text-base leading-relaxed mb-8">
                                 {t('about.mission_vision.mission_desc')}
                             </p>
-                            <div className="mt-auto pt-4 border-t border-slate-100 w-full">
+                            <div className="mt-auto pt-6 border-t border-slate-100">
                                 <ul className="space-y-3">
-                                    {missionPointsT.map((item: string) => (
-                                        <li key={item} className="flex items-center gap-3 text-slate-500 text-sm font-medium">
-                                            <CheckCircle2 className="w-5 h-5 text-secondary" />
-                                            {item}
+                                    {missionPointsT.map((item: string, i) => (
+                                        <li key={i} className="flex items-start gap-3 text-slate-600 font-medium text-sm">
+                                            <CheckCircle2 className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
+                                            <span>{item}</span>
                                         </li>
                                     ))}
                                 </ul>
@@ -48,22 +53,24 @@ const MissionVision = () => {
                         </div>
                     </FadeIn>
 
-                    {/* Vision */}
-                    <FadeIn direction="up" delay={0.2} fullWidth>
-                        <div className="group rounded-xl p-10 flex flex-col items-start transition-all duration-300 h-full">
-                            <div className="mb-8 w-20 h-20 rounded-2xl flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all duration-500">
-                                <Eye className="w-10 h-10" />
+                    {/* Vision Card */}
+                    <FadeIn direction="up" delay={0.2}>
+                        <div className="group h-full bg-white border border-slate-200 p-10 rounded-2xl hover:border-secondary/30 hover:shadow-xl hover:shadow-slate-200/50 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                            <div className="mb-6 flex items-center gap-4">
+                                <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
+                                    <Telescope className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-navy text-2xl font-bold">{t('about.mission_vision.vision_title')}</h3>
                             </div>
-                            <h3 className="text-navy text-3xl font-bold mb-6">{t('about.mission_vision.vision_title')}</h3>
-                            <p className="text-slate-600 text-lg leading-relaxed mb-8">
+                            <p className="text-slate-500 text-base leading-relaxed mb-8">
                                 {t('about.mission_vision.vision_desc')}
                             </p>
-                            <div className="mt-auto pt-4 border-t border-slate-100 w-full">
+                            <div className="mt-auto pt-6 border-t border-slate-100">
                                 <ul className="space-y-3">
-                                    {visionPointsT.map((item: string) => (
-                                        <li key={item} className="flex items-center gap-3 text-slate-500 text-sm font-medium">
-                                            <Sparkles className="w-5 h-5 text-secondary" />
-                                            {item}
+                                    {visionPointsT.map((item: string, i) => (
+                                        <li key={i} className="flex items-start gap-3 text-slate-600 font-medium text-sm">
+                                            <Sparkles className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
+                                            <span>{item}</span>
                                         </li>
                                     ))}
                                 </ul>
@@ -72,15 +79,21 @@ const MissionVision = () => {
                     </FadeIn>
                 </div>
 
-                {/* Community image section */}
-                <FadeIn direction="up" className="w-full max-w-7xl">
-                    <div className="mt-20 w-full aspect-[21/9] rounded-[3rem] overflow-hidden relative group">
+                {/* Minimalist Image Section */}
+                <FadeIn direction="up" delay={0.3}>
+                    <div className="w-full relative rounded-2xl overflow-hidden aspect-[21/9] bg-slate-100 group">
                         <img
                             src="/assets/images/new_assets/transparency_image.png"
                             alt="African community gathering"
-                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-navy/20 group-hover:bg-navy/0 transition-all duration-700" />
+                        <div className="absolute inset-0 bg-navy/10 group-hover:bg-navy/0 transition-colors duration-500" />
+                        
+                        <div className="absolute bottom-6 right-6">
+                            <button className="bg-white text-navy px-6 py-3 rounded-xl font-bold text-sm shadow-sm flex items-center gap-2 hover:bg-secondary hover:text-white transition-colors">
+                                Learn More <MoveRight className="w-4 h-4" />
+                            </button>
+                        </div>
                     </div>
                 </FadeIn>
             </div>

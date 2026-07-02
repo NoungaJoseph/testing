@@ -6,7 +6,7 @@ const frPath = path.join(__dirname, 'src/locales/fr/translation.json');
 
 const aboutEn = {
   "hero": {
-    "est": "Est. 2024",
+    "est": "",
     "title": "Driven by Purpose.",
     "title_highlight": "Guided by Impact.",
     "desc": "Empowering communities and advancing education across Cameroon through sustainable humanitarian initiatives that foster growth and resilience from our base in Douala.",

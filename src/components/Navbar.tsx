@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     ChevronDown, Menu, X, GraduationCap, Award, Users,
@@ -72,8 +72,58 @@ const navLinks = [
             },
         ],
     },
-    { nameKey: 'nav.projects', href: '/impact' },
-    { nameKey: 'nav.focus_communities', href: '/focus-communities' },
+    {
+        nameKey: 'nav.projects',
+        href: '/impact',
+        dropdown: [
+            {
+                titleKey: 'nav.ongoing_projects',
+                items: [
+                    { nameKey: 'nav.proj_douala_school', href: '/impact#douala', icon: <Archive className="w-6 h-6" />, descKey: 'nav.proj_douala_school' },
+                    { nameKey: 'nav.proj_limbe_water', href: '/impact#limbe', icon: <Droplets className="w-6 h-6" />, descKey: 'nav.proj_limbe_water' },
+                    { nameKey: 'nav.proj_bamenda_clinic', href: '/impact#bamenda', icon: <Stethoscope className="w-6 h-6" />, descKey: 'nav.proj_bamenda_clinic' },
+                    { nameKey: 'nav.proj_yaounde_orphanage', href: '/impact#yaounde', icon: <HandHeart className="w-6 h-6" />, descKey: 'nav.proj_yaounde_orphanage' },
+                    { nameKey: 'nav.proj_buea_tech', href: '/impact#buea', icon: <Users className="w-6 h-6" />, descKey: 'nav.proj_buea_tech' },
+                ],
+            },
+        ],
+    },
+    {
+        nameKey: 'nav.focus_communities',
+        href: '/focus-communities',
+        dropdown: [
+            {
+                titleKey: 'nav.communities_list',
+                items: [
+                    { nameKey: 'nav.comm_douala', href: '/communities/douala' },
+                    { nameKey: 'nav.comm_yaounde', href: '/communities/yaounde' },
+                    { nameKey: 'nav.comm_bamenda', href: '/communities/bamenda' },
+                    { nameKey: 'nav.comm_buea', href: '/communities/buea' },
+                    { nameKey: 'nav.comm_limbe', href: '/communities/limbe' },
+                ],
+            },
+            {
+                titleKey: 'nav.communities_list',
+                items: [
+                    { nameKey: 'nav.comm_kribi', href: '/communities/kribi' },
+                    { nameKey: 'nav.comm_bafoussam', href: '/communities/bafoussam' },
+                    { nameKey: 'nav.comm_garoua', href: '/communities/garoua' },
+                    { nameKey: 'nav.comm_maroua', href: '/communities/maroua' },
+                    { nameKey: 'nav.comm_kumba', href: '/communities/kumba' },
+                ],
+            },
+            {
+                titleKey: 'nav.communities_list',
+                items: [
+                    { nameKey: 'nav.comm_ebolowa', href: '/communities/ebolowa' },
+                    { nameKey: 'nav.comm_bertoua', href: '/communities/bertoua' },
+                    { nameKey: 'nav.comm_ngaoundere', href: '/communities/ngaoundere' },
+                    { nameKey: 'nav.comm_dschang', href: '/communities/dschang' },
+                    { nameKey: 'nav.comm_foumban', href: '/communities/foumban' },
+                ],
+            },
+        ],
+    },
     {
         nameKey: 'nav.blog',
         href: '/blog',
@@ -105,6 +155,7 @@ const Navbar = () => {
     const lang = (i18n.language || 'en').split('-')[0].toUpperCase();
     const setLang = (l: string) => { i18n.changeLanguage(l.toLowerCase()); setLangDropdownOpen(false); };
     const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         // Close menu when navigation occurs
@@ -163,17 +214,27 @@ const Navbar = () => {
 
                         {/* Search Bar */}
                         <div className="flex-1 max-w-lg flex items-center justify-center mx-auto">
-                            <div className="flex w-full overflow-hidden border border-slate-300 rounded focus-within:border-[#1eb4d4] transition-colors shadow-sm">
+                            <form 
+                                onSubmit={(e) => {
+                                    e.preventDefault();
+                                    const formData = new FormData(e.currentTarget);
+                                    const q = formData.get('q');
+                                    if (q && typeof q === 'string' && q.trim()) {
+                                        navigate(`/search?q=${encodeURIComponent(q.trim())}`);
+                                    }
+                                }}
+                                className="flex w-full overflow-hidden border-2 border-slate-900 rounded-[2px] focus-within:border-[#00BFA5] transition-colors shadow-sm"
+                            >
                                 <input 
                                     type="text" 
+                                    name="q"
                                     placeholder="Enter Keywords..." 
-                                    className="w-full px-4 py-2.5 text-sm text-slate-700 outline-none placeholder:text-slate-400"
+                                    className="w-full px-4 py-2.5 text-sm font-bold text-slate-700 outline-none placeholder:text-slate-400"
                                 />
-                                <button className="bg-[#1eb4d4] text-white px-6 py-2.5 text-sm font-bold flex items-center gap-2 hover:bg-[#1593af] transition-colors">
-                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                                <button type="submit" className="bg-[#001B44] text-white px-6 py-2.5 text-sm font-bold flex items-center gap-2 hover:bg-[#00BFA5] transition-colors">
                                     Search
                                 </button>
-                            </div>
+                            </form>
                         </div>
 
                         {/* Top Right Links */}
@@ -287,10 +348,10 @@ const Navbar = () => {
                                                 className="absolute top-full left-1/2 -translate-x-1/2 pt-2 min-w-[520px] z-50"
                                             >
                                                 <div className="bg-white rounded-xl shadow-2xl shadow-black/15 border border-slate-200 overflow-hidden p-5">
-                                                    <div className={`grid gap-6 ${link.dropdown.length > 1 ? 'grid-cols-2' : 'grid-cols-1'}`}>
-                                                        {link.dropdown.map((section) => (
-                                                            <div key={section.titleKey} className="text-left">
-                                                                <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#1eb4d4] border-b border-slate-100 pb-2 mb-3">
+                                                    <div className={`grid gap-6 ${link.dropdown.length > 2 ? 'grid-cols-3' : link.dropdown.length > 1 ? 'grid-cols-2' : 'grid-cols-1'}`}>
+                                                        {link.dropdown.map((section, idx) => (
+                                                            <div key={idx} className="text-left">
+                                                                <h4 className={`text-[10px] font-black uppercase tracking-[0.3em] text-[#1eb4d4] border-b border-slate-100 pb-2 mb-3 ${idx > 0 && section.titleKey === 'nav.communities_list' ? 'opacity-0' : ''}`}>
                                                                     {t(section.titleKey)}
                                                                 </h4>
                                                                 <div className="space-y-0.5">
