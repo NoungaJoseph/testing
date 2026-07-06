@@ -40,8 +40,16 @@ const BlogDetail = () => {
                         <div className="mb-4">
                             <span className="px-3 py-1 rounded-full text-[12px] font-black bg-green-100 text-slate-900">{post.category}</span>
                         </div>
-                        <h1 className="text-3xl md:text-4xl font-black text-slate-900 mb-3">{post.title}</h1>
-                        <div className="text-sm text-slate-500 mb-8">{post.date} - {post.author}</div>
+                        <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">{post.title}</h1>
+                        <div className="flex items-center gap-4 mb-10 pb-6 border-b border-slate-200">
+                            <div className="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-500 uppercase">
+                                {post.author.charAt(0)}
+                            </div>
+                            <div>
+                                <div className="font-bold text-slate-900">By {post.author}</div>
+                                <div className="text-sm text-slate-500">{post.date}</div>
+                            </div>
+                        </div>
                         <div className="prose prose-lg max-w-none text-slate-700">
                             {paragraphs.map((paragraph, index) => (
                                 <p key={index} className="mb-6 leading-8 text-slate-700">
@@ -49,6 +57,22 @@ const BlogDetail = () => {
                                 </p>
                             ))}
                         </div>
+
+                        {post.statisticsLinks && post.statisticsLinks.length > 0 && (
+                            <div className="mt-12 pt-8 border-t border-slate-200">
+                                <h3 className="text-xl font-bold text-slate-900 mb-4">Sources & Proof Statistics</h3>
+                                <ul className="space-y-3">
+                                    {post.statisticsLinks.map((link, idx) => (
+                                        <li key={idx} className="flex items-start gap-2">
+                                            <span className="text-green-600 mt-1">✓</span>
+                                            <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-green-600 font-medium underline underline-offset-4">
+                                                {link.label}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
                     </FadeIn>
                 </div>
             </section>

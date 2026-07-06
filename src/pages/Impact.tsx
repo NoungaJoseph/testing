@@ -164,7 +164,7 @@ const ImpactPage = () => {
                                     className="flex flex-col justify-between p-12 border-r border-b border-slate-200 group hover:bg-[#001B44] transition-colors duration-500 h-64 relative overflow-hidden bg-white"
                                 >
                                     <div className="absolute inset-0 bg-[#00BFA5] translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] z-0" />
-                                    <span className="text-[#001B44] text-6xl font-black tracking-tighter group-hover:text-white transition-colors duration-500 relative z-10">{stat.v}</span>
+                                    <span className="text-[#001B44] text-4xl font-black tracking-tighter group-hover:text-white transition-colors duration-500 relative z-10">{stat.v}</span>
                                     <p className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em] group-hover:text-white relative z-10 transition-colors duration-500">{stat.l}</p>
                                 </motion.div>
                             ))}

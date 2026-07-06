@@ -374,7 +374,7 @@ const ProgramDetailPage = () => {
                                         className="flex items-center justify-center gap-2 w-full py-3.5 bg-white text-[#001F5B] font-bold rounded-xl hover:bg-green-50 transition-colors mb-3 text-sm">
                                         {t('program_detail.sections.apply.btn_apply')}
                                     </Link>
-                                    <Link to="/donate"
+                                    <Link to={`/donate?sector=${encodeURIComponent(id || '')}`}
                                         className="flex items-center justify-center gap-2 w-full py-3.5 bg-green-800/50 text-white border border-white/20 font-bold rounded-xl hover:bg-green-800 transition-colors text-sm">
                                         <Heart className="w-4 h-4" /> {t('program_detail.sections.apply.btn_donate')}
                                     </Link>

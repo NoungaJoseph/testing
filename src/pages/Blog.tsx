@@ -100,26 +100,26 @@ const Blog = () => {
                                     <FadeIn key={post.id} direction="up" delay={i * 0.05} fullWidth>
                                         <motion.article
                                             whileHover={{ y: -4 }}
-                                            className="group overflow-hidden transition-all duration-500 flex flex-col h-full"
+                                            className="group overflow-hidden transition-all duration-500 flex flex-col h-full cursor-pointer"
                                         >
-                                            <div className="w-full aspect-square overflow-hidden">
-                                                <img
-                                                    src={post.image}
-                                                    alt={post.title}
-                                                    className="w-full h-full object-cover transition-transform duration-700"
-                                                />
-                                            </div>
-                                            <div className="p-6 flex flex-col flex-grow">
-                                                <div className="mb-3">
-                                                    <span className="text-xs font-black uppercase tracking-widest text-slate-400">{post.category}</span>
+                                            <Link to={`/blog/${post.id}`} className="flex flex-col h-full">
+                                                <div className="w-full aspect-square overflow-hidden">
+                                                    <img
+                                                        src={post.image}
+                                                        alt={post.title}
+                                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                                    />
                                                 </div>
-                                                <div className="text-[12px] text-slate-500 mb-3">{post.date} • {post.author}</div>
-                                                <h3 className="text-xl font-black text-slate-900 leading-tight mb-3">
-                                                    <Link to={`/blog/${post.id}`} className="underline hover:text-secondary">
+                                                <div className="p-6 flex flex-col flex-grow">
+                                                    <div className="mb-3">
+                                                        <span className="text-xs font-black uppercase tracking-widest text-slate-400">{post.category}</span>
+                                                    </div>
+                                                    <div className="text-[12px] text-slate-500 mb-3">{post.date} • {post.author}</div>
+                                                    <h3 className="text-xl font-black text-slate-900 leading-tight mb-3 group-hover:text-green-600 transition-colors">
                                                         {post.title}
-                                                    </Link>
-                                                </h3>
-                                            </div>
+                                                    </h3>
+                                                </div>
+                                            </Link>
                                         </motion.article>
                                     </FadeIn>
                                 ))}

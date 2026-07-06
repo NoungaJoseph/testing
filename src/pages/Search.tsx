@@ -49,13 +49,13 @@ const Search = () => {
         });
 
         // Add Communities
-        Object.entries(communitiesData).forEach(([key, comm]: [string, any]) => {
+        communitiesData.forEach((comm) => {
             data.push({
-                title: comm.title,
-                description: comm.description || `Community in ${comm.region || 'Cameroon'}`,
-                link: `/communities/${key}`,
+                title: comm.name || '',
+                description: comm.overview || `Community in ${comm.region || 'Cameroon'}`,
+                link: `/communities/${comm.slug}`,
                 category: 'Community',
-                image: comm.heroImage || comm.images?.[0]
+                image: comm.coverImage
             });
         });
 
@@ -90,15 +90,15 @@ const Search = () => {
 
         const lowerQ = query.toLowerCase().trim();
         const filtered = allData.filter(item => 
-            item.title.toLowerCase().includes(lowerQ) || 
-            item.description.toLowerCase().includes(lowerQ) ||
-            item.category.toLowerCase().includes(lowerQ)
+            (item.title || '').toLowerCase().includes(lowerQ) || 
+            (item.description || '').toLowerCase().includes(lowerQ) ||
+            (item.category || '').toLowerCase().includes(lowerQ)
         );
 
         // Sort results: exact title matches first, then partial title matches, then descriptions
         filtered.sort((a, b) => {
-            const aTitle = a.title.toLowerCase();
-            const bTitle = b.title.toLowerCase();
+            const aTitle = (a.title || '').toLowerCase();
+            const bTitle = (b.title || '').toLowerCase();
             if (aTitle === lowerQ && bTitle !== lowerQ) return -1;
             if (bTitle === lowerQ && aTitle !== lowerQ) return 1;
             if (aTitle.includes(lowerQ) && !bTitle.includes(lowerQ)) return -1;

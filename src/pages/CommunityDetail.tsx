@@ -88,12 +88,12 @@ const CommunityDetail = () => {
                                     <div className="space-y-8">
                                         <div>
                                             <p className="text-slate-900 text-sm font-bold uppercase tracking-wider mb-2">Population Reached</p>
-                                            <p className="text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-black text-[#00BFA5] break-words leading-tight">{data.populationReached}</p>
+                                            <p className="text-3xl lg:text-4xl font-black text-[#00BFA5] leading-tight break-normal">{data.populationReached}</p>
                                         </div>
                                         <div className="w-full h-px bg-slate-200" />
                                         <div>
                                             <p className="text-slate-900 text-sm font-bold uppercase tracking-wider mb-2">Active Projects</p>
-                                            <p className="text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-black text-[#00BFA5] break-words leading-tight">{data.activeProjects}</p>
+                                            <p className="text-3xl lg:text-4xl font-black text-[#00BFA5] leading-tight break-normal">{data.activeProjects}</p>
                                         </div>
                                     </div>
                                 </div>

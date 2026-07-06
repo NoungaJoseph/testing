@@ -1,4 +1,5 @@
 export interface BlogPost {
+    statisticsLinks?: { label: string; url: string }[];
     id: string;
     title: string;
     excerpt: string;
@@ -16,6 +17,10 @@ export const blogPosts: BlogPost[] = [
         category: 'Education',
         date: 'April 18, 2026',
         author: 'Education Program Desk',
+        statisticsLinks: [
+            { label: 'World Bank Data', url: 'https://data.worldbank.org' },
+            { label: 'UNESCO Global Education Monitoring', url: 'https://www.unesco.org/gem-report/en' }
+        ],
         image: '/assets/updates/1.png',
         excerpt: 'How targeted fee support and parent follow-up improved attendance for vulnerable pupils this term.',
         content: `Enako Outreach began the 2026 school term with one urgent question: what actually keeps a child in class once the first scholarship payment has been made? In many of our partner schools around Douala, school access is not decided by tuition alone. Families also face transport costs, uniform replacement, exercise books, exam levies, and the pressure of unstable income. A pupil may be enrolled at the beginning of the term and still miss a growing number of school days by week four. Because of that pattern, our retention update focused less on enrollment and more on daily participation, classroom continuity, and the reasons children disappear from the register after a promising start.
@@ -34,6 +39,10 @@ The next phase of this work is standardization. Enako Outreach is building a ter
         category: 'Water',
         date: 'April 14, 2026',
         author: 'Water Systems Unit',
+        statisticsLinks: [
+            { label: 'World Bank Data', url: 'https://data.worldbank.org' },
+            { label: 'UNESCO Global Education Monitoring', url: 'https://www.unesco.org/gem-report/en' }
+        ],
         image: '/assets/charity/clean-water-initiative.png',
         excerpt: 'The practical maintenance routine now used with local committees to keep water points operational.',
         content: `A borehole project is often celebrated on the day water begins to flow, but the real test starts after the launch photos are taken. In many communities, the long-term value of a water point depends less on installation quality alone and more on what happens in the months that follow. Who notices a leak first? Who has permission to pause access if contamination is suspected? Who keeps records of minor faults before they become major repairs? Enako Outreach developed its 2026 borehole maintenance playbook to answer those questions in a practical, community-owned way.
@@ -52,6 +61,10 @@ Hygiene has been folded directly into the maintenance model as well. Water acces
         category: 'Teacher Development',
         date: 'April 10, 2026',
         author: 'Teacher Support Team',
+        statisticsLinks: [
+            { label: 'World Bank Data', url: 'https://data.worldbank.org' },
+            { label: 'UNESCO Global Education Monitoring', url: 'https://www.unesco.org/gem-report/en' }
+        ],
         image: '/assets/imported/blog-teacher.jpg',
         excerpt: 'A transparent approach to teacher recognition based on classroom impact, mentorship, and school contribution.',
         content: `Teacher recognition can become symbolic very quickly if the criteria are vague, inconsistent, or driven by visibility rather than sustained contribution. That is why Enako Outreach has spent the first months of 2026 refining a more transparent teacher reward framework for partner schools. The purpose of the framework is not only to identify excellent educators. It is also to make the recognition process credible to teachers, school leaders, and the communities who rely on them. When criteria are clear, recognition strengthens motivation. When criteria are unclear, it can deepen frustration among staff who already work under significant pressure.
@@ -70,6 +83,10 @@ Another important change this year is that the reward process now includes writt
         category: 'Health',
         date: 'April 6, 2026',
         author: 'Community Health Desk',
+        statisticsLinks: [
+            { label: 'World Bank Data', url: 'https://data.worldbank.org' },
+            { label: 'UNESCO Global Education Monitoring', url: 'https://www.unesco.org/gem-report/en' }
+        ],
         image: '/assets/imported/blog-health-routes.jpg',
         excerpt: 'How route planning and local volunteer coordination improved outreach speed in underserved zones.',
         content: `Community health outreach is often described in terms of services delivered, but the quality of the route behind those services matters just as much. In recent months, Enako Outreach reviewed how mobile teams were moving through partner communities and found that travel inefficiency was reducing the number of households reached in a single day. Some delays were predictable: difficult roads, long walking stretches between clusters of homes, and repeated backtracking when volunteers and clinicians were not working from the same map of local need. Our updated community health route model is a direct response to those practical constraints.
@@ -88,6 +105,10 @@ The updated model also improves referral continuity. In the past, teams sometime
         category: 'Women Empowerment',
         date: 'March 30, 2026',
         author: 'Livelihood Support Unit',
+        statisticsLinks: [
+            { label: 'World Bank Data', url: 'https://data.worldbank.org' },
+            { label: 'UNESCO Global Education Monitoring', url: 'https://www.unesco.org/gem-report/en' }
+        ],
         image: '/assets/updates/5.png',
         excerpt: 'A look at early earnings stability among women enrolled in skills and micro-grant support.',
         content: `Income growth can be hard to measure in the early stages of a livelihoods program, especially when participants are balancing caregiving, unstable markets, and irregular household expenses. For single mothers in our support cycle, the question is not only whether earnings increase, but whether income becomes predictable enough to protect food, school, and health decisions at home. Enako Outreach's 2026 tracking process is focused on those practical signals of stability. We are watching how women earn, how often cash flow breaks down, and what kind of support helps early gains hold.
@@ -106,6 +127,10 @@ Mentoring is also shaping outcomes more than we expected. Women who receive regu
         category: 'Youth',
         date: 'March 24, 2026',
         author: 'Youth Empowerment Team',
+        statisticsLinks: [
+            { label: 'World Bank Data', url: 'https://data.worldbank.org' },
+            { label: 'UNESCO Global Education Monitoring', url: 'https://www.unesco.org/gem-report/en' }
+        ],
         image: '/assets/updates/6.png',
         excerpt: 'The new placement-first model connecting youth trainees to practical apprenticeships.',
         content: `Skills training can look impressive on paper while still leaving young people stranded after completion. Certificates alone do not create livelihoods, and enthusiasm after a workshop fades quickly when there is no pathway into work, apprenticeship, or self-employment. That challenge shaped Enako Outreach's latest youth program design. In 2026 we shifted toward a placement-first model that asks an early question: where can this trainee realistically apply the skill once training ends? Starting there has changed how we recruit participants, structure learning, and build relationships with local employers and mentors.
@@ -124,6 +149,10 @@ The placement-first structure also changes how success is measured. Completion r
         category: 'Emergency Relief',
         date: 'March 20, 2026',
         author: 'Rapid Response Desk',
+        statisticsLinks: [
+            { label: 'World Bank Data', url: 'https://data.worldbank.org' },
+            { label: 'UNESCO Global Education Monitoring', url: 'https://www.unesco.org/gem-report/en' }
+        ],
         image: '/assets/imported/blog-emergency.jpg',
         excerpt: 'Preparedness workflows that improved response speed during recent local disruption events.',
         content: `Emergency response is often judged by what happens after a crisis becomes visible, but readiness is built well before the first alert is issued. Over the past quarter, Enako Outreach has been strengthening its emergency response workflow across focus communities so that urgent support can move with less delay when disruption occurs. This work has involved more than storing supplies. It has required clearer local communication channels, better triage standards, and stronger coordination between field teams, community contacts, and logistics support.
@@ -142,6 +171,10 @@ Supply routing is another area that has been tightened. Relief items are now con
         category: 'Scholarships',
         date: 'March 15, 2026',
         author: 'Scholarship Operations',
+        statisticsLinks: [
+            { label: 'World Bank Data', url: 'https://data.worldbank.org' },
+            { label: 'UNESCO Global Education Monitoring', url: 'https://www.unesco.org/gem-report/en' }
+        ],
         image: '/assets/updates/university.png',
         excerpt: 'How continuity planning supports students beyond admission and into final-year progression.',
         content: `Winning a university scholarship is often treated as the finish line of support, yet for many students it is only the beginning of a more complex struggle. Admission may solve tuition pressure in the short term, but continuity depends on much more than fees. Students face transport costs, housing instability, learning materials, connectivity needs, and the emotional strain of navigating academic systems without strong safety nets. Enako Outreach's continuity planning work in 2026 is focused on reducing the risk that students who have already earned access lose momentum before graduation.
@@ -160,6 +193,10 @@ We are also paying closer attention to hidden educational costs. A scholarship m
         category: 'Infrastructure',
         date: 'March 10, 2026',
         author: 'Infrastructure and Facilities Team',
+        statisticsLinks: [
+            { label: 'World Bank Data', url: 'https://data.worldbank.org' },
+            { label: 'UNESCO Global Education Monitoring', url: 'https://www.unesco.org/gem-report/en' }
+        ],
         image: '/assets/imported/blog-rehab.jpg',
         excerpt: 'A practical scoring model for selecting school rehabilitation interventions by urgency and impact.',
         content: `Every school needs improvement somewhere, but not every repair can happen at the same time. For Enako Outreach, that reality made it necessary to create a more disciplined way of deciding which school rehabilitation needs should move first in 2026. The new priority matrix was developed to help partner schools understand how decisions are made when resources are limited and needs are significant. Instead of responding mainly to the loudest request or the most visible damage, we now use a scoring model that considers risk, learning disruption, student volume, and the feasibility of corrective action.
@@ -178,6 +215,10 @@ Feasibility is the fourth major consideration. Some rehabilitation needs can be 
         category: 'Community',
         date: 'March 4, 2026',
         author: 'Monitoring and Learning Team',
+        statisticsLinks: [
+            { label: 'World Bank Data', url: 'https://data.worldbank.org' },
+            { label: 'UNESCO Global Education Monitoring', url: 'https://www.unesco.org/gem-report/en' }
+        ],
         image: '/assets/imported/blog-clinic-feedback.jpg',
         excerpt: 'How beneficiary feedback is shaping clinic scheduling, follow-up referrals, and medication coverage.',
         content: `Good outreach services do not become better by assumption. They improve when communities are able to describe what worked, what felt difficult, and what still remained unresolved after a visit. During this quarter, Enako Outreach strengthened the feedback loop around community clinic activity so that beneficiary perspectives shape service changes more directly. The aim was not to add another reporting layer for appearance's sake. The aim was to use lived experience as a practical tool for improving scheduling, referral continuity, and confidence in the care pathway.
@@ -196,6 +237,10 @@ Medication coverage also came up in feedback sessions, particularly where househ
         category: 'Innovation',
         date: 'February 27, 2026',
         author: 'Digital Learning Desk',
+        statisticsLinks: [
+            { label: 'World Bank Data', url: 'https://data.worldbank.org' },
+            { label: 'UNESCO Global Education Monitoring', url: 'https://www.unesco.org/gem-report/en' }
+        ],
         image: '/assets/imported/blog-digital-literacy.jpg',
         excerpt: 'A first look at device-supported learning modules introduced in selected classrooms.',
         content: `Digital literacy is often discussed as a future skill, but in many schools it is already becoming a present need. Students are increasingly expected to navigate information, communication tools, and basic digital environments even when their schools have limited infrastructure. Enako Outreach launched its digital literacy pilot in selected partner schools to explore how device-supported learning can be introduced in a way that is practical, grounded, and sensitive to local teaching realities. The pilot is modest by design, but it is helping us learn what supports meaningful digital confidence rather than short-lived novelty.
@@ -214,6 +259,10 @@ Student engagement during the early phase has been strong, especially where sess
         category: 'Crisis',
         date: 'February 18, 2026',
         author: 'Field Coordination Unit',
+        statisticsLinks: [
+            { label: 'World Bank Data', url: 'https://data.worldbank.org' },
+            { label: 'UNESCO Global Education Monitoring', url: 'https://www.unesco.org/gem-report/en' }
+        ],
         image: '/assets/charity/teacher-rewards.png',
         excerpt: 'Operational tactics used to keep learning support active when access conditions become unpredictable.',
         content: `Education continuity becomes most fragile when the surrounding environment is unstable. In those conditions, even well-designed learning programs can falter because access changes quickly, movement becomes uncertain, and families are forced to make daily decisions under stress. Enako Outreach has been reviewing how it sustains education support when regional conditions shift, and one of the clearest findings is that continuity depends less on a single intervention than on flexible local coordination. The ability to adapt quickly often matters more than the original plan.
