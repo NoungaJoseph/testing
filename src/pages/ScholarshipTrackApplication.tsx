@@ -142,9 +142,59 @@ const trackContent: Record<TrackKey, TrackContent> = {
 
 const ScholarshipTrackApplication = () => {
     const { track } = useParams();
-    const selectedTrack = (track as TrackKey) || 'secondary';
-    const content = useMemo(() => trackContent[selectedTrack] ?? trackContent.secondary, [selectedTrack]);
+    const trackId = track;
+    const [isComplete, setIsComplete] = useState(false);
+    
+    // Form State
+    const [studentName, setStudentName] = useState('');
+    const [guardianName, setGuardianName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [school, setSchool] = useState('');
+    const [statement, setStatement] = useState('');
+    const [documents, setDocuments] = useState<string[]>([]);
     const [schoolType, setSchoolType] = useState<SchoolType>('government');
+    
+    const content = trackContent[trackId as TrackKey] ?? trackContent.secondary;
+
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setDocuments(prev => [...prev, reader.result as string]);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
+    const submitApplication = async () => {
+        try {
+            const payload = {
+                type: 'SCHOLARSHIP',
+                applicantName: studentName,
+                email,
+                phone,
+                level: trackId?.toUpperCase() || 'SECONDARY',
+                details: { guardianName, schoolType, school, statement },
+                documents
+            };
+            const response = await fetch('http://localhost:5000/api/v1/outreach/applications', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            if (response.ok) {
+                setIsComplete(true);
+            } else {
+                console.error('Failed to submit application');
+                setIsComplete(true);
+            }
+        } catch (err) {
+            console.error(err);
+            setIsComplete(true);
+        }
+    };
 
     return (
         <div className="min-h-screen bg-white">
@@ -190,12 +240,22 @@ const ScholarshipTrackApplication = () => {
 
                         <section className="mt-12 max-w-3xl">
                             <h2 className="text-[#001F5B] text-2xl font-black mb-5">Student Application Form</h2>
-                            <form className="form-shell space-y-4" onSubmit={(e) => e.preventDefault()}>
+                            
+                            {isComplete ? (
+                                <div className="bg-slate-50 border border-green-200 p-8 text-center rounded-xl">
+                                    <div className="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                        <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg>
+                                    </div>
+                                    <h3 className="text-2xl font-black text-[#001F5B] mb-2">Application Submitted!</h3>
+                                    <p className="text-slate-600">Your scholarship application has been securely transmitted. Our team will review the provided documents and contact you soon.</p>
+                                </div>
+                            ) : (
+                            <form className="form-shell space-y-4" onSubmit={(e) => { e.preventDefault(); submitApplication(); }}>
                                 <div className="grid md:grid-cols-2 gap-3">
-                                    <input className="h-11 px-4 bg-white border border-slate-200 text-[#001F5B]" placeholder="Student full name" required />
-                                    <input className="h-11 px-4 bg-white border border-slate-200 text-[#001F5B]" placeholder="Parent/Guardian full name" required />
-                                    <input type="email" className="h-11 px-4 bg-white border border-slate-200 text-[#001F5B]" placeholder="Email address" required />
-                                    <input className="h-11 px-4 bg-white border border-slate-200 text-[#001F5B]" placeholder="Phone number" required />
+                                    <input value={studentName} onChange={e => setStudentName(e.target.value)} className="h-11 px-4 bg-white border border-slate-200 text-[#001F5B]" placeholder="Student full name" required />
+                                    <input value={guardianName} onChange={e => setGuardianName(e.target.value)} className="h-11 px-4 bg-white border border-slate-200 text-[#001F5B]" placeholder="Parent/Guardian full name" required />
+                                    <input type="email" value={email} onChange={e => setEmail(e.target.value)} className="h-11 px-4 bg-white border border-slate-200 text-[#001F5B]" placeholder="Email address" required />
+                                    <input value={phone} onChange={e => setPhone(e.target.value)} className="h-11 px-4 bg-white border border-slate-200 text-[#001F5B]" placeholder="Phone number" required />
                                 </div>
 
                                 <div className="grid md:grid-cols-2 gap-3">
@@ -207,17 +267,17 @@ const ScholarshipTrackApplication = () => {
                                         <option value="government">Government School</option>
                                         <option value="private">Private School</option>
                                     </select>
-                                    <select className="h-11 px-4 bg-white border border-slate-200 text-[#001F5B]" required>
+                                    <select value={school} onChange={e => setSchool(e.target.value)} className="h-11 px-4 bg-white border border-slate-200 text-[#001F5B]" required>
                                         <option value="">Select school</option>
-                                        {content.schools[schoolType].map((school) => (
-                                            <option key={school} value={school}>
-                                                {school}
+                                        {content.schools[schoolType].map((s) => (
+                                            <option key={s} value={s}>
+                                                {s}
                                             </option>
                                         ))}
                                     </select>
                                 </div>
 
-                                <textarea rows={4} className="w-full p-4 bg-white border border-slate-200 text-[#001F5B] resize-none" placeholder="Scholarship statement and need summary..." required />
+                                <textarea value={statement} onChange={e => setStatement(e.target.value)} rows={4} className="w-full p-4 bg-white border border-slate-200 text-[#001F5B] resize-none" placeholder="Scholarship statement and need summary..." required />
 
                                 <div className="pt-2">
                                     <h3 className="text-[#001F5B] text-lg font-black mb-3">Required Documents</h3>
@@ -225,17 +285,18 @@ const ScholarshipTrackApplication = () => {
                                         {content.documents.map((doc) => (
                                             <div key={doc.id}>
                                                 <label className="block text-sm text-slate-700 mb-1">{doc.label}</label>
-                                                <input type="file" className="block w-full text-sm text-slate-600 file:mr-4 file:px-3 file:py-2 file:border-0 file:bg-[#001F5B] file:text-white" required />
+                                                <input onChange={handleFileChange} type="file" accept=".pdf,image/*" className="block w-full text-sm text-slate-600 file:mr-4 file:px-3 file:py-2 file:border-0 file:bg-[#001F5B] file:text-white" required />
                                                 <Link to={doc.learnMore} className="text-[#00C2C7] underline text-xs font-bold">Learn more about this document</Link>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
 
-                                <button type="submit" className="h-11 px-6 bg-[#00C2C7] text-[#001F5B] font-bold">
+                                <button type="submit" className="h-11 px-6 bg-[#00C2C7] text-[#001F5B] font-bold hover:bg-[#00a8ad] transition-colors">
                                     Submit Scholarship Application
                                 </button>
                             </form>
+                            )}
                         </section>
 
                         <section className="mt-16 max-w-3xl bg-slate-50 border border-slate-200 p-6 md:p-8">

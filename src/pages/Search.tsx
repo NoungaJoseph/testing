@@ -3,6 +3,7 @@ import { useSearchParams, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
+import Fuse from 'fuse.js';
 
 // Static Data imports
 import { blogPosts } from '../data/blogPosts';
@@ -15,6 +16,7 @@ type SearchResult = {
     link: string;
     category: string;
     image?: string;
+    keywords?: string[];
 };
 
 const Search = () => {
@@ -61,19 +63,21 @@ const Search = () => {
 
         // Add static pages
         const staticPages = [
-            { title: 'About Us', desc: 'Learn about Enako Outreach, our mission, and our vision.', link: '/about' },
-            { title: 'Programs', desc: 'Discover the programs and initiatives we run.', link: '/programs' },
-            { title: 'Impact', desc: 'See the impact of our projects across Cameroon.', link: '/impact' },
-            { title: 'Get Involved', desc: 'Find out how you can volunteer or partner with us.', link: '/get-involved' },
-            { title: 'Contact Us', desc: 'Get in touch with the Enako Outreach team.', link: '/contact' },
-            { title: 'Donate', desc: 'Support our mission by making a donation.', link: '/donate' },
+            { title: 'About Us', desc: 'Learn about Enako Outreach, our mission, and our vision.', link: '/about', keywords: ['about', 'history', 'mission', 'vision'] },
+            { title: 'Programs & Scholarships', desc: 'Discover the programs and initiatives we run, including scholarships.', link: '/programs', keywords: ['programs', 'scholarships', 'education', 'health', 'initiatives', 'schorlaship', 'grants', 'school'] },
+            { title: 'Impact', desc: 'See the impact of our projects across Cameroon.', link: '/impact', keywords: ['impact', 'results', 'reports', 'success'] },
+            { title: 'Get Involved', desc: 'Find out how you can volunteer or partner with us.', link: '/get-involved', keywords: ['volunteer', 'partner', 'join', 'help'] },
+            { title: 'Contact Us', desc: 'Get in touch with the Enako Outreach team.', link: '/contact', keywords: ['contact', 'email', 'phone', 'support'] },
+            { title: 'Donate', desc: 'Support our mission by making a donation.', link: '/donate', keywords: ['donate', 'give', 'fund', 'contribute'] },
+            { title: 'Events & News', desc: 'Latest updates, upcoming events, and news from Enako Outreach.', link: '/blog', keywords: ['events', 'news', 'upcoming', 'announcements', 'updates', 'blog'] }
         ];
         staticPages.forEach(p => {
             data.push({
                 title: p.title,
                 description: p.desc,
                 link: p.link,
-                category: 'Page'
+                category: 'Page',
+                keywords: p.keywords
             });
         });
 
@@ -88,23 +92,20 @@ const Search = () => {
             return;
         }
 
-        const lowerQ = query.toLowerCase().trim();
-        const filtered = allData.filter(item => 
-            (item.title || '').toLowerCase().includes(lowerQ) || 
-            (item.description || '').toLowerCase().includes(lowerQ) ||
-            (item.category || '').toLowerCase().includes(lowerQ)
-        );
-
-        // Sort results: exact title matches first, then partial title matches, then descriptions
-        filtered.sort((a, b) => {
-            const aTitle = (a.title || '').toLowerCase();
-            const bTitle = (b.title || '').toLowerCase();
-            if (aTitle === lowerQ && bTitle !== lowerQ) return -1;
-            if (bTitle === lowerQ && aTitle !== lowerQ) return 1;
-            if (aTitle.includes(lowerQ) && !bTitle.includes(lowerQ)) return -1;
-            if (bTitle.includes(lowerQ) && !aTitle.includes(lowerQ)) return 1;
-            return 0;
+        const fuse = new Fuse(allData, {
+            keys: [
+                { name: 'title', weight: 0.5 },
+                { name: 'keywords', weight: 0.3 },
+                { name: 'description', weight: 0.1 },
+                { name: 'category', weight: 0.1 }
+            ],
+            threshold: 0.4, // Allows fuzzy matching for typos like "schorlaship"
+            ignoreLocation: true,
+            includeScore: true
         });
+
+        const fuseResults = fuse.search(query);
+        const filtered = fuseResults.map(res => res.item);
 
         setResults(filtered);
         setIsSearching(false);

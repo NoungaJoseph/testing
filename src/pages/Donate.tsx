@@ -19,6 +19,7 @@ const Donate = () => {
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
+    const [documentBase64, setDocumentBase64] = useState<string | null>(null);
     const [isComplete, setIsComplete] = useState(false);
 
     const selectedAmount = Number(customAmount) || 0;
@@ -58,7 +59,8 @@ const Donate = () => {
                 method: method.toUpperCase(),
                 fullName,
                 email,
-                phone
+                phone,
+                documentBase64
             };
             const response = await fetch('http://localhost:5000/api/v1/outreach/donations', {
                 method: 'POST',
@@ -242,6 +244,24 @@ const Donate = () => {
                                                     required
                                                 />
                                             </div>
+                                        </div>
+
+                                        {/* Optional Document Upload */}
+                                        <div>
+                                            <label className="block text-sm font-bold text-slate-700 mb-2">Supporting Document (Optional)</label>
+                                            <input
+                                                type="file"
+                                                accept="image/*,.pdf"
+                                                onChange={(e) => {
+                                                    const file = e.target.files?.[0];
+                                                    if (file) {
+                                                        const reader = new FileReader();
+                                                        reader.onloadend = () => setDocumentBase64(reader.result as string);
+                                                        reader.readAsDataURL(file);
+                                                    }
+                                                }}
+                                                className="w-full text-sm text-slate-500 file:mr-4 file:py-3 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-bold file:bg-[#00BFA5]/10 file:text-[#00BFA5] hover:file:bg-[#00BFA5]/20 cursor-pointer"
+                                            />
                                         </div>
 
                                         {/* Payment Method */}
