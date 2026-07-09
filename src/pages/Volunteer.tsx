@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Users, GraduationCap, Home, ChevronRight, Send, CheckCircle2, Award } from 'lucide-react';
+import { Users, GraduationCap, Home, ChevronRight, CheckCircle2, Award } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';

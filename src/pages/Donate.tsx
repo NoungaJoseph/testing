@@ -5,8 +5,6 @@ import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
 import { useTranslation } from 'react-i18next';
 
-const oneTimeAmounts = [2000, 5000, 10000, 25000];
-const monthlyAmounts = [1500, 3000, 7000, 12000];
 
 const Donate = () => {
     const { t } = useTranslation();
@@ -24,31 +22,7 @@ const Donate = () => {
 
     const selectedAmount = Number(customAmount) || 0;
 
-    const impactLines = useMemo(() => {
-        const linesT = t('donate.impact_lines', { returnObjects: true }) as any;
-        if (selectedAmount < 3000) {
-            return linesT.low || [
-                'Supports school supplies for one child.',
-                'Adds to emergency support reserve.',
-            ];
-        }
-        if (selectedAmount < 8000) {
-            return linesT.med || [
-                'Supports learning kits for 2 children.',
-                'Contributes to one community outreach day.',
-            ];
-        }
-        if (selectedAmount < 15000) {
-            return linesT.high || [
-                'Supports a partial scholarship package.',
-                'Contributes to local health outreach transport.',
-            ];
-        }
-        return linesT.max || [
-            'Supports one full student support cycle.',
-            'Contributes to clean-water and education field logistics.',
-        ];
-    }, [selectedAmount, t]);
+
 
     const submitDonation = async () => {
         try {

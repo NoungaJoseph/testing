@@ -13,7 +13,7 @@ const ImpactPage = () => {
 
     const [data, setData] = useState<ImpactDataResponse | null>(null);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
+    const [error] = useState<string | null>(null);
 
     useEffect(() => {
         getPublicImpactData()
