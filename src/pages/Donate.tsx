@@ -62,7 +62,7 @@ const Donate = () => {
                 phone,
                 documentBase64
             };
-            const response = await fetch('http://localhost:5000/api/v1/outreach/donations', {
+            const response = await fetch('https://backend-production-e10c8.up.railway.app/api/v1/outreach/donations', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)

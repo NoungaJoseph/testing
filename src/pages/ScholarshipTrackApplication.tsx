@@ -179,7 +179,7 @@ const ScholarshipTrackApplication = () => {
                 details: { guardianName, schoolType, school, statement },
                 documents
             };
-            const response = await fetch('http://localhost:5000/api/v1/outreach/applications', {
+            const response = await fetch('https://backend-production-e10c8.up.railway.app/api/v1/outreach/applications', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
