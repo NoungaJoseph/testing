@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import FadeIn from './FadeIn';
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
 
 const programs = [
     {
@@ -51,6 +52,15 @@ const programs = [
 const ProgramsGrid = () => {
     const { t } = useTranslation();
     const programsT = t('components.programs_grid.programs', { returnObjects: true }) as any[];
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+        const target = e.currentTarget;
+        const scrollLeft = target.scrollLeft;
+        const cardWidth = target.scrollWidth / programs.length;
+        const index = Math.round(scrollLeft / cardWidth);
+        setActiveIndex(index);
+    };
 
     return (
         <section className="py-24 px-6 md:px-12 bg-white overflow-hidden">
@@ -73,10 +83,19 @@ const ProgramsGrid = () => {
                     </FadeIn>
                 </div>
 
-                {/* Immersive Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                {/* Immersive Cards Grid / Carousel */}
+                <div 
+                    onScroll={handleScroll}
+                    className="flex md:grid overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none scrollbar-none md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 pb-4 md:pb-0"
+                >
                     {programs.map((program, i) => (
-                        <FadeIn key={program.id} delay={i * 0.1} direction="up" scale={0.98}>
+                        <FadeIn 
+                            key={program.id} 
+                            delay={i * 0.1} 
+                            direction="up" 
+                            scale={0.98}
+                            className="w-[85vw] md:w-full flex-shrink-0 md:flex-shrink snap-start snap-always"
+                        >
                             <Link
                                 to={program.href}
                                 className="group relative block w-full h-[460px] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500"
@@ -111,6 +130,18 @@ const ProgramsGrid = () => {
                                 </div>
                             </Link>
                         </FadeIn>
+                    ))}
+                </div>
+
+                {/* Pagination Dots for Mobile */}
+                <div className="flex md:hidden justify-center gap-2 mt-6">
+                    {programs.map((_, i) => (
+                        <div
+                            key={i}
+                            className={`h-1.5 rounded-full transition-all duration-300 ${
+                                activeIndex === i ? 'w-6 bg-[#1c4980]' : 'w-2 bg-slate-300'
+                            }`}
+                        />
                     ))}
                 </div>
             </div>
