@@ -122,7 +122,7 @@ const FocusDetail = () => {
                     
                     {events.length === 0 ? (
                       // Fallback to static mock details
-                      <div className="grid lg:grid-cols-[1fr_320px] gap-12">
+                      <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-12">
                         <div>
                           <h2 className="text-sm font-black text-slate-400 uppercase tracking-widest mb-6">{isFr ? 'Aperçu' : 'Overview'}</h2>
                           <div className="space-y-6 mb-12">
@@ -187,9 +187,9 @@ const FocusDetail = () => {
                               </div>
 
                               {/* Rich Content Grid (Video & Story) */}
-                              <div className="grid lg:grid-cols-12 gap-8 items-start">
+                              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                                 {/* Left Side: Video (if present) or Main Graphic */}
-                                <div className={hasVideo ? 'lg:col-span-7' : 'lg:col-span-5'}>
+                                <div className={hasVideo ? 'col-span-1 lg:col-span-7' : 'col-span-1 lg:col-span-5'}>
                                   {hasVideo ? (
                                     <div className="w-full aspect-video rounded-3xl overflow-hidden shadow-lg border border-slate-100 bg-slate-50">
                                       <iframe
@@ -212,7 +212,7 @@ const FocusDetail = () => {
                                 </div>
 
                                 {/* Right Side: Highlighted Story Card */}
-                                <div className={hasVideo ? 'lg:col-span-5' : 'lg:col-span-7'}>
+                                <div className={hasVideo ? 'col-span-1 lg:col-span-5' : 'col-span-1 lg:col-span-7'}>
                                   {hasStory && (
                                     <div className="bg-[#001B44] text-white rounded-3xl p-6 md:p-8 shadow-xl relative overflow-hidden">
                                       <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-[#00BFA5]/20 blur-3xl" />
