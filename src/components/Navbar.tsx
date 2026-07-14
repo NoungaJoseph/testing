@@ -295,18 +295,18 @@ const Navbar = () => {
                                     {lang}
                                 </button>
                                 <button
-                                    className="flex items-center justify-center transition-all duration-300 active:scale-90 text-[#1c4980] w-9 h-9"
+                                    className="flex items-center justify-center transition-all duration-300 active:scale-90 bg-[#1c4980] hover:bg-[#153760] text-white rounded-full w-10 h-10 shadow-sm"
                                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                                     aria-label="Toggle Menu"
                                 >
                                     <AnimatePresence mode="wait" initial={false}>
                                         {isMobileMenuOpen ? (
-                                            <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                                                <X className="w-7 h-7" />
+                                            <motion.div key="close" className="flex items-center justify-center" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                                                <X className="w-5 h-5" />
                                             </motion.div>
                                         ) : (
-                                            <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                                                <Menu className="w-7 h-7" />
+                                            <motion.div key="open" className="flex items-center justify-center" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                                                <Menu className="w-5 h-5" />
                                             </motion.div>
                                         )}
                                     </AnimatePresence>
@@ -445,7 +445,7 @@ const Navbar = () => {
                                 </Link>
                                 <button
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className="w-9 h-9 flex items-center justify-center bg-transparent text-[#00C2C7]"
+                                    className="w-10 h-10 flex items-center justify-center transition-all duration-300 active:scale-90 bg-[#1c4980] hover:bg-[#153760] text-white rounded-full shadow-sm"
                                     aria-label="Close Menu"
                                 >
                                     <X className="w-5 h-5" />
