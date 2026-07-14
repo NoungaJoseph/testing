@@ -19,11 +19,19 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
+    supportedLngs: ['en', 'fr'],
     fallbackLng: 'en',
     debug: false,
     interpolation: {
       escapeValue: false, // React already does escaping
     },
+    detection: {
+      order: ['localStorage', 'navigator'],
+      lookupLocalStorage: 'i18nextLng',
+      caches: ['localStorage'],
+    },
+    // Maps 'en-US', 'en-GB' etc. to 'en', and 'fr-FR' etc. to 'fr'
+    nonExplicitSupportedLngs: true,
   });
 
 export default i18n;

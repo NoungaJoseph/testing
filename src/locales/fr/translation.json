@@ -35,7 +35,29 @@
     "clean_water_desc": "Forages et purification pour les communautés.",
     "health_support_desc": "Cliniques mobiles et soins de santé.",
     "single_mothers_desc": "Autonomisation des mères célibataires et des veuves.",
-    "language": "Langue"
+    "language": "Langue",
+    "comm_douala": "Douala",
+    "comm_yaounde": "Yaoundé",
+    "comm_bamenda": "Bamenda",
+    "comm_buea": "Buea",
+    "comm_limbe": "Limbe",
+    "comm_kribi": "Kribi",
+    "comm_bafoussam": "Bafoussam",
+    "comm_garoua": "Garoua",
+    "comm_maroua": "Maroua",
+    "comm_kumba": "Kumba",
+    "comm_ebolowa": "Ebolowa",
+    "comm_bertoua": "Bertoua",
+    "comm_ngaoundere": "Ngaoundéré",
+    "comm_dschang": "Dschang",
+    "comm_foumban": "Foumban",
+    "proj_douala_school": "Rénovation Scolaire de Douala",
+    "proj_limbe_water": "Accès à l'Eau Potable à Limbe",
+    "proj_bamenda_clinic": "Clinique de Santé à Bamenda",
+    "proj_yaounde_orphanage": "Soutien aux Orphelinats de Yaoundé",
+    "proj_buea_tech": "Centre Tech pour Jeunes à Buea",
+    "communities_list": "Liste des Communautés",
+    "ongoing_projects": "Projets en Cours"
   },
   "carousel": {
     "slide1_title": "Valoriser les Avenirs",
@@ -1421,5 +1443,205 @@
     "privacy_policy_content": "Cette Politique de Confidentialité décrit comment Enako Outreach collecte, utilise et protège vos informations personnelles lorsque vous utilisez notre site web ou nos services. 1. Collecte d'Informations : Nous pouvons collecter des données personnelles telles que votre nom, email et adresse lorsque vous vous inscrivez aux programmes, faites un don ou vous abonnez à notre newsletter. 2. Utilisation des Informations : Vos données sont utilisées strictement à des fins internes pour traiter les candidatures, émettre des reçus et communiquer des mises à jour. Nous ne vendons pas vos données personnelles. 3. Sécurité des Données : Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données personnelles contre tout accès ou divulgation non autorisé. 4. Vos Droits : Vous avez le droit de demander l'accès à vos données personnelles ou leur suppression à tout moment en nous contactant.",
     "terms_of_service_title": "Conditions d'Utilisation",
     "terms_of_service_content": "Ces Conditions d'Utilisation régissent votre utilisation du site web d'Enako Outreach et de ses services associés. 1. Acceptation des Conditions : En accédant à ce site web, vous acceptez d'être lié par ces Conditions d'Utilisation et par toutes les lois et réglementations applicables. 2. Licence d'Utilisation : L'autorisation est accordée de télécharger temporairement une copie des documents sur le site web d'Enako Outreach à des fins de visionnage transitoire personnel et non commercial uniquement. 3. Dons & Contributions : Tous les dons sont définitifs, sauf en cas d'erreur survenue lors de la transaction. Veuillez contacter notre équipe d'assistance pour tout problème de facturation. 4. Avis de Non-responsabilité : Les documents sur le site web d'Enako Outreach sont fournis 'tels quels'. Nous n'offrons aucune garantie, expresse ou implicite, concernant l'exactitude ou la fiabilité de l'utilisation de ces documents. 5. Modifications : Nous pouvons réviser ces conditions d'utilisation à tout moment sans préavis. En utilisant ce site web, vous acceptez d'être lié par la version actuelle de ces conditions."
+  },
+  "focus_communities": {
+    "hero_title": "Communautés Cibles",
+    "interventions_label": "Accès à l'Eau Potable",
+    "interventions": [
+      {
+        "slug": "clean-water",
+        "title": "Accès à l'Eau Potable",
+        "count": "3 forages réalisés",
+        "desc": "Nous finançons, creusons et entretenons des forages et des systèmes de purification de l'eau dans les communautés manquant d'eau. Chaque projet comprend une formation communautaire pour garantir un impact à long terme."
+      },
+      {
+        "slug": "healthcare",
+        "title": "Sensibilisation à la Santé",
+        "count": "4 journées de cliniques mobiles",
+        "desc": "Des cliniques mobiles, des approvisionnements en médicaments et des campagnes de santé préventive servent les communautés voisines. Nos équipes dispensent des vaccinations, des services de santé maternelle et des formations."
+      },
+      {
+        "slug": "education",
+        "title": "Soutien Éducatif",
+        "count": "8 bourses actives",
+        "desc": "Bourses complètes et partielles pour les élèves du primaire, du secondaire et de l'université. Nous soutenons également la réhabilitation des écoles et la formation des enseignants."
+      },
+      {
+        "slug": "women-mothers",
+        "title": "Femmes & Mères",
+        "count": "10 bénéficiaires",
+        "desc": "Micro-subventions, formation professionnelle et aide à la garde d'enfants pour les femmes et les mères vulnérables. Les programmes combinent soutien au moyens de subsistance et services psychosociaux."
+      },
+      {
+        "slug": "community-relief",
+        "title": "Aide Communautaire",
+        "count": "15 familles aidées",
+        "desc": "Kits d'urgence et abris pour les familles touchées par des crises. Nous coordonnons avec les acteurs locaux pour distribuer nourriture, kits d'hygiène et abris temporaires."
+      }
+    ],
+    "map_label": "Carte Interactive",
+    "map_title": "Explorez Nos Régions",
+    "map_desc": "Cliquez sur n'importe quel marqueur de la carte pour voir les programmes actifs dans cette région.",
+    "intervention_types_label": "Types d'Intervention",
+    "intervention_types_title": "Comment Nous Aidons les Communautés",
+    "interventions_list": [
+      { "title": "Soutien en Eau Potable", "desc": "Nous finançons, creusons et entretenons des forages et des systèmes de purification d'eau dans les communautés." },
+      { "title": "Assistance Médicale", "desc": "Des cliniques mobiles, des médicaments et des campagnes de santé préventive atteignent des milliers de personnes chaque trimestre." },
+      { "title": "Soutien aux Bourses", "desc": "Bourses complètes et partielles pour les élèves du primaire, du secondaire et de l'université à travers le Cameroun." },
+      { "title": "Femmes & Mères Célibataires", "desc": "Micro-subventions, formation professionnelle, soutien psychologique et aide à la garde pour les femmes vulnérables." },
+      { "title": "Réhabilitation Scolaire", "desc": "Reconstruction de salles de classe, fourniture de mobilier, de livres et d'équipements pour un meilleur apprentissage." },
+      { "title": "Secours d'Urgence", "desc": "Kits alimentaires d'urgence, abris et aide aux déplacés pour les familles touchées par des crises." }
+    ],
+    "regions_label": "Nos Régions",
+    "regions_title": "Communautés Cibles",
+    "regions_desc": "Chaque région a une approche d'intervention adaptée aux besoins et ressources de la communauté.",
+    "region_cards": [
+      {
+        "name": "Région du Littoral",
+        "city": "Douala",
+        "tags": ["Eau Potable", "Santé", "Secours d'Urgence"],
+        "stat": "40+ personnes atteintes",
+        "description": "Fourniture de systèmes d'eau potable et de soins de santé mobiles dans des communautés urbaines en pleine croissance."
+      },
+      {
+        "name": "Région du Centre",
+        "city": "Yaoundé",
+        "tags": ["Bourses", "Réhabilitation Scolaire", "Récompenses Enseignants"],
+        "stat": "8 étudiants soutenus",
+        "description": "Notre hub de bourses soutenant les étudiants du primaire à l'université."
+      },
+      {
+        "name": "Région du Nord-Ouest",
+        "city": "Bamenda",
+        "tags": ["Secours d'Urgence", "Soutien aux Femmes", "Santé"],
+        "stat": "15 familles atteintes",
+        "description": "Aide humanitaire critique pour les communautés confrontées à des situations d'urgence et de déplacement."
+      },
+      {
+        "name": "Région du Sud-Ouest",
+        "city": "Buea",
+        "tags": ["Secours d'Urgence", "Eau Potable", "Réhabilitation Scolaire"],
+        "stat": "3 écoles soutenues",
+        "description": "Intervention d'urgence et restauration des infrastructures dans les communautés de Buea et ses environs."
+      },
+      {
+        "name": "Région de l'Ouest",
+        "city": "Bafoussam",
+        "tags": ["Autonomisation des Femmes", "Bourses", "Santé"],
+        "stat": "10 femmes soutenues",
+        "description": "Notre programme phare pour les femmes et les mères célibataires avec des micro-subventions et des formations."
+      }
+    ],
+    "cta_title": "Prêt à Faire la Différence ?",
+    "cta_donate": "Faire un Don à une Région",
+    "cta_report": "Signaler un Besoin Communautaire"
+  },
+  "search": {
+    "title": "Résultats de Recherche",
+    "placeholder": "Entrez des mots-clés...",
+    "btn": "Rechercher",
+    "results_for": "Résultats pour",
+    "no_results": "Aucun résultat trouvé pour",
+    "no_results_hint": "Essayez différents mots-clés ou parcourez nos programmes.",
+    "loading": "Recherche en cours...",
+    "section_blogs": "Articles & Actualités",
+    "section_scholarships": "Bourses",
+    "section_events": "Événements",
+    "read_more": "Lire la Suite",
+    "apply": "Postuler",
+    "view": "Voir"
+  },
+  "blog_latest_news": {
+    "hero_badge": "Actualités",
+    "hero_title": "Dernières",
+    "hero_title_highlight": "Nouvelles",
+    "hero_desc": "Restez informé des activités, réalisations et histoires d'impact de notre organisation.",
+    "read_more": "Lire la Suite",
+    "loading": "Chargement des actualités...",
+    "no_news": "Aucune actualité disponible pour le moment.",
+    "back": "Retour au Blog"
+  },
+  "blog_archives": {
+    "hero_title": "Archives",
+    "hero_desc": "Explorez notre collection d'articles et rapports passés.",
+    "search_placeholder": "Rechercher dans les archives...",
+    "filter_all": "Tous",
+    "filter_news": "Actualités",
+    "filter_blog": "Blog",
+    "loading": "Chargement des archives...",
+    "no_results": "Aucun article trouvé.",
+    "read_more": "Lire la Suite"
+  },
+  "blog_detail": {
+    "back": "Retour au Blog",
+    "loading": "Chargement de l'article...",
+    "not_found": "Article introuvable.",
+    "share": "Partager",
+    "related": "Articles Connexes"
+  },
+  "application_detail": {
+    "hero_title": "Postulez Maintenant",
+    "hero_desc": "Remplissez le formulaire ci-dessous pour soumettre votre candidature. Notre équipe examinera votre dossier et vous contactera bientôt.",
+    "name_label": "Nom Complet",
+    "name_placeholder": "Votre nom complet",
+    "email_label": "Adresse Email",
+    "email_placeholder": "votre@email.com",
+    "phone_label": "Numéro de Téléphone",
+    "phone_placeholder": "+237 6XX XXX XXX",
+    "school_label": "École / Institution",
+    "school_placeholder": "Nom de votre école",
+    "message_label": "Message / Motivation",
+    "message_placeholder": "Expliquez pourquoi vous postulez...",
+    "upload_label": "Télécharger des Documents",
+    "submit_btn": "Soumettre la Candidature",
+    "submitting": "Envoi en cours...",
+    "success_title": "Candidature Soumise !",
+    "success_desc": "Nous avons bien reçu votre candidature. Notre équipe vous contactera bientôt.",
+    "back": "Retour"
+  },
+  "roadmap": {
+    "hero_badge": "Feuille de Route",
+    "hero_title": "Notre Parcours",
+    "hero_desc": "Découvrez notre chemin parcouru et notre vision pour l'avenir.",
+    "phase_label": "Phase",
+    "completed": "Terminé",
+    "in_progress": "En Cours",
+    "planned": "Planifié"
+  },
+  "school_registration": {
+    "hero_title": "Enregistrement Partenariat Scolaire",
+    "hero_desc": "Inscrivez votre école pour rejoindre notre réseau de partenaires et bénéficier de notre programme de bourses et de soutien.",
+    "school_name_label": "Nom de l'École",
+    "school_type_label": "Type d'École",
+    "region_label": "Région",
+    "contact_label": "Nom du Responsable",
+    "email_label": "Email",
+    "phone_label": "Téléphone",
+    "submit_btn": "Enregistrer l'École",
+    "success_title": "Inscription Soumise !",
+    "success_desc": "Votre école a été inscrite avec succès. Nous vous contacterons bientôt."
+  },
+  "requirement_detail": {
+    "back": "Retour",
+    "loading": "Chargement...",
+    "not_found": "Contenu introuvable.",
+    "apply_btn": "Postuler Maintenant"
+  },
+  "focus_detail": {
+    "back": "Retour aux Communautés",
+    "loading": "Chargement...",
+    "not_found": "Contenu introuvable.",
+    "learn_more": "En Savoir Plus",
+    "impact_title": "Notre Impact dans cette Zone",
+    "get_involved": "S'Impliquer"
+  },
+  "community_detail": {
+    "back": "Retour aux Communautés",
+    "loading": "Chargement...",
+    "not_found": "Communauté introuvable.",
+    "programs_title": "Programmes Actifs",
+    "impact_title": "Statistiques d'Impact",
+    "get_involved": "S'Impliquer",
+    "donate_btn": "Faire un Don"
   }
-}
+}

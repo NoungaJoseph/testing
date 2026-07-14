@@ -1,328 +1,150 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
-import AnimatedNetworkBg from '../components/AnimatedNetworkBg';
+import { useTranslation } from 'react-i18next';
 
-type TrackKey = 'primary' | 'secondary' | 'university';
-type SchoolType = 'government' | 'private';
-
-interface TrackContent {
-    badge: string;
-    title: string;
-    heroImage: string;
-    summary: string;
-    eligibility: { text: string; learnMore: string }[];
-    documents: { id: string; label: string; learnMore: string }[];
-    timeline: string[];
-    faqs: { q: string; a: string }[];
-    schools: Record<SchoolType, string[]>;
+interface Scholarship {
+  id: string;
+  title: string;
+  titleFr: string | null;
+  description: string | null;
+  descriptionFr: string | null;
+  targetSchools: string[];
+  status: string;
 }
-
-const trackContent: Record<TrackKey, TrackContent> = {
-    primary: {
-        badge: 'Primary Track',
-        title: 'Primary School Scholarship Application',
-        heroImage: '/assets/updates/2.png',
-        summary: 'For pupils in foundational classes who need early academic support, fees assistance, uniforms, and learning materials.',
-        eligibility: [
-            { text: 'Student currently enrolled in a recognized primary school.', learnMore: '/apply/requirements/academic-record' },
-            { text: 'Family demonstrates financial need.', learnMore: '/apply/requirements/financial-need' },
-            { text: 'School recommendation is required.', learnMore: '/apply/requirements/school-reference' },
-        ],
-        documents: [
-            { id: 'reportCard', label: 'Upload latest report card', learnMore: '/apply/requirements/academic-record' },
-            { id: 'guardianId', label: 'Upload parent/guardian ID', learnMore: '/apply/requirements/guardian-id' },
-            { id: 'schoolLetter', label: 'Upload school recommendation letter', learnMore: '/apply/requirements/school-reference' },
-        ],
-        timeline: ['Stage 1: Form + document review.', 'Stage 2: School and guardian verification.', 'Stage 3: Final selection and onboarding.'],
-        faqs: [
-            { q: 'Can a guardian apply on behalf of the child?', a: 'Yes. Guardian details are required and must match uploaded ID.' },
-            { q: 'Do we support uniform and books?', a: 'Yes, support packages may include uniforms and core learning materials.' },
-            { q: 'Can schools submit multiple primary students?', a: 'Yes, schools can submit candidates through the school registration section below.' },
-            { q: 'What if a student has no formal transcript?', a: 'A verified school result slip or class assessment record is accepted.' },
-        ],
-        schools: {
-            government: [
-                'Government Primary School Akwa - Douala',
-                'Government Primary School Bonaberi - Douala',
-                'Government Primary School Bafoussam Central',
-                'Government Primary School Bamenda Town',
-                'Government Primary School Molyko - Buea',
-            ],
-            private: [
-                'St. Mary Primary School - Douala',
-                'Bright Future Primary School - Yaounde',
-                'Wisdom Gate Primary School - Bafoussam',
-                'Kingdom Kids Primary School - Bamenda',
-                'Gracefield Primary Academy - Buea',
-            ],
-        },
-    },
-    secondary: {
-        badge: 'Secondary Track',
-        title: 'Secondary School Scholarship Application',
-        heroImage: '/assets/updates/4.png',
-        summary: 'For secondary students requiring tuition support, exam preparation assistance, and structured academic mentoring.',
-        eligibility: [
-            { text: 'Student enrolled in lower or upper secondary school.', learnMore: '/apply/requirements/academic-record' },
-            { text: 'Demonstrated financial need and academic commitment.', learnMore: '/apply/requirements/financial-need' },
-            { text: 'Strong recommendation from school administration.', learnMore: '/apply/requirements/school-reference' },
-        ],
-        documents: [
-            { id: 'transcript', label: 'Upload latest transcript/result', learnMore: '/apply/requirements/academic-record' },
-            { id: 'guardianId', label: 'Upload parent/guardian ID', learnMore: '/apply/requirements/guardian-id' },
-            { id: 'schoolLetter', label: 'Upload school recommendation', learnMore: '/apply/requirements/school-reference' },
-        ],
-        timeline: ['Stage 1: Application intake.', 'Stage 2: Eligibility and reference checks.', 'Stage 3: Award notification.'],
-        faqs: [
-            { q: 'Is this for both BEPC and GCE pathways?', a: 'Yes. Both pathways are reviewed under the same intake process.' },
-            { q: 'Can boarding students apply?', a: 'Yes. Include boarding status and related cost details in your statement.' },
-            { q: 'Can previous applicants reapply?', a: 'Yes, with updated results and current school recommendation.' },
-            { q: 'Do you provide exam support materials?', a: 'Selected candidates may receive targeted exam prep support.' },
-        ],
-        schools: {
-            government: [
-                'Government Bilingual High School Akwa - Douala',
-                'Government High School Bonaberi - Douala',
-                'Government High School Bafoussam',
-                'Government High School Bamenda',
-                'Government Bilingual High School Molyko - Buea',
-            ],
-            private: [
-                'St. Joseph College - Douala',
-                'Progressive College - Yaounde',
-                'Victory Secondary School - Bafoussam',
-                'Hillside College - Bamenda',
-                'Summit College - Buea',
-            ],
-        },
-    },
-    university: {
-        badge: 'University Track',
-        title: 'University Scholarship Application',
-        heroImage: '/assets/updates/university.png',
-        summary: 'For undergraduate students needing support with tuition, study materials, and guided transition into career pathways.',
-        eligibility: [
-            { text: 'Applicant admitted to or enrolled in an accredited university.', learnMore: '/apply/requirements/academic-record' },
-            { text: 'Clear evidence of financial need.', learnMore: '/apply/requirements/financial-need' },
-            { text: 'Academic recommendation or faculty reference provided.', learnMore: '/apply/requirements/school-reference' },
-        ],
-        documents: [
-            { id: 'admission', label: 'Upload admission letter / registration proof', learnMore: '/apply/requirements/academic-record' },
-            { id: 'transcript', label: 'Upload transcript / latest result', learnMore: '/apply/requirements/academic-record' },
-            { id: 'guardianId', label: 'Upload parent/guardian ID or sponsor ID', learnMore: '/apply/requirements/guardian-id' },
-        ],
-        timeline: ['Stage 1: Screening.', 'Stage 2: Interview and reference validation.', 'Stage 3: Final grant list publication.'],
-        faqs: [
-            { q: 'Can first-year students apply?', a: 'Yes. Admission proof is required.' },
-            { q: 'Can private universities apply?', a: 'Yes, if the institution is accredited.' },
-            { q: 'Can continuing students apply?', a: 'Yes. Updated transcript and recommendation are required.' },
-            { q: 'Do you support accommodation?', a: 'Support is based on available scholarship package and intake decisions.' },
-        ],
-        schools: {
-            government: [
-                'University of Douala',
-                'University of Yaounde I',
-                'University of Buea',
-                'University of Bamenda',
-                'University of Dschang',
-            ],
-            private: [
-                'Catholic University of Central Africa',
-                'ICT University - Yaounde',
-                'Siantou University Institute',
-                'HIT Polytechnic - Bamenda',
-                'University Institute of the Gulf - Douala',
-            ],
-        },
-    },
-};
 
 const ScholarshipTrackApplication = () => {
     const { track } = useParams();
-    const trackId = track;
-    const [isComplete, setIsComplete] = useState(false);
-    
-    // Form State
-    const [studentName, setStudentName] = useState('');
-    const [guardianName, setGuardianName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [school, setSchool] = useState('');
-    const [statement, setStatement] = useState('');
-    const [documents, setDocuments] = useState<string[]>([]);
-    const [schoolType, setSchoolType] = useState<SchoolType>('government');
-    
-    const content = trackContent[trackId as TrackKey] ?? trackContent.secondary;
+    const { i18n } = useTranslation();
+    const isFr = i18n.language === 'fr';
 
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setDocuments(prev => [...prev, reader.result as string]);
-            };
-            reader.readAsDataURL(file);
-        }
-    };
+    const [scholarships, setScholarships] = useState<Scholarship[]>([]);
+    const [loading, setLoading] = useState(true);
 
-    const submitApplication = async () => {
-        try {
-            const payload = {
-                type: 'SCHOLARSHIP',
-                applicantName: studentName,
-                email,
-                phone,
-                level: trackId?.toUpperCase() || 'SECONDARY',
-                details: { guardianName, schoolType, school, statement },
-                documents
-            };
-            const response = await fetch('https://backend-production-e10c8.up.railway.app/api/v1/outreach/applications', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-            if (response.ok) {
-                setIsComplete(true);
-            } else {
-                console.error('Failed to submit application');
-                setIsComplete(true);
+    useEffect(() => {
+        const fetchScholarships = async () => {
+            try {
+                const API_URL = import.meta.env.VITE_API_URL || 'https://backend-production-e10c8.up.railway.app';
+                const res = await fetch(`${API_URL}/api/v1/public/scholarships`);
+                const data = await res.json();
+                setScholarships(data);
+            } catch (err) {
+                console.error(err);
+            } finally {
+                setLoading(false);
             }
-        } catch (err) {
-            console.error(err);
-            setIsComplete(true);
-        }
+        };
+        fetchScholarships();
+    }, []);
+
+    // Helper text depending on the URL track if they navigated from a specific program track
+    const trackLabels = {
+        primary: isFr ? 'Bourses Primaire' : 'Primary Scholarships',
+        secondary: isFr ? 'Bourses Secondaire' : 'Secondary Scholarships',
+        university: isFr ? 'Bourses Universitaires' : 'University Scholarships'
     };
+    
+    // Default title if no track or generic
+    const pageTitle = track && trackLabels[track as keyof typeof trackLabels] 
+        ? trackLabels[track as keyof typeof trackLabels] 
+        : (isFr ? 'Bourses Actives' : 'Active Scholarships');
 
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen flex flex-col font-body text-primary bg-background overflow-hidden selection:bg-accent selection:text-white">
             <Navbar />
-            <div className="relative">
-                <AnimatedNetworkBg particleCount={25} />
-                <main className="relative z-10 pt-32 pb-20 px-6 md:px-12">
-                    <section className="max-w-6xl mx-auto">
-                        <FadeIn direction="up">
-                            <p className="text-[#00C2C7] text-xs font-bold uppercase tracking-widest mb-2">{content.badge}</p>
-                            <h1 className="text-[#001F5B] text-3xl md:text-5xl font-black leading-tight mb-4">{content.title}</h1>
-                            <p className="text-slate-600 leading-relaxed mb-6 max-w-3xl">{content.summary}</p>
-                            <img src={content.heroImage} alt={content.title} className="w-full max-w-[420px] aspect-square object-cover mb-8" />
-                            <div className="flex flex-wrap gap-4 text-sm">
-                                <Link to="/apply/scholarship/primary" className="text-[#00C2C7] underline font-bold">Primary</Link>
-                                <Link to="/apply/scholarship/secondary" className="text-[#00C2C7] underline font-bold">Secondary</Link>
-                                <Link to="/apply/scholarship/university" className="text-[#00C2C7] underline font-bold">University</Link>
-                            </div>
-                        </FadeIn>
+            
+            <main className="flex-grow pt-32 pb-20 relative">
+                {/* Background decorative elements */}
+                <div className="absolute top-0 right-0 w-1/2 h-[500px] bg-accent/5 rounded-bl-[100px] -z-10 blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 w-1/3 h-[400px] bg-blue-100/30 rounded-tr-[100px] -z-10 blur-3xl"></div>
 
-                        <section className="mt-12">
-                            <h2 className="text-[#001F5B] text-2xl font-black mb-4">Eligibility</h2>
-                            <ul className="space-y-4">
-                                {content.eligibility.map((item) => (
-                                    <li key={item.text} className="text-slate-700">
-                                        {item.text}{' '}
-                                        <Link to={item.learnMore} className="text-[#00C2C7] underline text-sm font-bold">
-                                            Learn more
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </section>
+                <div className="max-w-7xl mx-auto px-6 relative z-10">
+                    <FadeIn>
+                        <div className="text-center mb-16">
+                            <h1 className="font-display text-4xl md:text-5xl font-black text-primary mb-6">
+                                {pageTitle}
+                            </h1>
+                            <p className="text-lg text-secondary max-w-2xl mx-auto">
+                                {isFr 
+                                    ? "Découvrez et postulez aux bourses actuellement disponibles. Cliquez sur une bourse pour voir les détails, les écoles ciblées et soumettre votre candidature."
+                                    : "Discover and apply for currently available scholarships. Click on a scholarship to see full details, targeted schools, and submit your application."}
+                            </p>
+                        </div>
+                    </FadeIn>
 
-                        <section className="mt-12">
-                            <h2 className="text-[#001F5B] text-2xl font-black mb-4">Application Timeline</h2>
-                            <ul className="space-y-3 text-slate-700">
-                                {content.timeline.map((item) => (
-                                    <li key={item}>{item}</li>
-                                ))}
-                            </ul>
-                        </section>
-
-                        <section className="mt-12 max-w-3xl">
-                            <h2 className="text-[#001F5B] text-2xl font-black mb-5">Student Application Form</h2>
-                            
-                            {isComplete ? (
-                                <div className="bg-slate-50 border border-green-200 p-8 text-center rounded-xl">
-                                    <div className="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                                        <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg>
-                                    </div>
-                                    <h3 className="text-2xl font-black text-[#001F5B] mb-2">Application Submitted!</h3>
-                                    <p className="text-slate-600">Your scholarship application has been securely transmitted. Our team will review the provided documents and contact you soon.</p>
+                    {loading ? (
+                        <div className="text-center py-20">
+                            <p className="text-secondary font-display text-xl animate-pulse">Loading active scholarships...</p>
+                        </div>
+                    ) : (
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {scholarships.length === 0 ? (
+                                <div className="col-span-full text-center py-16 bg-white rounded-3xl border border-outline-variant/30 shadow-sm">
+                                    <h3 className="font-display text-2xl font-bold text-primary mb-4">
+                                        {isFr ? 'Aucune bourse disponible' : 'No scholarships available'}
+                                    </h3>
+                                    <p className="text-secondary">
+                                        {isFr ? 'Il n\'y a actuellement aucune bourse ouverte aux candidatures. Veuillez vérifier ultérieurement.' : 'There are currently no scholarships open for applications. Please check back later.'}
+                                    </p>
                                 </div>
                             ) : (
-                            <form className="form-shell space-y-4" onSubmit={(e) => { e.preventDefault(); submitApplication(); }}>
-                                <div className="grid md:grid-cols-2 gap-3">
-                                    <input value={studentName} onChange={e => setStudentName(e.target.value)} className="h-11 px-4 bg-white border border-slate-200 text-[#001F5B]" placeholder="Student full name" required />
-                                    <input value={guardianName} onChange={e => setGuardianName(e.target.value)} className="h-11 px-4 bg-white border border-slate-200 text-[#001F5B]" placeholder="Parent/Guardian full name" required />
-                                    <input type="email" value={email} onChange={e => setEmail(e.target.value)} className="h-11 px-4 bg-white border border-slate-200 text-[#001F5B]" placeholder="Email address" required />
-                                    <input value={phone} onChange={e => setPhone(e.target.value)} className="h-11 px-4 bg-white border border-slate-200 text-[#001F5B]" placeholder="Phone number" required />
-                                </div>
-
-                                <div className="grid md:grid-cols-2 gap-3">
-                                    <select
-                                        className="h-11 px-4 bg-white border border-slate-200 text-[#001F5B]"
-                                        value={schoolType}
-                                        onChange={(e) => setSchoolType(e.target.value as SchoolType)}
-                                    >
-                                        <option value="government">Government School</option>
-                                        <option value="private">Private School</option>
-                                    </select>
-                                    <select value={school} onChange={e => setSchool(e.target.value)} className="h-11 px-4 bg-white border border-slate-200 text-[#001F5B]" required>
-                                        <option value="">Select school</option>
-                                        {content.schools[schoolType].map((s) => (
-                                            <option key={s} value={s}>
-                                                {s}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </div>
-
-                                <textarea value={statement} onChange={e => setStatement(e.target.value)} rows={4} className="w-full p-4 bg-white border border-slate-200 text-[#001F5B] resize-none" placeholder="Scholarship statement and need summary..." required />
-
-                                <div className="pt-2">
-                                    <h3 className="text-[#001F5B] text-lg font-black mb-3">Required Documents</h3>
-                                    <div className="space-y-3">
-                                        {content.documents.map((doc) => (
-                                            <div key={doc.id}>
-                                                <label className="block text-sm text-slate-700 mb-1">{doc.label}</label>
-                                                <input onChange={handleFileChange} type="file" accept=".pdf,image/*" className="block w-full text-sm text-slate-600 file:mr-4 file:px-3 file:py-2 file:border-0 file:bg-[#001F5B] file:text-white" required />
-                                                <Link to={doc.learnMore} className="text-[#00C2C7] underline text-xs font-bold">Learn more about this document</Link>
+                                scholarships.map((scholarship) => {
+                                    const title = isFr && scholarship.titleFr ? scholarship.titleFr : scholarship.title;
+                                    const description = isFr && scholarship.descriptionFr ? scholarship.descriptionFr : scholarship.description;
+                                    
+                                    return (
+                                        <FadeIn key={scholarship.id}>
+                                            <div className="bg-white rounded-3xl p-8 border border-outline-variant/30 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col group">
+                                                <div className="flex-grow">
+                                                    <div className="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-bold mb-4">
+                                                        {isFr ? 'OUVERT' : 'OPEN'}
+                                                    </div>
+                                                    <h3 className="font-display text-2xl font-bold text-primary mb-4 group-hover:text-accent transition-colors">
+                                                        {title}
+                                                    </h3>
+                                                    <p className="text-secondary line-clamp-3 mb-6">
+                                                        {description}
+                                                    </p>
+                                                </div>
+                                                
+                                                <div className="mt-auto">
+                                                    {scholarship.targetSchools && scholarship.targetSchools.length > 0 && (
+                                                        <div className="mb-6">
+                                                            <p className="text-sm font-bold text-primary mb-2">{isFr ? 'Écoles :' : 'Schools:'}</p>
+                                                            <div className="flex flex-wrap gap-2">
+                                                                {scholarship.targetSchools.slice(0, 3).map((school, i) => (
+                                                                    <span key={i} className="text-xs px-2 py-1 bg-blue-50 text-blue-700 rounded border border-blue-100">
+                                                                        {school}
+                                                                    </span>
+                                                                ))}
+                                                                {scholarship.targetSchools.length > 3 && (
+                                                                    <span className="text-xs px-2 py-1 bg-gray-50 text-gray-500 rounded border">
+                                                                        +{scholarship.targetSchools.length - 3} {isFr ? 'plus' : 'more'}
+                                                                    </span>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                    
+                                                    <Link 
+                                                        to={`/scholarships/${scholarship.id}`} 
+                                                        className="block w-full text-center bg-primary text-white py-3 rounded-xl font-bold hover:bg-accent transition-colors"
+                                                    >
+                                                        {isFr ? 'Voir les Détails & Postuler' : 'View Details & Apply'}
+                                                    </Link>
+                                                </div>
                                             </div>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                <button type="submit" className="h-11 px-6 bg-[#00C2C7] text-[#001F5B] font-bold hover:bg-[#00a8ad] transition-colors">
-                                    Submit Scholarship Application
-                                </button>
-                            </form>
+                                        </FadeIn>
+                                    );
+                                })
                             )}
-                        </section>
-
-                        <section className="mt-16 max-w-3xl bg-slate-50 border border-slate-200 p-6 md:p-8">
-                            <h2 className="text-[#001F5B] text-2xl font-black mb-3">School Partnership Registration</h2>
-                            <p className="text-slate-600 mb-4">
-                                This registration now has a dedicated page for schools and education partners.
-                            </p>
-                            <Link to="/school-registration" className="inline-flex items-center h-11 px-6 bg-[#001F5B] text-white font-bold">
-                                Go to School Partnership Registration
-                            </Link>
-                        </section>
-
-                        <section className="mt-16 max-w-4xl">
-                            <h2 className="text-[#001F5B] text-2xl font-black mb-4">Frequently Asked Questions</h2>
-                            <div className="space-y-3">
-                                {content.faqs.map((item) => (
-                                    <details key={item.q} className="group">
-                                        <summary className="cursor-pointer text-[#001F5B] font-bold py-2">{item.q}</summary>
-                                        <p className="text-slate-600 pb-2">{item.a}</p>
-                                    </details>
-                                ))}
-                            </div>
-                        </section>
-                    </section>
-                </main>
-            </div>
+                        </div>
+                    )}
+                </div>
+            </main>
+            
             <Footer />
         </div>
     );

@@ -20,6 +20,7 @@ import FocusCommunities from './pages/FocusCommunities';
 import CommunityDetail from './pages/CommunityDetail';
 import ApplicationDetail from './pages/ApplicationDetail';
 import ScholarshipTrackApplication from './pages/ScholarshipTrackApplication';
+import ScholarshipDetail from './pages/ScholarshipDetail';
 import RequirementDetail from './pages/RequirementDetail';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
@@ -47,7 +48,9 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/focus-communities" element={<FocusCommunities />} />
         <Route path="/apply/:type" element={<ApplicationDetail />} />
+        <Route path="/apply/scholarship" element={<ScholarshipTrackApplication />} />
         <Route path="/apply/scholarship/:track" element={<ScholarshipTrackApplication />} />
+        <Route path="/scholarships/:id" element={<ScholarshipDetail />} />
         <Route path="/apply/requirements/:slug" element={<RequirementDetail />} />
         {/* Blog routes */}
         <Route path="/blog" element={<Blog />} />

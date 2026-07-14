@@ -1443,5 +1443,205 @@
     "privacy_policy_content": "This Privacy Policy describes how Enako Outreach collects, uses, and protects your personal information when you use our website or services. 1. Information Collection: We may collect personal data such as name, email, and location when you register for programs, donate, or subscribe to our newsletter. 2. Use of Information: Your data is used strictly for internal purposes to process applications, issue receipts, and communicate updates. We do not sell your personal data. 3. Data Security: We implement appropriate technical and organizational measures to protect your personal data against unauthorized access or disclosure. 4. Your Rights: You have the right to request access to or deletion of your personal data at any time by contacting us.",
     "terms_of_service_title": "Terms of Service",
     "terms_of_service_content": "These Terms of Service govern your use of the Enako Outreach website and its related services. 1. Acceptance of Terms: By accessing this website, you agree to be bound by these Terms of Service and all applicable laws and regulations. 2. Use License: Permission is granted to temporarily download one copy of the materials on the Enako Outreach website for personal, non-commercial transitory viewing only. 3. Donations & Contributions: All donations are final unless an error occurred during the transaction. Please contact our support team for any billing issues. 4. Disclaimer: The materials on the Enako Outreach website are provided on an 'as is' basis. We make no warranties, expressed or implied, regarding the accuracy or reliability of the use of these materials. 5. Modifications: We may revise these terms of service at any time without notice. By using this website you are agreeing to be bound by the current version of these terms."
+  },
+  "focus_communities": {
+    "hero_title": "Focus Communities",
+    "interventions_label": "Clean Water Access",
+    "interventions": [
+      {
+        "slug": "clean-water",
+        "title": "Clean Water Access",
+        "count": "3 boreholes completed",
+        "desc": "We fund, drill, and maintain boreholes and water purification systems in water-scarce communities. Each project includes community training on maintenance and sustainable water management to ensure long-term impact."
+      },
+      {
+        "slug": "healthcare",
+        "title": "Healthcare Outreach",
+        "count": "4 mobile clinic days",
+        "desc": "Mobile clinics, medication supply, and preventive health campaigns serve nearby communities. Our teams provide vaccinations, maternal health services, and practical health education."
+      },
+      {
+        "slug": "education",
+        "title": "Education Support",
+        "count": "8 scholarships active",
+        "desc": "Full and partial scholarships for students across primary, secondary, and university levels. We also support school rehabilitation and teacher training to improve learning outcomes."
+      },
+      {
+        "slug": "women-mothers",
+        "title": "Women & Mothers",
+        "count": "10 beneficiaries",
+        "desc": "Micro-grants, skills training, and childcare assistance for vulnerable women and mothers. Programs combine livelihood support with psychosocial services and peer networks."
+      },
+      {
+        "slug": "community-relief",
+        "title": "Community Relief",
+        "count": "15 families assisted",
+        "desc": "Rapid-response packages and shelter support for families affected by crises. We coordinate with local actors to distribute food, hygiene kits, and temporary shelter."
+      }
+    ],
+    "map_label": "Interactive Map",
+    "map_title": "Click to Explore Our Regions",
+    "map_desc": "Click any marker on the map to see what programs are active in that region. Use the filter buttons to overlay a heatmap of our focus areas.",
+    "intervention_types_label": "Types of Intervention",
+    "intervention_types_title": "How We Help Communities",
+    "interventions_list": [
+      { "title": "Clean Water Support", "desc": "We fund, drill, and maintain boreholes and water purification systems in water-scarce communities." },
+      { "title": "Healthcare Assistance", "desc": "Mobile clinics, medication supply, and preventive health campaigns reach thousands quarterly." },
+      { "title": "Scholarship Support", "desc": "Full and partial scholarships for primary, secondary, and university students across Cameroon." },
+      { "title": "Women & Single Mothers", "desc": "Micro-grants, skills training, trauma support, and childcare assistance for vulnerable women." },
+      { "title": "School Rehabilitation", "desc": "Rebuilding classrooms, providing furniture, books, and equipping school labs for better learning." },
+      { "title": "Emergency Relief", "desc": "Rapid response food packages, shelter support, and displacement assistance for crisis-affected families." }
+    ],
+    "regions_label": "Our Regions",
+    "regions_title": "Focus Communities",
+    "regions_desc": "Each region has a tailored intervention approach based on community needs and resources.",
+    "region_cards": [
+      {
+        "name": "Littoral Region",
+        "city": "Douala",
+        "tags": ["Clean Water", "Healthcare", "Emergency Relief"],
+        "stat": "40+ people reached",
+        "description": "Delivering clean water systems and mobile healthcare across rapidly growing urban communities."
+      },
+      {
+        "name": "Centre Region",
+        "city": "Yaoundé",
+        "tags": ["Scholarships", "School Rehab", "Teacher Rewards"],
+        "stat": "8 students supported",
+        "description": "Our scholarship hub supporting students from primary through university level education."
+      },
+      {
+        "name": "North West Region",
+        "city": "Bamenda",
+        "tags": ["Emergency Relief", "Women Support", "Healthcare"],
+        "stat": "15 families reached",
+        "description": "Critical humanitarian assistance for communities facing emergency situations and displacement."
+      },
+      {
+        "name": "South West Region",
+        "city": "Buea",
+        "tags": ["Emergency Relief", "Clean Water", "School Rehab"],
+        "stat": "3 schools supported",
+        "description": "Emergency response and infrastructure restoration across communities in Buea and surroundings."
+      },
+      {
+        "name": "West Region",
+        "city": "Bafoussam",
+        "tags": ["Women Empowerment", "Scholarships", "Healthcare"],
+        "stat": "10 women supported",
+        "description": "Our flagship women and single mothers programme with micro-grants and skills training."
+      }
+    ],
+    "cta_title": "Ready to Make a Difference?",
+    "cta_donate": "Donate to a Region",
+    "cta_report": "Report a Community Need"
+  },
+  "search": {
+    "title": "Search Results",
+    "placeholder": "Enter Keywords...",
+    "btn": "Search",
+    "results_for": "Results for",
+    "no_results": "No results found for",
+    "no_results_hint": "Try different keywords or browse our programs.",
+    "loading": "Searching...",
+    "section_blogs": "Articles & News",
+    "section_scholarships": "Scholarships",
+    "section_events": "Events",
+    "read_more": "Read More",
+    "apply": "Apply",
+    "view": "View"
+  },
+  "blog_latest_news": {
+    "hero_badge": "News",
+    "hero_title": "Latest",
+    "hero_title_highlight": "News",
+    "hero_desc": "Stay updated with our organization's activities, achievements and impact stories.",
+    "read_more": "Read More",
+    "loading": "Loading news...",
+    "no_news": "No news available at the moment.",
+    "back": "Back to Blog"
+  },
+  "blog_archives": {
+    "hero_title": "Archives",
+    "hero_desc": "Explore our collection of past articles and reports.",
+    "search_placeholder": "Search archives...",
+    "filter_all": "All",
+    "filter_news": "News",
+    "filter_blog": "Blog",
+    "loading": "Loading archives...",
+    "no_results": "No articles found.",
+    "read_more": "Read More"
+  },
+  "blog_detail": {
+    "back": "Back to Blog",
+    "loading": "Loading article...",
+    "not_found": "Article not found.",
+    "share": "Share",
+    "related": "Related Articles"
+  },
+  "application_detail": {
+    "hero_title": "Apply Now",
+    "hero_desc": "Fill out the form below to submit your application. Our team will review your submission and get back to you soon.",
+    "name_label": "Full Name",
+    "name_placeholder": "Your full name",
+    "email_label": "Email Address",
+    "email_placeholder": "your@email.com",
+    "phone_label": "Phone Number",
+    "phone_placeholder": "+237 6XX XXX XXX",
+    "school_label": "School / Institution",
+    "school_placeholder": "Your school name",
+    "message_label": "Message / Motivation",
+    "message_placeholder": "Explain why you are applying...",
+    "upload_label": "Upload Documents",
+    "submit_btn": "Submit Application",
+    "submitting": "Submitting...",
+    "success_title": "Application Submitted!",
+    "success_desc": "We have received your application. Our team will contact you soon.",
+    "back": "Back"
+  },
+  "roadmap": {
+    "hero_badge": "Roadmap",
+    "hero_title": "Our Journey",
+    "hero_desc": "Discover our path and our vision for the future.",
+    "phase_label": "Phase",
+    "completed": "Completed",
+    "in_progress": "In Progress",
+    "planned": "Planned"
+  },
+  "school_registration": {
+    "hero_title": "School Partnership Registration",
+    "hero_desc": "Register your school to join our partner network and benefit from our scholarship and support program.",
+    "school_name_label": "School Name",
+    "school_type_label": "School Type",
+    "region_label": "Region",
+    "contact_label": "Contact Person Name",
+    "email_label": "Email",
+    "phone_label": "Phone",
+    "submit_btn": "Register School",
+    "success_title": "Registration Submitted!",
+    "success_desc": "Your school has been registered successfully. We will contact you soon."
+  },
+  "requirement_detail": {
+    "back": "Back",
+    "loading": "Loading...",
+    "not_found": "Content not found.",
+    "apply_btn": "Apply Now"
+  },
+  "focus_detail": {
+    "back": "Back to Communities",
+    "loading": "Loading...",
+    "not_found": "Content not found.",
+    "learn_more": "Learn More",
+    "impact_title": "Our Impact in this Area",
+    "get_involved": "Get Involved"
+  },
+  "community_detail": {
+    "back": "Back to Communities",
+    "loading": "Loading...",
+    "not_found": "Community not found.",
+    "programs_title": "Active Programs",
+    "impact_title": "Impact Statistics",
+    "get_involved": "Get Involved",
+    "donate_btn": "Donate"
   }
-}
+}
