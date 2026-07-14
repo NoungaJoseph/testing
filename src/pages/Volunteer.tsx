@@ -246,9 +246,10 @@ const VolunteerPage = () => {
                     </section>
 
                     {/* FINAL CTA */}
-                    <section className="py-32 px-6 bg-navy text-center relative overflow-hidden">
+                    <section className="py-32 px-6 bg-center bg-cover text-center relative overflow-hidden" style={{ backgroundImage: `url('/assets/charity/ready_to_act.png')` }}>
+                        <div className="absolute inset-0 bg-black/40" />
                         <div className="absolute top-0 right-0 w-1/3 h-full bg-secondary/5 -skew-x-12 translate-x-1/2 pointer-events-none" />
-                        <FadeIn direction="up">
+                        <FadeIn direction="up" className="relative z-10">
                             <h2 className="text-white text-4xl md:text-6xl font-black tracking-tighter mb-8 leading-none">
                                 {t('volunteer.final_cta.title')} <span className="text-secondary ">{t('volunteer.final_cta.title_highlight')}</span>
                             </h2>

@@ -335,7 +335,7 @@ const FocusCommunities = () => {
             </section>
 
             {/* ── CTA ── */}
-            <section className="py-20 relative overflow-hidden bg-center bg-cover" style={{ backgroundImage: `url('/assets/charity/Ready to Make a Difference.png')` }}>
+            <section className="py-20 relative overflow-hidden bg-center bg-cover" style={{ backgroundImage: `url('/assets/charity/ready_to_act.png')` }}>
                 <div className="absolute inset-0 bg-black/35" />
                 <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
                     <FadeIn direction="up">
