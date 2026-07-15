@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom';
-import { blogPosts } from '../data/blogPosts';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
 import { motion } from 'framer-motion';
 import { Search, BookOpen, Rss, Archive } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AnimatedNetworkBg from '../components/AnimatedNetworkBg';
 import { useTranslation } from 'react-i18next';
 
@@ -13,12 +12,23 @@ const Blog = () => {
     const { t } = useTranslation();
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('All');
+    const [blogPosts, setBlogPosts] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetch('https://api.enakoos.com/api/v1/outreach/posts?status=PUBLISHED')
+            .then(res => res.json())
+            .then(data => setBlogPosts(data))
+            .catch(err => console.error(err))
+            .finally(() => setLoading(false));
+    }, []);
 
     const categories = ['All', ...new Set(blogPosts.map(post => post.category))];
 
     const filteredPosts = blogPosts.filter(post => {
-        const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+        const titleMatch = post.title.toLowerCase().includes(searchTerm.toLowerCase());
+        const contentMatch = post.content?.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesSearch = titleMatch || contentMatch;
         const matchesCategory = selectedCategory === 'All' || post.category === selectedCategory;
         return matchesSearch && matchesCategory;
     });
@@ -103,22 +113,26 @@ const Blog = () => {
                                             className="group overflow-hidden transition-all duration-500 flex flex-col h-full cursor-pointer"
                                         >
                                             <Link to={`/blog/${post.id}`} className="flex flex-col h-full">
-                                                <div className="w-full aspect-square overflow-hidden">
-                                                    <img
-                                                        src={post.image}
-                                                        alt={post.title}
-                                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                                    />
-                                                </div>
-                                                <div className="p-6 flex flex-col flex-grow">
-                                                    <div className="mb-3">
-                                                        <span className="text-xs font-black uppercase tracking-widest text-slate-400">{post.category}</span>
+                                                    <div className="w-full aspect-square overflow-hidden bg-slate-100 flex items-center justify-center">
+                                                        {post.coverImage ? (
+                                                            <img
+                                                                src={post.coverImage}
+                                                                alt={post.title}
+                                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                                            />
+                                                        ) : (
+                                                            <BookOpen className="w-12 h-12 text-slate-300" />
+                                                        )}
                                                     </div>
-                                                    <div className="text-[12px] text-slate-500 mb-3">{post.date} • {post.author}</div>
-                                                    <h3 className="text-xl font-black text-slate-900 leading-tight mb-3 group-hover:text-green-600 transition-colors">
-                                                        {post.title}
-                                                    </h3>
-                                                </div>
+                                                    <div className="p-6 flex flex-col flex-grow">
+                                                        <div className="mb-3">
+                                                            <span className="text-xs font-black uppercase tracking-widest text-slate-400">{post.category || 'Blog'}</span>
+                                                        </div>
+                                                        <div className="text-[12px] text-slate-500 mb-3">{new Date(post.createdAt).toLocaleDateString()} • {post.author}</div>
+                                                        <h3 className="text-xl font-black text-slate-900 leading-tight mb-3 group-hover:text-green-600 transition-colors">
+                                                            {post.title}
+                                                        </h3>
+                                                    </div>
                                             </Link>
                                         </motion.article>
                                     </FadeIn>
