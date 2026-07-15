@@ -26,7 +26,7 @@ const ScholarshipTrackApplication = () => {
     useEffect(() => {
         const fetchScholarships = async () => {
             try {
-                const API_URL = import.meta.env.VITE_API_URL || 'https://backend-production-e10c8.up.railway.app';
+                const API_URL = import.meta.env.VITE_API_URL || 'https://api.enakoos.com';
                 const res = await fetch(`${API_URL}/api/v1/public/scholarships`);
                 const data = await res.json();
                 setScholarships(data);

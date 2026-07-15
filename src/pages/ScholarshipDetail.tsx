@@ -34,7 +34,7 @@ const ScholarshipDetail = () => {
     useEffect(() => {
         const fetchScholarship = async () => {
             try {
-                const API_URL = import.meta.env.VITE_API_URL || 'https://backend-production-e10c8.up.railway.app';
+                const API_URL = import.meta.env.VITE_API_URL || 'https://api.enakoos.com';
                 const res = await fetch(`${API_URL}/api/v1/public/scholarships/${id}`);
                 if (res.ok) {
                     const data = await res.json();
@@ -64,7 +64,7 @@ const ScholarshipDetail = () => {
     const submitApplication = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const API_URL = import.meta.env.VITE_API_URL || 'https://backend-production-e10c8.up.railway.app';
+            const API_URL = import.meta.env.VITE_API_URL || 'https://api.enakoos.com';
             const payload = {
                 type: 'SCHOLARSHIP',
                 eventId: id,

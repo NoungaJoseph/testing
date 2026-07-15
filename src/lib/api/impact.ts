@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || 'https://backend-production-e10c8.up.railway.app';
+const API_URL = import.meta.env.VITE_API_URL || 'https://api.enakoos.com';
 
 export interface PublicImpactStat {
   id: string;

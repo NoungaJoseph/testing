@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import FadeIn from '../components/FadeIn';
+
 import { useParams, Link } from 'react-router-dom';
 import focusItems from '../data/focusItems';
 import { ACTION_LINKS } from '../constants/actionLinks';
 import { useTranslation } from 'react-i18next';
-import { Video, Image as ImageIcon, Heart, ArrowLeft, Calendar, FileText, CheckCircle } from 'lucide-react';
+import { Image as ImageIcon, Heart, ArrowLeft, Calendar, CheckCircle } from 'lucide-react';
 
 interface DynamicEvent {
   id: string;
@@ -48,7 +48,7 @@ const FocusDetail = () => {
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const API_URL = import.meta.env.VITE_API_URL || 'https://backend-production-e10c8.up.railway.app';
+                const API_URL = import.meta.env.VITE_API_URL || 'https://api.enakoos.com';
                 // Find matching backend type for the slug, or use custom matching
                 const backendType = slug ? categorySlugMap[slug] || slug.toUpperCase().replace(/-/g, '_') : '';
                 const url = backendType 
