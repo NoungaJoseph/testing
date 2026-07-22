@@ -12,7 +12,7 @@ const urgentCategories = new Set(['Emergency Relief', 'Crisis']);
 
 const BlogLatestNews = () => {
     const [blogPosts, setBlogPosts] = useState<any[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [, setLoading] = useState(true);
 
     useEffect(() => {
         fetch('https://api.enakoos.com/api/v1/outreach/posts?status=PUBLISHED')
@@ -30,8 +30,15 @@ const BlogLatestNews = () => {
         <div className="min-h-screen bg-white">
             <Navbar />
 
-            <section className="pt-40 pb-16 bg-gradient-to-br from-slate-900 to-green-950 relative overflow-hidden">
-                <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle, #22c55e 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+            <section className="pt-40 pb-16 relative overflow-hidden">
+                <div className="absolute inset-0 z-0">
+                    <img 
+                        src="/assets/charity/african-primary-school.png" 
+                        alt="Enako Latest News Header Background" 
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-[#001B44]/80 backdrop-blur-[2px]" />
+                </div>
                 <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
                     <FadeIn direction="up">
                         <div className="flex items-center gap-2 mb-4">

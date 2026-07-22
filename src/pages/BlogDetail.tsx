@@ -49,7 +49,7 @@ const BlogDetail = () => {
 
     const paragraphs = post.content
         .split('\n\n')
-        .map((paragraph) => paragraph.trim())
+        .map((paragraph: string) => paragraph.trim())
         .filter(Boolean);
 
     return (
@@ -94,7 +94,7 @@ const BlogDetail = () => {
                             </div>
                         </div>
                         <div className="prose prose-lg max-w-none text-slate-700 mb-12">
-                            {paragraphs.map((paragraph, index) => (
+                            {paragraphs.map((paragraph: string, index: number) => (
                                 <p key={index} className="mb-6 leading-8 text-slate-700">
                                     {paragraph}
                                 </p>
@@ -118,7 +118,7 @@ const BlogDetail = () => {
                             <div className="mt-12 pt-8 border-t border-slate-200">
                                 <h3 className="text-xl font-bold text-slate-900 mb-4">Sources & Proof Statistics</h3>
                                 <ul className="space-y-3">
-                                    {post.statisticsLinks.map((link, idx) => (
+                                    {post.statisticsLinks.map((link: { url: string; label: string }, idx: number) => (
                                         <li key={idx} className="flex items-start gap-2">
                                             <span className="text-green-600 mt-1">✓</span>
                                             <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-green-600 font-medium underline underline-offset-4">

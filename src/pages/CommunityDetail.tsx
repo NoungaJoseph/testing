@@ -70,7 +70,7 @@ const CommunityDetail = () => {
                                 </div>
 
                                 <div className="flex flex-col sm:flex-row gap-4">
-                                    <Link to="/donate" className="bg-[#001B44] hover:bg-[#00BFA5] transition-colors text-white px-8 py-4 rounded-[2px] font-black uppercase tracking-widest text-sm text-center">
+                                    <Link to={`/communities/${slug}/projects`} className="bg-[#001B44] hover:bg-[#00BFA5] transition-colors text-white px-8 py-4 rounded-[2px] font-black uppercase tracking-widest text-sm text-center">
                                         Fund a Project Here
                                     </Link>
                                     <Link to="/volunteer" className="bg-white border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white transition-colors px-8 py-4 rounded-[2px] font-black uppercase tracking-widest text-sm text-center">

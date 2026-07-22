@@ -13,7 +13,7 @@ const Blog = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [blogPosts, setBlogPosts] = useState<any[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [, setLoading] = useState(true);
 
     useEffect(() => {
         fetch('https://api.enakoos.com/api/v1/outreach/posts?status=PUBLISHED')
@@ -40,9 +40,15 @@ const Blog = () => {
                 <AnimatedNetworkBg particleCount={30} />
                 <main className="flex-grow relative z-10">
                     {/* HERO */}
-                    <section className="pt-40 pb-20 bg-gradient-to-br from-slate-900 to-secondary relative overflow-hidden">
-                        <div className="absolute inset-0 opacity-5"
-                            style={{ backgroundImage: 'radial-gradient(circle, #00C2C7 1px, transparent 1px)', backgroundSize: '36px 36px' }} />
+                    <section className="pt-40 pb-20 relative overflow-hidden">
+                        <div className="absolute inset-0 z-0">
+                            <img 
+                                src="/assets/charity/our-expertize-in-action.png" 
+                                alt="Enako Blog Header Background" 
+                                className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-[#001B44]/80 backdrop-blur-[2px]" />
+                        </div>
                         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
                             <FadeIn direction="up">
                                 <span className="text-secondary font-bold tracking-[0.4em] uppercase text-xs block mb-4">{t('blog.hero.badge')}</span>

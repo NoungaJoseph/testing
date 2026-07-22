@@ -25,14 +25,38 @@ import RequirementDetail from './pages/RequirementDetail';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import Search from './pages/Search';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { trackPageView, trackClickHeatmap } from './lib/analyticsTracker';
 import ScrollToTop from './components/ScrollToTop';
-import WhatsAppFloat from './components/WhatsAppFloat';
+import CookieConsent from './components/CookieConsent';
+
+import CommunityProjects from './pages/CommunityProjects';
+
+function AnalyticsPageTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    trackPageView(location.pathname);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleGlobalClick = (e: MouseEvent) => {
+      trackClickHeatmap(location.pathname, e);
+    };
+    window.addEventListener('click', handleGlobalClick);
+    return () => window.removeEventListener('click', handleGlobalClick);
+  }, [location.pathname]);
+
+  return null;
+}
 
 function App() {
   return (
     <Router>
       <ScrollToTop />
-      <WhatsAppFloat />
+      <CookieConsent />
+      <AnalyticsPageTracker />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -60,6 +84,7 @@ function App() {
         <Route path="/blog/archives" element={<BlogArchives />} />
         <Route path="/focus-communities/:slug" element={<FocusDetail />} />
         <Route path="/communities/:slug" element={<CommunityDetail />} />
+        <Route path="/communities/:slug/projects" element={<CommunityProjects />} />
         {/* Get Involved alias */}
         <Route path="/get-involved" element={<Volunteer />} />
         {/* Legal routes */}

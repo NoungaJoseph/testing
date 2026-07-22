@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     ChevronDown, Menu, X, GraduationCap, Award, Users,
     Droplets, Stethoscope, HandHeart, Newspaper, BookOpen, Archive,
+    Flame, ShieldAlert,
     Facebook, Twitter, Instagram, Linkedin
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -75,18 +76,6 @@ const navLinks = [
     {
         nameKey: 'nav.projects',
         href: '/impact',
-        dropdown: [
-            {
-                titleKey: 'nav.ongoing_projects',
-                items: [
-                    { nameKey: 'nav.proj_douala_school', href: '/impact#douala', icon: <Archive className="w-6 h-6" />, descKey: 'nav.proj_douala_school' },
-                    { nameKey: 'nav.proj_limbe_water', href: '/impact#limbe', icon: <Droplets className="w-6 h-6" />, descKey: 'nav.proj_limbe_water' },
-                    { nameKey: 'nav.proj_bamenda_clinic', href: '/impact#bamenda', icon: <Stethoscope className="w-6 h-6" />, descKey: 'nav.proj_bamenda_clinic' },
-                    { nameKey: 'nav.proj_yaounde_orphanage', href: '/impact#yaounde', icon: <HandHeart className="w-6 h-6" />, descKey: 'nav.proj_yaounde_orphanage' },
-                    { nameKey: 'nav.proj_buea_tech', href: '/impact#buea', icon: <Users className="w-6 h-6" />, descKey: 'nav.proj_buea_tech' },
-                ],
-            },
-        ],
     },
     {
         nameKey: 'nav.focus_communities',
@@ -131,9 +120,11 @@ const navLinks = [
             {
                 titleKey: 'nav.articles',
                 items: [
-                    { nameKey: 'nav.latest_news', href: '/blog/latest-news', icon: <Newspaper className="w-8 h-8" />, descKey: 'nav.latest_news_desc' },
-                    { nameKey: 'nav.blog_posts', href: '/blog/posts', icon: <BookOpen className="w-8 h-8" />, descKey: 'nav.blog_posts_desc' },
-                    { nameKey: 'nav.archives', href: '/blog/archives', icon: <Archive className="w-8 h-8" />, descKey: 'nav.archives_desc' },
+                    { nameKey: 'nav.latest_news', href: '/blog/latest-news', icon: <Newspaper className="w-8 h-8 text-[#1eb4d4]" />, descKey: 'nav.latest_news_desc' },
+                    { nameKey: 'nav.emergency_relief', href: '/blog/latest-news?category=Emergency+Relief', icon: <Flame className="w-8 h-8 text-red-500" />, descKey: 'nav.emergency_relief_desc' },
+                    { nameKey: 'nav.crisis_response', href: '/blog/latest-news?category=Crisis', icon: <ShieldAlert className="w-8 h-8 text-amber-500" />, descKey: 'nav.crisis_response_desc' },
+                    { nameKey: 'nav.blog_posts', href: '/blog/posts', icon: <BookOpen className="w-8 h-8 text-[#1eb4d4]" />, descKey: 'nav.blog_posts_desc' },
+                    { nameKey: 'nav.archives', href: '/blog/archives', icon: <Archive className="w-8 h-8 text-slate-500" />, descKey: 'nav.archives_desc' },
                 ],
             },
         ],
