@@ -85,12 +85,17 @@ const BlogDetail = () => {
                         </div>
                         <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">{post.title}</h1>
                         <div className="flex items-center gap-4 mb-10 pb-6 border-b border-slate-200">
-                            <div className="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-500 uppercase">
+                            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#001B44] to-[#1eb4d4] flex items-center justify-center font-bold text-white uppercase text-lg shadow-md">
                                 {(post.author || 'E').charAt(0)}
                             </div>
                             <div>
-                                <div className="font-bold text-slate-900">By {post.author || 'ENAKO OS'}</div>
-                                <div className="text-sm text-slate-500">{new Date(post.createdAt).toLocaleDateString()}</div>
+                                <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-0.5">Research &amp; Written by</div>
+                                <div className="font-black text-slate-900 text-lg leading-tight">{post.author || 'ENAKO Outreach Team'}</div>
+                                <div className="text-sm text-slate-500 mt-0.5">
+                                    {post.publishedAt
+                                        ? new Date(post.publishedAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+                                        : new Date(post.createdAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+                                </div>
                             </div>
                         </div>
                         <div className="prose prose-lg max-w-none text-slate-700 mb-12">

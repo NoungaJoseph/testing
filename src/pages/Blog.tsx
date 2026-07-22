@@ -130,11 +130,14 @@ const Blog = () => {
                                                             <BookOpen className="w-12 h-12 text-slate-300" />
                                                         )}
                                                     </div>
-                                                    <div className="p-6 flex flex-col flex-grow">
+                                                        <div className="p-6 flex flex-col flex-grow">
                                                         <div className="mb-3">
                                                             <span className="text-xs font-black uppercase tracking-widest text-slate-400">{post.category || 'Blog'}</span>
                                                         </div>
-                                                        <div className="text-[12px] text-slate-500 mb-3">{new Date(post.createdAt).toLocaleDateString()} • {post.author}</div>
+                                                        <div className="text-[11px] text-slate-400 mb-3 flex items-center gap-1.5 flex-wrap">
+                                                            <span>{new Date(post.publishedAt || post.createdAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+                                                            {post.author && <><span>·</span><span className="font-semibold text-slate-500">{post.author}</span></>}
+                                                        </div>
                                                         <h3 className="text-xl font-black text-slate-900 leading-tight mb-3 group-hover:text-green-600 transition-colors">
                                                             {post.title}
                                                         </h3>
