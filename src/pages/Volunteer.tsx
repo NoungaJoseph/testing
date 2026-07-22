@@ -224,6 +224,11 @@ const VolunteerPage = () => {
                                                     onChange={(e) => {
                                                         const file = e.target.files?.[0];
                                                         if (file) {
+                                                            if (file.size > 5 * 1024 * 1024) {
+                                                                alert('File must be under 5MB. Please compress your document and try again.');
+                                                                e.target.value = '';
+                                                                return;
+                                                            }
                                                             const reader = new FileReader();
                                                             reader.onloadend = () => setDocumentBase64(reader.result as string);
                                                             reader.readAsDataURL(file);

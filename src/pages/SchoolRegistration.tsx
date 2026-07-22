@@ -16,6 +16,49 @@ const SchoolRegistrationPage = () => {
         schoolName: '', country: '', city: '', email: '', phone: '', type: '', students: '',
         principal: '', website: '', message: ''
     });
+    const [isComplete, setIsComplete] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [errorMsg, setErrorMsg] = useState('');
+
+    const submitRegistration = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setErrorMsg('');
+        try {
+            const API_URL = import.meta.env.VITE_API_URL || 'https://api.enakoos.com';
+            const payload = {
+                type: 'SCHOOL_REGISTRATION',
+                applicantName: form.principal,
+                email: form.email,
+                phone: form.phone,
+                details: {
+                    schoolName: form.schoolName,
+                    country: form.country,
+                    city: form.city,
+                    schoolType: form.type,
+                    studentCount: form.students,
+                    website: form.website,
+                    message: form.message,
+                },
+                documents: [],
+            };
+            const res = await fetch(`${API_URL}/api/v1/outreach/applications`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
+            if (res.ok) {
+                setIsComplete(true);
+            } else {
+                const body = await res.json().catch(() => ({}));
+                setErrorMsg(body.message || 'Submission failed. Please try again.');
+            }
+        } catch (err) {
+            setErrorMsg('Network error. Please check your connection and try again.');
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     return (
         <div className="flex flex-col min-h-screen bg-white">
@@ -133,60 +176,78 @@ const SchoolRegistrationPage = () => {
                             </FadeIn>
                             <FadeIn direction="up" delay={0.2}>
                                 <div className="rounded-2xl p-8 md:p-12">
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                                        <div>
-                                            <label className="block text-sm font-bold text-navy mb-2">School Name *</label>
-                                            <input type="text" value={form.schoolName} onChange={(e) => setForm({ ...form, schoolName: e.target.value })}
-                                                className="w-full h-12 px-4 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-secondary text-navy bg-white"
-                                                placeholder="Official school name" />
+                                    {isComplete ? (
+                                        <div className="text-center py-16">
+                                            <div className="w-20 h-20 bg-green-50 rounded-full mx-auto mb-6 flex items-center justify-center">
+                                                <span className="material-symbols-outlined text-4xl text-green-500">check_circle</span>
+                                            </div>
+                                            <h2 className="text-3xl font-black text-navy mb-3">Registration Received!</h2>
+                                            <p className="text-slate-500 mb-8 leading-relaxed max-w-md mx-auto">
+                                                Thank you for registering <strong>{form.schoolName}</strong>. Our team will review your application and reach out within 5 business days.
+                                            </p>
+                                            <Link to="/programs" className="inline-flex items-center gap-2 h-12 px-8 bg-secondary rounded-lg text-white font-bold hover:bg-[#00a8ae] transition-all">
+                                                View Our Programs <span className="material-symbols-outlined text-base">arrow_forward</span>
+                                            </Link>
                                         </div>
-                                        <div>
-                                            <label className="block text-sm font-bold text-navy mb-2">Country *</label>
-                                            <select value={form.country} onChange={(e) => setForm({ ...form, country: e.target.value })}
-                                                className="w-full h-12 px-4 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-secondary text-navy bg-white">
-                                                <option value="">Select country...</option>
-                                                {['Ghana', 'Nigeria', 'Kenya', 'Uganda', 'Tanzania', 'Ethiopia', 'Rwanda', 'Senegal', 'Côte d\'Ivoire', 'Other'].map(c => (
-                                                    <option key={c}>{c}</option>
-                                                ))}
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label className="block text-sm font-bold text-navy mb-2">City / Region *</label>
-                                            <input type="text" value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })}
-                                                className="w-full h-12 px-4 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-secondary text-navy bg-white"
-                                                placeholder="City or region name" />
-                                        </div>
-                                        <div>
-                                            <label className="block text-sm font-bold text-navy mb-2">Principal / Director *</label>
-                                            <input type="text" value={form.principal} onChange={(e) => setForm({ ...form, principal: e.target.value })}
-                                                className="w-full h-12 px-4 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-secondary text-navy bg-white"
-                                                placeholder="Full name" />
-                                        </div>
-                                        <div>
-                                            <label className="block text-sm font-bold text-navy mb-2">Email Address *</label>
-                                            <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
-                                                className="w-full h-12 px-4 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-secondary text-navy bg-white"
-                                                placeholder="school@email.com" />
-                                        </div>
-                                        <div>
-                                            <label className="block text-sm font-bold text-navy mb-2">Phone Number *</label>
-                                            <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                                                className="w-full h-12 px-4 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-secondary text-navy bg-white"
-                                                placeholder="+234 XXX XXX XXXX" />
-                                        </div>
-                                    </div>
-                                    {/* Document upload */}
-                                    <div className="mb-8">
-                                        <label className="block text-sm font-bold text-navy mb-2">Upload Supporting Documents</label>
-                                        <div className="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center hover:border-secondary transition-colors cursor-pointer">
-                                            <span className="material-symbols-outlined text-4xl text-slate-400 block mb-2">upload_file</span>
-                                            <p className="text-navy font-semibold text-sm">Drag & drop files here, or click to browse</p>
-                                            <p className="text-slate-400 text-xs mt-1">Accepted: PDF, DOCX, JPG, PNG (max 10MB each)</p>
-                                        </div>
-                                    </div>
-                                    <button type="submit" className="w-full h-14 bg-secondary rounded-xl text-[#001F5B] font-black text-lg hover:bg-secondary hover:-translate-y-0.5 transition-all shadow-xl shadow-secondary/25">
-                                        Submit Registration
-                                    </button>
+                                    ) : (
+                                        <form onSubmit={submitRegistration}>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                                <div>
+                                                    <label className="block text-sm font-bold text-navy mb-2">School Name *</label>
+                                                    <input type="text" value={form.schoolName} onChange={(e) => setForm({ ...form, schoolName: e.target.value })}
+                                                        className="w-full h-12 px-4 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-secondary text-navy bg-white"
+                                                        placeholder="Official school name" required />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-bold text-navy mb-2">Country *</label>
+                                                    <select value={form.country} onChange={(e) => setForm({ ...form, country: e.target.value })}
+                                                        className="w-full h-12 px-4 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-secondary text-navy bg-white" required>
+                                                        <option value="">Select country...</option>
+                                                        {['Cameroon', 'Ghana', 'Nigeria', 'Kenya', 'Uganda', 'Tanzania', 'Ethiopia', 'Rwanda', 'Senegal', "Côte d'Ivoire", 'Other'].map(c => (
+                                                            <option key={c}>{c}</option>
+                                                        ))}
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-bold text-navy mb-2">City / Region *</label>
+                                                    <input type="text" value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })}
+                                                        className="w-full h-12 px-4 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-secondary text-navy bg-white"
+                                                        placeholder="City or region name" required />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-bold text-navy mb-2">Principal / Director *</label>
+                                                    <input type="text" value={form.principal} onChange={(e) => setForm({ ...form, principal: e.target.value })}
+                                                        className="w-full h-12 px-4 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-secondary text-navy bg-white"
+                                                        placeholder="Full name" required />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-bold text-navy mb-2">Email Address *</label>
+                                                    <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
+                                                        className="w-full h-12 px-4 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-secondary text-navy bg-white"
+                                                        placeholder="school@email.com" required />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-bold text-navy mb-2">Phone Number *</label>
+                                                    <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                                                        className="w-full h-12 px-4 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-secondary text-navy bg-white"
+                                                        placeholder="+237 XXX XXX XXX" required />
+                                                </div>
+                                            </div>
+                                            {errorMsg && (
+                                                <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm font-medium">
+                                                    {errorMsg}
+                                                </div>
+                                            )}
+                                            <button type="submit" disabled={isSubmitting}
+                                                className="w-full h-14 bg-secondary rounded-xl text-[#001F5B] font-black text-lg hover:bg-[#00a8ae] hover:-translate-y-0.5 transition-all shadow-xl shadow-secondary/25 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                                                {isSubmitting ? (
+                                                    <><span className="material-symbols-outlined animate-spin text-xl">refresh</span> Submitting...</>
+                                                ) : (
+                                                    'Submit Registration'
+                                                )}
+                                            </button>
+                                        </form>
+                                    )}
                                 </div>
                             </FadeIn>
                         </div>
