@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import FadeIn from './FadeIn';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useState, useEffect } from 'react';
+import { fetchPublicStats, type PublicImpactStat } from '../lib/stats';
 
 const programDetails = [
     {
@@ -76,6 +78,14 @@ const ProgramsOverview = () => {
     const { t } = useTranslation();
     const overviewItemsT = t('programs.overview.items', { returnObjects: true }) as any[];
 
+    const [dynamicStats, setDynamicStats] = useState<PublicImpactStat[]>([]);
+
+    useEffect(() => {
+        fetchPublicStats().then(data => {
+            setDynamicStats(data);
+        });
+    }, []);
+
     return (
         <section className="py-20 px-6 lg:px-20 bg-transparent overflow-hidden">
             <div className="max-w-7xl mx-auto space-y-32">
@@ -124,12 +134,23 @@ const ProgramsOverview = () => {
                                 </div>
 
                                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-slate-100 mt-4">
-                                    {(overviewItemsT[idx]?.stats || prog.stats).map((s: string) => (
-                                        <div key={s} className="text-left">
-                                            <p className="text-green-600 text-xl font-black leading-none mb-1">{s.split(' ')[0]}</p>
-                                            <p className="text-slate-400 text-[10px] font-bold uppercase tracking-wider">{s.split(' ').slice(1).join(' ')}</p>
-                                        </div>
-                                    ))}
+                                    {(() => {
+                                        const progStats = dynamicStats.filter(s => s.section === `program_${prog.id}`);
+                                        if (progStats.length > 0) {
+                                            return progStats.map((s) => (
+                                                <div key={s.id} className="text-left">
+                                                    <p className="text-green-600 text-xl font-black leading-none mb-1">{s.value}</p>
+                                                    <p className="text-slate-400 text-[10px] font-bold uppercase tracking-wider">{s.label}</p>
+                                                </div>
+                                            ));
+                                        }
+                                        return (overviewItemsT[idx]?.stats || prog.stats).map((s: string) => (
+                                            <div key={s} className="text-left">
+                                                <p className="text-green-600 text-xl font-black leading-none mb-1">{s.split(' ')[0]}</p>
+                                                <p className="text-slate-400 text-[10px] font-bold uppercase tracking-wider">{s.split(' ').slice(1).join(' ')}</p>
+                                            </div>
+                                        ));
+                                    })()}
                                 </div>
 
                                 <div className="flex flex-wrap gap-4 pt-8">

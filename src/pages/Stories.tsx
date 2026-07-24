@@ -6,6 +6,8 @@ import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
 import AnimatedNetworkBg from '../components/AnimatedNetworkBg';
 import { useTranslation } from 'react-i18next';
+import { useState, useEffect } from 'react';
+import { fetchPublicStats } from '../lib/stats';
 
 const stories = [
     {
@@ -44,6 +46,17 @@ const StoriesPage = () => {
     const { t } = useTranslation();
     const itemsT = t('stories.items', { returnObjects: true }) as any[];
     const statsT = t('stories.stats', { returnObjects: true }) as any[];
+
+    const [stats, setStats] = useState<any[]>([]);
+
+    useEffect(() => {
+        fetchPublicStats().then(data => {
+            const storiesStats = data.filter(s => s.section === 'stories');
+            if (storiesStats.length > 0) {
+                setStats(storiesStats.map(s => ({ v: s.value, l: s.label })));
+            }
+        });
+    }, []);
     
     return (
         <div className="flex flex-col min-h-screen bg-white">
@@ -103,7 +116,7 @@ const StoriesPage = () => {
                                 <span className="text-secondary">{t('nav.stories')}</span>
                             </nav>
                             <div className="flex gap-12">
-                                {(statsT || [{ v: '120+', l: 'Lives Targeted' }, { v: '8', l: 'Communities' }, { v: 'Pilot', l: 'Stage' }]).map((s: any) => (
+                                {(stats.length > 0 ? stats : statsT || [{ v: '120+', l: 'Lives Targeted' }, { v: '8', l: 'Communities' }, { v: 'Pilot', l: 'Stage' }]).map((s: any) => (
                                     <div key={s.l} className="space-y-1">
                                         <p className="text-navy text-3xl font-black tracking-tighter">{s.v}</p>
                                         <p className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em]">{s.l}</p>

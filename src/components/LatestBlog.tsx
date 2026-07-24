@@ -39,7 +39,7 @@ const LatestBlog = () => {
                                 <div className="relative aspect-square w-full overflow-hidden">
                                     <img
                                         src={post.image}
-                                        alt={post.title}
+                                        alt={t(`blog_posts.${post.id}.title`, { defaultValue: post.title })}
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                                     />
                                     <div className="absolute top-6 left-6">
@@ -53,10 +53,10 @@ const LatestBlog = () => {
                                         <span className="flex items-center gap-2"><Calendar className="w-3 h-3 text-secondary" /> {post.date}</span>
                                     </div>
                                     <h3 className="text-xl font-black text-navy leading-tight mb-4 group-hover:text-secondary transition-colors ">
-                                        {post.title}
+                                        {t(`blog_posts.${post.id}.title`, { defaultValue: post.title })}
                                     </h3>
                                     <p className="text-slate-500 font-medium leading-relaxed mb-8 flex-grow line-clamp-3">
-                                        {post.excerpt}
+                                        {t(`blog_posts.${post.id}.excerpt`, { defaultValue: post.excerpt })}
                                     </p>
                                     <Link to={`/blog/${post.id}`} className="inline-flex items-center gap-2 text-navy font-black text-[10px] uppercase tracking-widest group/link">
                                         {t('components.latest_blog.btn_read_more')} <ArrowRight className="w-3 h-3 text-secondary group-hover/link:translate-x-1 transition-transform" />

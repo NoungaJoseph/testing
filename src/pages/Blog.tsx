@@ -7,19 +7,35 @@ import { Search, BookOpen, Rss, Archive } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import AnimatedNetworkBg from '../components/AnimatedNetworkBg';
 import { useTranslation } from 'react-i18next';
+import { blogPosts as staticBlogPosts } from '../data/blogPosts';
 
 const Blog = () => {
     const { t } = useTranslation();
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [blogPosts, setBlogPosts] = useState<any[]>([]);
-    const [, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch('https://api.enakoos.com/api/v1/outreach/posts?status=PUBLISHED')
             .then(res => res.json())
-            .then(data => setBlogPosts(data))
-            .catch(err => console.error(err))
+            .then(data => {
+                if (Array.isArray(data) && data.length > 0) {
+                    const merged = [...data];
+                    staticBlogPosts.forEach(sp => {
+                        if (!merged.some(m => m.title === sp.title || m.id === sp.id)) {
+                            merged.push(sp);
+                        }
+                    });
+                    setBlogPosts(merged);
+                } else {
+                    setBlogPosts(staticBlogPosts);
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                setBlogPosts(staticBlogPosts);
+            })
             .finally(() => setLoading(false));
     }, []);
 
@@ -111,7 +127,22 @@ const Blog = () => {
                     {/* POSTS GRID */}
                     <section className="py-16">
                         <div className="max-w-7xl mx-auto px-6 md:px-12">
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {loading ? (
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                    {[1, 2, 3, 4, 5, 6].map((i) => (
+                                        <div key={i} className="animate-pulse flex flex-col h-full bg-white rounded-xl overflow-hidden border border-slate-100">
+                                            <div className="w-full aspect-square bg-slate-200"></div>
+                                            <div className="p-6 flex flex-col flex-grow">
+                                                <div className="w-16 h-4 bg-slate-200 rounded mb-4"></div>
+                                                <div className="w-3/4 h-6 bg-slate-200 rounded mb-4"></div>
+                                                <div className="w-1/2 h-6 bg-slate-200 rounded"></div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            ) : (
+                                <>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {filteredPosts.map((post, i) => (
                                     <FadeIn key={post.id} direction="up" delay={i * 0.05} fullWidth>
                                         <motion.article
@@ -120,10 +151,10 @@ const Blog = () => {
                                         >
                                             <Link to={`/blog/${post.id}`} className="flex flex-col h-full">
                                                     <div className="w-full aspect-square overflow-hidden bg-slate-100 flex items-center justify-center">
-                                                        {post.coverImage ? (
+                                                        {post.coverImage || post.image ? (
                                                             <img
-                                                                src={post.coverImage}
-                                                                alt={post.title}
+                                                                src={post.coverImage || post.image}
+                                                                alt={t(`blog_posts.${post.id}.title`, { defaultValue: post.title })}
                                                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                                             />
                                                         ) : (
@@ -135,11 +166,11 @@ const Blog = () => {
                                                             <span className="text-xs font-black uppercase tracking-widest text-slate-400">{post.category || 'Blog'}</span>
                                                         </div>
                                                         <div className="text-[11px] text-slate-400 mb-3 flex items-center gap-1.5 flex-wrap">
-                                                            <span>{new Date(post.publishedAt || post.createdAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+                                                            <span>{new Date(post.publishedAt || post.createdAt || post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
                                                             {post.author && <><span>·</span><span className="font-semibold text-slate-500">{post.author}</span></>}
                                                         </div>
                                                         <h3 className="text-xl font-black text-slate-900 leading-tight mb-3 group-hover:text-green-600 transition-colors">
-                                                            {post.title}
+                                                            {t(`blog_posts.${post.id}.title`, { defaultValue: post.title })}
                                                         </h3>
                                                     </div>
                                             </Link>
@@ -153,6 +184,8 @@ const Blog = () => {
                                     <p className="text-slate-400 font-bold text-lg">{t('blog.empty.title')}</p>
                                     <p className="text-slate-400 text-sm mt-2">{t('blog.empty.desc')}</p>
                                 </div>
+                            )}
+                                </>
                             )}
                         </div>
                     </section>

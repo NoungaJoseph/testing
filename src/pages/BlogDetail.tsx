@@ -3,9 +3,12 @@ import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
 import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { BookOpen } from 'lucide-react';
+import { blogPosts as staticBlogPosts } from '../data/blogPosts';
 
 const BlogDetail = () => {
+    const { t } = useTranslation();
     const { id } = useParams();
     const [post, setPost] = useState<any>(null);
     const [loading, setLoading] = useState(true);
@@ -14,10 +17,19 @@ const BlogDetail = () => {
         fetch('https://api.enakoos.com/api/v1/outreach/posts?status=PUBLISHED')
             .then(res => res.json())
             .then(data => {
-                const found = data.find((p: any) => p.id === id);
+                let found = null;
+                if (Array.isArray(data) && data.length > 0) {
+                    found = data.find((p: any) => p.id === id);
+                }
+                if (!found) {
+                    found = staticBlogPosts.find((p: any) => p.id === id);
+                }
                 setPost(found);
             })
-            .catch(err => console.error(err))
+            .catch(err => {
+                console.error(err);
+                setPost(staticBlogPosts.find((p: any) => p.id === id));
+            })
             .finally(() => setLoading(false));
     }, [id]);
 
@@ -25,8 +37,15 @@ const BlogDetail = () => {
         return (
             <div className="min-h-screen bg-white">
                 <Navbar />
-                <div className="max-w-4xl mx-auto px-6 py-24 text-center">
-                    <p className="text-slate-500 mb-6">Loading article...</p>
+                <div className="max-w-4xl mx-auto px-6 pt-32 pb-24 text-center">
+                    <div className="animate-pulse space-y-6">
+                        <div className="w-1/4 h-6 bg-slate-200 mx-auto rounded"></div>
+                        <div className="w-3/4 h-12 bg-slate-200 mx-auto rounded"></div>
+                        <div className="w-full h-64 bg-slate-200 rounded-3xl mt-8"></div>
+                        <div className="w-full h-4 bg-slate-200 rounded"></div>
+                        <div className="w-5/6 h-4 bg-slate-200 rounded"></div>
+                        <div className="w-4/6 h-4 bg-slate-200 rounded"></div>
+                    </div>
                 </div>
                 <Footer />
             </div>
@@ -46,12 +65,6 @@ const BlogDetail = () => {
             </div>
         );
     }
-
-    const paragraphs = post.content
-        .split('\n\n')
-        .map((paragraph: string) => paragraph.trim())
-        .filter(Boolean);
-
     return (
         <div className="min-h-screen bg-white">
             <Navbar />
@@ -73,8 +86,8 @@ const BlogDetail = () => {
 
                         {!post.video && (
                             <div className="w-full aspect-[16/9] overflow-hidden rounded-lg mb-6 bg-slate-100 flex items-center justify-center">
-                                {post.coverImage ? (
-                                    <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover" />
+                                {post.coverImage || post.image ? (
+                                    <img src={post.coverImage || post.image} alt={post.title} className="w-full h-full object-cover" />
                                 ) : (
                                     <BookOpen className="w-24 h-24 text-slate-300" />
                                 )}
@@ -83,7 +96,9 @@ const BlogDetail = () => {
                         <div className="mb-4">
                             <span className="px-3 py-1 rounded-full text-[12px] font-black bg-green-100 text-slate-900">{post.category || 'Blog'}</span>
                         </div>
-                        <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">{post.title}</h1>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-8 leading-tight tracking-tight">
+                            {t(`blog_posts.${post.id}.title`, { defaultValue: post.title })}
+                        </h1>
                         <div className="flex items-center gap-4 mb-10 pb-6 border-b border-slate-200">
                             <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#001B44] to-[#1eb4d4] flex items-center justify-center font-bold text-white uppercase text-lg shadow-md">
                                 {(post.author || 'E').charAt(0)}
@@ -92,18 +107,17 @@ const BlogDetail = () => {
                                 <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-0.5">Research &amp; Written by</div>
                                 <div className="font-black text-slate-900 text-lg leading-tight">{post.author || 'ENAKO Outreach Team'}</div>
                                 <div className="text-sm text-slate-500 mt-0.5">
-                                    {post.publishedAt
-                                        ? new Date(post.publishedAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
-                                        : new Date(post.createdAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+                                    {new Date(post.publishedAt || post.createdAt || post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
                                 </div>
                             </div>
                         </div>
-                        <div className="prose prose-lg max-w-none text-slate-700 mb-12">
-                            {paragraphs.map((paragraph: string, index: number) => (
-                                <p key={index} className="mb-6 leading-8 text-slate-700">
-                                    {paragraph}
-                                </p>
-                            ))}
+                        <div className="prose prose-lg prose-slate max-w-none">
+                            {(() => {
+                                const text = t(`blog_posts.${post.id}.content`, { defaultValue: post.content || '' });
+                                return text ? text.split('\n\n').map((paragraph: string, idx: number) => (
+                                    <p key={idx} className="mb-6 leading-relaxed text-slate-600 font-medium">{paragraph}</p>
+                                )) : <p className="text-slate-500 italic">Content not available.</p>;
+                            })()}
                         </div>
 
                         {post.images && post.images.length > 0 && (

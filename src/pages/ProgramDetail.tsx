@@ -6,6 +6,8 @@ import { motion } from 'framer-motion';
 import { Heart, ArrowLeft, CheckCircle, Users, Target, ImageIcon } from 'lucide-react';
 import { ACTION_LINKS } from '../constants/actionLinks';
 import { useTranslation } from 'react-i18next';
+import { useState, useEffect } from 'react';
+import { fetchPublicStats } from '../lib/stats';
 
 /* ─── All Programs Data ─── */
 const programData: Record<string, {
@@ -197,6 +199,18 @@ const ProgramDetailPage = () => {
     // If not found, we will fall back to English or handle the null gracefully.
     const programT = t(`program_detail.programs.${id}`, { returnObjects: true }) as any;
     
+    const [dynamicStats, setDynamicStats] = useState<{label: string, value: string}[]>([]);
+
+    useEffect(() => {
+        if (!id) return;
+        fetchPublicStats().then(data => {
+            const progStats = data.filter(s => s.section === `program_${id}`);
+            if (progStats.length > 0) {
+                setDynamicStats(progStats.map(s => ({ label: s.label, value: s.value })));
+            }
+        });
+    }, [id]);
+
     const program = programData[id as keyof typeof programData];
     const applicationLink = id === 'scholarships-primary'
         ? '/apply/scholarship/primary'
@@ -258,10 +272,10 @@ const ProgramDetailPage = () => {
             <section className="bg-slate-900 py-8">
                 <div className="max-w-7xl mx-auto px-6 md:px-12">
                     <div className="grid grid-cols-3 gap-8 divide-x divide-white/10">
-                        {program.stats.map((s, idx) => (
+                        {(dynamicStats.length > 0 ? dynamicStats : program.stats).map((s, idx) => (
                             <div key={idx} className="text-center px-4">
-                                <div className="text-green-400 text-3xl font-black mb-1">{programT?.stats?.[idx]?.value || s.value}</div>
-                                <div className="text-slate-400 text-xs font-bold uppercase tracking-widest">{programT?.stats?.[idx]?.label || s.label}</div>
+                                <div className="text-green-400 text-3xl font-black mb-1">{dynamicStats.length > 0 ? s.value : (programT?.stats?.[idx]?.value || s.value)}</div>
+                                <div className="text-slate-400 text-xs font-bold uppercase tracking-widest">{dynamicStats.length > 0 ? s.label : (programT?.stats?.[idx]?.label || s.label)}</div>
                             </div>
                         ))}
                     </div>

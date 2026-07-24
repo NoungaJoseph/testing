@@ -1,9 +1,19 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { School, Award, Globe, ArrowRight, Sparkles } from 'lucide-react';
+import { School, Award, Globe, Sparkles, ArrowRight } from 'lucide-react';
 import FadeIn from './FadeIn';
+import { useState, useEffect } from 'react';
+import { fetchPublicStats, type PublicImpactStat } from '../lib/stats';
 
 const HomeHero = () => {
+    const [stats, setStats] = useState<PublicImpactStat[]>([]);
+
+    useEffect(() => {
+        fetchPublicStats().then(data => {
+            const heroStats = data.filter(s => s.section === 'hero');
+            if (heroStats.length > 0) setStats(heroStats);
+        });
+    }, []);
     return (
         <div className="flex flex-col w-full overflow-hidden">
             {/* MAIN HERO SECTION */}
@@ -51,18 +61,29 @@ const HomeHero = () => {
 
                         <FadeIn delay={0.5} direction="up" className="pt-12">
                             <div className="grid grid-cols-2 md:grid-cols-3 gap-12 pt-12 border-t border-white/10">
-                                <div className="space-y-1">
-                                    <span className="text-secondary text-4xl font-black tracking-tighter block">120+</span>
-                                    <span className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em]">Students Targeted</span>
-                                </div>
-                                <div className="space-y-1">
-                                    <span className="text-secondary text-4xl font-black tracking-tighter block">5</span>
-                                    <span className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em]">Partner Schools</span>
-                                </div>
-                                <div className="space-y-1 hidden md:block">
-                                    <span className="text-secondary text-4xl font-black tracking-tighter block">XAF 120K</span>
-                                    <span className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em]">Funding Goal</span>
-                                </div>
+                                {stats.length > 0 ? (
+                                    stats.map(stat => (
+                                        <div key={stat.id} className="space-y-1">
+                                            <span className="text-secondary text-4xl font-black tracking-tighter block">{stat.value}</span>
+                                            <span className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em]">{stat.label}</span>
+                                        </div>
+                                    ))
+                                ) : (
+                                    <>
+                                        <div className="space-y-1">
+                                            <span className="text-secondary text-4xl font-black tracking-tighter block">120+</span>
+                                            <span className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em]">Students Targeted</span>
+                                        </div>
+                                        <div className="space-y-1">
+                                            <span className="text-secondary text-4xl font-black tracking-tighter block">5</span>
+                                            <span className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em]">Partner Schools</span>
+                                        </div>
+                                        <div className="space-y-1 hidden md:block">
+                                            <span className="text-secondary text-4xl font-black tracking-tighter block">XAF 120K</span>
+                                            <span className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em]">Funding Goal</span>
+                                        </div>
+                                    </>
+                                )}
                             </div>
                         </FadeIn>
                     </div>

@@ -13,6 +13,7 @@ interface Scholarship {
   descriptionFr: string | null;
   targetSchools: string[];
   status: string;
+  customFields?: any[];
 }
 
 const ScholarshipDetail = () => {
@@ -31,6 +32,8 @@ const ScholarshipDetail = () => {
     const [school, setSchool] = useState('');
     const [documentBase64, setDocumentBase64] = useState<string | null>(null);
 
+    const [customFormData, setCustomFormData] = useState<Record<string, any>>({});
+    
     useEffect(() => {
         const fetchScholarship = async () => {
             try {
@@ -56,7 +59,7 @@ const ScholarshipDetail = () => {
         const file = e.target.files?.[0];
         if (file) {
             if (file.size > 5 * 1024 * 1024) {
-                alert('Document must be under 5MB. Please compress and try again.');
+                alert('Document must be under 5MB.');
                 e.target.value = '';
                 return;
             }
@@ -66,18 +69,52 @@ const ScholarshipDetail = () => {
         }
     };
 
+    const handleCustomFieldFile = (e: React.ChangeEvent<HTMLInputElement>, fieldName: string) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            if (file.size > 5 * 1024 * 1024) {
+                alert('Document must be under 5MB.');
+                e.target.value = '';
+                return;
+            }
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setCustomFormData(prev => ({
+                    ...prev,
+                    [fieldName]: { fileName: file.name, base64: reader.result as string }
+                }));
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
     const submitApplication = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
             const API_URL = import.meta.env.VITE_API_URL || 'https://api.enakoos.com';
+            
+            const dynamicDocuments: string[] = [];
+            const customDetails: Record<string, string> = {};
+            
+            Object.entries(customFormData).forEach(([key, val]) => {
+                if (typeof val === 'object' && val.base64) {
+                    dynamicDocuments.push(val.base64);
+                    customDetails[key] = `Uploaded File: ${val.fileName}`;
+                } else {
+                    customDetails[key] = val;
+                }
+            });
+
+            const allDocs = documentBase64 ? [documentBase64, ...dynamicDocuments] : dynamicDocuments;
+
             const payload = {
                 type: 'SCHOLARSHIP',
                 eventId: id,
                 applicantName: name,
                 email,
                 phone,
-                details: { targetSchool: school },
-                documents: documentBase64 ? [documentBase64] : []
+                details: { targetSchool: school, ...customDetails },
+                documents: allDocs
             };
 
             const response = await fetch(`${API_URL}/api/v1/outreach/applications`, {
@@ -186,8 +223,30 @@ const ScholarshipDetail = () => {
                                                 )}
                                             </div>
                                         </div>
+                                        {scholarship.customFields && scholarship.customFields.map((field: any, idx: number) => (
+                                            <div key={idx}>
+                                                <label className="block font-semibold mb-2">{field.label} {field.required && '*'}</label>
+                                                {field.type === 'file' ? (
+                                                    <input 
+                                                        required={field.required}
+                                                        type="file" 
+                                                        accept=".pdf,image/*" 
+                                                        onChange={e => handleCustomFieldFile(e, field.name)} 
+                                                        className="w-full bg-background border border-outline-variant rounded-xl px-4 py-3 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-accent file:text-white hover:file:bg-accent/90" 
+                                                    />
+                                                ) : (
+                                                    <input 
+                                                        required={field.required}
+                                                        type="text" 
+                                                        value={customFormData[field.name] || ''}
+                                                        onChange={e => setCustomFormData({...customFormData, [field.name]: e.target.value})}
+                                                        className="w-full bg-background border border-outline-variant rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent" 
+                                                    />
+                                                )}
+                                            </div>
+                                        ))}
                                         <div>
-                                            <label className="block font-semibold mb-2">{isFr ? 'Documents Justificatifs (PDF/Image)' : 'Supporting Documents (PDF/Image)'}</label>
+                                            <label className="block font-semibold mb-2">{isFr ? 'Documents Justificatifs Généraux (Optionnel)' : 'General Supporting Documents (Optional)'}</label>
                                             <input type="file" accept=".pdf,image/*" onChange={handleFileChange} className="w-full bg-background border border-outline-variant rounded-xl px-4 py-3 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-accent file:text-white hover:file:bg-accent/90" />
                                         </div>
                                         <div className="pt-4">

@@ -1,14 +1,33 @@
 import { Link } from 'react-router-dom';
-
 import FadeIn from './FadeIn';
+import { useState, useEffect } from 'react';
+import { fetchPublicStats } from '../lib/stats';
 
 const ImpactStats = () => {
-    const stats = [
+    const defaultStats = [
         { icon: 'school', value: '120+', label: 'Students Targeted' },
         { icon: 'domain', value: '8', label: 'Schools Target' },
         { icon: 'workspace_premium', value: '6', label: 'Teachers Recognized' },
         { icon: 'volunteer_activism', value: '8', label: 'Communities Helped' },
     ];
+    
+    const [stats, setStats] = useState<any[]>(defaultStats);
+
+    useEffect(() => {
+        fetchPublicStats().then(data => {
+            const impactStats = data.filter(s => s.section === 'impact');
+            if (impactStats.length > 0) {
+                // map to format required by UI
+                // since we don't store icon directly we might just map it from key or use a default
+                const mapped = impactStats.map((s, i) => ({
+                    icon: ['school', 'domain', 'workspace_premium', 'volunteer_activism'][i % 4],
+                    value: s.value,
+                    label: s.label
+                }));
+                setStats(mapped);
+            }
+        });
+    }, []);
 
     return (
         <section className="px-6 py-20 lg:py-28 max-w-7xl mx-auto text-center">

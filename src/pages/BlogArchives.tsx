@@ -3,6 +3,7 @@ import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Calendar, Archive, Search, ChevronDown, RefreshCw } from 'lucide-react';
 import { useMemo, useState, useEffect } from 'react';
 import { blogPosts as staticBlogPosts } from '../data/blogPosts';
@@ -21,6 +22,7 @@ export type ArchiveYear = {
 };
 
 const BlogArchives = () => {
+    const { t } = useTranslation();
     const [livePosts, setLivePosts] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState('');
@@ -205,7 +207,9 @@ const BlogArchives = () => {
                                                     const filteredPosts = monthGroup.posts.filter((post) => {
                                                         const q = search.trim().toLowerCase();
                                                         if (!q) return true;
-                                                        return post.title.toLowerCase().includes(q) || (post.excerpt && post.excerpt.toLowerCase().includes(q)) || (post.category && post.category.toLowerCase().includes(q));
+                                                        const translatedTitle = t(`blog_posts.${post.id}.title`, { defaultValue: post.title }).toLowerCase();
+                                                        const translatedExcerpt = t(`blog_posts.${post.id}.excerpt`, { defaultValue: post.excerpt || '' }).toLowerCase();
+                                                        return translatedTitle.includes(q) || translatedExcerpt.includes(q) || (post.category && post.category.toLowerCase().includes(q));
                                                     });
 
                                                     if (filteredPosts.length === 0) return null;
@@ -236,7 +240,7 @@ const BlogArchives = () => {
                                                                             >
                                                                                 <div className="flex items-center gap-3">
                                                                                     <span className="w-1.5 h-1.5 rounded-full bg-[#1eb4d4] flex-shrink-0 group-hover:scale-125 transition-transform" />
-                                                                                    <span>{post.title}</span>
+                                                                                    <span>{t(`blog_posts.${post.id}.title`, { defaultValue: post.title })}</span>
                                                                                 </div>
                                                                                 <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 bg-slate-100 px-2 py-0.5 rounded">
                                                                                     {post.category}
