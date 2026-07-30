@@ -163,8 +163,14 @@ const Donate = () => {
                                         <p className="text-slate-500 mb-8 leading-relaxed">
                                             {t('donate.form.success_desc', { frequency: frequency === 'monthly' ? t('donate.form.type_monthly') : t('donate.form.type_one_time') }).replace('{{frequency}}', frequency === 'monthly' ? t('donate.form.type_monthly') : t('donate.form.type_one_time'))}{' '}
                                             <span className="font-black text-[#00BFA5]">{Number(selectedAmount || 0).toLocaleString()} {currency}</span> {t('donate.form.success_desc_end')}
-                                            <br />
-                                            We have sent a receipt to your email: {email}.
+                                            <br /><br />
+                                            {method === 'bank' ? (
+                                                <span className="block font-medium text-[#001B44] p-4 bg-blue-50 rounded-lg border border-blue-100">
+                                                    We have received your details! We will send our official bank details to <span className="font-bold">{email}</span> shortly so you can complete the transfer.
+                                                </span>
+                                            ) : (
+                                                `We have sent a receipt to your email: ${email}.`
+                                            )}
                                         </p>
                                         <button
                                             type="button"
