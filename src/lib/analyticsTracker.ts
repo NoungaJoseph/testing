@@ -1,16 +1,9 @@
 // Lightweight analytics tracker client for Enako Outreach website
 
 const getApiEndpoints = (path: string) => {
-    const isLocal = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
-    if (isLocal) {
-        return [
-            `http://localhost:5000/api/v1/outreach/analytics${path}`,
-            `https://api.enakoos.com/api/v1/outreach/analytics${path}`
-        ];
-    }
+    const apiBase = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1';
     return [
-        `https://api.enakoos.com/api/v1/outreach/analytics${path}`,
-        `http://localhost:5000/api/v1/outreach/analytics${path}`
+        `${apiBase}/outreach/analytics${path}`
     ];
 };
 

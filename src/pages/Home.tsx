@@ -127,7 +127,7 @@ const Home = () => {
                                     </p>
                                     <div className="space-y-3 mb-8">
                                         {regionsT.map((r: any, i: number) => (
-                                            <FadeIn key={r.region} delay={0.2 + (i * 0.1)} direction="right" scale={0.9} threshold={0.8}>
+                                            <FadeIn key={r.name || i} delay={0.2 + (i * 0.1)} direction="right" scale={0.9} threshold={0.8}>
                                                 <div className="flex items-start gap-3">
                                                     <MapPin className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
                                                     <div>
