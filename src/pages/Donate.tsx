@@ -44,7 +44,7 @@ const Donate = () => {
             // Note: Since we are running on localhost for testing but have a live frontend, we use localhost or api domain
             // But I will use localhost:8000 for development. The user's system has enakoos.com but we are testing locally.
             // Using a relative path or checking environment is better. Let's stick to localhost since they are running `npm run dev`.
-            const backendUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1';
+            const backendUrl = import.meta.env.VITE_API_URL || 'https://api.enakoos.com/api/v1';
 
             const response = await fetch(`${backendUrl}/outreach/donations`, {
                 method: 'POST',
@@ -80,7 +80,7 @@ const Donate = () => {
     };
 
     const pollMtnStatus = async (uuid: string, token: string, donationId: string) => {
-        const backendUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1';
+        const backendUrl = import.meta.env.VITE_API_URL || 'https://api.enakoos.com/api/v1';
         let attempts = 0;
         
         const interval = setInterval(async () => {
