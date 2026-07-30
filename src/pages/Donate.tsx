@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -334,7 +334,7 @@ const Donate = () => {
                                             </div>
                                         </div>
 
-                                        {mtnStatus === 'polling' || mtnStatus === 'submitting' ? (
+                                        {mtnStatus === 'polling' ? (
                                             <div className="py-12 flex flex-col items-center justify-center text-center">
                                                 <div className="w-16 h-16 border-4 border-[#00BFA5]/30 border-t-[#00BFA5] rounded-full animate-spin mb-6"></div>
                                                 <h3 className="text-xl font-black text-[#001B44] mb-2">Check your phone</h3>
