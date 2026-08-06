@@ -21,7 +21,7 @@ const isValidOrangeNumber = (phone: string) => {
     const p = phone.replace(/[^0-9]/g, '');
     const num = p.length === 12 && p.startsWith('237') ? p.substring(3) : p;
     if (num.length !== 9) return false;
-    if (num.startsWith('69')) return true;
+    if (num.startsWith('69') || num.startsWith('64')) return true;
     if (num.startsWith('65')) {
         const thirdDigit = parseInt(num[2]);
         if (thirdDigit >= 5 && thirdDigit <= 9) return true;
@@ -58,7 +58,7 @@ const Donate = () => {
                 return;
             }
             if (method === 'orange' && !isValidOrangeNumber(phone)) {
-                setErrorMessage('Please enter a valid Orange Cameroon number (e.g. 69X..., 655-659...).');
+                setErrorMessage('Please enter a valid Orange Cameroon number (e.g. 69X..., 64X..., 655-659...).');
                 setMtnStatus('error');
                 return;
             }
