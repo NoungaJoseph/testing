@@ -132,7 +132,7 @@ const Donate = () => {
                         setIsComplete(true);
                     } else if (data.status === 'FAILED') {
                         clearInterval(interval);
-                        setErrorMessage('Payment was rejected or failed. Please try again.');
+                        setErrorMessage(data.reason ? `Payment failed: ${data.reason}` : 'Payment was rejected or failed. Please try again.');
                         setMtnStatus('error');
                     }
                 } else {
