@@ -56,7 +56,7 @@ const Donate = () => {
             if (response.ok) {
                 const data = await response.json();
                 
-                if (method === 'mtn') {
+                if (method === 'mtn' || method === 'orange') {
                     if (data.status === 'PENDING' && data.paymentUuid) {
                         setMtnStatus('polling');
                         pollMtnStatus(data.paymentUuid, data.paymentToken, data.donation.id);
@@ -97,18 +97,24 @@ const Donate = () => {
                         setIsComplete(true);
                     } else if (data.status === 'FAILED') {
                         clearInterval(interval);
+                        setErrorMessage('Payment was rejected or failed. Please try again.');
+                        setMtnStatus('error');
+                    }
+                } else {
+                    if (attempts > 20) {
+                        clearInterval(interval);
+                        setErrorMessage('Payment polling timed out.');
                         setMtnStatus('error');
                     }
                 }
             } catch (err) {
-                console.error('Polling error', err);
+                if (attempts > 20) {
+                    clearInterval(interval);
+                    setErrorMessage('Network error while checking payment status.');
+                    setMtnStatus('error');
+                }
             }
-            
-            if (attempts > 20) { // Timeout after 1 minute (20 * 3s)
-                clearInterval(interval);
-                setMtnStatus('error');
-            }
-        }, 3000);
+        }, 5000);
     };
 
     return (
@@ -389,17 +395,39 @@ const Donate = () => {
                                                 </div>
 
                                                 {/* Orange Money */}
-                                                <div className={`border-2 rounded-xl p-4 transition-all opacity-70 ${method === 'orange' ? 'border-orange-500 bg-orange-50' : 'border-slate-200'}`}>
-                                                    <label className="flex items-center gap-4 cursor-pointer" onClick={() => setMethod('orange')}>
+                                                <div className={`border-2 rounded-xl p-4 transition-all ${method === 'orange' ? 'border-[#FF7900] bg-[#FF7900]/5' : 'border-slate-200 hover:border-slate-300'}`}>
+                                                    <label className="flex items-center gap-4 cursor-pointer mb-4" onClick={() => setMethod('orange')}>
                                                         <div className="w-12 h-8 bg-[#FF7900] flex items-center justify-center rounded-md shrink-0">
                                                             <div className="w-5 h-1.5 bg-white rounded-sm translate-y-1"></div>
                                                         </div>
                                                         <div className="flex-1">
                                                             <h4 className="font-bold text-slate-800">Orange Money</h4>
-                                                            <p className="text-xs text-orange-600 font-bold">Currently not available</p>
+                                                            <p className="text-xs text-slate-500">Pay securely via OM</p>
                                                         </div>
-                                                        <input type="radio" checked={method === 'orange'} readOnly disabled className="w-5 h-5" />
+                                                        <input type="radio" checked={method === 'orange'} readOnly className="w-5 h-5 accent-[#FF7900]" />
                                                     </label>
+                                                    
+                                                    {method === 'orange' && (
+                                                        <div className="pl-16 pr-4 pb-2 animate-in fade-in slide-in-from-top-2">
+                                                            <input 
+                                                                type="text" 
+                                                                value={phone} 
+                                                                onChange={(e) => setPhone(e.target.value)} 
+                                                                placeholder="Enter Orange Number (e.g. 237...)"
+                                                                className="w-full h-11 px-4 rounded-lg bg-white border border-slate-200 text-slate-900 font-medium focus:outline-none focus:border-[#FF7900] focus:ring-1 focus:ring-[#FF7900] mb-3"
+                                                            />
+                                                            <button 
+                                                                onClick={submitDonation} 
+                                                                disabled={mtnStatus === 'submitting'}
+                                                                className="w-full h-11 bg-[#FF7900] text-white font-black rounded-lg hover:bg-[#E06900] transition-colors disabled:opacity-50"
+                                                            >
+                                                                Pay {Number(selectedAmount).toLocaleString()} {currency}
+                                                            </button>
+                                                            {mtnStatus === 'error' && (
+                                                                <p className="text-red-500 text-xs font-bold mt-2">{errorMessage || 'Failed to process payment. Please try again.'}</p>
+                                                            )}
+                                                        </div>
+                                                    )}
                                                 </div>
 
                                                 {/* Bank Transfer */}
