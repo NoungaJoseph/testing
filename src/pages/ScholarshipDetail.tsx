@@ -37,8 +37,8 @@ const ScholarshipDetail = () => {
     useEffect(() => {
         const fetchScholarship = async () => {
             try {
-                const API_URL = import.meta.env.VITE_API_URL || 'https://api.enakoos.com';
-                const res = await fetch(`${API_URL}/api/v1/public/scholarships/${id}`);
+                const baseUrl = import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace(/\/api\/v1\/?$/, '') : 'https://api.enakoos.com';
+                const res = await fetch(`${baseUrl}/api/v1/public/scholarships/${id}`);
                 if (res.ok) {
                     const data = await res.json();
                     setScholarship(data);
@@ -91,7 +91,7 @@ const ScholarshipDetail = () => {
     const submitApplication = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const API_URL = import.meta.env.VITE_API_URL || 'https://api.enakoos.com';
+            const baseUrl = import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace(/\/api\/v1\/?$/, '') : 'https://api.enakoos.com';
             
             const dynamicDocuments: string[] = [];
             const customDetails: Record<string, string> = {};
@@ -117,7 +117,7 @@ const ScholarshipDetail = () => {
                 documents: allDocs
             };
 
-            const response = await fetch(`${API_URL}/api/v1/outreach/applications`, {
+            const response = await fetch(`${baseUrl}/api/v1/outreach/applications`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)

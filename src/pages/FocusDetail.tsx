@@ -48,12 +48,11 @@ const FocusDetail = () => {
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const API_URL = import.meta.env.VITE_API_URL || 'https://api.enakoos.com';
-                // Find matching backend type for the slug, or use custom matching
+                const baseUrl = import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace(/\/api\/v1\/?$/, '') : 'https://api.enakoos.com';
                 const backendType = slug ? categorySlugMap[slug] || slug.toUpperCase().replace(/-/g, '_') : '';
                 const url = backendType 
-                  ? `${API_URL}/api/v1/public/events?type=${backendType}`
-                  : `${API_URL}/api/v1/public/events`;
+                  ? `${baseUrl}/api/v1/public/events?type=${backendType}`
+                  : `${baseUrl}/api/v1/public/events`;
                   
                 const res = await fetch(url);
                 const data = await res.json();

@@ -22,6 +22,7 @@ const Donate = () => {
     const [isComplete, setIsComplete] = useState(false);
     const [step, setStep] = useState(1);
     const [mtnStatus, setMtnStatus] = useState<'idle' | 'submitting' | 'polling' | 'error'>('idle');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const selectedAmount = Number(customAmount) || 0;
 
@@ -66,15 +67,16 @@ const Donate = () => {
                     setIsComplete(true);
                 }
             } else {
-                console.error('Failed to submit donation', await response.text());
-                if (method === 'mtn') {
-                    setMtnStatus('error');
-                } else {
-                    setMtnStatus('error'); // We can reuse mtnStatus state as a general error for Step 2
-                }
+                const errorData = await response.json().catch(() => ({}));
+                const msg = errorData.message || 'Failed to submit donation. Please try again.';
+                const finalMessage = Array.isArray(msg) ? msg.join(', ') : msg;
+                console.error('Failed to submit donation', finalMessage);
+                setErrorMessage(finalMessage);
+                setMtnStatus('error');
             }
-        } catch (err) {
+        } catch (err: any) {
             console.error(err);
+            setErrorMessage(err.message || 'Network error occurred. Please try again.');
             setMtnStatus('error');
         }
     };
@@ -380,7 +382,7 @@ const Donate = () => {
                                                                 Pay {Number(selectedAmount).toLocaleString()} {currency}
                                                             </button>
                                                             {mtnStatus === 'error' && (
-                                                                <p className="text-red-500 text-xs font-bold mt-2">Failed to process payment. Please try again.</p>
+                                                                <p className="text-red-500 text-xs font-bold mt-2">{errorMessage || 'Failed to process payment. Please try again.'}</p>
                                                             )}
                                                         </div>
                                                     )}
@@ -426,7 +428,7 @@ const Donate = () => {
                                                                 {mtnStatus === 'submitting' ? 'Submitting...' : 'Request Bank Details'}
                                                             </button>
                                                             {mtnStatus === 'error' && (
-                                                                <p className="text-red-500 text-xs font-bold mt-2">Failed to submit request. Please try again or check your connection.</p>
+                                                                <p className="text-red-500 text-xs font-bold mt-2">{errorMessage || 'Failed to submit request. Please try again or check your connection.'}</p>
                                                             )}
                                                         </div>
                                                     )}

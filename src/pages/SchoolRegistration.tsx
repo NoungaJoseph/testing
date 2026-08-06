@@ -25,7 +25,7 @@ const SchoolRegistrationPage = () => {
         setIsSubmitting(true);
         setErrorMsg('');
         try {
-            const API_URL = import.meta.env.VITE_API_URL || 'https://api.enakoos.com';
+            const baseUrl = import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace(/\/api\/v1\/?$/, '') : 'https://api.enakoos.com';
             const payload = {
                 type: 'SCHOOL_REGISTRATION',
                 applicantName: form.principal,
@@ -42,7 +42,7 @@ const SchoolRegistrationPage = () => {
                 },
                 documents: [],
             };
-            const res = await fetch(`${API_URL}/api/v1/outreach/applications`, {
+            const res = await fetch(`${baseUrl}/api/v1/outreach/applications`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
