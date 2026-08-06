@@ -5,7 +5,29 @@ import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
 import { useTranslation } from 'react-i18next';
 
+const isValidMtnNumber = (phone: string) => {
+    const p = phone.replace(/[^0-9]/g, '');
+    const num = p.length === 12 && p.startsWith('237') ? p.substring(3) : p;
+    if (num.length !== 9) return false;
+    if (num.startsWith('67') || num.startsWith('68')) return true;
+    if (num.startsWith('65')) {
+        const thirdDigit = parseInt(num[2]);
+        if (thirdDigit >= 0 && thirdDigit <= 4) return true;
+    }
+    return false;
+};
 
+const isValidOrangeNumber = (phone: string) => {
+    const p = phone.replace(/[^0-9]/g, '');
+    const num = p.length === 12 && p.startsWith('237') ? p.substring(3) : p;
+    if (num.length !== 9) return false;
+    if (num.startsWith('69')) return true;
+    if (num.startsWith('65')) {
+        const thirdDigit = parseInt(num[2]);
+        if (thirdDigit >= 5 && thirdDigit <= 9) return true;
+    }
+    return false;
+};
 const Donate = () => {
     const { t } = useTranslation();
     const [searchParams] = useSearchParams();
@@ -28,6 +50,19 @@ const Donate = () => {
 
     const submitDonation = async () => {
         try {
+            setErrorMessage('');
+            
+            if (method === 'mtn' && !isValidMtnNumber(phone)) {
+                setErrorMessage('Please enter a valid MTN Cameroon number (e.g. 67X..., 68X..., 650-654...).');
+                setMtnStatus('error');
+                return;
+            }
+            if (method === 'orange' && !isValidOrangeNumber(phone)) {
+                setErrorMessage('Please enter a valid Orange Cameroon number (e.g. 69X..., 655-659...).');
+                setMtnStatus('error');
+                return;
+            }
+
             setMtnStatus('submitting');
             
             const payload = {
