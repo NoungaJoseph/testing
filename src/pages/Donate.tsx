@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
@@ -717,22 +718,22 @@ const Donate = () => {
                                     title: 'DONATE VIA BANK TRANSFER',
                                     body: 'Transfer directly to our account. We will confirm your gift and send a receipt.',
                                     extra: 'For account details, reach out to:',
-                                    link: 'info@enako.org',
-                                    href: 'mailto:info@enako.org',
+                                    link: 'enakooutreach@gmail.com',
+                                    href: 'mailto:enakooutreach@gmail.com',
                                 },
                                 {
                                     title: 'PLANNED GIVING',
                                     body: "Some choose to make a lasting investment in a child's future. Through a bequest or trust, your impact can continue for years.",
                                     extra: 'Contact us to discuss options:',
-                                    link: 'giving@enako.org',
-                                    href: 'mailto:giving@enako.org',
+                                    link: 'enakooutreach@gmail.com',
+                                    href: 'mailto:enakooutreach@gmail.com',
                                 },
                                 {
                                     title: 'CORPORATE PARTNERSHIP',
                                     body: "Partner with ENAKO to invest in communities and demonstrate your company's commitment to children's welfare.",
                                     extra: 'Email us:',
-                                    link: 'partners@enako.org',
-                                    href: 'mailto:partners@enako.org',
+                                    link: 'enakooutreach@gmail.com',
+                                    href: 'mailto:enakooutreach@gmail.com',
                                 },
                             ].map(col => (
                                 <div key={col.title}>
@@ -780,8 +781,10 @@ const Donate = () => {
                                 <p style={{ fontSize: '0.95rem', lineHeight: 1.7, color: '#333', marginBottom: '1.25rem' }}>
                                     Our endowment supports children through hardship and recovery over time. Learn more about the fund.
                                 </p>
-                                <button
+                                <Link
+                                    to="/childrens-fund"
                                     style={{
+                                        display: 'inline-block',
                                         background: BRAND,
                                         color: '#fff',
                                         fontWeight: 700,
@@ -793,13 +796,14 @@ const Donate = () => {
                                         border: 'none',
                                         cursor: 'pointer',
                                         fontFamily: 'inherit',
+                                        textDecoration: 'none',
                                         transition: 'opacity 0.2s',
                                     }}
                                     onMouseEnter={e => (e.currentTarget.style.opacity = '0.88')}
                                     onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
                                 >
                                     LEARN MORE
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </FadeIn>
