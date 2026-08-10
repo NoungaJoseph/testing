@@ -219,11 +219,11 @@ const Navbar = () => {
                                 <input 
                                     type="text" 
                                     name="q"
-                                    placeholder="Enter Keywords..." 
+                                    placeholder={t('nav.search_placeholder', 'Enter Keywords...')}
                                     className="w-full px-4 py-2.5 text-sm font-bold text-slate-700 outline-none placeholder:text-slate-400"
                                 />
                                 <button type="submit" className="bg-[#001B44] text-white px-6 py-2.5 text-sm font-bold flex items-center gap-2 hover:bg-[#00BFA5] transition-colors">
-                                    Search
+                                    {t('nav.search', 'Search')}
                                 </button>
                             </form>
                         </div>

@@ -3,12 +3,14 @@ import { useSearchParams, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
-import Fuse from 'fuse.js';
+import { useTranslation } from 'react-i18next';
 
 // Static Data imports
 import { blogPosts } from '../data/blogPosts';
 import focusItems from '../data/focusItems';
 import { communitiesData } from '../data/communitiesData';
+
+import Fuse from 'fuse.js';
 
 type SearchResult = {
     title: string;
@@ -20,6 +22,7 @@ type SearchResult = {
 };
 
 const Search = () => {
+    const { t } = useTranslation();
     const [searchParams] = useSearchParams();
     const query = searchParams.get('q') || '';
     const [results, setResults] = useState<SearchResult[]>([]);
@@ -118,19 +121,19 @@ const Search = () => {
             <main className="flex-grow pt-32 pb-24 px-6 md:px-12 max-w-6xl mx-auto w-full">
                 <FadeIn direction="up">
                     <div className="mb-12 border-b-2 border-slate-900 pb-8">
-                        <span className="text-[#00BFA5] font-black tracking-[0.3em] uppercase text-[10px] block mb-4">Search Results</span>
+                        <span className="text-[#00BFA5] font-black tracking-[0.3em] uppercase text-[10px] block mb-4">{t('search_page.badge', 'Search Results')}</span>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#001B44] uppercase tracking-tighter">
-                            Results for <span className="text-[#00BFA5]">"{query}"</span>
+                            {t('search_page.results_for', 'Results for')} <span className="text-[#00BFA5]">"{query}"</span>
                         </h1>
                         <p className="text-slate-500 font-bold mt-4 uppercase tracking-widest text-xs">
-                            {results.length} {results.length === 1 ? 'Result' : 'Results'} Found
+                            {results.length} {t('search_page.results_found', 'Results Found')}
                         </p>
                     </div>
 
                     {!query.trim() ? (
                         <div className="py-20 text-center bg-slate-50 border-2 border-slate-100 rounded-[2px]">
-                            <h2 className="text-2xl font-black text-slate-800 mb-2">Start Searching</h2>
-                            <p className="text-slate-500 font-medium">Type a keyword in the search bar above to find content.</p>
+                            <h2 className="text-2xl font-black text-slate-800 mb-2">{t('search_page.start_searching', 'Start Searching')}</h2>
+                            <p className="text-slate-500 font-medium">{t('search_page.start_desc', 'Type a keyword in the search bar above to find content.')}</p>
                         </div>
                     ) : isSearching ? (
                         <div className="py-20 flex justify-center">
@@ -138,8 +141,8 @@ const Search = () => {
                         </div>
                     ) : results.length === 0 ? (
                         <div className="py-20 text-center bg-slate-50 border-2 border-slate-100 rounded-[2px]">
-                            <h2 className="text-2xl font-black text-slate-800 mb-2">No results found</h2>
-                            <p className="text-slate-500 font-medium">We couldn't find any content matching "{query}". Try different keywords.</p>
+                            <h2 className="text-2xl font-black text-slate-800 mb-2">{t('search_page.no_results', 'No results found')}</h2>
+                            <p className="text-slate-500 font-medium">{t('search_page.no_results_desc', "We couldn't find any content matching")} "{query}". {t('search_page.try_again', 'Try different keywords.')}</p>
                         </div>
                     ) : (
                         <div className="grid gap-6">

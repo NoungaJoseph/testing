@@ -163,8 +163,8 @@ const VolunteerPage = () => {
                                         <div className="w-20 h-20 bg-green-50 rounded-full mx-auto mb-6 flex items-center justify-center">
                                             <CheckCircle2 className="w-10 h-10 text-green-500" />
                                         </div>
-                                        <h2 className="text-3xl font-black text-navy mb-3">Application Received</h2>
-                                        <p className="text-slate-500 mb-8 leading-relaxed">Thank you for stepping up to make a difference. We will review your application and get back to you shortly.</p>
+                                        <h2 className="text-3xl font-black text-navy mb-3">{t('volunteer.received_title', 'Application Received')}</h2>
+                                        <p className="text-slate-500 mb-8 leading-relaxed">{t('volunteer.received_desc', 'Thank you for stepping up to make a difference. We will review your application and get back to you shortly.')}</p>
                                     </div>
                                 ) : (
                                     <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); submitVolunteer(); }}>
@@ -174,7 +174,7 @@ const VolunteerPage = () => {
                                                 value={form.name}
                                                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                                                 className="h-11 px-4 bg-white border border-slate-200 text-[#001F5B]"
-                                                placeholder="Full name"
+                                                placeholder={t('volunteer.fullname', 'Full name')}
                                                 required
                                             />
                                             <input
@@ -182,7 +182,7 @@ const VolunteerPage = () => {
                                                 value={form.email}
                                                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                                                 className="h-11 px-4 bg-white border border-slate-200 text-[#001F5B]"
-                                                placeholder="Email address"
+                                                placeholder={t('volunteer.email', 'Email address')}
                                                 required
                                             />
                                             <input
@@ -190,7 +190,7 @@ const VolunteerPage = () => {
                                                 value={form.phone}
                                                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
                                                 className="h-11 px-4 bg-white border border-slate-200 text-[#001F5B]"
-                                                placeholder="Phone number"
+                                                placeholder={t('volunteer.phone', 'Phone number')}
                                                 required
                                             />
                                             <select
@@ -199,12 +199,12 @@ const VolunteerPage = () => {
                                                 className="h-11 px-4 bg-white border border-slate-200 text-[#001F5B]"
                                                 required
                                             >
-                                                <option value="">Select volunteer role</option>
-                                                <option value="Educational Support">Educational Support</option>
-                                                <option value="Community Outreach">Community Outreach</option>
-                                                <option value="Skills Training">Skills Training</option>
-                                                <option value="Fundraising">Fundraising</option>
-                                                <option value="Remote Digital Support">Remote Digital Support</option>
+                                                <option value="">{t('volunteer.select_role', 'Select volunteer role')}</option>
+                                                <option value="Educational Support">{t('volunteer.role_educational', 'Educational Support')}</option>
+                                                <option value="Community Outreach">{t('volunteer.role_outreach', 'Community Outreach')}</option>
+                                                <option value="Skills Training">{t('volunteer.role_skills', 'Skills Training')}</option>
+                                                <option value="Fundraising">{t('volunteer.role_fundraising', 'Fundraising')}</option>
+                                                <option value="Remote Digital Support">{t('volunteer.role_remote', 'Remote Digital Support')}</option>
                                             </select>
                                         </div>
                                         <textarea
@@ -212,11 +212,11 @@ const VolunteerPage = () => {
                                             onChange={(e) => setForm({ ...form, message: e.target.value })}
                                             rows={4}
                                             className="w-full p-4 bg-white border border-slate-200 text-[#001F5B] resize-none"
-                                            placeholder="Why do you want to volunteer with us?"
+                                            placeholder={t('volunteer.why_volunteer', 'Why do you want to volunteer with us?')}
                                             required
                                         />
                                         <div className="pt-2">
-                                            <h3 className="text-[#001F5B] text-lg font-black mb-3">Resume / Supporting Document (Optional)</h3>
+                                            <h3 className="text-[#001F5B] text-lg font-black mb-3">{t('volunteer.resume_optional', 'Resume / Supporting Document (Optional)')}</h3>
                                             <div className="space-y-3">
                                                 <input
                                                     type="file"

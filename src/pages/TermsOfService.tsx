@@ -168,7 +168,7 @@ const TermsOfService = () => {
                         
                         <div className="bg-[#001B44] text-white rounded-xl p-6 mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
                             <div>
-                                <h4 className="font-bold text-lg text-white">Questions about our Terms?</h4>
+                                <h4 className="font-bold text-lg text-white">{t('terms.questions_title', 'Questions about our Terms?')}</h4>
                                 <p className="text-xs text-slate-300 mt-1">{t('terms.sec6_legal_contact')}</p>
                             </div>
                             <Link 

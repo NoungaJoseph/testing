@@ -5,8 +5,10 @@ import Footer from '../components/Footer';
 import { useState, useEffect } from 'react';
 import { getPublicImpactData, type ImpactDataResponse } from '../lib/api/impact';
 import { FolderKanban, MapPin, ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const ImpactPage = () => {
+    const { t } = useTranslation();
     const { scrollYProgress } = useScroll();
     const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
 
@@ -95,20 +97,20 @@ const ImpactPage = () => {
                 <section className="py-24 px-6 lg:px-20 max-w-7xl mx-auto space-y-12">
                     <div className="flex flex-col md:flex-row justify-between items-end gap-6 border-b border-slate-200 pb-6">
                         <div>
-                            <span className="text-[#1eb4d4] font-black tracking-widest uppercase text-xs block mb-2">Live Database Registry</span>
-                            <h2 className="text-[#001B44] text-4xl md:text-5xl font-black uppercase tracking-tight">Active Regional Projects</h2>
+                            <span className="text-[#1eb4d4] font-black tracking-widest uppercase text-xs block mb-2">{t('impact.live_registry', 'Live Database Registry')}</span>
+                            <h2 className="text-[#001B44] text-4xl md:text-5xl font-black uppercase tracking-tight">{t('impact.active_projects', 'Active Regional Projects')}</h2>
                         </div>
                         <span className="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200">
-                            {dbProjects.length} Verified Field Initiatives
+                            {dbProjects.length} {t('impact.verified_initiatives', 'Verified Field Initiatives')}
                         </span>
                     </div>
 
                     {dbProjects.length === 0 ? (
                         <div className="bg-white border border-slate-200/90 rounded-2xl p-16 text-center space-y-4 max-w-2xl mx-auto">
                             <FolderKanban className="w-12 h-12 text-[#1eb4d4] mx-auto opacity-70" />
-                            <h3 className="text-xl font-bold text-[#001B44]">No Field Projects Published Yet</h3>
+                            <h3 className="text-xl font-bold text-[#001B44]">{t('impact.no_projects_title', 'No Field Projects Published Yet')}</h3>
                             <p className="text-slate-500 text-sm leading-relaxed max-w-md mx-auto font-medium">
-                                Projects posted by Outreach Managers from the dashboard will appear here live with community details and funding targets.
+                                {t('impact.no_projects_desc', 'Projects posted by Outreach Managers from the dashboard will appear here live with community details and funding targets.')}
                             </p>
                         </div>
                     ) : (

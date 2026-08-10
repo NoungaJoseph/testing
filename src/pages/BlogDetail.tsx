@@ -57,9 +57,9 @@ const BlogDetail = () => {
             <div className="min-h-screen bg-white">
                 <Navbar />
                 <div className="max-w-4xl mx-auto px-6 py-24 text-center">
-                    <h2 className="text-2xl font-black mb-4">Article not found</h2>
-                    <p className="text-slate-500 mb-6">We couldn't find the article you're looking for.</p>
-                    <Link to="/blog" className="text-slate-700 font-bold">Back to blog</Link>
+                    <h2 className="text-2xl font-black mb-4">{t('blog.not_found', 'Article not found')}</h2>
+                    <p className="text-slate-500 mb-6">{t('blog.not_found_desc', "We couldn't find the article you're looking for.")}</p>
+                    <Link to="/blog" className="text-slate-700 font-bold">{t('blog.back_to_blog', 'Back to blog')}</Link>
                 </div>
                 <Footer />
             </div>
@@ -104,7 +104,7 @@ const BlogDetail = () => {
                                 {(post.author || 'E').charAt(0)}
                             </div>
                             <div>
-                                <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-0.5">Research &amp; Written by</div>
+                                <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-0.5">{t('blog.written_by', 'Research & Written by')}</div>
                                 <div className="font-black text-slate-900 text-lg leading-tight">{post.author || 'ENAKO Outreach Team'}</div>
                                 <div className="text-sm text-slate-500 mt-0.5">
                                     {new Date(post.publishedAt || post.createdAt || post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
@@ -116,13 +116,13 @@ const BlogDetail = () => {
                                 const text = t(`blog_posts.${post.id}.content`, { defaultValue: post.content || '' });
                                 return text ? text.split('\n\n').map((paragraph: string, idx: number) => (
                                     <p key={idx} className="mb-6 leading-relaxed text-slate-600 font-medium">{paragraph}</p>
-                                )) : <p className="text-slate-500 italic">Content not available.</p>;
+                                )) : <p className="text-slate-500 italic">{t('blog.no_content', 'Content not available.')}</p>;
                             })()}
                         </div>
 
                         {post.images && post.images.length > 0 && (
                             <div className="mt-12 pt-8 border-t border-slate-200">
-                                <h3 className="text-xl font-bold text-slate-900 mb-6">Gallery</h3>
+                                <h3 className="text-xl font-bold text-slate-900 mb-6">{t('blog.gallery', 'Gallery')}</h3>
                                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                                     {post.images.map((img: string, idx: number) => (
                                         <div key={idx} className="aspect-square rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
@@ -135,7 +135,7 @@ const BlogDetail = () => {
 
                         {post.statisticsLinks && post.statisticsLinks.length > 0 && (
                             <div className="mt-12 pt-8 border-t border-slate-200">
-                                <h3 className="text-xl font-bold text-slate-900 mb-4">Sources & Proof Statistics</h3>
+                                <h3 className="text-xl font-bold text-slate-900 mb-4">{t('blog.sources_statistics', 'Sources & Proof Statistics')}</h3>
                                 <ul className="space-y-3">
                                     {post.statisticsLinks.map((link: { url: string; label: string }, idx: number) => (
                                         <li key={idx} className="flex items-start gap-2">

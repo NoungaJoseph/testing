@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
 import AnimatedNetworkBg from '../components/AnimatedNetworkBg';
+import { useTranslation } from 'react-i18next';
 
 const steps = [
     { icon: 'verified_user', title: 'Verify Your School', desc: 'Ensure your school meets our eligibility requirements and register in our partner portal.' },
@@ -12,6 +13,7 @@ const steps = [
 ];
 
 const SchoolRegistrationPage = () => {
+    const { t } = useTranslation();
     const [form, setForm] = useState({
         schoolName: '', country: '', city: '', email: '', phone: '', type: '', students: '',
         principal: '', website: '', message: ''
@@ -110,8 +112,8 @@ const SchoolRegistrationPage = () => {
                         <div className="max-w-7xl mx-auto">
                             <FadeIn direction="up">
                                 <div className="text-center mb-12">
-                                    <span className="text-secondary font-bold tracking-widest uppercase text-xs block mb-2">Criteria</span>
-                                    <h2 className="text-navy text-3xl font-black">Eligibility Requirements</h2>
+                                    <span className="text-secondary font-bold tracking-widest uppercase text-xs block mb-2">{t('school_reg.criteria', 'Criteria')}</span>
+                                    <h2 className="text-navy text-3xl font-black">{t('school_reg.eligibility_title', 'Eligibility Requirements')}</h2>
                                 </div>
                             </FadeIn>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -140,8 +142,8 @@ const SchoolRegistrationPage = () => {
                         <div className="max-w-5xl mx-auto">
                             <FadeIn direction="up">
                                 <div className="text-center mb-12">
-                                    <span className="text-secondary font-bold tracking-widest uppercase text-xs block mb-2">How It Works</span>
-                                    <h2 className="text-navy text-3xl font-black">Application Process</h2>
+                                    <span className="text-secondary font-bold tracking-widest uppercase text-xs block mb-2">{t('school_reg.how_it_works', 'How It Works')}</span>
+                                    <h2 className="text-navy text-3xl font-black">{t('school_reg.process_title', 'Application Process')}</h2>
                                 </div>
                             </FadeIn>
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -169,9 +171,9 @@ const SchoolRegistrationPage = () => {
                         <div className="max-w-3xl mx-auto">
                             <FadeIn direction="up">
                                 <div className="text-center mb-10">
-                                    <span className="text-secondary font-bold tracking-widest uppercase text-xs block mb-2">Application</span>
-                                    <h2 className="text-navy text-3xl font-black mb-2">School Registration Form</h2>
-                                    <p className="text-slate-500">All fields marked with * are required</p>
+                                    <span className="text-secondary font-bold tracking-widest uppercase text-xs block mb-2">{t('school_reg.application', 'Application')}</span>
+                                    <h2 className="text-navy text-3xl font-black mb-2">{t('school_reg.form_title', 'School Registration Form')}</h2>
+                                    <p className="text-slate-500">{t('school_reg.required_note', 'All fields marked with * are required')}</p>
                                 </div>
                             </FadeIn>
                             <FadeIn direction="up" delay={0.2}>
@@ -181,7 +183,7 @@ const SchoolRegistrationPage = () => {
                                             <div className="w-20 h-20 bg-green-50 rounded-full mx-auto mb-6 flex items-center justify-center">
                                                 <span className="material-symbols-outlined text-4xl text-green-500">check_circle</span>
                                             </div>
-                                            <h2 className="text-3xl font-black text-navy mb-3">Registration Received!</h2>
+                                            <h2 className="text-3xl font-black text-navy mb-3">{t('school_reg.received_title', 'Registration Received!')}</h2>
                                             <p className="text-slate-500 mb-8 leading-relaxed max-w-md mx-auto">
                                                 Thank you for registering <strong>{form.schoolName}</strong>. Our team will review your application and reach out within 5 business days.
                                             </p>
@@ -256,8 +258,8 @@ const SchoolRegistrationPage = () => {
                     {/* FINAL CTA */}
                     <section className="py-20 px-6 bg-navy text-center">
                         <FadeIn direction="up">
-                            <h2 className="text-white text-3xl font-black mb-4">Questions? We're Here to Help</h2>
-                            <p className="text-slate-300 max-w-xl mx-auto mb-8">Our team reviews all applications within 5 business days and will reach out to discuss next steps.</p>
+                            <h2 className="text-white text-3xl font-black mb-4">{t('school_reg.questions_title', "Questions? We're Here to Help")}</h2>
+                            <p className="text-slate-300 max-w-xl mx-auto mb-8">{t('school_reg.questions_desc', 'Our team reviews all applications within 5 business days and will reach out to discuss next steps.')}</p>
                             <div className="flex gap-4 justify-center">
                                 <Link to="/volunteer" className="inline-flex items-center gap-2 h-12 px-8 bg-secondary rounded-lg text-white font-bold hover:bg-[#00a8ae] transition-all">
                                     Contact Us <span className="material-symbols-outlined text-base">arrow_forward</span>

@@ -148,9 +148,9 @@ const ScholarshipDetail = () => {
                 <Navbar />
                 <div className="flex-grow flex items-center justify-center p-6 text-center">
                     <div>
-                        <h2 className="font-display text-3xl font-bold mb-4">Scholarship Not Found</h2>
-                        <p className="text-secondary mb-6">This scholarship might have expired or does not exist.</p>
-                        <Link to="/programs" className="bg-primary text-white px-6 py-3 rounded-full font-bold">View Programs</Link>
+                        <h2 className="font-display text-3xl font-bold mb-4">{t('scholarship.not_found', 'Scholarship Not Found')}</h2>
+                        <p className="text-secondary mb-6">{t('scholarship.not_found_desc', 'This scholarship might have expired or does not exist.')}</p>
+                        <Link to="/programs" className="bg-primary text-white px-6 py-3 rounded-full font-bold">{t('scholarship.view_programs', 'View Programs')}</Link>
                     </div>
                 </div>
                 <Footer />

@@ -1,12 +1,14 @@
-﻿import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import { getCommunityData } from '../data/communitiesData';
 import { Heart, MapPin, CheckCircle2, ShieldCheck, Phone, Mail, User, CreditCard, RefreshCw, FolderKanban } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const CommunityProjects = () => {
+    const { t } = useTranslation();
     const { slug } = useParams<{ slug: string }>();
     const navigate = useNavigate();
     const formRef = useRef<HTMLDivElement>(null);
@@ -112,7 +114,7 @@ const CommunityProjects = () => {
                 <section className="space-y-8">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
                         <div>
-                            <h2 className="text-3xl font-black text-[#001B44]">Field Projects in {communityData.name}</h2>
+                            <h2 className="text-3xl font-black text-[#001B44]">{t('community_projects.title', 'Field Projects in')} {communityData.name}</h2>
                             <p className="text-slate-500 text-sm mt-1 font-medium">
                                 Review active community projects posted by Outreach Managers.
                             </p>
@@ -131,7 +133,7 @@ const CommunityProjects = () => {
                         /* Clean Empty State - No fake hardcoded data */
                         <div className="bg-white/60 border border-slate-200/80 rounded-2xl p-16 text-center space-y-4 max-w-2xl mx-auto">
                             <FolderKanban className="w-12 h-12 text-[#1eb4d4] mx-auto opacity-70" />
-                            <h3 className="text-xl font-bold text-[#001B44]">No Projects Published Yet for {communityData.name}</h3>
+                            <h3 className="text-xl font-bold text-[#001B44]">{t('community_projects.no_projects_title', 'No Projects Published Yet for')} {communityData.name}</h3>
                             <p className="text-slate-500 text-sm leading-relaxed max-w-md mx-auto font-medium">
                                 Projects posted by the Outreach Manager from the dashboard will appear here live with funding targets.
                             </p>
@@ -350,7 +352,7 @@ const CommunityProjects = () => {
                             <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
                                 <CheckCircle2 className="w-8 h-8" />
                             </div>
-                            <h3 className="text-2xl font-black text-[#001B44]">Payment Prompt Dispatched!</h3>
+                            <h3 className="text-2xl font-black text-[#001B44]">{t('community_projects.payment_dispatched', 'Payment Prompt Dispatched!')}</h3>
                             <p className="text-xs text-slate-600 leading-relaxed font-medium">
                                 A {paymentMethod === 'MTN' ? 'MTN Mobile Money (*126#)' : 'Orange Money (*150#)'} PIN prompt has been dispatched to <strong>{donorPhone || 'your phone number'}</strong> for {selectedProject?.title || communityData.name}.
                             </p>
