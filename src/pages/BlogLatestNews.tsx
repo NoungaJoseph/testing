@@ -3,7 +3,7 @@ import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Calendar, ArrowRight, Rss, Bell, BookOpen } from 'lucide-react';
+import { Calendar, ArrowRight, Bell, BookOpen } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { blogPosts as staticBlogPosts } from '../data/blogPosts';

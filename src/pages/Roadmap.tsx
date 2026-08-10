@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Rocket, Zap, Shield, Globe } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';

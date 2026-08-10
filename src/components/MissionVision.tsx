@@ -1,4 +1,4 @@
-import { Rocket, Telescope, CheckCircle2, Sparkles, MoveRight } from 'lucide-react';
+import { Rocket, Telescope, CheckCircle2, Sparkles } from 'lucide-react';
 import FadeIn from './FadeIn';
 import { useTranslation } from 'react-i18next';
 

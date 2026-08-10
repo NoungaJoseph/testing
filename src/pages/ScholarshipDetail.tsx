@@ -18,7 +18,7 @@ interface Scholarship {
 
 const ScholarshipDetail = () => {
     const { id } = useParams();
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
     const isFr = i18n.language === 'fr';
 
     const [scholarship, setScholarship] = useState<Scholarship | null>(null);

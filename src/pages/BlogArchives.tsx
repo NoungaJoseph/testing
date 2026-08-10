@@ -4,7 +4,7 @@ import FadeIn from '../components/FadeIn';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Calendar, Archive, Search, ChevronDown, RefreshCw } from 'lucide-react';
+import { Calendar, Search, ChevronDown, RefreshCw } from 'lucide-react';
 import { useMemo, useState, useEffect } from 'react';
 import { blogPosts as staticBlogPosts } from '../data/blogPosts';
 

@@ -5,7 +5,6 @@ import FadeIn from '../components/FadeIn';
 
 // ─── Brand colors (ENAKO Outreach) ───────────────────────────────────────────
 const BRAND = '#1c4980';
-const BRAND_DARK = '#113057';
 
 // ─── Validation helpers ───────────────────────────────────────────────────────
 const isValidMtnNumber = (phone: string) => {
