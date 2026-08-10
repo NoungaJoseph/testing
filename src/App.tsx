@@ -28,6 +28,7 @@ import Search from './pages/Search';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import ChildrensFund from './pages/ChildrensFund';
+import Account from './pages/Account';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { trackPageView, trackClickHeatmap } from './lib/analyticsTracker';
@@ -70,6 +71,7 @@ function App() {
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/donate" element={<Donate />} />
         <Route path="/childrens-fund" element={<ChildrensFund />} />
+        <Route path="/account" element={<Account />} />
         <Route path="/school-registration" element={<SchoolRegistration />} />
         <Route path="/roadmap" element={<Roadmap />} />
         <Route path="/partnership" element={<Partnership />} />
