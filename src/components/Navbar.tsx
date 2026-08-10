@@ -229,17 +229,17 @@ const Navbar = () => {
                         </div>
 
                         {/* Top Right Links */}
-                        <div className="flex items-center justify-end w-48 lg:w-64 gap-4 text-[#1eb4d4]">
-                            <a href="#" className="hover:text-[#1c4980] transition-colors"><Facebook className="w-5 h-5" /></a>
-                            <a href="#" className="hover:text-[#1c4980] transition-colors"><Twitter className="w-5 h-5" /></a>
-                            <a href="#" className="hover:text-[#1c4980] transition-colors"><Instagram className="w-5 h-5" /></a>
-                            <a href="#" className="hover:text-[#1c4980] transition-colors"><Linkedin className="w-5 h-5" /></a>
+                        <div className="flex items-center justify-end gap-3.5 text-[#1eb4d4] flex-shrink-0">
+                            <a href="#" className="hover:text-[#1c4980] transition-colors"><Facebook className="w-4 h-4" /></a>
+                            <a href="#" className="hover:text-[#1c4980] transition-colors"><Twitter className="w-4 h-4" /></a>
+                            <a href="#" className="hover:text-[#1c4980] transition-colors"><Instagram className="w-4 h-4" /></a>
+                            <a href="#" className="hover:text-[#1c4980] transition-colors"><Linkedin className="w-4 h-4" /></a>
                             
-                            {/* Language Dropdown (Small) */}
-                            <div className="relative ml-2">
+                            {/* Language Dropdown */}
+                            <div className="relative">
                                 <button
                                     onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-                                    className="flex items-center gap-1 hover:text-[#1c4980] transition-colors"
+                                    className="flex items-center gap-1 font-bold text-[12px] hover:text-[#1c4980] transition-colors px-1"
                                 >
                                     {lang} <ChevronDown className="w-3.5 h-3.5" />
                                 </button>
@@ -265,10 +265,12 @@ const Navbar = () => {
                                 </AnimatePresence>
                             </div>
 
-                            {/* SIGN IN BUTTON */}
+                            <div className="h-4 w-px bg-slate-200 mx-0.5" />
+
+                            {/* ELEGANT SIGN IN BUTTON */}
                             <Link
                                 to="/signin"
-                                className="flex items-center gap-1.5 px-3 py-1 bg-slate-100 hover:bg-[#1c4980] text-[#1c4980] hover:text-white rounded font-bold text-[11px] uppercase tracking-wider transition-colors ml-2"
+                                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-[#1c4980]/25 hover:border-[#1c4980] bg-white hover:bg-[#1c4980] text-[#1c4980] hover:text-white font-bold text-[12px] uppercase tracking-wider transition-all duration-200 whitespace-nowrap shadow-sm"
                             >
                                 <User className="w-3.5 h-3.5" />
                                 <span>{t('nav.signin', 'Sign In')}</span>
