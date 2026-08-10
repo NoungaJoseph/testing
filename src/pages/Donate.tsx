@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
@@ -162,7 +162,7 @@ const Donate = () => {
                 style={{
                     position: 'relative',
                     width: '100%',
-                    height: 'clamp(380px, 60vh, 600px)',
+                    height: 'clamp(460px, 68vh, 640px)',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'flex-end',
@@ -186,7 +186,7 @@ const Donate = () => {
                 <div
                     style={{
                         position: 'absolute',
-                        top: '1.75rem',
+                        top: '9.5rem',
                         left: '2.5rem',
                         color: 'rgba(255,255,255,0.82)',
                         fontSize: '0.8rem',
@@ -220,7 +220,7 @@ const Donate = () => {
                 </div>
             </section>
 
-            {/* ── SECTION 2: TWO-COLUMN — COPY + DONATION CARD ──────────────── */}
+            {/* ── SECTION 2: TWO-COLUMN - COPY + DONATION CARD ──────────────── */}
             <section style={{ padding: '5rem 0', background: '#fff' }}>
                 <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 2rem' }}>
                     <div className="donate-two-col" style={{ display: 'flex', gap: '3.5rem', alignItems: 'flex-start' }}>
@@ -309,7 +309,7 @@ const Donate = () => {
                                             color: '#333',
                                         }}
                                     >
-                                        Transparency<br />Report 2025<br />— ENAKO
+                                        Transparency<br />Report 2025<br />ENAKO
                                     </div>
                                     <div
                                         style={{
@@ -341,7 +341,7 @@ const Donate = () => {
                             </FadeIn>
                         </div>
 
-                        {/* ── RIGHT COLUMN — DONATION CARD ── */}
+                        {/* ── RIGHT COLUMN - DONATION CARD ── */}
                         <div
                             className="donate-right"
                             style={{ flex: '1', minWidth: 0, position: 'sticky', top: '2rem' }}
@@ -435,7 +435,7 @@ const Donate = () => {
                                             ))}
                                         </div>
 
-                                        {/* Preset amounts — 2×2 grid */}
+                                        {/* Preset amounts - 2×2 grid */}
                                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem', marginBottom: '0.6rem' }}>
                                             {[5000, 10000, 25000, 50000].map((amt) => {
                                                 const active = selectedPreset === amt && !customAmount;
@@ -710,7 +710,7 @@ const Donate = () => {
                         OTHER WAYS TO GIVE
                     </h2>
 
-                    {/* Row 1 — 3 columns */}
+                    {/* Row 1 - 3 columns */}
                     <FadeIn direction="up">
                         <div className="donate-ways-row1" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '3rem', marginBottom: '3.5rem' }}>
                             {[
@@ -758,7 +758,7 @@ const Donate = () => {
                         </div>
                     </FadeIn>
 
-                    {/* Row 2 — 2 columns */}
+                    {/* Row 2 - 2 columns */}
                     <FadeIn direction="up" delay={0.1}>
                         <div className="donate-ways-row2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem' }}>
                             <div>

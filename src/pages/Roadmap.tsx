@@ -43,20 +43,76 @@ const Roadmap = () => {
             <Navbar />
             <div className="relative">
                 <AnimatedNetworkBg particleCount={40} />
-                <main className="pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
-                    <FadeIn direction="up">
-                        <div className="max-w-3xl mb-24">
-                            <span className="text-secondary font-black tracking-[0.4em] uppercase text-[10px] block mb-6">Strategic Vision</span>
-                            <h1 className="text-navy text-4xl md:text-6xl font-black leading-[0.9] tracking-tighter mb-8">
-                                Innovation <br />
-                                <span className="text-secondary ">Roadmap.</span>
-                            </h1>
-                            <p className="text-slate-500 text-xl font-medium leading-relaxed">
-                                A multi-year commitment to rebuilding the educational and social infrastructure of communities across the continent.
-                            </p>
-                        </div>
-                    </FadeIn>
+                <section
+                    style={{
+                        position: 'relative',
+                        width: '100%',
+                        height: 'clamp(460px, 68vh, 640px)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'flex-end',
+                        overflow: 'hidden',
+                        marginTop: 0,
+                        marginBottom: '4rem',
+                    }}
+                >
+                    <div
+                        style={{
+                            position: 'absolute',
+                            inset: 0,
+                            backgroundImage:
+                                "linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url('/assets/images/new_assets/impact_hero.png')",
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center 30%',
+                        }}
+                    />
 
+                    {/* Breadcrumb */}
+                    <div
+                        style={{
+                            position: 'absolute',
+                            top: '9.5rem',
+                            left: '2.5rem',
+                            color: 'rgba(255,255,255,0.82)',
+                            fontSize: '0.8rem',
+                            fontWeight: 600,
+                            letterSpacing: '0.04em',
+                            zIndex: 2,
+                        }}
+                    >
+                        <Link to="/" style={{ color: 'rgba(255,255,255,0.82)', textDecoration: 'none' }}>Home</Link>
+                        <span style={{ margin: '0 0.4rem', fontSize: '0.6rem' }}>♦</span>
+                        Roadmap
+                    </div>
+
+                    {/* Heading */}
+                    <div style={{ position: 'relative', zIndex: 2, padding: '0 2.5rem 4rem', maxWidth: 960 }}>
+                        <FadeIn direction="up">
+                            <span className="text-[#1eb4d4] font-bold tracking-[0.15em] uppercase text-xs block mb-3">
+                                STRATEGIC VISION
+                            </span>
+                            <h1
+                                style={{
+                                    fontWeight: 900,
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '0.02em',
+                                    fontSize: 'clamp(2rem, 5vw, 4.5rem)',
+                                    color: '#fff',
+                                    margin: '0 0 1rem 0',
+                                    lineHeight: 1.08,
+                                }}
+                            >
+                                OUR ROADMAP TO <br />
+                                <span className="text-[#1eb4d4]">LONG-TERM IMPACT.</span>
+                            </h1>
+                            <p className="text-white/90 text-base md:text-lg max-w-2xl leading-relaxed font-medium">
+                                A multi-phase plan focused on school infrastructure, teacher recognition, and youth empowerment.
+                            </p>
+                        </FadeIn>
+                    </div>
+                </section>
+
+                <main className="pb-24 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
                     <div className="space-y-12">
                         {phases.map((phase, i) => (
                             <FadeIn key={phase.title} delay={i * 0.1} direction="up" fullWidth>

@@ -413,3 +413,37 @@ button,
         padding: 2rem;
     }
 }
+
+/* =====================================================
+   ENAKO DESIGN SYSTEM
+===================================================== */
+.ds-container { max-width: 1200px; margin-left: auto; margin-right: auto; padding-left: 2rem; padding-right: 2rem; }
+.ds-section { padding-top: 5rem; padding-bottom: 5rem; }
+.ds-section-sm { padding-top: 3rem; padding-bottom: 3rem; }
+.ds-h2 { font-family: 'Open Sans', sans-serif; font-weight: 900; text-transform: uppercase; letter-spacing: 0.02em; font-size: clamp(1.4rem, 3vw, 2.2rem); line-height: 1.15; color: #111; margin: 0; }
+.ds-h3 { font-family: 'Open Sans', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.95rem; color: #111; margin: 0; }
+.ds-body { font-size: 1rem; line-height: 1.75; color: #333; }
+.ds-body-sm { font-size: 0.9rem; line-height: 1.7; color: #555; }
+.ds-badge { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #1c4980; display: block; }
+.ds-divider { border: none; border-top: 1px solid #e0e0e0; margin: 2rem 0; }
+.ds-accent { color: #1eb4d4; }
+.ds-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 12px rgba(0,0,0,.07); transition: box-shadow .2s, transform .2s; }
+.ds-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.11); transform: translateY(-2px); }
+.ds-card-flush { background: #fff; border: 1px solid #e5e5e5; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.07); transition: box-shadow .2s, transform .2s; }
+.ds-card-flush:hover { box-shadow: 0 6px 24px rgba(0,0,0,.11); transform: translateY(-2px); }
+.ds-callout { background: #1c4980; color: #fff; padding: 1.5rem; border-radius: 4px; font-weight: 600; font-size: 1rem; line-height: 1.7; }
+.ds-link { color: #1c4980; text-decoration: none; font-weight: 600; }
+.ds-link:hover { text-decoration: underline; }
+.ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; font-family: 'Open Sans', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.9rem 2rem; border: none; border-radius: 4px; cursor: pointer; text-decoration: none !important; transition: opacity .18s, transform .18s; white-space: nowrap; }
+.ds-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+.ds-btn-primary { background: #1c4980; color: #fff; }
+.ds-btn-accent { background: #1eb4d4; color: #fff; }
+.ds-btn-outline { background: transparent; color: #1c4980; border: 2px solid #1c4980; }
+.ds-btn-outline:hover { background: #1c4980; color: #fff; opacity: 1; }
+.ds-btn-sm { padding: 0.6rem 1.25rem; font-size: 0.8rem; }
+.ds-page-hero { position: relative; width: 100%; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; }
+.ds-page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.6)); }
+.ds-page-hero-content { position: relative; z-index: 2; padding: 9rem 2rem 3.5rem; max-width: 1200px; margin: 0 auto; width: 100%; }
+.ds-stat-number { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; color: #1c4980; line-height: 1; letter-spacing: -0.02em; }
+.ds-stat-label { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #555; margin-top: 0.35rem; }
+@media (max-width: 768px) { .ds-container { padding-left: 1.25rem; padding-right: 1.25rem; } .ds-section { padding-top: 3rem; padding-bottom: 3rem; } .ds-btn { padding: 0.8rem 1.5rem; } .ds-page-hero-content { padding-top: 7rem; padding-bottom: 2.5rem; } }

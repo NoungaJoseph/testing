@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import FadeIn from './FadeIn';
 
 const steps = [
@@ -12,7 +12,7 @@ const steps = [
     {
         number: '02',
         title: 'Micro‑Grant Engine',
-        desc: 'A direct-giving platform connects donors with teachers for targeted classroom supplies and project funding — every franc is tracked.',
+        desc: 'A direct-giving platform connects donors with teachers for targeted classroom supplies and project funding - every franc is tracked.',
         illustration: '/assets/images/new_assets/transparency_image.png',
         illFallback: '/assets/images/new_assets/transparency_image.png',
     },
@@ -54,7 +54,7 @@ const IdeasSection = () => {
                             Strategic <span className="text-secondary ">Ideas</span> for Change.
                         </h2>
                         <p className="text-slate-500 text-base max-w-xl mx-auto leading-relaxed">
-                            Our work process — discover the strategic pillars shaping a better Cameroon, step by step.
+                            Our work process - discover the strategic pillars shaping a better Cameroon, step by step.
                         </p>
                     </div>
                 </FadeIn>

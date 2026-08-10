@@ -1,29 +1,70 @@
 import FadeIn from './FadeIn';
+import { Link } from 'react-router-dom';
 
 const VolunteerHero = () => {
     return (
-        <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden pt-20">
-            <div className="absolute inset-0 z-0">
-                <img
-                    alt="Volunteers working with children in a sunny outdoor setting"
-                    className="h-full w-full object-cover"
-                    src="/assets/images/new_assets/volunteer_hero.png"
-                />
-                <div className="absolute inset-0 bg-navy " />
-                <div className="absolute inset-0 bg-navy    " />
+        <section
+            style={{
+                position: 'relative',
+                width: '100%',
+                height: 'clamp(460px, 68vh, 640px)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'flex-end',
+                overflow: 'hidden',
+                marginTop: 0,
+            }}
+        >
+            <div
+                style={{
+                    position: 'absolute',
+                    inset: 0,
+                    backgroundImage:
+                        "linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url('/assets/images/new_assets/volunteer_hero.png')",
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center 30%',
+                }}
+            />
+
+            {/* Breadcrumb */}
+            <div
+                style={{
+                    position: 'absolute',
+                    top: '9.5rem',
+                    left: '2.5rem',
+                    color: 'rgba(255,255,255,0.82)',
+                    fontSize: '0.8rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.04em',
+                    zIndex: 2,
+                }}
+            >
+                <Link to="/" style={{ color: 'rgba(255,255,255,0.82)', textDecoration: 'none' }}>Home</Link>
+                <span style={{ margin: '0 0.4rem', fontSize: '0.6rem' }}>♦</span>
+                Volunteer
             </div>
 
-            <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 text-center text-white space-y-8">
+            {/* Heading */}
+            <div style={{ position: 'relative', zIndex: 2, padding: '0 2.5rem 4rem', maxWidth: 960 }}>
                 <FadeIn direction="up">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-secondary text-secondary text-xs font-bold uppercase tracking-widest backdrop-blur-sm">
-                        <span className="material-symbols-outlined text-sm">volunteer_activism</span>
-                        Join Our Mission
-                    </div>
-                    <h1 className="text-4xl md:text-6xl leading-tight">
-                        Make a <span style={{ color: '#00BFA5' }}>Difference</span> Today.
+                    <span className="text-[#1eb4d4] font-bold tracking-[0.15em] uppercase text-xs block mb-3">
+                        JOIN OUR MISSION
+                    </span>
+                    <h1
+                        style={{
+                            fontWeight: 900,
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.02em',
+                            fontSize: 'clamp(2rem, 5vw, 4.5rem)',
+                            color: '#fff',
+                            margin: '0 0 1rem 0',
+                            lineHeight: 1.08,
+                        }}
+                    >
+                        MAKE A <span className="text-[#1eb4d4]">DIFFERENCE</span> TODAY.
                     </h1>
-                    <p className="text-slate-200 text-lg md:text-2xl font-medium leading-relaxed max-w-2xl mx-auto ">
-                        Enako Outreach relies on the passion and skills of volunteers like you to empower communities across Africa.
+                    <p className="text-white/90 text-base md:text-lg max-w-2xl leading-relaxed font-medium">
+                        Enako Outreach relies on the passion and skills of volunteers like you to empower children and communities across Cameroon.
                     </p>
                 </FadeIn>
             </div>

@@ -118,22 +118,72 @@ const BlogArchives = () => {
         <div className="min-h-screen bg-white">
             <Navbar />
 
-            {/* Header section with overlay */}
-            <section className="pt-40 pb-16 relative overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                    <img 
-                        src="/assets/charity/documents.png" 
-                        alt="Enako Archives Header Background" 
-                        className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-[#001B44]/85 backdrop-blur-[2px]" />
+            {/* HERO BANNER — Donate page style */}
+            <section
+                style={{
+                    position: 'relative',
+                    width: '100%',
+                    height: 'clamp(460px, 68vh, 640px)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-end',
+                    overflow: 'hidden',
+                    marginTop: 0,
+                }}
+            >
+                <div
+                    style={{
+                        position: 'absolute',
+                        inset: 0,
+                        backgroundImage:
+                            "linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url('/assets/charity/documents.png')",
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center 30%',
+                    }}
+                />
+
+                {/* Breadcrumb */}
+                <div
+                    style={{
+                        position: 'absolute',
+                        top: '9.5rem',
+                        left: '2.5rem',
+                        color: 'rgba(255,255,255,0.82)',
+                        fontSize: '0.8rem',
+                        fontWeight: 600,
+                        letterSpacing: '0.04em',
+                        zIndex: 2,
+                    }}
+                >
+                    <Link to="/" style={{ color: 'rgba(255,255,255,0.82)', textDecoration: 'none' }}>Home</Link>
+                    <span style={{ margin: '0 0.4rem', fontSize: '0.6rem' }}>♦</span>
+                    <Link to="/blog" style={{ color: 'rgba(255,255,255,0.82)', textDecoration: 'none' }}>Blog</Link>
+                    <span style={{ margin: '0 0.4rem', fontSize: '0.6rem' }}>♦</span>
+                    Archives
                 </div>
-                <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+
+                {/* Heading */}
+                <div style={{ position: 'relative', zIndex: 2, padding: '0 2.5rem 4rem', maxWidth: 960 }}>
                     <FadeIn direction="up">
-                        <div className="flex items-center gap-2 mb-4">
-                            <Archive className="w-4 h-4 text-secondary" />
-                            <span className="text-secondary text-xs font-bold uppercase tracking-widest">Article Archive</span>
-                        </div>
+                        <span className="text-[#1eb4d4] font-bold tracking-[0.15em] uppercase text-xs block mb-3">
+                            ARTICLE ARCHIVE
+                        </span>
+                        <h1
+                            style={{
+                                fontWeight: 900,
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.02em',
+                                fontSize: 'clamp(2rem, 5vw, 4.5rem)',
+                                color: '#fff',
+                                margin: 0,
+                                lineHeight: 1.08,
+                            }}
+                        >
+                            ENAKO <span className="text-[#1eb4d4]">DOCUMENT ARCHIVES</span>
+                        </h1>
+                    </FadeIn>
+                </div>
+            </section>
                         <h1 className="text-white font-black text-5xl md:text-6xl mb-4">Archives</h1>
                         <p className="text-slate-300 text-xl max-w-2xl">Browse every Enako article and published outreach update by month and category.</p>
                     </FadeIn>

@@ -305,8 +305,8 @@ const Navbar = () => {
                             </div>
                         </div>
 
-                        {/* Desktop Nav */}
-                        <nav className="hidden lg:flex items-center justify-center w-full">
+                        {/* Desktop Nav links */}
+                        <nav className="hidden lg:flex items-center flex-1">
                             {navLinks.map((link, index) => (
                                 <div
                                     key={link.nameKey}
@@ -403,6 +403,17 @@ const Navbar = () => {
                                 </div>
                             ))}
                         </nav>
+
+                        {/* DONATE CTA: desktop only */}
+                        <div className="hidden lg:flex items-center pl-4 flex-shrink-0">
+                            <Link
+                                to="/donate"
+                                className="flex items-center gap-1.5 px-5 py-2.5 text-white font-bold text-[12px] uppercase tracking-wider rounded-[3px] transition-opacity hover:opacity-90 whitespace-nowrap"
+                                style={{ backgroundColor: '#1c4980', fontFamily: '"Open Sans", sans-serif' }}
+                            >
+                                <span>♥</span> DONATE
+                            </Link>
+                        </div>
                     </div>
                 </header>
             </motion.div>

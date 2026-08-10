@@ -37,69 +37,73 @@ const PremiumHeroCarousel = () => {
             setCurrentImage((prev) => (prev + 1) % slides.length);
         }, 8000);
         return () => window.clearInterval(timer);
-    }, []);
+    }, [slides.length]);
 
     return (
-        <section className="w-full h-screen bg-slate-950 relative">
-            <div className="w-full h-screen relative overflow-hidden">
-                    {/* Image Carousel */}
-                    <div className="absolute inset-0 w-full h-full">
-                        {slides.map((slide, index) => (
-                            <img
-                                key={index}
-                                src={slide.image}
-                                alt={`Carousel image ${index + 1}`}
-                                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-                                    index === currentImage ? 'opacity-100' : 'opacity-0'
-                                }`}
-                            />
-                        ))}
+        <section className="w-full relative bg-[#111] overflow-hidden min-h-[580px] lg:min-h-[640px] flex flex-col justify-end pt-36 pb-16 md:pt-44 md:pb-24">
+            {/* Image Carousel Background */}
+            <div className="absolute inset-0 w-full h-full z-0">
+                {slides.map((slide, index) => (
+                    <div
+                        key={index}
+                        className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
+                            index === currentImage ? 'opacity-100' : 'opacity-0'
+                        }`}
+                    >
+                        <img
+                            src={slide.image}
+                            alt={`Carousel image ${index + 1}`}
+                            className="w-full h-full object-cover"
+                        />
+                        {/* Overlay for text readability */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/40" />
                     </div>
+                ))}
+            </div>
 
-                    {/* Individual Slide Content Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center z-10">
-                        {slides.map((slide, index) => (
-                            <div
-                                key={index}
-                                className={`absolute inset-0 flex items-center justify-center px-5 md:px-8 lg:p-16 xl:p-24 transition-opacity duration-1000 ${
-                                    index === currentImage ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                                }`}
+            {/* Slide Content */}
+            <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 w-full text-center">
+                {slides.map((slide, index) => (
+                    <div
+                        key={index}
+                        className={`transition-all duration-700 ${
+                            index === currentImage
+                                ? 'opacity-100 translate-y-0 relative'
+                                : 'opacity-0 translate-y-4 absolute inset-0 pointer-events-none'
+                        }`}
+                    >
+                        <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight leading-[1.08] mb-4 md:mb-6 drop-shadow-md">
+                            {slide.title}
+                        </h1>
+                        <p className="text-white/90 text-base md:text-xl leading-relaxed max-w-3xl mx-auto mb-8 font-medium drop-shadow-sm">
+                            {slide.subtitle}
+                        </p>
+                        <div>
+                            <Link
+                                to={slide.buttonLink}
+                                className="ds-btn ds-btn-accent text-sm md:text-base px-8 py-4 rounded"
                             >
-                                <div className="text-center max-w-3xl">
-                                    <div className="rounded-2xl p-8 md:p-12">
-                                        <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] font-black leading-[1.08] tracking-tight mb-4 md:mb-6">
-                                            {slide.title}
-                                        </h1>
-                                        <p className="text-white text-sm sm:text-base md:text-lg leading-relaxed mb-8 md:mb-12">
-                                            {slide.subtitle}
-                                        </p>
-                                        <Link
-                                            to={slide.buttonLink}
-                                            className="btn-pill btn-pill-teal text-sm sm:text-base px-6 sm:px-10 py-3.5 sm:py-4 shadow-none inline-flex items-center gap-2"
-                                        >
-                                            {slide.buttonText} <ArrowRight className="w-5 h-5" />
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
+                                {slide.buttonText} <ArrowRight className="w-4 h-4 ml-1" />
+                            </Link>
+                        </div>
                     </div>
+                ))}
 
-                    {/* Carousel Indicators */}
-                    <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
-                        {slides.map((_, index) => (
-                            <button
-                                key={index}
-                                onClick={() => setCurrentImage(index)}
-                                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                                    index === currentImage
-                                        ? 'bg-white w-8'
-                                        : 'bg-white/50 hover:bg-white/70'
-                                }`}
-                                aria-label={`Go to slide ${index + 1}`}
-                            />
-                        ))}
-                    </div>
+                {/* Indicators */}
+                <div className="flex justify-center gap-2 mt-12 z-20 relative">
+                    {slides.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setCurrentImage(index)}
+                            className={`h-2.5 rounded-full transition-all duration-300 ${
+                                index === currentImage
+                                    ? 'bg-[#1eb4d4] w-8'
+                                    : 'bg-white/40 hover:bg-white/70 w-2.5'
+                            }`}
+                            aria-label={`Go to slide ${index + 1}`}
+                        />
+                    ))}
+                </div>
             </div>
         </section>
     );

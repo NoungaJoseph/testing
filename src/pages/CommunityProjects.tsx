@@ -1,4 +1,4 @@
-import Navbar from '../components/Navbar';
+﻿import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -96,7 +96,7 @@ const CommunityProjects = () => {
                 <div className="max-w-6xl mx-auto relative z-10">
                     <div className="inline-flex items-center gap-2 text-[#1eb4d4] text-xs font-bold uppercase tracking-widest mb-3 bg-[#1eb4d4]/10 px-3 py-1 rounded-full border border-[#1eb4d4]/30">
                         <MapPin className="w-4 h-4" />
-                        <span>{communityData.region} — Verified Field Projects</span>
+                        <span>{communityData.region} - Verified Field Projects</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">
                         {communityData.name} Projects & Initiatives

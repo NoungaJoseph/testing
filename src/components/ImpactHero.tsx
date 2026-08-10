@@ -1,56 +1,73 @@
 import FadeIn from './FadeIn';
+import { Link } from 'react-router-dom';
 
 const ImpactHero = () => {
     return (
-        <section className="relative h-[85vh] min-h-[600px] w-full overflow-hidden pt-20">
-            {/* Background Image with Gradient Overlays */}
-            <div className="absolute inset-0 z-0">
-                <img
-                    alt="Modern sustainable school building in a vibrant rural African community"
-                    className="h-full w-full object-cover"
-                    src="/assets/images/new_assets/impact_hero.png"
-                />
-                <div className="absolute inset-0 bg-navy/60 dark:bg-black/80"></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-navy to-transparent"></div>
+        <section
+            style={{
+                position: 'relative',
+                width: '100%',
+                height: 'clamp(460px, 68vh, 640px)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'flex-end',
+                overflow: 'hidden',
+                marginTop: 0,
+            }}
+        >
+            <div
+                style={{
+                    position: 'absolute',
+                    inset: 0,
+                    backgroundImage:
+                        "linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url('/assets/images/new_assets/impact_hero.png')",
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center 30%',
+                }}
+            />
+
+            {/* Breadcrumb */}
+            <div
+                style={{
+                    position: 'absolute',
+                    top: '9.5rem',
+                    left: '2.5rem',
+                    color: 'rgba(255,255,255,0.82)',
+                    fontSize: '0.8rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.04em',
+                    zIndex: 2,
+                }}
+            >
+                <Link to="/" style={{ color: 'rgba(255,255,255,0.82)', textDecoration: 'none' }}>Home</Link>
+                <span style={{ margin: '0 0.4rem', fontSize: '0.6rem' }}>♦</span>
+                Impact & Projects
             </div>
 
-            {/* Content Container */}
-            <div className="relative z-10 h-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col justify-center items-start">
+            {/* Heading */}
+            <div style={{ position: 'relative', zIndex: 2, padding: '0 2.5rem 4rem', maxWidth: 960 }}>
                 <FadeIn direction="up">
-                    <div className="max-w-2xl space-y-6">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-secondary text-secondary text-xs font-bold uppercase tracking-widest">
-                            <span className="size-2 rounded-full bg-secondary animate-pulse"></span>
-                            Impact Report 2024
-                        </div>
-                        <h1 className="text-white text-4xl md:text-6xl leading-[1.1] mb-2">
-                            Measuring Change. <br />
-                            <span style={{ color: '#00BFA5' }}>Sharing Progress.</span>
-                        </h1>
-                        <p className="text-navy dark:text-slate-300 text-lg md:text-xl font-medium leading-relaxed max-w-lg">
-                            A premium humanitarian foundation dedicated to elevating education and sustainable community development across the African continent.
-                        </p>
-                    </div>
+                    <span className="text-[#1eb4d4] font-bold tracking-[0.15em] uppercase text-xs block mb-3">
+                        IMPACT REPORT 2025
+                    </span>
+                    <h1
+                        style={{
+                            fontWeight: 900,
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.02em',
+                            fontSize: 'clamp(2rem, 5vw, 4.5rem)',
+                            color: '#fff',
+                            margin: '0 0 1rem 0',
+                            lineHeight: 1.08,
+                        }}
+                    >
+                        MEASURING CHANGE.<br />
+                        <span className="text-[#1eb4d4]">SHARING PROGRESS.</span>
+                    </h1>
+                    <p className="text-white/90 text-base md:text-lg max-w-2xl leading-relaxed font-medium">
+                        A humanitarian foundation dedicated to elevating education, health, and sustainable community development across Cameroon.
+                    </p>
                 </FadeIn>
-
-                {/* Impact Stats Strip (Floating) */}
-                <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-auto">
-                    <FadeIn direction="up" delay={0.2}>
-                        <div className="grid grid-cols-2 md:flex gap-8 md:gap-16 p-8 backdrop-blur-xl rounded-2xl" style={{ backgroundColor: '#FDFBF7', border: '2px solid rgba(0,191,165,0.3)' }}>
-                            <div>
-                                <p className="text-3xl font-black" style={{ color: '#00BFA5' }}>8</p>
-                                <p className="text-slate-500 text-sm font-bold uppercase tracking-wider">Schools Planned</p>
-                            </div>
-                            <div className="border-l border-slate-200 pl-8 md:pl-16">
-                                <p className="text-3xl font-black" style={{ color: '#00BFA5' }}>120+</p>
-                                <p className="text-slate-500 text-sm font-bold uppercase tracking-wider">Students Goal</p>
-                            </div>
-                            <div className="hidden md:block border-l border-slate-200 pl-16">
-                                <p className="text-3xl font-black" style={{ color: '#00BFA5' }}>1</p>
-                                <p className="text-slate-500 text-sm font-bold uppercase tracking-wider">Nation Served</p>
-                            </div>
-                        </div>
-                    </FadeIn>
-                </div>
             </div>
         </section>
     );

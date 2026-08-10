@@ -63,27 +63,27 @@ const ProgramsGrid = () => {
     };
 
     return (
-        <section className="py-24 px-6 md:px-12 bg-white overflow-hidden">
-            <div className="max-w-7xl mx-auto">
+        <section className="ds-section bg-white">
+            <div className="ds-container">
                 {/* Header */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
                     <FadeIn direction="right" className="max-w-2xl">
-                        <span className="text-[#1eb4d4] font-bold text-sm uppercase tracking-widest block mb-4">
+                        <span className="ds-badge mb-3">
                             {t('components.programs_grid.badge')}
                         </span>
-                        <h2 className="text-[#1c4980] font-black text-4xl md:text-5xl leading-tight">
+                        <h2 className="ds-h2">
                             {t('components.programs_grid.title')}{' '}
-                            <span className="block">{t('components.programs_grid.title_highlight')}</span>
+                            <span className="block text-[#1eb4d4]">{t('components.programs_grid.title_highlight')}</span>
                         </h2>
                     </FadeIn>
                     <FadeIn direction="left">
-                        <Link to="/programs" className="group inline-flex items-center gap-3 bg-[#1c4980] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#153760] transition-all hover:shadow-xl hover:-translate-y-1">
-                            {t('components.programs_grid.btn_view_all')} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        <Link to="/programs" className="ds-btn ds-btn-primary">
+                            {t('components.programs_grid.btn_view_all')} <ArrowRight className="w-4 h-4 ml-1" />
                         </Link>
                     </FadeIn>
                 </div>
 
-                {/* Immersive Cards Grid / Carousel */}
+                {/* Cards Grid */}
                 <div 
                     onScroll={handleScroll}
                     className="flex md:grid overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none scrollbar-none md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 pb-4 md:pb-0"
@@ -98,33 +98,31 @@ const ProgramsGrid = () => {
                         >
                             <Link
                                 to={program.href}
-                                className="group relative block w-full h-[460px] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500"
+                                className="group relative block w-full h-[420px] rounded-lg overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300"
                             >
                                 {/* Background Image */}
                                 <div 
-                                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                                     style={{ backgroundImage: `url(${program.image})` }}
                                 />
                                 
-                                {/* Gradient Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#001B44] via-[#001B44]/40 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500" />
+                                {/* Overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-[#111]/50 to-transparent opacity-85 group-hover:opacity-95 transition-opacity duration-300" />
 
                                 {/* Content */}
-                                <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-10 z-10">
-                                    <span className="text-[#1eb4d4] font-black text-sm tracking-widest mb-3 uppercase drop-shadow-md">
+                                <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 z-10">
+                                    <span className="text-[#1eb4d4] font-extrabold text-xs tracking-widest mb-2 uppercase">
                                         0{i + 1}
                                     </span>
-                                    <h3 className="text-white font-bold text-2xl md:text-3xl mb-4 leading-tight group-hover:-translate-y-2 transition-transform duration-500 drop-shadow-md">
+                                    <h3 className="text-white font-extrabold text-xl md:text-2xl mb-2 uppercase tracking-wide leading-tight">
                                         {programsT[i]?.name || program.name}
                                     </h3>
                                     
-                                    <div className="overflow-hidden">
-                                        <p className="text-slate-200 text-sm leading-relaxed opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 group-hover:-translate-y-2 transition-all duration-500 delay-75">
-                                            {programsT[i]?.desc || program.desc}
-                                        </p>
-                                    </div>
+                                    <p className="text-slate-200 text-sm leading-relaxed mb-4 line-clamp-3">
+                                        {programsT[i]?.desc || program.desc}
+                                    </p>
                                     
-                                    <div className="mt-4 flex items-center gap-2 text-white font-bold text-sm tracking-wide group-hover:text-[#1eb4d4] transition-colors">
+                                    <div className="flex items-center gap-2 text-white font-bold text-xs uppercase tracking-wider text-[#1eb4d4]">
                                         {t('components.programs_grid.btn_explore')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                     </div>
                                 </div>

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { BookOpen, ChevronRight, Home, ArrowRight, Quote } from 'lucide-react';
 import Navbar from '../components/Navbar';
@@ -17,7 +17,7 @@ const stories = [
         author: 'Abena Osei, Scholarship Recipient',
         country: 'Ghana',
         image: '/assets/images/new_assets/story_student.png',
-        excerpt: 'When I was selected as the top student in my district, I never imagined it would open doors I had only dreamed of. The Enako Outreach scholarship didn\'t just pay my fees — it changed my entire family\'s trajectory.',
+        excerpt: 'When I was selected as the top student in my district, I never imagined it would open doors I had only dreamed of. The Enako Outreach scholarship didn\'t just pay my fees - it changed my entire family\'s trajectory.',
         featured: true,
     },
     {

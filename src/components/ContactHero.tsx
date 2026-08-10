@@ -4,18 +4,19 @@ const ContactHero = () => {
     const { t } = useTranslation();
 
     return (
-        <section className="relative py-12 px-4 md:px-8 bg-transparent dark:bg-slate-950 overflow-hidden">
-            <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-6">
-                    <h1 className="text-navy dark:text-white text-4xl md:text-5xl font-black leading-tight">
-                        {t('contact.hero.title', 'Get in')} <span className="text-secondary">{t('contact.hero.title_highlight', 'Touch.')}</span>
+        <section className="relative pt-36 pb-12 px-6 bg-white overflow-hidden">
+            <div className="ds-container max-w-6xl mx-auto">
+                <div className="text-center mb-10">
+                    <span className="ds-badge mb-3">Reach Out To Us</span>
+                    <h1 className="ds-h1 text-4xl md:text-5xl mb-4 text-[#1c4980]">
+                        {t('contact.hero.title', 'Get in')} <span className="text-[#1eb4d4]">{t('contact.hero.title_highlight', 'Touch')}</span>
                     </h1>
-                    <p className="text-slate-600 dark:text-slate-300 text-base md:text-lg mt-2">
+                    <p className="ds-body max-w-xl mx-auto">
                         {t('contact.hero.desc', "We're located in Akwa, Douala. Visit or contact us.")}
                     </p>
                 </div>
 
-                <div className="rounded-2xl overflow-hidden shadow-none border-0">
+                <div className="rounded-lg overflow-hidden border border-slate-200 shadow-sm">
                     <iframe
                         title="Akwa Douala Map"
                         src="https://www.google.com/maps?q=Akwa+Douala+Cameroon&output=embed"

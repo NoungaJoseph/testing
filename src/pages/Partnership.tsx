@@ -15,20 +15,74 @@ const Partnership = () => {
             <div className="relative">
                 <AnimatedNetworkBg particleCount={40} />
                 <main className="pt-32 pb-24 relative z-10">
-                    {/* Hero Header */}
-                    <section className="px-6 md:px-12 max-w-7xl mx-auto mb-32">
-                        <FadeIn direction="up">
-                            <div className="max-w-4xl">
-                                <span className="text-secondary font-black tracking-[0.4em] uppercase text-[10px] block mb-6 px-1">{t('partnership.hero.badge')}</span>
-                                <h1 className="text-navy text-4xl md:text-6xl font-black leading-[0.85] tracking-tighter mb-8">
+                    {/* HERO BANNER — Donate page style */}
+                    <section
+                        style={{
+                            position: 'relative',
+                            width: '100%',
+                            height: 'clamp(460px, 68vh, 640px)',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'flex-end',
+                            overflow: 'hidden',
+                            marginTop: 0,
+                            marginBottom: '4rem',
+                        }}
+                    >
+                        <div
+                            style={{
+                                position: 'absolute',
+                                inset: 0,
+                                backgroundImage:
+                                    "linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url('/assets/charity/our-mission.png')",
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center 30%',
+                            }}
+                        />
+
+                        {/* Breadcrumb */}
+                        <div
+                            style={{
+                                position: 'absolute',
+                                top: '9.5rem',
+                                left: '2.5rem',
+                                color: 'rgba(255,255,255,0.82)',
+                                fontSize: '0.8rem',
+                                fontWeight: 600,
+                                letterSpacing: '0.04em',
+                                zIndex: 2,
+                            }}
+                        >
+                            <Link to="/" style={{ color: 'rgba(255,255,255,0.82)', textDecoration: 'none' }}>Home</Link>
+                            <span style={{ margin: '0 0.4rem', fontSize: '0.6rem' }}>♦</span>
+                            Partnership
+                        </div>
+
+                        {/* Heading */}
+                        <div style={{ position: 'relative', zIndex: 2, padding: '0 2.5rem 4rem', maxWidth: 960 }}>
+                            <FadeIn direction="up">
+                                <span className="text-[#1eb4d4] font-bold tracking-[0.15em] uppercase text-xs block mb-3">
+                                    {t('partnership.hero.badge')}
+                                </span>
+                                <h1
+                                    style={{
+                                        fontWeight: 900,
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '0.02em',
+                                        fontSize: 'clamp(2rem, 5vw, 4.5rem)',
+                                        color: '#fff',
+                                        margin: '0 0 1rem 0',
+                                        lineHeight: 1.08,
+                                    }}
+                                >
                                     {t('partnership.hero.title')} <br />
-                                    <span className="text-secondary ">{t('partnership.hero.title_highlight')}</span>
+                                    <span className="text-[#1eb4d4]">{t('partnership.hero.title_highlight')}</span>
                                 </h1>
-                                <p className="text-slate-500 text-xl font-medium leading-relaxed max-w-2xl">
+                                <p className="text-white/90 text-base md:text-lg max-w-2xl leading-relaxed font-medium">
                                     {t('partnership.hero.desc')}
                                 </p>
-                            </div>
-                        </FadeIn>
+                            </FadeIn>
+                        </div>
                     </section>
 
                     {/* Partnership Types */}

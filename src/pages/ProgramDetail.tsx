@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+﻿import { useParams, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
@@ -82,7 +82,7 @@ const programData: Record<string, {
         textColor: 'text-indigo-700',
         image: '/assets/updates/3.png',
         description: 'Comprehensive secondary school scholarship covering fees, boarding where needed, textbooks, and exam preparation support for BEPC and GCE candidates.',
-        longDesc: 'Secondary school is where many Cameroonian students drop out due to financial pressure — especially when boarding school fees are involved. Our secondary programme provides holistic support including boarding allowances, examination preparation classes, and career guidance to help students make informed choices about higher education.',
+        longDesc: 'Secondary school is where many Cameroonian students drop out due to financial pressure - especially when boarding school fees are involved. Our secondary programme provides holistic support including boarding allowances, examination preparation classes, and career guidance to help students make informed choices about higher education.',
         goals: ['Fund 5 secondary students this academic year', 'Improve exam readiness through mentorship support', 'Provide practical career guidance for each student'],
         beneficiaries: ['Students aged 13–18', 'Students in boarding or distant schools', 'First-generation secondary students'],
         gallery: ['/assets/updates/3.png'],
@@ -150,7 +150,7 @@ const programData: Record<string, {
         textColor: 'text-red-700',
         image: '/assets/images/new_assets/story_student.png',
         description: 'Mobile health clinics, medication supply campaigns, maternal health programmes, and preventive care outreach for underserved communities.',
-        longDesc: 'Quality healthcare remains out of reach for millions of Cameroonians due to distance, cost, and lack of health workers. Our community health programme deploys mobile clinics to underserved areas, staffed by volunteer nurses, doctors, and community health workers. We run malaria prevention, maternal and child health, nutrition, and screening programmes — ensuring every family can access basic healthcare regardless of location or income.',
+        longDesc: 'Quality healthcare remains out of reach for millions of Cameroonians due to distance, cost, and lack of health workers. Our community health programme deploys mobile clinics to underserved areas, staffed by volunteer nurses, doctors, and community health workers. We run malaria prevention, maternal and child health, nutrition, and screening programmes - ensuring every family can access basic healthcare regardless of location or income.',
         goals: ['Run 4 mobile outreach clinic days monthly', 'Serve identified families with essential care', 'Train 8 community health volunteers', 'Achieve 80% malaria net coverage in target areas'],
         beneficiaries: ['Pregnant women and new mothers', 'Children under 5', 'Elderly community members', 'Residents more than 5km from the nearest health facility'],
         gallery: ['/assets/images/new_assets/story_student.png', '/assets/images/new_assets/story_student.png'],
@@ -166,7 +166,7 @@ const programData: Record<string, {
         textColor: 'text-purple-700',
         image: '/assets/images/new_assets/story_student.png',
         description: 'Micro-grants, skills training, trauma counselling, childcare support, and livelihood assistance for single mothers and widows across Cameroon.',
-        longDesc: 'Single mothers in Cameroon bear immense burdens — raising children alone, often with no income source, no formal education, and no support network. Our programme wraps around each beneficiary: financial micro-grants to start small businesses, practical skills training in tailoring, catering, cosmetology, and agriculture; trauma and psychosocial counselling; and access to childcare to free mothers for training and work. We track outcomes for 12 months post-programme to ensure lasting impact.',
+        longDesc: 'Single mothers in Cameroon bear immense burdens - raising children alone, often with no income source, no formal education, and no support network. Our programme wraps around each beneficiary: financial micro-grants to start small businesses, practical skills training in tailoring, catering, cosmetology, and agriculture; trauma and psychosocial counselling; and access to childcare to free mothers for training and work. We track outcomes for 12 months post-programme to ensure lasting impact.',
         goals: ['Enroll 10 single mothers and widows in the pilot cycle', 'Provide practical livelihood coaching', 'Support small business starter grants', 'Establish childcare partnerships in 5 regions'],
         beneficiaries: ['Single mothers with children under 18', 'War widows and conflict-affected women', 'Women who have experienced domestic violence', 'Women with no formal income source'],
         gallery: ['/assets/images/new_assets/story_student.png', '/assets/images/new_assets/story_student.png'],

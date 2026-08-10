@@ -1,4 +1,4 @@
-import Navbar from '../components/Navbar';
+﻿import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
 import { useParams, Link } from 'react-router-dom';
@@ -61,7 +61,7 @@ const CommunityDetail = () => {
                                             <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-3 mb-4">
                                                 <h3 className="text-2xl font-black text-slate-900 group-hover:text-[#00BFA5] transition-colors">{plan.title}</h3>
                                                 <span className={`text-xs font-black uppercase tracking-[0.15em] ${getStatusColor(plan.status)}`}>
-                                                    — {plan.status}
+                                                    - {plan.status}
                                                 </span>
                                             </div>
                                             <p className="text-slate-600 leading-relaxed md:w-5/6 text-lg">{plan.description}</p>

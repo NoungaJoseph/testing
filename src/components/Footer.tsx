@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -42,7 +42,7 @@ const Footer = () => {
                         ))}
                     </div>
                     <p className="text-slate-500 text-[13px]">
-                        Enako Outreach — {t('footer.community_impact_foundation')}
+                        Enako Outreach - {t('footer.community_impact_foundation')}
                     </p>
                 </div>
             </div>

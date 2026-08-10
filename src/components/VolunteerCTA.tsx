@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import FadeIn from './FadeIn';
@@ -16,7 +16,7 @@ const VolunteerCTA = () => {
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-                    {/* LEFT — Circular image with decorative shapes */}
+                    {/* LEFT - Circular image with decorative shapes */}
                     <FadeIn direction="right">
                         <div className="relative flex items-center justify-center">
                             {/* Yellow/teal decorative blob */}
@@ -47,7 +47,7 @@ const VolunteerCTA = () => {
                         </div>
                     </FadeIn>
 
-                    {/* RIGHT — Form / CTA area */}
+                    {/* RIGHT - Form / CTA area */}
                     <FadeIn direction="left" delay={0.2}>
                             {/* Ghost heading behind */}
                             <div className="relative">
