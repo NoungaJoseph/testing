@@ -25,6 +25,8 @@ import RequirementDetail from './pages/RequirementDetail';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import Search from './pages/Search';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { trackPageView, trackClickHeatmap } from './lib/analyticsTracker';
@@ -91,6 +93,11 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/search" element={<Search />} />
+        {/* Auth routes */}
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/login" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/register" element={<SignUp />} />
       </Routes>
     </Router>
   );

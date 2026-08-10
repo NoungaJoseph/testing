@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
@@ -385,7 +385,7 @@ const Donate = () => {
                                     >
                                         {/* Sign In link */}
                                         <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '1.25rem' }}>
-                                            <a href="#" style={{ color: BRAND, textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                                            <a href="#/signin" style={{ color: BRAND, textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                                                 <span>👤</span> Sign In
                                             </a>
                                         </div>
@@ -591,8 +591,8 @@ const Donate = () => {
                     {/* Image */}
                     <div className="donate-story-img" style={{ flex: '0 0 50%', minWidth: 0, minHeight: 480, overflow: 'hidden' }}>
                         <img
-                            src="https://images.unsplash.com/photo-1578496781379-7dc9b3de4cc6?w=800&q=80"
-                            alt="African child drawing and studying"
+                            src="/assets/charity/amara-story.jpg"
+                            alt="Amara studying in a classroom setting"
                             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                         />
                     </div>
