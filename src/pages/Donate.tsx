@@ -2,8 +2,6 @@ import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
-import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 
 // ─── Brand colors (ENAKO Outreach) ───────────────────────────────────────────
 const BRAND = '#1c4980';
@@ -36,8 +34,6 @@ const isValidOrangeNumber = (phone: string) => {
 
 // ─── Donate Page ──────────────────────────────────────────────────────────────
 const Donate = () => {
-    const { t } = useTranslation();
-
     // Form state (kept from original for functional backend)
     const [frequency, setFrequency] = useState<'one-time' | 'monthly'>('one-time');
     const [selectedPreset, setSelectedPreset] = useState<number>(10000);
@@ -76,12 +72,12 @@ const Donate = () => {
         try {
             setErrorMessage('');
             if (method === 'mtn' && !isValidMtnNumber(phone)) {
-                setErrorMessage('Please enter a valid MTN Cameroon number (e.g. 67X..., 68X..., 650-654...).');
+                setErrorMessage('Please enter a valid MTN Cameroon number (e.g. 67X..., 68X..., 650–654...).');
                 setMtnStatus('error');
                 return;
             }
             if (method === 'orange' && !isValidOrangeNumber(phone)) {
-                setErrorMessage('Please enter a valid Orange Cameroon number (e.g. 69X..., 64X..., 655-659...).');
+                setErrorMessage('Please enter a valid Orange Cameroon number (e.g. 69X..., 64X..., 655–659...).');
                 setMtnStatus('error');
                 return;
             }
@@ -199,9 +195,9 @@ const Donate = () => {
                         zIndex: 2,
                     }}
                 >
-                    <Link to="/" style={{ color: 'rgba(255,255,255,0.82)', textDecoration: 'none' }}>{t('nav.home', 'Home')}</Link>
+                    <a href="#" style={{ color: 'rgba(255,255,255,0.82)', textDecoration: 'none' }}>Home</a>
                     <span style={{ margin: '0 0.4rem', fontSize: '0.6rem' }}>♦</span>
-                    {t('nav.donate', 'Donate')}
+                    Donate
                 </div>
 
                 {/* Heading */}
@@ -217,7 +213,9 @@ const Donate = () => {
                             lineHeight: 1.08,
                         }}
                     >
-                        {t('donate_page.hero_title', 'EVERY CHILD DESERVES TO FEEL SAFE. YOU CAN MAKE THAT HAPPEN.')}
+                        EVERY CHILD DESERVES TO FEEL SAFE.
+                        <br />
+                        YOU CAN MAKE THAT HAPPEN.
                     </h1>
                 </div>
             </section>
@@ -242,14 +240,17 @@ const Donate = () => {
                                         marginTop: 0,
                                     }}
                                 >
-                                    {t('donate_page.sec2_title', 'YOUR GIFT REACHES A CHILD TODAY')}
+                                    YOUR GIFT REACHES A CHILD TODAY
                                 </h2>
 
                                 <p style={{ fontSize: '1rem', lineHeight: 1.75, color: '#333', marginBottom: '1.25rem' }}>
-                                    {t('donate_page.sec2_p1', 'Right now, a child in an underserved community is growing up without access to education, nutrition, or safety. That reality does not have to stay that way. It stays with them unless someone steps in.')}
+                                    Right now, a child in an underserved community is growing up without
+                                    access to education, nutrition, or safety. That reality does not have
+                                    to stay that way. It stays with them unless someone steps in.
                                 </p>
                                 <p style={{ fontSize: '1rem', lineHeight: 1.75, color: '#333', marginBottom: '1.75rem' }}>
-                                    {t('donate_page.sec2_p2', 'You can be that person. You can help them get through today. You can help them believe tomorrow is possible.')}
+                                    You can be that person. You can help them get through today. You can
+                                    help them believe tomorrow is possible.
                                 </p>
 
                                 {/* Callout box */}
@@ -265,14 +266,16 @@ const Donate = () => {
                                         marginBottom: '2rem',
                                     }}
                                 >
-                                    {t('donate_page.sec2_callout', 'Right now, you are helping reach 10,000+ children across Cameroon and giving them access to education, nutrition, and a safe space to grow.')}
+                                    Right now, you are helping reach 10,000+ children across Cameroon
+                                    and giving them access to education, nutrition, and a safe space to grow.
                                 </div>
 
                                 {/* Divider */}
                                 <div style={{ borderTop: '1px solid #ddd', margin: '2rem 0' }} />
 
                                 <p style={{ fontSize: '1rem', lineHeight: 1.75, color: '#333', marginBottom: '2rem' }}>
-                                    {t('donate_page.sec2_p3', 'Independent evaluators review our work and impact. Your support directly reaches children in underserved communities across Central Africa.')}
+                                    Independent evaluators review our work and impact. Your support
+                                    directly reaches children in underserved communities across Central Africa.
                                 </p>
 
                                 {/* Trust badges */}
@@ -291,7 +294,7 @@ const Donate = () => {
                                         }}
                                     >
                                         <div style={{ fontSize: '1.1rem', marginBottom: '0.3rem' }}>✦</div>
-                                        {t('donate_page.badge_certified', 'Certified NGO Cameroon')}
+                                        Certified NGO<br />Cameroon
                                     </div>
                                     <div
                                         style={{
@@ -306,7 +309,7 @@ const Donate = () => {
                                             color: '#333',
                                         }}
                                     >
-                                        {t('donate_page.badge_report', 'Transparency Report 2025 ENAKO')}
+                                        Transparency<br />Report 2025<br />ENAKO
                                     </div>
                                     <div
                                         style={{
@@ -315,375 +318,596 @@ const Donate = () => {
                                             padding: '1rem 0.85rem',
                                             minWidth: 110,
                                             textAlign: 'center',
-                                            fontSize: '0.75rem',
-                                            fontWeight: 700,
-                                            lineHeight: 1.4,
+                                            fontSize: '1.45rem',
+                                            fontWeight: 900,
                                             color: '#fff',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            letterSpacing: '-0.02em',
                                         }}
                                     >
-                                        <div style={{ fontSize: '1.1rem', marginBottom: '0.3rem' }}>♥</div>
-                                        {t('donate_page.badge_impact', '10,000+ Children Impacted')}
+                                        ENAKO.
                                     </div>
                                 </div>
+
+                                <p style={{ fontSize: '0.9rem', color: '#333', margin: 0 }}>
+                                    View ENAKO's financial statements and accountability reports{' '}
+                                    <a href="#" style={{ color: BRAND, textDecoration: 'underline', fontWeight: 600 }}>
+                                        here
+                                    </a>
+                                    .
+                                </p>
                             </FadeIn>
                         </div>
 
-                        {/* ── RIGHT COLUMN — DONATION CARD ── */}
-                        <div className="donate-right" style={{ flex: '0 0 45%', minWidth: 0, width: '100%' }}>
-                            <FadeIn direction="up" delay={0.1}>
-                                <div
-                                    style={{
-                                        border: '1px solid #e0e0e0',
-                                        borderRadius: 8,
-                                        padding: '2.25rem 2rem',
-                                        boxShadow: '0 4px 24px rgba(0,0,0,0.07)',
-                                        background: '#fff',
-                                    }}
-                                >
-                                    {/* Sign In link */}
-                                    <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '1.25rem' }}>
-                                        <Link to="/signin" style={{ color: BRAND, textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                                            <span>👤</span> {t('nav.signin', 'Sign In')}
-                                        </Link>
-                                    </div>
-
-                                    {/* Card Header */}
-                                    <h3
-                                        style={{
-                                            fontSize: '1.2rem',
-                                            fontWeight: 800,
-                                            textTransform: 'uppercase',
-                                            letterSpacing: '0.03em',
-                                            color: '#111',
-                                            marginBottom: '1.5rem',
-                                            marginTop: 0,
-                                        }}
-                                    >
-                                        {t('donate_page.card_heading', 'GIVE NOW TO SUPPORT A CHILD')}
-                                    </h3>
-
-                                    {/* Frequency toggle tabs */}
+                        {/* ── RIGHT COLUMN - DONATION CARD ── */}
+                        <div
+                            className="donate-right"
+                            style={{ flex: '1', minWidth: 0, position: 'sticky', top: '2rem' }}
+                        >
+                            <FadeIn direction="up" delay={0.15}>
+                                {isComplete ? (
                                     <div
                                         style={{
-                                            display: 'flex',
-                                            background: '#f4f4f4',
-                                            borderRadius: 6,
-                                            padding: 3,
-                                            marginBottom: '1.75rem',
+                                            background: '#fff',
+                                            border: '1px solid #e5e5e5',
+                                            borderRadius: 8,
+                                            padding: '3rem 2rem',
+                                            boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
+                                            textAlign: 'center',
                                         }}
                                     >
+                                        <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'rgba(28,73,128,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
+                                            <span style={{ color: BRAND, fontSize: '1.75rem' }}>✓</span>
+                                        </div>
+                                        <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#111', marginBottom: '0.75rem' }}>Thank You!</h2>
+                                        <p style={{ color: '#555', marginBottom: '1.5rem', lineHeight: 1.7 }}>
+                                            Your gift of <strong>{totalAmount.toLocaleString('fr-CM')} FCFA</strong> has been received.
+                                            A receipt will be sent to <strong>{email}</strong>.
+                                        </p>
                                         <button
-                                            type="button"
-                                            onClick={() => setFrequency('one-time')}
-                                            style={{
-                                                flex: 1,
-                                                padding: '0.65rem',
-                                                border: 'none',
-                                                borderRadius: 4,
-                                                fontWeight: 700,
-                                                fontSize: '0.85rem',
-                                                cursor: 'pointer',
-                                                background: frequency === 'one-time' ? BRAND : 'transparent',
-                                                color: frequency === 'one-time' ? '#fff' : '#555',
-                                                transition: 'all 0.15s ease',
-                                            }}
+                                            onClick={() => { setIsComplete(false); setStep(1); setMtnStatus('idle'); setPhone(''); setFullName(''); setEmail(''); }}
+                                            style={{ background: BRAND, color: '#fff', border: 'none', borderRadius: 4, padding: '0.85rem 2rem', fontWeight: 700, fontSize: '0.9rem', cursor: 'pointer', textTransform: 'uppercase', letterSpacing: '0.06em', fontFamily: 'inherit' }}
                                         >
-                                            {t('donate_page.freq_one_time', 'One-time')}
-                                        </button>
-                                        <button
-                                            type="button"
-                                            onClick={() => setFrequency('monthly')}
-                                            style={{
-                                                flex: 1,
-                                                padding: '0.65rem',
-                                                border: 'none',
-                                                borderRadius: 4,
-                                                fontWeight: 700,
-                                                fontSize: '0.85rem',
-                                                cursor: 'pointer',
-                                                background: frequency === 'monthly' ? BRAND : 'transparent',
-                                                color: frequency === 'monthly' ? '#fff' : '#555',
-                                                transition: 'all 0.15s ease',
-                                            }}
-                                        >
-                                            {t('donate_page.freq_monthly', 'Monthly')}
+                                            MAKE ANOTHER GIFT
                                         </button>
                                     </div>
-
-                                    {/* Amount presets — 2×2 grid */}
+                                ) : (
                                     <div
                                         style={{
-                                            display: 'grid',
-                                            gridTemplateColumns: '1fr 1fr',
-                                            gap: '0.85rem',
-                                            marginBottom: '1.25rem',
+                                            background: '#fff',
+                                            border: '1px solid #e5e5e5',
+                                            borderRadius: 8,
+                                            padding: '2rem',
+                                            boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
                                         }}
                                     >
-                                        {[
-                                            { val: 5000, label: t('donate_page.preset_25', '$25 - Basic supplies') },
-                                            { val: 10000, label: t('donate_page.preset_50', '$50 - School fees & books') },
-                                            { val: 25000, label: t('donate_page.preset_100', '$100 - Full quarterly scholarship') },
-                                            { val: 50000, label: t('donate_page.preset_250', '$250 - Classroom infrastructure') },
-                                        ].map((p) => {
-                                            const isSelected = selectedPreset === p.val && !customAmount;
-                                            return (
+                                        {/* Sign In link */}
+                                        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '1.25rem' }}>
+                                            <a href="#/signin" style={{ color: BRAND, textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                                                <span>👤</span> Sign In
+                                            </a>
+                                        </div>
+
+                                        {/* Step dots */}
+                                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 0, marginBottom: '1rem' }}>
+                                            <div style={{ width: 22, height: 22, borderRadius: '50%', background: BRAND, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                                                <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#fff' }} />
+                                            </div>
+                                            <div style={{ width: 60, height: 2, background: '#ddd' }} />
+                                            <div style={{ width: 22, height: 22, borderRadius: '50%', border: '2px solid #ccc', background: '#fff', flexShrink: 0 }} />
+                                            <div style={{ width: 60, height: 2, background: '#ddd' }} />
+                                            <div style={{ width: 22, height: 22, borderRadius: '50%', border: '2px solid #ccc', background: '#fff', flexShrink: 0 }} />
+                                        </div>
+                                        <div style={{ textAlign: 'center', fontWeight: 700, fontSize: '1rem', marginBottom: '1.25rem', color: '#111' }}>
+                                            Choose Your Donation
+                                        </div>
+
+                                        {/* Frequency tabs */}
+                                        <div style={{ display: 'flex', borderBottom: '1px solid #e5e5e5', marginBottom: '1.25rem' }}>
+                                            {(['one-time', 'monthly'] as const).map((tab) => (
                                                 <button
-                                                    key={p.val}
-                                                    type="button"
-                                                    onClick={() => handlePreset(p.val)}
+                                                    key={tab}
+                                                    onClick={() => setFrequency(tab)}
                                                     style={{
-                                                        border: isSelected ? `2px solid ${BRAND}` : '1.5px solid #ccc',
-                                                        background: isSelected ? '#f0f4f9' : '#fff',
-                                                        color: isSelected ? BRAND : '#333',
-                                                        borderRadius: 6,
-                                                        padding: '0.9rem 0.75rem',
-                                                        textAlign: 'center',
-                                                        fontWeight: 700,
+                                                        flex: 1,
+                                                        background: 'none',
+                                                        border: 'none',
                                                         cursor: 'pointer',
-                                                        fontSize: '0.8rem',
-                                                        lineHeight: 1.35,
-                                                        transition: 'all 0.15s ease',
+                                                        padding: '0.75rem 0.5rem',
+                                                        fontSize: '1rem',
+                                                        fontWeight: 500,
+                                                        color: frequency === tab ? BRAND : '#888',
+                                                        borderBottom: frequency === tab ? `2px solid ${BRAND}` : '2px solid transparent',
+                                                        marginBottom: -1,
+                                                        transition: 'color 0.2s, border-color 0.2s',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                        gap: '0.4rem',
+                                                        fontFamily: 'inherit',
                                                     }}
                                                 >
-                                                    {p.label}
+                                                    {tab === 'monthly' && <span style={{ fontSize: '0.85rem' }}>📅</span>}
+                                                    {tab === 'one-time' ? 'One Time' : 'Monthly'}
                                                 </button>
-                                            );
-                                        })}
-                                    </div>
+                                            ))}
+                                        </div>
 
-                                    {/* Custom amount input */}
-                                    <div style={{ marginBottom: '1.5rem' }}>
+                                        {/* Preset amounts - 2×2 grid */}
+                                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem', marginBottom: '0.6rem' }}>
+                                            {[5000, 10000, 25000, 50000].map((amt) => {
+                                                const active = selectedPreset === amt && !customAmount;
+                                                return (
+                                                    <button
+                                                        key={amt}
+                                                        onClick={() => handlePreset(amt)}
+                                                        style={{
+                                                            border: active ? `2px solid ${BRAND}` : '1.5px solid #ccc',
+                                                            borderRadius: 4,
+                                                            padding: '0.75rem 0.5rem',
+                                                            fontSize: '1rem',
+                                                            fontWeight: active ? 700 : 400,
+                                                            background: '#fff',
+                                                            color: active ? BRAND : '#333',
+                                                            cursor: 'pointer',
+                                                            transition: 'border-color 0.15s, color 0.15s',
+                                                            textAlign: 'center',
+                                                            fontFamily: 'inherit',
+                                                        }}
+                                                        onMouseEnter={e => {
+                                                            if (!active) {
+                                                                (e.currentTarget as HTMLButtonElement).style.borderColor = BRAND;
+                                                                (e.currentTarget as HTMLButtonElement).style.color = BRAND;
+                                                            }
+                                                        }}
+                                                        onMouseLeave={e => {
+                                                            if (!active) {
+                                                                (e.currentTarget as HTMLButtonElement).style.borderColor = '#ccc';
+                                                                (e.currentTarget as HTMLButtonElement).style.color = '#333';
+                                                            }
+                                                        }}
+                                                    >
+                                                        {amt.toLocaleString('fr-CM')} FCFA
+                                                    </button>
+                                                );
+                                            })}
+                                        </div>
+
+                                        {/* Custom amount */}
                                         <input
                                             type="text"
-                                            placeholder={t('donate_page.custom_amount_placeholder', 'Enter custom amount in USD ($)')}
+                                            inputMode="numeric"
                                             value={customAmount}
                                             onChange={handleCustomChange}
+                                            placeholder="Other amount (FCFA)"
                                             style={{
                                                 width: '100%',
-                                                padding: '0.85rem 1rem',
-                                                border: customAmount ? `2px solid ${BRAND}` : '1.5px solid #ccc',
-                                                borderRadius: 6,
-                                                fontSize: '0.9rem',
-                                                color: '#111',
-                                                boxSizing: 'border-[#1c4980]',
+                                                border: '1px solid #ccc',
+                                                borderRadius: 4,
+                                                padding: '0.75rem',
+                                                fontSize: '1rem',
                                                 outline: 'none',
+                                                boxSizing: 'border-box',
+                                                marginBottom: '0.75rem',
+                                                fontFamily: 'inherit',
+                                                transition: 'border-color 0.2s',
                                             }}
+                                            onFocus={e => (e.currentTarget.style.borderColor = BRAND)}
+                                            onBlur={e => (e.currentTarget.style.borderColor = '#ccc')}
                                         />
-                                    </div>
 
-                                    {/* Step 1 Form Fields */}
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '1.5rem' }}>
-                                        <div>
-                                            <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, color: '#444', marginBottom: '0.35rem' }}>
-                                                {t('donate_page.fullname_label', 'FULL NAME *')}
-                                            </label>
-                                            <input
-                                                type="text"
-                                                required
-                                                value={fullName}
-                                                onChange={(e) => setFullName(e.target.value)}
-                                                placeholder="e.g. Marie Ngu"
-                                                style={{ width: '100%', padding: '0.75rem', border: '1px solid #ccc', borderRadius: 4, fontSize: '0.9rem', outline: 'none' }}
-                                            />
+                                        {/* Monthly upsell */}
+                                        <div style={{ background: 'rgba(28,73,128,0.06)', borderRadius: 4, padding: '0.65rem 1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', fontSize: '0.9rem', color: BRAND, fontWeight: 500 }}>
+                                            <span>❤️</span> Make your impact last! Support a child every month.
                                         </div>
-                                        <div>
-                                            <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, color: '#444', marginBottom: '0.35rem' }}>
-                                                {t('donate_page.email_label', 'EMAIL ADDRESS *')}
+
+                                        {/* Checkboxes */}
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', marginBottom: '1.25rem' }}>
+                                            <label style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.9rem', color: '#333', cursor: 'pointer' }}>
+                                                <input
+                                                    type="checkbox"
+                                                    checked={dedicateGift}
+                                                    onChange={e => setDedicateGift(e.target.checked)}
+                                                    style={{ accentColor: BRAND, width: 16, height: 16, cursor: 'pointer' }}
+                                                />
+                                                Dedicate this gift to someone
                                             </label>
-                                            <input
-                                                type="email"
-                                                required
-                                                value={email}
-                                                onChange={(e) => setEmail(e.target.value)}
-                                                placeholder="marie@example.com"
-                                                style={{ width: '100%', padding: '0.75rem', border: '1px solid #ccc', borderRadius: 4, fontSize: '0.9rem', outline: 'none' }}
-                                            />
+                                            <label style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', fontSize: '0.9rem', color: '#333', cursor: 'pointer' }}>
+                                                <input
+                                                    type="checkbox"
+                                                    checked={coverFees}
+                                                    onChange={e => setCoverFees(e.target.checked)}
+                                                    style={{ accentColor: BRAND, width: 16, height: 16, cursor: 'pointer', marginTop: 2, flexShrink: 0 }}
+                                                />
+                                                <span>
+                                                    Cover processing fees so 100% of your gift supports children (+500 FCFA){' '}
+                                                    <span
+                                                        style={{ display: 'inline-block', position: 'relative', cursor: 'help' }}
+                                                        onMouseEnter={() => setTooltip(true)}
+                                                        onMouseLeave={() => setTooltip(false)}
+                                                    >
+                                                        <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 16, height: 16, borderRadius: '50%', border: '1.5px solid #888', fontSize: '0.65rem', color: '#888', fontWeight: 700 }}>i</span>
+                                                        {tooltip && (
+                                                            <span style={{ position: 'absolute', bottom: '130%', left: '50%', transform: 'translateX(-50%)', background: '#333', color: '#fff', fontSize: '0.75rem', padding: '0.5rem 0.75rem', borderRadius: 4, whiteSpace: 'nowrap', zIndex: 10, boxShadow: '0 2px 8px rgba(0,0,0,0.2)' }}>
+                                                                Covers payment processing costs
+                                                            </span>
+                                                        )}
+                                                    </span>
+                                                </span>
+                                            </label>
                                         </div>
-                                        <div>
-                                            <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, color: '#444', marginBottom: '0.35rem' }}>
-                                                {t('donate_page.phone_label', 'PHONE NUMBER (FOR MOMO / ORANGE) *')}
-                                            </label>
-                                            <input
-                                                type="tel"
-                                                required
-                                                value={phone}
-                                                onChange={(e) => setPhone(e.target.value)}
-                                                placeholder="+237 670 000 000"
-                                                style={{ width: '100%', padding: '0.75rem', border: '1px solid #ccc', borderRadius: 4, fontSize: '0.9rem', outline: 'none' }}
-                                            />
+
+                                        {/* MTN Mobile Money button */}
+                                        <button
+                                            onClick={() => { setMethod('mtn'); setShowPaymentModal(true); }}
+                                            style={{ width: '100%', background: '#FFCC00', color: '#000', fontWeight: 700, fontSize: '1.1rem', padding: '1rem', borderRadius: 4, border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.75rem', fontFamily: 'inherit', transition: 'opacity 0.2s' }}
+                                            onMouseEnter={e => (e.currentTarget.style.opacity = '0.9')}
+                                            onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+                                        >
+                                            <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 28, height: 28, borderRadius: '50%', background: '#000', color: '#FFCC00', fontWeight: 900, fontSize: '0.65rem', flexShrink: 0, letterSpacing: '-0.02em' }}>MTN</span>
+                                            MTN Mobile Money
+                                        </button>
+
+                                        {/* OR divider */}
+                                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', margin: '0 0 0.75rem' }}>
+                                            <div style={{ flex: 1, height: 1, background: '#e5e5e5' }} />
+                                            <span style={{ fontSize: '0.85rem', color: '#999', fontWeight: 500 }}>or</span>
+                                            <div style={{ flex: 1, height: 1, background: '#e5e5e5' }} />
+                                        </div>
+
+                                        {/* Orange Money button */}
+                                        <button
+                                            onClick={() => { setMethod('orange'); setShowPaymentModal(true); }}
+                                            style={{ width: '100%', background: '#FF6600', color: '#fff', fontWeight: 700, fontSize: '1.1rem', padding: '1rem', borderRadius: 4, border: 'none', cursor: 'pointer', marginBottom: '1rem', fontFamily: 'inherit', transition: 'opacity 0.2s' }}
+                                            onMouseEnter={e => (e.currentTarget.style.opacity = '0.9')}
+                                            onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+                                        >
+                                            Give {totalAmount.toLocaleString('fr-CM')} FCFA via Orange Money
+                                        </button>
+
+                                        {/* Payment icon row */}
+                                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.65rem', marginBottom: '1rem' }}>
+                                            <div style={{ background: '#FFCC00', borderRadius: 4, padding: '0.25rem 0.5rem', fontSize: '0.6rem', fontWeight: 900, color: '#000', border: '1px solid #e5e5e5' }}>MTN</div>
+                                            <div style={{ background: '#FF6600', borderRadius: 4, padding: '0.25rem 0.5rem', fontSize: '0.6rem', fontWeight: 900, color: '#fff', border: '1px solid #e5e5e5' }}>OM</div>
+                                            <div style={{ background: '#f5f5f5', borderRadius: 4, padding: '0.25rem 0.5rem', fontSize: '0.65rem', fontWeight: 700, color: '#555', border: '1px solid #e5e5e5', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>🏦 Bank</div>
+                                        </div>
+
+                                        <div style={{ textAlign: 'center', fontSize: '0.78rem', color: '#aaa', fontWeight: 500 }}>
+                                            Powered by <strong style={{ color: '#888' }}>ENAKO</strong>
                                         </div>
                                     </div>
-
-                                    {/* Submit Button */}
-                                    <button
-                                        type="button"
-                                        onClick={submitDonation}
-                                        disabled={mtnStatus === 'submitting' || mtnStatus === 'polling'}
-                                        style={{
-                                            width: '100%',
-                                            background: BRAND,
-                                            color: '#fff',
-                                            border: 'none',
-                                            borderRadius: 6,
-                                            padding: '1.1rem',
-                                            fontWeight: 800,
-                                            fontSize: '1rem',
-                                            textTransform: 'uppercase',
-                                            letterSpacing: '0.05em',
-                                            cursor: 'pointer',
-                                            transition: 'background 0.2s ease',
-                                        }}
-                                        onMouseEnter={(e) => (e.currentTarget.style.background = BRAND_DARK)}
-                                        onMouseLeave={(e) => (e.currentTarget.style.background = BRAND)}
-                                    >
-                                        {mtnStatus === 'submitting' || mtnStatus === 'polling'
-                                            ? t('donate_page.submit_btn', 'COMPLETING YOUR DONATION...')
-                                            : t('donate_page.btn_donate_now', 'DONATE NOW')}
-                                    </button>
-                                </div>
+                                )}
                             </FadeIn>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* ── SECTION 3: OTHER WAYS TO GIVE ─────────────────────────────── */}
-            <section style={{ background: '#f8fafc', padding: '5rem 0' }}>
-                <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 2rem' }}>
-                    <h2
-                        style={{
-                            fontSize: '1.8rem',
-                            fontWeight: 900,
-                            textTransform: 'uppercase',
-                            letterSpacing: '0.02em',
-                            color: '#111',
-                            textAlign: 'center',
-                            marginBottom: '3rem',
-                        }}
-                    >
-                        {t('donate_page.other_ways_title', 'OTHER WAYS TO GIVE')}
-                    </h2>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
-                        <div className="ds-card p-6">
-                            <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: BRAND, marginBottom: '0.75rem' }}>
-                                {t('donate_page.way_bank_title', 'Bank Transfer / Wire')}
-                            </h3>
-                            <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: 1.6 }}>
-                                {t('donate_page.way_bank_desc', 'Make a direct deposit or wire transfer to our registered NGO bank account in Cameroon or international partner accounts.')}
-                            </p>
-                        </div>
-                        <div className="ds-card p-6">
-                            <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: BRAND, marginBottom: '0.75rem' }}>
-                                {t('donate_page.way_inkind_title', 'In-Kind Donations')}
-                            </h3>
-                            <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: 1.6 }}>
-                                {t('donate_page.way_inkind_desc', 'We accept educational supplies, solar equipment, medical kits, and computers for rural community learning hubs.')}
-                            </p>
-                        </div>
-                        <div className="ds-card p-6">
-                            <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: BRAND, marginBottom: '0.75rem' }}>
-                                {t('donate_page.way_corp_title', 'Corporate Sponsorship')}
-                            </h3>
-                            <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: 1.6 }}>
-                                {t('donate_page.way_corp_desc', 'Partner your business with Enako Outreach to fund whole classrooms, boreholes, or regional scholarship cohorts.')}
-                            </p>
-                        </div>
+            {/* ── SECTION 3: AMARA'S STORY ──────────────────────────────────── */}
+            <section style={{ background: '#EBF5FB', padding: '5rem 0', width: '100%' }}>
+                <div className="donate-story-wrap" style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'stretch' }}>
+                    {/* Image */}
+                    <div className="donate-story-img" style={{ flex: '0 0 50%', minWidth: 0, minHeight: 480, overflow: 'hidden' }}>
+                        <img
+                            src="/assets/charity/amara-story.jpg"
+                            alt="Amara studying in a classroom setting"
+                            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                        />
                     </div>
-                </div>
-            </section>
 
-            {/* ── SECTION 4: AMARA'S STORY ───────────────────────────────────── */}
-            <section style={{ background: '#fff', padding: '5rem 0' }}>
-                <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 2rem' }}>
-                    <div className="donate-story-flex" style={{ display: 'flex', gap: '3.5rem', alignItems: 'center' }}>
-                        {/* Image */}
-                        <div className="donate-story-img" style={{ flex: '0 0 50%', minWidth: 0, minHeight: 480, overflow: 'hidden' }}>
-                            <img
-                                src="/assets/charity/amara-story.jpg"
-                                alt="Amara studying in a classroom setting"
-                                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                            />
-                        </div>
-
-                        {/* Copy */}
-                        <div style={{ flex: '1 1 auto', minWidth: 0 }}>
-                            <span style={{ fontSize: '0.8rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', color: BRAND, display: 'block', marginBottom: '0.5rem' }}>
-                                {t('donate_page.amara_badge', 'ONE CHILD')}
-                            </span>
-                            <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', fontWeight: 900, textTransform: 'uppercase', color: '#111', marginBottom: '1.5rem', marginTop: 0 }}>
-                                {t('donate_page.amara_title', "Amara's Story")}
-                            </h2>
-                            <p style={{ fontSize: '1rem', lineHeight: 1.75, color: '#333', marginBottom: '1.25rem' }}>
-                                {t('donate_page.amara_p1', 'This is what poverty looks like for her. Not just the lack of food, but the silence. The invisibility. The sense that no one sees her.')}
-                            </p>
-                            <p style={{ fontSize: '1rem', lineHeight: 1.75, color: '#333', marginBottom: '1.25rem' }}>
-                                {t('donate_page.amara_p2', 'Then she was welcomed into an ENAKO-supported community center. There was warmth. There was food. Someone noticed her. She began to sit with other children, to learn, to draw, and at last, to laugh.')}
-                            </p>
-                            <p style={{ fontSize: '1rem', lineHeight: 1.75, color: '#333', marginBottom: '1.5rem' }}>
-                                {t('donate_page.amara_p3', 'For the first time in a long time, she felt seen.')}
-                            </p>
-                            <p style={{ fontSize: '1rem', fontWeight: 700, color: '#111', marginBottom: '2rem' }}>
-                                {t('donate_page.amara_footer', 'Your support made that possible.')}
-                            </p>
-                            <Link to="/donate" className="ds-btn ds-btn-primary">
-                                {t('donate_page.amara_btn', 'HELP CHILDREN LIKE AMARA')}
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* ── SECTION 5: FAQ ─────────────────────────────────────────────── */}
-            <section style={{ background: '#f8fafc', padding: '5rem 0' }}>
-                <div style={{ maxWidth: 960, margin: '0 auto', padding: '0 2rem' }}>
-                    <h2
-                        style={{
-                            fontSize: '1.8rem',
-                            fontWeight: 900,
-                            textTransform: 'uppercase',
-                            letterSpacing: '0.02em',
-                            color: '#111',
-                            textAlign: 'center',
-                            marginBottom: '3rem',
-                        }}
-                    >
-                        {t('donate_page.faq_title', 'FREQUENTLY ASKED QUESTIONS ABOUT DONATING')}
-                    </h2>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                        {[
-                            { q: t('donate_page.faq_q1', 'Where does my donation go?'), a: t('donate_page.faq_a1', '100% of your donation directly funds field programs in Cameroon — including school tuition, textbooks, Mobile Money teacher grants, clean water boreholes, and mobile health clinics.') },
-                            { q: t('donate_page.faq_q2', 'Can I donate using Mobile Money?'), a: t('donate_page.faq_a2', 'Yes! We support both MTN Mobile Money and Orange Money directly on this page. Simply select your provider, enter your registered 9-digit number, and approve the prompt on your phone.') },
-                            { q: t('donate_page.faq_q3', 'Is my donation tax-deductible?'), a: t('donate_page.faq_a3', 'Enako Outreach is a registered non-governmental organization in Cameroon with international fiscal sponsorship. Tax receipts are issued automatically upon confirmation.') },
-                            { q: t('donate_page.faq_q4', 'Can I set up a recurring monthly gift?'), a: t('donate_page.faq_a4', "Absolutely. Select the 'Monthly' tab above. Monthly recurring gifts provide predictable support that allows us to plan long-term community programs.") },
-                        ].map((item, idx) => (
-                            <div key={idx} className="ds-card p-6">
-                                <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#111', marginBottom: '0.5rem' }}>{item.q}</h3>
-                                <p style={{ fontSize: '0.95rem', color: '#555', lineHeight: 1.65 }}>{item.a}</p>
+                    {/* Text */}
+                    <div className="donate-story-text" style={{ flex: '0 0 50%', minWidth: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '3rem 3rem 3rem 4rem' }}>
+                        <FadeIn direction="up">
+                            <div style={{ fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#111', marginBottom: '0.75rem' }}>
+                                ONE CHILD
                             </div>
-                        ))}
+                            <div style={{ color: BRAND, fontSize: '1.1rem', fontWeight: 600, marginBottom: '1.25rem' }}>
+                                Amara's Story
+                            </div>
+                            <p style={{ fontSize: '1rem', lineHeight: 1.8, color: '#333', marginBottom: '1.25rem' }}>
+                                Amara is eight years old. She lives in a village outside Yaoundé, where her mother
+                                works long hours and school is far away. Most days, no one is home. She spends her
+                                time alone, carrying a weight no child should carry.
+                            </p>
+                            <p style={{ fontSize: '1rem', lineHeight: 1.8, color: '#333', marginBottom: '1.25rem' }}>
+                                This is what poverty looks like for her. Not just the lack of food, but the silence.
+                                The invisibility. The sense that no one sees her.
+                            </p>
+                            <p style={{ fontSize: '1rem', lineHeight: 1.8, color: '#333', marginBottom: '1.25rem' }}>
+                                Then she was welcomed into an ENAKO-supported community center. There was warmth.
+                                There was food. Someone noticed her. She began to sit with other children, to learn,
+                                to draw, and at last, to laugh.
+                            </p>
+                            <p style={{ fontSize: '1rem', lineHeight: 1.8, color: '#333', marginBottom: '0.5rem' }}>
+                                For the first time in a long time, she felt seen.
+                            </p>
+                            <p style={{ fontSize: '1rem', lineHeight: 1.8, color: '#333', fontWeight: 600, marginBottom: '2rem' }}>
+                                Your support made that possible.
+                            </p>
+                            <button
+                                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                style={{
+                                    background: BRAND,
+                                    color: '#fff',
+                                    fontWeight: 700,
+                                    fontSize: '0.9rem',
+                                    letterSpacing: '0.08em',
+                                    textTransform: 'uppercase',
+                                    padding: '1rem 2rem',
+                                    borderRadius: 4,
+                                    border: 'none',
+                                    cursor: 'pointer',
+                                    alignSelf: 'flex-start',
+                                    fontFamily: 'inherit',
+                                    transition: 'opacity 0.2s',
+                                }}
+                                onMouseEnter={e => (e.currentTarget.style.opacity = '0.88')}
+                                onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+                            >
+                                HELP CHILDREN LIKE AMARA
+                            </button>
+                        </FadeIn>
                     </div>
                 </div>
             </section>
 
-            {/* ── SECTION 6: BOTTOM BLACK BANNER ───────────────────────────── */}
-            <section className="bg-black py-16 px-6 text-center">
-                <div className="max-w-3xl mx-auto">
-                    <p className="font-extrabold uppercase tracking-wide text-lg md:text-2xl text-white mb-8 leading-snug">
-                        {t('donate_page.banner_text_1', 'YOU CANNOT CHANGE WHERE THEY WERE BORN.')}<br />
-                        {t('donate_page.banner_text_2', 'BUT YOU CAN CHANGE WHAT HAPPENS NEXT.')}
-                    </p>
-                    <div className="flex flex-wrap gap-4 justify-center">
-                        <Link to="/donate" className="ds-btn ds-btn-primary px-8 py-4 text-base">
-                            ♥ {t('nav.donate_now', 'DONATE NOW')}
-                        </Link>
-                        <Link to="/partnership" className="ds-btn ds-btn-outline-white px-8 py-4 text-base">
-                            {t('home.donation_cta.btn_partner', 'BECOME A PARTNER')}
-                        </Link>
-                    </div>
+            {/* ── SECTION 4: BLACK CTA BANNER ────────────────────────────────── */}
+            <section style={{ background: '#000', padding: '4rem 2rem', textAlign: 'center' }}>
+                <p
+                    style={{
+                        fontWeight: 900,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.05em',
+                        fontSize: 'clamp(1rem, 2.5vw, 1.3rem)',
+                        color: '#fff',
+                        margin: '0 auto 2rem',
+                        maxWidth: 720,
+                        lineHeight: 1.5,
+                    }}
+                >
+                    YOU CANNOT CHANGE WHERE THEY WERE BORN.<br />
+                    BUT YOU CAN CHANGE WHAT HAPPENS NEXT.
+                </p>
+                <button
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    style={{
+                        background: BRAND,
+                        color: '#fff',
+                        fontWeight: 700,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.08em',
+                        padding: '1rem 3rem',
+                        fontSize: '1rem',
+                        borderRadius: 4,
+                        border: 'none',
+                        cursor: 'pointer',
+                        fontFamily: 'inherit',
+                        transition: 'opacity 0.2s',
+                    }}
+                    onMouseEnter={e => (e.currentTarget.style.opacity = '0.88')}
+                    onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+                >
+                    GIVE NOW
+                </button>
+            </section>
+
+            {/* ── SECTION 5: OTHER WAYS TO GIVE ──────────────────────────────── */}
+            <section style={{ padding: '5rem 0', background: '#fff' }}>
+                <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 2rem' }}>
+                    <h2
+                        style={{
+                            fontWeight: 900,
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.02em',
+                            fontSize: '2rem',
+                            color: '#111',
+                            marginBottom: '3rem',
+                            marginTop: 0,
+                        }}
+                    >
+                        OTHER WAYS TO GIVE
+                    </h2>
+
+                    {/* Row 1 - 3 columns */}
+                    <FadeIn direction="up">
+                        <div className="donate-ways-row1" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '3rem', marginBottom: '3.5rem' }}>
+                            {[
+                                {
+                                    title: 'DONATE VIA BANK TRANSFER',
+                                    body: 'Transfer directly to our account. We will confirm your gift and send a receipt.',
+                                    extra: 'For account details, reach out to:',
+                                    link: 'info@enako.org',
+                                    href: 'mailto:info@enako.org',
+                                },
+                                {
+                                    title: 'PLANNED GIVING',
+                                    body: "Some choose to make a lasting investment in a child's future. Through a bequest or trust, your impact can continue for years.",
+                                    extra: 'Contact us to discuss options:',
+                                    link: 'giving@enako.org',
+                                    href: 'mailto:giving@enako.org',
+                                },
+                                {
+                                    title: 'CORPORATE PARTNERSHIP',
+                                    body: "Partner with ENAKO to invest in communities and demonstrate your company's commitment to children's welfare.",
+                                    extra: 'Email us:',
+                                    link: 'partners@enako.org',
+                                    href: 'mailto:partners@enako.org',
+                                },
+                            ].map(col => (
+                                <div key={col.title}>
+                                    <div style={{ fontSize: '0.95rem', fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#111', marginBottom: '0.75rem' }}>
+                                        {col.title}
+                                    </div>
+                                    <div style={{ borderTop: '1px solid #ccc', marginBottom: '0.75rem' }} />
+                                    <p style={{ fontSize: '0.95rem', lineHeight: 1.7, color: '#333', marginBottom: '0.75rem' }}>{col.body}</p>
+                                    <p style={{ fontSize: '0.95rem', lineHeight: 1.7, color: '#333', margin: 0 }}>
+                                        {col.extra}{' '}
+                                        <a
+                                            href={col.href}
+                                            style={{ color: BRAND, textDecoration: 'none', fontWeight: 600 }}
+                                            onMouseEnter={e => (e.currentTarget.style.textDecoration = 'underline')}
+                                            onMouseLeave={e => (e.currentTarget.style.textDecoration = 'none')}
+                                        >
+                                            {col.link}
+                                        </a>
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </FadeIn>
+
+                    {/* Row 2 - 2 columns */}
+                    <FadeIn direction="up" delay={0.1}>
+                        <div className="donate-ways-row2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem' }}>
+                            <div>
+                                <div style={{ fontSize: '0.95rem', fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#111', marginBottom: '0.75rem' }}>
+                                    DONATE BY CHECK
+                                </div>
+                                <div style={{ borderTop: '1px solid #ccc', marginBottom: '0.75rem' }} />
+                                <p style={{ fontSize: '0.95rem', lineHeight: 1.7, color: '#333', marginBottom: '0.5rem' }}>Make checks payable to:</p>
+                                <p style={{ fontSize: '0.95rem', lineHeight: 1.9, color: BRAND, fontWeight: 600, margin: 0 }}>
+                                    ENAKO Foundation,<br />
+                                    BP 1234,<br />
+                                    Yaoundé, Cameroon
+                                </p>
+                            </div>
+                            <div>
+                                <div style={{ fontSize: '0.95rem', fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#111', marginBottom: '0.75rem' }}>
+                                    THE ENAKO CHILDREN'S FUND
+                                </div>
+                                <div style={{ borderTop: '1px solid #ccc', marginBottom: '0.75rem' }} />
+                                <p style={{ fontSize: '0.95rem', lineHeight: 1.7, color: '#333', marginBottom: '1.25rem' }}>
+                                    Our endowment supports children through hardship and recovery over time. Learn more about the fund.
+                                </p>
+                                <button
+                                    style={{
+                                        background: BRAND,
+                                        color: '#fff',
+                                        fontWeight: 700,
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '0.08em',
+                                        padding: '0.75rem 2rem',
+                                        fontSize: '0.9rem',
+                                        borderRadius: 4,
+                                        border: 'none',
+                                        cursor: 'pointer',
+                                        fontFamily: 'inherit',
+                                        transition: 'opacity 0.2s',
+                                    }}
+                                    onMouseEnter={e => (e.currentTarget.style.opacity = '0.88')}
+                                    onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+                                >
+                                    LEARN MORE
+                                </button>
+                            </div>
+                        </div>
+                    </FadeIn>
                 </div>
             </section>
 
             <Footer />
+
+            {/* ── PAYMENT MODAL ──────────────────────────────────────────────── */}
+            {showPaymentModal && (
+                <div
+                    style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.55)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem' }}
+                    onClick={e => { if (e.target === e.currentTarget) { setShowPaymentModal(false); setMtnStatus('idle'); setErrorMessage(''); } }}
+                >
+                    <div style={{ background: '#fff', borderRadius: 12, padding: '2rem', width: '100%', maxWidth: 440, boxShadow: '0 20px 60px rgba(0,0,0,0.25)', position: 'relative' }}>
+                        <button
+                            onClick={() => { setShowPaymentModal(false); setMtnStatus('idle'); setErrorMessage(''); }}
+                            style={{ position: 'absolute', top: '1rem', right: '1rem', background: 'none', border: 'none', fontSize: '1.25rem', cursor: 'pointer', color: '#666' }}
+                        >
+                            ✕
+                        </button>
+
+                        {mtnStatus === 'polling' ? (
+                            <div style={{ textAlign: 'center', padding: '2rem 0' }}>
+                                <div style={{ width: 56, height: 56, border: `4px solid rgba(28,73,128,0.2)`, borderTopColor: BRAND, borderRadius: '50%', animation: 'spin 1s linear infinite', margin: '0 auto 1.5rem' }} />
+                                <h3 style={{ fontWeight: 800, fontSize: '1.1rem', color: '#111', marginBottom: '0.75rem' }}>Check your phone</h3>
+                                <p style={{ color: '#555', lineHeight: 1.7, fontSize: '0.9rem' }}>
+                                    We sent a Mobile Money prompt to <strong>{phone}</strong>.<br />
+                                    Please authorize the payment on your device.
+                                </p>
+                            </div>
+                        ) : step === 1 ? (
+                            <>
+                                <h2 style={{ fontWeight: 800, fontSize: '1.25rem', color: '#111', marginBottom: '0.4rem' }}>Your Details</h2>
+                                <p style={{ color: '#666', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
+                                    Donating <strong>{totalAmount.toLocaleString('fr-CM')} FCFA</strong> via {method === 'mtn' ? 'MTN Mobile Money' : 'Orange Money'}
+                                </p>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                                    <input value={fullName} onChange={e => setFullName(e.target.value)} placeholder="Full Name" required style={{ width: '100%', border: '1px solid #ddd', borderRadius: 6, padding: '0.75rem', fontSize: '0.95rem', fontFamily: 'inherit', outline: 'none', boxSizing: 'border-box' }} onFocus={e => (e.currentTarget.style.borderColor = BRAND)} onBlur={e => (e.currentTarget.style.borderColor = '#ddd')} />
+                                    <input value={email} onChange={e => setEmail(e.target.value)} type="email" placeholder="Email Address" required style={{ width: '100%', border: '1px solid #ddd', borderRadius: 6, padding: '0.75rem', fontSize: '0.95rem', fontFamily: 'inherit', outline: 'none', boxSizing: 'border-box' }} onFocus={e => (e.currentTarget.style.borderColor = BRAND)} onBlur={e => (e.currentTarget.style.borderColor = '#ddd')} />
+                                    <input
+                                        value={phone}
+                                        onChange={e => setPhone(e.target.value)}
+                                        placeholder={method === 'mtn' ? 'MTN Number (e.g. 237670...)' : 'Orange Number (e.g. 237690...)'}
+                                        required
+                                        style={{ width: '100%', border: '1px solid #ddd', borderRadius: 6, padding: '0.75rem', fontSize: '0.95rem', fontFamily: 'inherit', outline: 'none', boxSizing: 'border-box' }}
+                                        onFocus={e => (e.currentTarget.style.borderColor = BRAND)}
+                                        onBlur={e => (e.currentTarget.style.borderColor = '#ddd')}
+                                    />
+                                </div>
+                                {errorMessage && <p style={{ color: '#d00', fontSize: '0.85rem', marginTop: '0.75rem', fontWeight: 600 }}>{errorMessage}</p>}
+                                <button
+                                    onClick={() => { if (fullName && email && phone) submitDonation(); else setErrorMessage('Please fill in all fields.'); }}
+                                    disabled={mtnStatus === 'submitting'}
+                                    style={{
+                                        width: '100%',
+                                        marginTop: '1.25rem',
+                                        background: method === 'mtn' ? '#FFCC00' : '#FF6600',
+                                        color: method === 'mtn' ? '#000' : '#fff',
+                                        fontWeight: 700,
+                                        fontSize: '1.05rem',
+                                        padding: '0.95rem',
+                                        borderRadius: 6,
+                                        border: 'none',
+                                        cursor: mtnStatus === 'submitting' ? 'not-allowed' : 'pointer',
+                                        fontFamily: 'inherit',
+                                        opacity: mtnStatus === 'submitting' ? 0.6 : 1,
+                                        transition: 'opacity 0.2s',
+                                    }}
+                                >
+                                    {mtnStatus === 'submitting' ? 'Processing...' : `Pay ${totalAmount.toLocaleString('fr-CM')} FCFA`}
+                                </button>
+                            </>
+                        ) : null}
+                    </div>
+                </div>
+            )}
+
+            {/* ── RESPONSIVE + SPINNER CSS ────────────────────────────────────── */}
+            <style>{`
+                @keyframes spin {
+                    to { transform: rotate(360deg); }
+                }
+                .donate-two-col {
+                    display: flex;
+                    gap: 3.5rem;
+                    align-items: flex-start;
+                }
+                .donate-left { flex: 0 0 55%; min-width: 0; }
+                .donate-right { flex: 1; min-width: 0; position: sticky; top: 2rem; }
+                .donate-story-wrap { max-width: 1200px; margin: 0 auto; display: flex; align-items: stretch; }
+                .donate-story-img { flex: 0 0 50%; min-width: 0; min-height: 480px; overflow: hidden; }
+                .donate-story-text { flex: 0 0 50%; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 3rem 3rem 3rem 4rem; }
+                .donate-ways-row1 { display: grid; grid-template-columns: repeat(3,1fr); gap: 3rem; margin-bottom: 3.5rem; }
+                .donate-ways-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+                @media (max-width: 900px) {
+                    .donate-two-col { flex-direction: column !important; }
+                    .donate-right { position: static !important; width: 100% !important; }
+                    .donate-story-wrap { flex-direction: column !important; }
+                    .donate-story-img { flex: none !important; width: 100% !important; min-height: 300px !important; }
+                    .donate-story-text { flex: none !important; width: 100% !important; padding: 2.5rem 1.5rem !important; }
+                }
+                @media (max-width: 768px) {
+                    .donate-ways-row1 { grid-template-columns: 1fr !important; }
+                    .donate-ways-row2 { grid-template-columns: 1fr !important; }
+                }
+            `}</style>
         </div>
     );
 };
