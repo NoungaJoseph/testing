@@ -115,18 +115,6 @@ const BlogLatestNews = () => {
                     </FadeIn>
                 </div>
             </section>
-                    <FadeIn direction="up">
-                        <div className="flex items-center gap-2 mb-4">
-                            <Rss className="w-4 h-4 text-secondary" />
-                            <span className="text-secondary text-xs font-bold uppercase tracking-widest">Live Updates</span>
-                        </div>
-                        <h1 className="text-white font-black text-5xl md:text-6xl mb-4">Latest News</h1>
-                        <p className="text-slate-300 text-xl max-w-2xl leading-relaxed">
-                            Recent field updates, programme progress, and community stories from Enako Outreach.
-                        </p>
-                    </FadeIn>
-                </div>
-            </section>
 
             <div className="bg-red-600 text-white py-3 px-6">
                 <div className="max-w-7xl mx-auto flex items-center gap-3 text-sm font-semibold">

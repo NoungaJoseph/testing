@@ -184,11 +184,6 @@ const BlogArchives = () => {
                     </FadeIn>
                 </div>
             </section>
-                        <h1 className="text-white font-black text-5xl md:text-6xl mb-4">Archives</h1>
-                        <p className="text-slate-300 text-xl max-w-2xl">Browse every Enako article and published outreach update by month and category.</p>
-                    </FadeIn>
-                </div>
-            </section>
 
             <section className="py-8 bg-[#001B44] text-white">
                 <div className="max-w-7xl mx-auto px-6 md:px-12">
