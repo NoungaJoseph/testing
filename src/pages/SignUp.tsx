@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
-import { Eye, EyeOff, Lock, Mail, User, Phone, ArrowRight, CheckCircle2, Heart, Award, GraduationCap } from 'lucide-react';
+import { Eye, EyeOff, Lock, Mail, User, Phone, ArrowRight, Heart, Award, GraduationCap } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const SignUp = () => {
@@ -29,17 +29,17 @@ const SignUp = () => {
         setSuccessMessage('');
 
         if (password !== confirmPassword) {
-            setErrorMessage('Passwords do not match. Please re-enter your password.');
+            setErrorMessage(t('auth.signup.err_password_match', 'Passwords do not match. Please re-enter your password.'));
             return;
         }
 
         if (password.length < 6) {
-            setErrorMessage('Password must be at least 6 characters long.');
+            setErrorMessage(t('auth.signup.err_password_length', 'Password must be at least 6 characters long.'));
             return;
         }
 
         if (!agreeTerms) {
-            setErrorMessage('Please agree to the Terms of Service and Privacy Policy to continue.');
+            setErrorMessage(t('auth.signup.err_terms', 'Please agree to the Terms of Service and Privacy Policy to continue.'));
             return;
         }
 
@@ -64,16 +64,16 @@ const SignUp = () => {
                 if (data.token) {
                     localStorage.setItem('enako_auth_token', data.token);
                 }
-                setSuccessMessage('Account created successfully! Redirecting...');
+                setSuccessMessage(t('auth.signup.success', 'Account created successfully! Redirecting...'));
                 setTimeout(() => navigate('/signin'), 1500);
             } else {
                 const errorData = await response.json().catch(() => ({}));
-                setErrorMessage(errorData.message || 'Registration failed. An account with this email may already exist.');
+                setErrorMessage(errorData.message || t('auth.signup.err_failed', 'Registration failed. An account with this email may already exist.'));
             }
         } catch {
-            // Local fallback for frontend demonstration
+            // Frontend fallback for demo/testing
             localStorage.setItem('enako_auth_user', JSON.stringify({ fullName, email, phone, interest }));
-            setSuccessMessage('Account created successfully! Welcome to Enako Outreach.');
+            setSuccessMessage(t('auth.signup.success', 'Account created successfully! Welcome to Enako Outreach.'));
             setTimeout(() => navigate('/signin'), 1500);
         } finally {
             setIsLoading(false);
@@ -121,9 +121,9 @@ const SignUp = () => {
                         zIndex: 2,
                     }}
                 >
-                    <Link to="/" style={{ color: 'rgba(255,255,255,0.82)', textDecoration: 'none' }}>Home</Link>
+                    <Link to="/" style={{ color: 'rgba(255,255,255,0.82)', textDecoration: 'none' }}>{t('nav.home', 'Home')}</Link>
                     <span style={{ margin: '0 0.4rem', fontSize: '0.6rem' }}>♦</span>
-                    Sign Up
+                    {t('nav.signup', 'Sign Up')}
                 </div>
 
                 {/* Heading */}
@@ -140,7 +140,7 @@ const SignUp = () => {
                                 lineHeight: 1.08,
                             }}
                         >
-                            CREATE AN <span className="text-[#1eb4d4]">ENAKO ACCOUNT</span>
+                            {t('auth.signup.hero_title_1', 'CREATE AN')} <span className="text-[#1eb4d4]">ENAKO ACCOUNT</span>
                         </h1>
                     </FadeIn>
                 </div>
@@ -153,21 +153,21 @@ const SignUp = () => {
                         {/* LEFT COLUMN: BENEFIT SUMMARY */}
                         <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-36">
                             <FadeIn direction="up">
-                                <span className="ds-badge">JOIN 10,000+ SUPPORTERS</span>
+                                <span className="ds-badge">{t('auth.signup.badge', 'JOIN 10,000+ SUPPORTERS')}</span>
                                 <h2 className="ds-h2 text-3xl md:text-4xl text-[#1c4980] mt-2 mb-4">
-                                    BECOME PART OF REAL CHANGE
+                                    {t('auth.signup.title', 'BECOME PART OF REAL CHANGE')}
                                 </h2>
                                 <p className="ds-body leading-relaxed mb-6">
-                                    Whether you are a donor, volunteer, student, or community partner, an Enako account gives you full visibility into ongoing humanitarian work across Cameroon.
+                                    {t('auth.signup.desc', 'Whether you are a donor, volunteer, student, or community partner, an Enako account gives you full visibility into ongoing humanitarian work across Cameroon.')}
                                 </p>
                             </FadeIn>
 
                             <FadeIn direction="up" delay={0.1}>
                                 <div className="space-y-4">
                                     {[
-                                        { icon: Heart, title: 'Donors & Partners', desc: 'Receive direct updates, impact reports, and Mobile Money transaction receipts.' },
-                                        { icon: GraduationCap, title: 'Scholarship Applicants', desc: 'Submit and track primary, secondary, and university assistance applications.' },
-                                        { icon: Award, title: 'Volunteers & Teachers', desc: 'Apply for teacher rewards, field volunteer missions, and community roles.' },
+                                        { icon: Heart, title: t('auth.signup.role_1_title', 'Donors & Partners'), desc: t('auth.signup.role_1_desc', 'Receive direct updates, impact reports, and Mobile Money transaction receipts.') },
+                                        { icon: GraduationCap, title: t('auth.signup.role_2_title', 'Scholarship Applicants'), desc: t('auth.signup.role_2_desc', 'Submit and track primary, secondary, and university assistance applications.') },
+                                        { icon: Award, title: t('auth.signup.role_3_title', 'Volunteers & Teachers'), desc: t('auth.signup.role_3_desc', 'Apply for teacher rewards, field volunteer missions, and community roles.') },
                                     ].map((role, idx) => (
                                         <div key={idx} className="ds-card p-5 border border-slate-200">
                                             <div className="flex items-center gap-3 mb-2">
@@ -186,11 +186,11 @@ const SignUp = () => {
                             <FadeIn direction="up" delay={0.15}>
                                 <div className="ds-card p-8 md:p-12 border border-slate-200 shadow-xl bg-white rounded-lg">
                                     <div className="mb-8">
-                                        <h3 className="ds-h2 text-2xl text-[#111] mb-2">CREATE YOUR FREE ACCOUNT</h3>
+                                        <h3 className="ds-h2 text-2xl text-[#111] mb-2">{t('auth.signup.card_title', 'CREATE YOUR FREE ACCOUNT')}</h3>
                                         <p className="ds-body-sm">
-                                            Already registered?{' '}
+                                            {t('auth.signup.already_registered', 'Already registered?')}{' '}
                                             <Link to="/signin" className="ds-link font-bold">
-                                                Sign in here
+                                                {t('auth.signup.signin_here', 'Sign in here')}
                                             </Link>
                                         </p>
                                     </div>
@@ -211,7 +211,7 @@ const SignUp = () => {
                                         {/* Full Name */}
                                         <div>
                                             <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
-                                                Full Name
+                                                {t('auth.signup.fullname_label', 'Full Name')}
                                             </label>
                                             <div className="relative">
                                                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
@@ -221,7 +221,7 @@ const SignUp = () => {
                                                     type="text"
                                                     value={fullName}
                                                     onChange={(e) => setFullName(e.target.value)}
-                                                    placeholder="First & Last Name"
+                                                    placeholder={t('auth.signup.fullname_placeholder', 'First & Last Name')}
                                                     required
                                                     className="w-full h-12 pl-10 pr-4 bg-slate-50 border border-slate-300 rounded text-slate-900 text-sm font-medium focus:bg-white focus:border-[#1c4980] focus:outline-none transition-colors"
                                                 />
@@ -231,7 +231,7 @@ const SignUp = () => {
                                         {/* Email Address */}
                                         <div>
                                             <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
-                                                Email Address
+                                                {t('auth.signup.email_label', 'Email Address')}
                                             </label>
                                             <div className="relative">
                                                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
@@ -251,7 +251,7 @@ const SignUp = () => {
                                         {/* Phone Number */}
                                         <div>
                                             <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
-                                                Phone Number (Cameroon or International)
+                                                {t('auth.signup.phone_label', 'Phone Number (Cameroon or International)')}
                                             </label>
                                             <div className="relative">
                                                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
@@ -271,17 +271,17 @@ const SignUp = () => {
                                         {/* Primary Interest */}
                                         <div>
                                             <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
-                                                Primary Interest / Role
+                                                {t('auth.signup.role_label', 'Primary Interest / Role')}
                                             </label>
                                             <select
                                                 value={interest}
                                                 onChange={(e) => setInterest(e.target.value)}
                                                 className="w-full h-12 px-4 bg-slate-50 border border-slate-300 rounded text-slate-900 text-sm font-medium focus:bg-white focus:border-[#1c4980] focus:outline-none transition-colors cursor-pointer"
                                             >
-                                                <option value="donor">Supporter / Donor</option>
-                                                <option value="scholarship">Scholarship Applicant / Parent</option>
-                                                <option value="volunteer">Volunteer / Community Worker</option>
-                                                <option value="partner">Corporate / Institutional Partner</option>
+                                                <option value="donor">{t('auth.signup.opt_donor', 'Supporter / Donor')}</option>
+                                                <option value="scholarship">{t('auth.signup.opt_scholarship', 'Scholarship Applicant / Parent')}</option>
+                                                <option value="volunteer">{t('auth.signup.opt_volunteer', 'Volunteer / Community Worker')}</option>
+                                                <option value="partner">{t('auth.signup.opt_partner', 'Corporate / Institutional Partner')}</option>
                                             </select>
                                         </div>
 
@@ -289,7 +289,7 @@ const SignUp = () => {
                                         <div className="grid sm:grid-cols-2 gap-4">
                                             <div>
                                                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
-                                                    Password
+                                                    {t('auth.signup.password_label', 'Password')}
                                                 </label>
                                                 <div className="relative">
                                                     <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
@@ -299,7 +299,7 @@ const SignUp = () => {
                                                         type={showPassword ? 'text' : 'password'}
                                                         value={password}
                                                         onChange={(e) => setPassword(e.target.value)}
-                                                        placeholder="Min. 6 chars"
+                                                        placeholder={t('auth.signup.min_chars', 'Min. 6 chars')}
                                                         required
                                                         className="w-full h-12 pl-10 pr-10 bg-slate-50 border border-slate-300 rounded text-slate-900 text-sm font-medium focus:bg-white focus:border-[#1c4980] focus:outline-none transition-colors"
                                                     />
@@ -315,7 +315,7 @@ const SignUp = () => {
 
                                             <div>
                                                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
-                                                    Confirm Password
+                                                    {t('auth.signup.confirm_password_label', 'Confirm Password')}
                                                 </label>
                                                 <div className="relative">
                                                     <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
@@ -325,7 +325,7 @@ const SignUp = () => {
                                                         type={showPassword ? 'text' : 'password'}
                                                         value={confirmPassword}
                                                         onChange={(e) => setConfirmPassword(e.target.value)}
-                                                        placeholder="Re-enter password"
+                                                        placeholder={t('auth.signup.reenter_password', 'Re-enter password')}
                                                         required
                                                         className="w-full h-12 pl-10 pr-4 bg-slate-50 border border-slate-300 rounded text-slate-900 text-sm font-medium focus:bg-white focus:border-[#1c4980] focus:outline-none transition-colors"
                                                     />
@@ -343,13 +343,13 @@ const SignUp = () => {
                                                     className="w-4 h-4 accent-[#1c4980] rounded mt-0.5"
                                                 />
                                                 <span>
-                                                    I agree to the{' '}
+                                                    {t('auth.signup.agree_prefix', 'I agree to the')}{' '}
                                                     <Link to="/terms-of-service" className="text-[#1c4980] underline font-bold" target="_blank">
-                                                        Terms of Service
+                                                        {t('auth.signup.terms_link', 'Terms of Service')}
                                                     </Link>{' '}
-                                                    and{' '}
+                                                    {t('auth.signup.and', 'and')}{' '}
                                                     <Link to="/privacy-policy" className="text-[#1c4980] underline font-bold" target="_blank">
-                                                        Privacy Policy
+                                                        {t('auth.signup.privacy_link', 'Privacy Policy')}
                                                     </Link>.
                                                 </span>
                                             </label>
@@ -364,11 +364,11 @@ const SignUp = () => {
                                             {isLoading ? (
                                                 <span className="flex items-center gap-2">
                                                     <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                                                    Creating Account...
+                                                    {t('auth.signup.creating_account', 'Creating Account...')}
                                                 </span>
                                             ) : (
                                                 <span className="flex items-center gap-2">
-                                                    Create Free Account <ArrowRight className="w-4 h-4" />
+                                                    {t('auth.signup.submit_btn', 'Create Free Account')} <ArrowRight className="w-4 h-4" />
                                                 </span>
                                             )}
                                         </button>
@@ -376,9 +376,9 @@ const SignUp = () => {
                                         {/* Sign In Redirect */}
                                         <div className="text-center pt-2">
                                             <p className="text-sm text-slate-600">
-                                                Already have an Enako account?{' '}
+                                                {t('auth.signup.already_have_account', 'Already have an Enako account?')}{' '}
                                                 <Link to="/signin" className="text-[#1c4980] font-extrabold uppercase text-xs tracking-wider hover:underline ml-1">
-                                                    Sign In Here
+                                                    {t('auth.signup.signin_link', 'Sign In Here')}
                                                 </Link>
                                             </p>
                                         </div>

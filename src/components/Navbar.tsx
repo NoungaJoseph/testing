@@ -5,7 +5,7 @@ import {
     ChevronDown, Menu, X, GraduationCap, Award, Users,
     Droplets, Stethoscope, HandHeart, Newspaper, BookOpen, Archive,
     Flame, ShieldAlert,
-    Facebook, Twitter, Instagram, Linkedin
+    Facebook, Twitter, Instagram, Linkedin, User
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -264,6 +264,15 @@ const Navbar = () => {
                                     )}
                                 </AnimatePresence>
                             </div>
+
+                            {/* SIGN IN BUTTON */}
+                            <Link
+                                to="/signin"
+                                className="flex items-center gap-1.5 px-3 py-1 bg-slate-100 hover:bg-[#1c4980] text-[#1c4980] hover:text-white rounded font-bold text-[11px] uppercase tracking-wider transition-colors ml-2"
+                            >
+                                <User className="w-3.5 h-3.5" />
+                                <span>{t('nav.signin', 'Sign In')}</span>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -553,14 +562,24 @@ const Navbar = () => {
                                         </button>
                                     ))}
                                 </div>
-                                <Link
-                                    to="/donate"
-                                    className="flex items-center justify-center gap-2 w-full h-14 text-white font-bold text-base rounded-full shadow-lg transition-opacity hover:opacity-90"
-                                    style={{ backgroundColor: '#00C2C7' }}
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                >
-                                    {t('nav.donate_now')}
-                                </Link>
+                                <div className="grid grid-cols-2 gap-2">
+                                    <Link
+                                        to="/signin"
+                                        className="flex items-center justify-center gap-1.5 w-full h-12 text-[#1c4980] font-bold text-sm rounded-full border-2 border-[#1c4980] hover:bg-[#1c4980] hover:text-white transition-colors"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        <User className="w-4 h-4" />
+                                        {t('nav.signin', 'Sign In')}
+                                    </Link>
+                                    <Link
+                                        to="/donate"
+                                        className="flex items-center justify-center gap-1.5 w-full h-12 text-white font-bold text-sm rounded-full shadow-md transition-opacity hover:opacity-90"
+                                        style={{ backgroundColor: '#1c4980' }}
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        {t('nav.donate_now')}
+                                    </Link>
+                                </div>
                             </div>
                         </motion.nav>
                     </>

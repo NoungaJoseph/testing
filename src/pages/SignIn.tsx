@@ -37,20 +37,20 @@ const SignIn = () => {
                 if (data.token) {
                     localStorage.setItem('enako_auth_token', data.token);
                 }
-                setSuccessMessage('Sign in successful! Redirecting...');
+                setSuccessMessage(t('auth.signin.success', 'Sign in successful! Redirecting...'));
                 setTimeout(() => navigate('/'), 1200);
             } else {
                 const errorData = await response.json().catch(() => ({}));
-                setErrorMessage(errorData.message || 'Invalid email or password. Please try again.');
+                setErrorMessage(errorData.message || t('auth.signin.invalid_credentials', 'Invalid email or password. Please try again.'));
             }
         } catch {
-            // For demo/dev frontend fallback if backend endpoint isn't live locally
+            // Frontend fallback for demo/testing environment
             if (email && password.length >= 6) {
                 localStorage.setItem('enako_auth_user', JSON.stringify({ email }));
-                setSuccessMessage('Sign in successful! Welcome back.');
+                setSuccessMessage(t('auth.signin.success', 'Sign in successful! Welcome back.'));
                 setTimeout(() => navigate('/'), 1200);
             } else {
-                setErrorMessage('Please check your network connection or enter valid credentials.');
+                setErrorMessage(t('auth.signin.network_error', 'Please check your connection or enter valid credentials.'));
             }
         } finally {
             setIsLoading(false);
@@ -98,9 +98,9 @@ const SignIn = () => {
                         zIndex: 2,
                     }}
                 >
-                    <Link to="/" style={{ color: 'rgba(255,255,255,0.82)', textDecoration: 'none' }}>Home</Link>
+                    <Link to="/" style={{ color: 'rgba(255,255,255,0.82)', textDecoration: 'none' }}>{t('nav.home', 'Home')}</Link>
                     <span style={{ margin: '0 0.4rem', fontSize: '0.6rem' }}>♦</span>
-                    Sign In
+                    {t('nav.signin', 'Sign In')}
                 </div>
 
                 {/* Heading */}
@@ -117,7 +117,7 @@ const SignIn = () => {
                                 lineHeight: 1.08,
                             }}
                         >
-                            WELCOME BACK TO <span className="text-[#1eb4d4]">ENAKO</span>
+                            {t('auth.signin.hero_title_1', 'WELCOME BACK TO')} <span className="text-[#1eb4d4]">ENAKO</span>
                         </h1>
                     </FadeIn>
                 </div>
@@ -130,22 +130,22 @@ const SignIn = () => {
                         {/* LEFT COLUMN: BRAND VALUE PROP */}
                         <div className="lg:col-span-5 space-y-6">
                             <FadeIn direction="up">
-                                <span className="ds-badge">ENAKO COMMUNITY PORTAL</span>
+                                <span className="ds-badge">{t('auth.signin.portal_badge', 'ENAKO COMMUNITY PORTAL')}</span>
                                 <h2 className="ds-h2 text-3xl md:text-4xl text-[#1c4980] mt-2 mb-4">
-                                    MANAGE YOUR DONATIONS & APPLICATIONS
+                                    {t('auth.signin.portal_title', 'MANAGE YOUR DONATIONS & APPLICATIONS')}
                                 </h2>
                                 <p className="ds-body leading-relaxed mb-6">
-                                    Sign in to track your monthly donations, view official tax receipts, monitor scholarship applications, and stay connected with community progress.
+                                    {t('auth.signin.portal_desc', 'Sign in to track your monthly donations, view official tax receipts, monitor scholarship applications, and stay connected with community progress.')}
                                 </p>
                             </FadeIn>
 
                             <FadeIn direction="up" delay={0.1}>
                                 <div className="space-y-4 pt-2">
                                     {[
-                                        'Track real-time impact of your monthly contributions',
-                                        'Download instant PDF receipts for bank transfers & Mobile Money',
-                                        'Track scholarship & grant application status',
-                                        'Access direct updates from regional project leads',
+                                        t('auth.signin.feat_1', 'Track real-time impact of your monthly contributions'),
+                                        t('auth.signin.feat_2', 'Download instant PDF receipts for bank transfers & Mobile Money'),
+                                        t('auth.signin.feat_3', 'Track scholarship & grant application status'),
+                                        t('auth.signin.feat_4', 'Access direct updates from regional project leads'),
                                     ].map((feat, idx) => (
                                         <div key={idx} className="flex items-start gap-3">
                                             <CheckCircle2 className="w-5 h-5 text-[#1eb4d4] shrink-0 mt-0.5" />
@@ -158,9 +158,9 @@ const SignIn = () => {
                             <FadeIn direction="up" delay={0.2}>
                                 <div className="ds-callout mt-6">
                                     <div className="flex items-center gap-2 text-[#1eb4d4] font-bold text-xs uppercase mb-2">
-                                        <ShieldCheck className="w-4 h-4" /> Secure Authentication
+                                        <ShieldCheck className="w-4 h-4" /> {t('auth.signin.security_title', 'Secure Authentication')}
                                     </div>
-                                    Your account credentials and personal information are encrypted with enterprise-grade SSL protection.
+                                    {t('auth.signin.security_desc', 'Your account credentials and personal information are encrypted with enterprise-grade SSL protection.')}
                                 </div>
                             </FadeIn>
                         </div>
@@ -170,11 +170,11 @@ const SignIn = () => {
                             <FadeIn direction="up" delay={0.15}>
                                 <div className="ds-card p-8 md:p-12 border border-slate-200 shadow-xl bg-white rounded-lg">
                                     <div className="mb-8">
-                                        <h3 className="ds-h2 text-2xl text-[#111] mb-2">SIGN IN TO YOUR ACCOUNT</h3>
+                                        <h3 className="ds-h2 text-2xl text-[#111] mb-2">{t('auth.signin.card_title', 'SIGN IN TO YOUR ACCOUNT')}</h3>
                                         <p className="ds-body-sm">
-                                            Don't have an account yet?{' '}
+                                            {t('auth.signin.no_account', "Don't have an account yet?")}{' '}
                                             <Link to="/signup" className="ds-link font-bold">
-                                                Create one here
+                                                {t('auth.signin.create_here', 'Create one here')}
                                             </Link>
                                         </p>
                                     </div>
@@ -195,7 +195,7 @@ const SignIn = () => {
                                         {/* Email Input */}
                                         <div>
                                             <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
-                                                Email Address
+                                                {t('auth.signin.email_label', 'Email Address')}
                                             </label>
                                             <div className="relative">
                                                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
@@ -216,10 +216,10 @@ const SignIn = () => {
                                         <div>
                                             <div className="flex items-center justify-between mb-2">
                                                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
-                                                    Password
+                                                    {t('auth.signin.password_label', 'Password')}
                                                 </label>
-                                                <a href="#" onClick={(e) => { e.preventDefault(); alert('Please contact support@enako.org to reset your password.'); }} className="text-xs text-[#1c4980] hover:underline font-semibold">
-                                                    Forgot password?
+                                                <a href="#" onClick={(e) => { e.preventDefault(); alert(t('auth.signin.reset_alert', 'Please contact support@enako.org to reset your password.')); }} className="text-xs text-[#1c4980] hover:underline font-semibold">
+                                                    {t('auth.signin.forgot_password', 'Forgot password?')}
                                                 </a>
                                             </div>
                                             <div className="relative">
@@ -253,7 +253,7 @@ const SignIn = () => {
                                                     onChange={(e) => setRememberMe(e.target.checked)}
                                                     className="w-4 h-4 accent-[#1c4980] rounded"
                                                 />
-                                                <span className="font-medium text-xs uppercase tracking-wider">Keep me signed in</span>
+                                                <span className="font-medium text-xs uppercase tracking-wider">{t('auth.signin.remember_me', 'Keep me signed in')}</span>
                                             </label>
                                         </div>
 
@@ -266,11 +266,11 @@ const SignIn = () => {
                                             {isLoading ? (
                                                 <span className="flex items-center gap-2">
                                                     <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                                                    Signing In...
+                                                    {t('auth.signin.signing_in', 'Signing In...')}
                                                 </span>
                                             ) : (
                                                 <span className="flex items-center gap-2">
-                                                    Sign In to Account <ArrowRight className="w-4 h-4" />
+                                                    {t('auth.signin.submit_btn', 'Sign In to Account')} <ArrowRight className="w-4 h-4" />
                                                 </span>
                                             )}
                                         </button>
@@ -278,16 +278,16 @@ const SignIn = () => {
                                         {/* Or Divider */}
                                         <div className="flex items-center gap-4 py-2">
                                             <div className="flex-1 h-px bg-slate-200" />
-                                            <span className="text-xs text-slate-400 font-bold uppercase tracking-wider">or</span>
+                                            <span className="text-xs text-slate-400 font-bold uppercase tracking-wider">{t('auth.signin.or', 'or')}</span>
                                             <div className="flex-1 h-px bg-slate-200" />
                                         </div>
 
                                         {/* Sign Up Redirect */}
                                         <div className="text-center pt-2">
                                             <p className="text-sm text-slate-600">
-                                                New to Enako Outreach?{' '}
+                                                {t('auth.signin.new_to_enako', 'New to Enako Outreach?')}{' '}
                                                 <Link to="/signup" className="text-[#1c4980] font-extrabold uppercase text-xs tracking-wider hover:underline ml-1">
-                                                    Create an Account
+                                                    {t('auth.signin.create_account', 'Create an Account')}
                                                 </Link>
                                             </p>
                                         </div>
