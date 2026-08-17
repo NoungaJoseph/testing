@@ -171,6 +171,13 @@ const ScholarshipDetail = () => {
                     
                     <FadeIn>
                         <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-outline-variant/30 mb-12">
+                            <div className="bg-amber-50 border border-amber-200 text-amber-950 rounded-2xl p-4 mb-6 font-bold text-sm md:text-base">
+                                <span>
+                                    {isFr
+                                        ? "Les candidatures aux bourses d'études ouvriront le 1er septembre."
+                                        : "Scholarship applications will be open on the 1st of September."}
+                                </span>
+                            </div>
                             <h1 className="font-display text-4xl md:text-5xl font-black text-primary mb-6">{title}</h1>
                             <p className="text-lg text-secondary leading-relaxed mb-8">{description}</p>
                             

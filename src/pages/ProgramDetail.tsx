@@ -1,4 +1,4 @@
-﻿import { useParams, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FadeIn from '../components/FadeIn';
@@ -381,6 +381,11 @@ const ProgramDetailPage = () => {
                             <FadeIn direction="left">
                                 <div id="apply-support" className="bg-gradient-to-br from-green-700 to-green-600 rounded-3xl p-7 text-white">
                                     <h3 className="font-black text-xl mb-3">{t('program_detail.sections.apply.title')}</h3>
+                                    {id?.startsWith('scholarships') && (
+                                        <div className="bg-amber-400/20 border border-amber-300/40 rounded-xl p-3.5 mb-4 text-xs font-bold text-amber-200">
+                                            <span>Scholarship applications will be open on the 1st of September.</span>
+                                        </div>
+                                    )}
                                     <p className="text-green-100 text-sm leading-relaxed mb-6">
                                         {t('program_detail.sections.apply.desc')}
                                     </p>
