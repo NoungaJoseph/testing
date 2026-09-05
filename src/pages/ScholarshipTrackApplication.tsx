@@ -13,6 +13,8 @@ interface Scholarship {
   descriptionFr: string | null;
   targetSchools: string[];
   status: string;
+  openDate?: string | null;
+  closeDate?: string | null;
 }
 
 const ScholarshipTrackApplication = () => {
@@ -72,13 +74,11 @@ const ScholarshipTrackApplication = () => {
                                     : "Discover and apply for currently available scholarships. Click on a scholarship to see full details, targeted schools, and submit your application."}
                             </p>
 
-                            <div className="inline-flex items-center gap-3 bg-amber-50 border border-amber-200 text-amber-950 px-6 py-3.5 rounded-2xl shadow-sm text-base md:text-lg font-bold">
-                                <span>
-                                    {isFr
-                                        ? "Les candidatures aux bourses d'études ouvriront le 1er septembre."
-                                        : "Scholarship applications will be open on the 1st of September."}
-                                </span>
-                            </div>
+                            <p className="text-base md:text-lg font-bold text-accent">
+                                {scholarships.some(s => s.status === 'OPEN')
+                                    ? (isFr ? "Bourses d'études actuellement ouvertes aux candidatures" : "Scholarship Applications Currently Live & Open")
+                                    : (isFr ? "Opportunités de bourses à venir" : "Upcoming Scholarship Grants & Fellowships")}
+                            </p>
                         </div>
                     </FadeIn>
 
@@ -89,17 +89,14 @@ const ScholarshipTrackApplication = () => {
                     ) : (
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {scholarships.length === 0 ? (
-                                <div className="col-span-full text-center py-16 bg-white rounded-3xl border border-outline-variant/30 shadow-sm p-8">
+                                <div className="col-span-full text-center py-16">
                                     <h3 className="font-display text-2xl font-bold text-primary mb-2">
-                                        {isFr ? 'Candidatures Bientôt Ouvertes' : 'Applications Opening Soon'}
+                                        {isFr ? 'Aucune Bourse Disponible Actuellement' : 'No Active Scholarships Available'}
                                     </h3>
-                                    <p className="text-xl font-black text-amber-600 mb-4">
-                                        {isFr 
-                                            ? "Les candidatures aux bourses d'études ouvriront le 1er septembre."
-                                            : "Scholarship applications will be open on the 1st of September."}
-                                    </p>
                                     <p className="text-secondary max-w-md mx-auto">
-                                        {isFr ? 'Revenez le 1er septembre pour consulter les détails complets et soumettre votre candidature.' : 'Please check back on September 1st to view full details and submit your application.'}
+                                        {isFr 
+                                            ? 'Veuillez revenir régulièrement pour consulter les prochaines sessions de candidatures.' 
+                                            : 'Please check back soon for upcoming scholarship opening dates and guidelines.'}
                                     </p>
                                 </div>
                             ) : (
