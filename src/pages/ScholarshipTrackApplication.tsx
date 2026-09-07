@@ -28,12 +28,30 @@ const ScholarshipTrackApplication = () => {
     useEffect(() => {
         const fetchScholarships = async () => {
             try {
-                const baseUrl = import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace(/\/api\/v1\/?$/, '') : 'https://api.enakoos.com';
-                const res = await fetch(`${baseUrl}/api/v1/public/scholarships`);
-                const data = await res.json();
-                setScholarships(data);
+                const apiBase = import.meta.env.VITE_API_URL 
+                    ? import.meta.env.VITE_API_URL.replace(/\/$/, '')
+                    : 'https://api.enakoos.com/api/v1';
+                
+                const url = apiBase.endsWith('/api/v1') 
+                    ? `${apiBase}/public/scholarships`
+                    : `${apiBase}/api/v1/public/scholarships`;
+
+                const res = await fetch(url);
+                if (res.ok) {
+                    const data = await res.json();
+                    if (Array.isArray(data)) {
+                        setScholarships(data);
+                    } else if (data && Array.isArray(data.items)) {
+                        setScholarships(data.items);
+                    } else {
+                        setScholarships([]);
+                    }
+                } else {
+                    setScholarships([]);
+                }
             } catch (err) {
-                console.error(err);
+                console.error('Error fetching live API scholarships:', err);
+                setScholarships([]);
             } finally {
                 setLoading(false);
             }
@@ -52,6 +70,9 @@ const ScholarshipTrackApplication = () => {
     const pageTitle = track && trackLabels[track as keyof typeof trackLabels] 
         ? trackLabels[track as keyof typeof trackLabels] 
         : (isFr ? 'Bourses Actives' : 'Active Scholarships');
+
+    const safeScholarships = Array.isArray(scholarships) ? scholarships : [];
+    const hasOpenScholarship = safeScholarships.some(s => s?.status === 'OPEN' || s?.status === 'ACTIVE');
 
     return (
         <div className="min-h-screen flex flex-col font-body text-primary bg-background overflow-hidden selection:bg-accent selection:text-white">
@@ -75,7 +96,7 @@ const ScholarshipTrackApplication = () => {
                             </p>
 
                             <p className="text-base md:text-lg font-bold text-accent">
-                                {scholarships.some(s => s.status === 'OPEN')
+                                {hasOpenScholarship
                                     ? (isFr ? "Bourses d'études actuellement ouvertes aux candidatures" : "Scholarship Applications Currently Live & Open")
                                     : (isFr ? "Opportunités de bourses à venir" : "Upcoming Scholarship Grants & Fellowships")}
                             </p>
@@ -88,7 +109,7 @@ const ScholarshipTrackApplication = () => {
                         </div>
                     ) : (
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {scholarships.length === 0 ? (
+                            {safeScholarships.length === 0 ? (
                                 <div className="col-span-full text-center py-16">
                                     <h3 className="font-display text-2xl font-bold text-primary mb-2">
                                         {isFr ? 'Aucune Bourse Disponible Actuellement' : 'No Active Scholarships Available'}
@@ -100,7 +121,7 @@ const ScholarshipTrackApplication = () => {
                                     </p>
                                 </div>
                             ) : (
-                                scholarships.map((scholarship) => {
+                                safeScholarships.map((scholarship) => {
                                     const title = isFr && scholarship.titleFr ? scholarship.titleFr : scholarship.title;
                                     const description = isFr && scholarship.descriptionFr ? scholarship.descriptionFr : scholarship.description;
                                     
