@@ -167,7 +167,7 @@ const ScholarshipDetail = () => {
         <div className="min-h-screen flex flex-col font-body text-primary bg-background overflow-hidden selection:bg-accent selection:text-white">
             <Navbar />
             
-            <main className="flex-grow pt-32 pb-20 relative">
+            <main className="flex-grow pt-40 lg:pt-48 pb-20 relative">
                 <div className="max-w-4xl mx-auto px-6 relative z-10">
                     <Link to="/apply/scholarship" className="text-accent underline font-bold mb-6 inline-block">&larr; {isFr ? 'Retour aux Bourses' : 'Back to Scholarships'}</Link>
                     

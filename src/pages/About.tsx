@@ -4,6 +4,7 @@ import AboutHero from '../components/AboutHero';
 import MissionVision from '../components/MissionVision';
 import LeadershipTeam from '../components/LeadershipTeam';
 import AnimatedNetworkBg from '../components/AnimatedNetworkBg';
+import GetInvolvedBanner from '../components/GetInvolvedBanner';
 
 const AboutPage = () => {
     return (
@@ -15,6 +16,7 @@ const AboutPage = () => {
                     <AboutHero />
                     <MissionVision />
                     <LeadershipTeam />
+                    <GetInvolvedBanner />
                 </main>
             </div>
             <Footer />

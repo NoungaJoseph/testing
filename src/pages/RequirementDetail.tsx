@@ -48,7 +48,7 @@ const RequirementDetail = () => {
             <Navbar />
             <div className="relative">
                 <AnimatedNetworkBg particleCount={20} />
-                <main className="relative z-10 pt-32 pb-20 px-6 md:px-12">
+                <main className="relative z-10 pt-40 lg:pt-48 pb-20 px-6 md:px-12">
                     <div className="max-w-3xl mx-auto">
                         <Link to="/apply/scholarship" className="text-[#00C2C7] underline text-sm font-bold">Back to Scholarship Application</Link>
                         <h1 className="text-[#001F5B] text-3xl md:text-4xl font-black mt-4 mb-6">{item?.title ?? 'Requirement Information'}</h1>

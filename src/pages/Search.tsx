@@ -118,7 +118,7 @@ const Search = () => {
         <div className="min-h-screen bg-white flex flex-col">
             <Navbar />
             
-            <main className="flex-grow pt-32 pb-24 px-6 md:px-12 max-w-6xl mx-auto w-full">
+            <main className="flex-grow pt-40 lg:pt-48 pb-24 px-6 md:px-12 max-w-6xl mx-auto w-full">
                 <FadeIn direction="up">
                     <div className="mb-12 border-b-2 border-slate-900 pb-8">
                         <span className="text-[#00BFA5] font-black tracking-[0.3em] uppercase text-[10px] block mb-4">{t('search_page.badge', 'Search Results')}</span>

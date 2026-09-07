@@ -91,7 +91,7 @@ const CommunityProjects = () => {
             <Navbar />
 
             {/* Header Hero Section */}
-            <header className="pt-36 pb-16 px-6 md:px-12 bg-[#001B44] text-white relative overflow-hidden">
+            <header className="pt-40 lg:pt-48 pb-16 px-6 md:px-12 bg-[#001B44] text-white relative overflow-hidden">
                 <div className="absolute inset-0 z-0 opacity-15">
                     <img src={communityData.coverImage} alt={communityData.name} className="w-full h-full object-cover" />
                 </div>

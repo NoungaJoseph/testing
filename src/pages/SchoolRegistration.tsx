@@ -70,7 +70,7 @@ const SchoolRegistrationPage = () => {
                 <main className="flex-grow relative z-10">
                     {/* HERO */}
                     <section className="relative w-full min-h-[60vh] flex flex-col lg:flex-row overflow-hidden">
-                        <div className="lg:w-1/2 pt-40 pb-16 px-6 lg:px-20 flex flex-col justify-center bg-transparent w-full">
+                        <div className="lg:w-1/2 pt-44 lg:pt-48 pb-16 px-6 lg:px-20 flex flex-col justify-center bg-transparent w-full">
                             <FadeIn direction="right">
                                 <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-secondary text-secondary text-xs font-bold uppercase tracking-widest w-fit mb-6">
                                     <span className="material-symbols-outlined text-sm">school</span>

@@ -76,7 +76,7 @@ const ApplicationDetail = () => {
             <Navbar />
             <div className="relative">
                 <AnimatedNetworkBg particleCount={30} />
-                <main className="relative z-10 pt-32 pb-20 px-6 md:px-12">
+                <main className="relative z-10 pt-40 lg:pt-48 pb-20 px-6 md:px-12">
                     <section className="max-w-6xl mx-auto">
                         <FadeIn direction="up">
                             <p className="text-[#00C2C7] text-xs font-bold uppercase tracking-widest">{content.badge}</p>

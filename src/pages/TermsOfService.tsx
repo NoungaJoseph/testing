@@ -13,7 +13,7 @@ const TermsOfService = () => {
             <Navbar />
             
             {/* Header Title Section - Plain text on page background */}
-            <header className="pt-36 pb-10 px-6 md:px-12 max-w-4xl mx-auto w-full">
+            <header className="pt-40 lg:pt-48 pb-10 px-6 md:px-12 max-w-4xl mx-auto w-full">
                 <motion.div 
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}

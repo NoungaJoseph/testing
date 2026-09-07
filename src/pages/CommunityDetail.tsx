@@ -34,7 +34,7 @@ const CommunityDetail = () => {
         <div className="min-h-screen bg-white">
             <Navbar />
 
-            <section className="pt-24 pb-16">
+            <section className="pt-36 lg:pt-48 pb-16">
                 <div className="max-w-6xl mx-auto px-6 md:px-12">
                     <FadeIn direction="up">
                         {/* Cover Image */}

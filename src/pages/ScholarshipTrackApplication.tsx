@@ -78,7 +78,7 @@ const ScholarshipTrackApplication = () => {
         <div className="min-h-screen flex flex-col font-body text-primary bg-background overflow-hidden selection:bg-accent selection:text-white">
             <Navbar />
             
-            <main className="flex-grow pt-32 pb-20 relative">
+            <main className="flex-grow pt-40 lg:pt-48 pb-20 relative">
                 {/* Background decorative elements */}
                 <div className="absolute top-0 right-0 w-1/2 h-[500px] bg-accent/5 rounded-bl-[100px] -z-10 blur-3xl"></div>
                 <div className="absolute bottom-0 left-0 w-1/3 h-[400px] bg-blue-100/30 rounded-tr-[100px] -z-10 blur-3xl"></div>

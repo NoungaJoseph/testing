@@ -11,7 +11,7 @@ const Contact = () => {
             <Navbar />
             <div className="relative">
                 <AnimatedNetworkBg particleCount={40} />
-                <main className="flex-grow pt-24 relative z-10">
+                <main className="flex-grow pt-36 lg:pt-48 relative z-10">
                     <ContactHero />
                     <ContactInfo />
                     <ContactForm />

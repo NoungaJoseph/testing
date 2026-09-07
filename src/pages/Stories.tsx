@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { BookOpen, ChevronRight, Home, ArrowRight, Quote } from 'lucide-react';
 import Navbar from '../components/Navbar';
@@ -81,7 +81,7 @@ const StoriesPage = () => {
                             </motion.div>
                             <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/60 to-transparent z-10" />
                         </div>
-                        <div className="relative z-20 flex-1 flex flex-col justify-end max-w-7xl mx-auto px-6 lg:px-20 w-full pb-20 pt-40">
+                        <div className="relative z-20 flex-1 flex flex-col justify-end max-w-7xl mx-auto px-6 lg:px-20 w-full pb-20 pt-44 lg:pt-48">
                             <FadeIn direction="up">
                                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-[10px] font-black uppercase tracking-[0.3em] mb-8">
                                     <BookOpen className="w-3 h-3" /> {t('stories.hero.badge')}

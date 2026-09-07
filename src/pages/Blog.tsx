@@ -83,7 +83,7 @@ const Blog = () => {
                         <div
                             style={{
                                 position: 'absolute',
-                                top: '9.5rem',
+                                top: '11.5rem',
                                 left: '2.5rem',
                                 color: 'rgba(255,255,255,0.82)',
                                 fontSize: '0.8rem',

@@ -37,7 +37,7 @@ const BlogDetail = () => {
         return (
             <div className="min-h-screen bg-white">
                 <Navbar />
-                <div className="max-w-4xl mx-auto px-6 pt-32 pb-24 text-center">
+                <div className="max-w-4xl mx-auto px-6 pt-40 lg:pt-48 pb-24 text-center">
                     <div className="animate-pulse space-y-6">
                         <div className="w-1/4 h-6 bg-slate-200 mx-auto rounded"></div>
                         <div className="w-3/4 h-12 bg-slate-200 mx-auto rounded"></div>
@@ -69,7 +69,7 @@ const BlogDetail = () => {
         <div className="min-h-screen bg-white">
             <Navbar />
 
-            <section className="pt-24 pb-16">
+            <section className="pt-36 lg:pt-48 pb-16">
                 <div className="max-w-4xl mx-auto px-6 md:px-12">
                     <FadeIn direction="up">
                         {post.video && (
