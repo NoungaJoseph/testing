@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, Quote } from 'lucide-react';
 import FadeIn from './FadeIn';
 import { useTranslation } from 'react-i18next';
 
@@ -22,7 +22,7 @@ const stories = [
     },
     {
         name: 'Abena Osei',
-        role: 'Scholarship Recipient, Yaounde',
+        role: 'Scholarship Recipient, Yaoundé',
         text: 'Being selected as top student in my district opened doors I only dreamed of. The Enako Outreach scholarship changed my entire family\'s trajectory - it is the reason I am in university today.',
         image: '/assets/images/testimonials/abena.png',
         fallback: '/assets/images/testimonials/abena.png',
@@ -37,34 +37,47 @@ const BeneficiaryStories = () => {
     const prev = () => setCurrent((c) => (c === 0 ? stories.length - 1 : c - 1));
     const next = () => setCurrent((c) => (c === stories.length - 1 ? 0 : c + 1));
 
+    // ── Automatic Carousel Slide Timer (5 seconds) ──
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrent((c) => (c === stories.length - 1 ? 0 : c + 1));
+        }, 5000);
+        return () => clearInterval(timer);
+    }, [current]);
+
     const story = stories[current];
 
     return (
-        <section className="py-24 px-6 md:px-16 overflow-hidden" style={{ backgroundColor: '#FDFBF7' }}>
+        <section
+            className="py-24 px-6 md:px-16 overflow-hidden bg-[#f8fafc] border-t border-slate-100"
+            style={{ fontFamily: '"Open Sans", sans-serif' }}
+        >
             <div className="max-w-7xl mx-auto">
                 <FadeIn direction="up">
-                    <div className="text-center mb-16">
-                        <span className="font-black uppercase tracking-[0.4em] text-[10px] block mb-4" style={{ color: '#001F5B' }}>
-                            {t('components.beneficiary_stories.badge')}
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <span className="text-[#1eb4d4] font-bold text-xs uppercase tracking-[0.2em] block mb-2">
+                            {t('components.beneficiary_stories.badge', 'HUMAN STORIES')}
                         </span>
-                        <h2 className="text-4xl md:text-5xl leading-tight" style={{ color: '#001B44' }}>
-                            {t('components.beneficiary_stories.title')} <span style={{ color: '#00BFA5' }}>{t('components.beneficiary_stories.title_highlight')}</span>
+                        <h2 className="text-3xl md:text-5xl font-extrabold text-[#001B44] uppercase tracking-tight">
+                            {t('components.beneficiary_stories.title', 'VOICES OF')}{' '}
+                            <span className="text-[#1eb4d4]">{t('components.beneficiary_stories.title_highlight', 'TRANSFORMATION')}</span>
                         </h2>
                     </div>
                 </FadeIn>
 
-                <div className="relative">
+                <div className="relative bg-white rounded-3xl p-8 md:p-14 border border-slate-200 shadow-xl">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={current}
-                            initial={{ opacity: 0, x: 40 }}
+                            initial={{ opacity: 0, x: 30 }}
                             animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -40 }}
-                            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+                            exit={{ opacity: 0, x: -30 }}
+                            transition={{ duration: 0.4, ease: 'easeInOut' }}
+                            className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center"
                         >
-                            <div className="relative">
-                                <div className="w-full max-w-md mx-auto lg:mx-0 rounded-[3rem_3rem_8rem_3rem] overflow-hidden aspect-[4/5]">
+                            {/* Photo Column */}
+                            <div className="lg:col-span-5 relative">
+                                <div className="w-full max-w-sm mx-auto lg:mx-0 rounded-2xl overflow-hidden aspect-[4/5] shadow-md border-4 border-slate-50 relative z-10">
                                     <img
                                         src={story.image}
                                         alt={story.name}
@@ -74,57 +87,83 @@ const BeneficiaryStories = () => {
                                         }}
                                     />
                                 </div>
-                                <div className="absolute bottom-6 left-6 w-8 h-8 rounded-full bg-secondary shadow-lg shadow-secondary/40" />
+                                <div className="absolute -bottom-4 -right-4 w-16 h-16 rounded-full bg-[#1eb4d4]/15 blur-xl pointer-events-none" />
                             </div>
 
-                            <div className="lg:pl-8">
-                                <span className="text-secondary font-black uppercase tracking-[0.3em] text-[10px] block mb-6">
-                                    {t('components.beneficiary_stories.story_badge')}
-                                </span>
+                            {/* Quote & Text Column */}
+                            <div className="lg:col-span-7 flex flex-col justify-between">
+                                <div>
+                                    <div className="w-12 h-12 rounded-xl bg-[#1eb4d4]/10 text-[#1eb4d4] flex items-center justify-center mb-6">
+                                        <Quote className="w-6 h-6" />
+                                    </div>
 
-                                <blockquote className="text-navy text-3xl md:text-4xl font-black leading-tight tracking-tight mb-8">
-                                    "{storiesT[current]?.text || story.text}"
-                                </blockquote>
+                                    <span className="text-[#1eb4d4] font-bold text-xs uppercase tracking-widest block mb-3">
+                                        {t('components.beneficiary_stories.story_badge', 'COMMUNITY IMPACT STORY')}
+                                    </span>
 
-                                <div className="mb-8">
-                                    <p className="text-navy font-black text-lg">{storiesT[current]?.name || story.name}</p>
-                                    <p className="text-slate-400 text-sm font-medium">{storiesT[current]?.role || story.role}</p>
+                                    <blockquote className="text-[#001B44] text-xl md:text-2xl font-bold leading-relaxed tracking-tight mb-8 font-sans">
+                                        "{storiesT[current]?.text || story.text}"
+                                    </blockquote>
                                 </div>
 
-                                <Link to="/stories" className="btn-pill btn-pill-primary text-sm">
-                                    {t('components.beneficiary_stories.btn')}
-                                </Link>
+                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 border-t border-slate-100">
+                                    <div>
+                                        <p className="text-[#001B44] font-extrabold text-lg uppercase tracking-wide">
+                                            {storiesT[current]?.name || story.name}
+                                        </p>
+                                        <p className="text-slate-500 text-xs font-semibold mt-0.5">
+                                            {storiesT[current]?.role || story.role}
+                                        </p>
+                                    </div>
+
+                                    <Link
+                                        to="/stories"
+                                        className="inline-flex items-center gap-2 px-6 py-3 bg-[#001B44] hover:bg-[#1eb4d4] text-white font-bold text-xs uppercase tracking-widest rounded-[2px] transition-all shadow-sm w-fit"
+                                    >
+                                        <span>{t('components.beneficiary_stories.btn', 'Read More Stories')}</span>
+                                        <ArrowRight className="w-4 h-4" />
+                                    </Link>
+                                </div>
                             </div>
                         </motion.div>
                     </AnimatePresence>
 
-                    <div className="flex items-center justify-center gap-3 mt-12">
-                        <button
-                            onClick={prev}
-                            className="w-10 h-10 rounded-full flex items-center justify-center transition-all"
-                            style={{ border: '2px solid #001B44', color: '#001B44' }}
-                        >
-                            <ChevronLeft className="w-4 h-4" />
-                        </button>
-                        {stories.map((_, i) => (
+                    {/* Pagination & Next/Prev Controls */}
+                    <div className="flex items-center justify-between mt-10 pt-6 border-t border-slate-100">
+                        {/* Dot Indicators */}
+                        <div className="flex items-center gap-2">
+                            {stories.map((_, i) => (
+                                <button
+                                    key={i}
+                                    onClick={() => setCurrent(i)}
+                                    className="transition-all duration-300 rounded-full cursor-pointer"
+                                    style={
+                                        i === current
+                                            ? { width: '2.5rem', height: '0.5rem', backgroundColor: '#1eb4d4' }
+                                            : { width: '0.5rem', height: '0.5rem', backgroundColor: '#cbd5e1' }
+                                    }
+                                    aria-label={`Go to slide ${i + 1}`}
+                                />
+                            ))}
+                        </div>
+
+                        {/* Navigation Arrows */}
+                        <div className="flex items-center gap-3">
                             <button
-                                key={i}
-                                onClick={() => setCurrent(i)}
-                                className="transition-all duration-300 rounded-full"
-                                style={
-                                    i === current
-                                        ? { width: '2rem', height: '0.75rem', backgroundColor: '#00BFA5' }
-                                        : { width: '0.75rem', height: '0.75rem', backgroundColor: '#CBD5E1' }
-                                }
-                            />
-                        ))}
-                        <button
-                            onClick={next}
-                            className="w-10 h-10 rounded-full flex items-center justify-center transition-all"
-                            style={{ border: '2px solid #001B44', color: '#001B44' }}
-                        >
-                            <ChevronRight className="w-4 h-4" />
-                        </button>
+                                onClick={prev}
+                                className="w-10 h-10 rounded-full border border-slate-300 text-[#001B44] hover:border-[#1eb4d4] hover:bg-[#1eb4d4] hover:text-white flex items-center justify-center transition-all cursor-pointer"
+                                aria-label="Previous story"
+                            >
+                                <ChevronLeft className="w-5 h-5" />
+                            </button>
+                            <button
+                                onClick={next}
+                                className="w-10 h-10 rounded-full border border-slate-300 text-[#001B44] hover:border-[#1eb4d4] hover:bg-[#1eb4d4] hover:text-white flex items-center justify-center transition-all cursor-pointer"
+                                aria-label="Next story"
+                            >
+                                <ChevronRight className="w-5 h-5" />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
