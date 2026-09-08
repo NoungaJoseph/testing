@@ -1,16 +1,36 @@
 import { useState } from 'react';
-import { Send, Mail } from 'lucide-react';
+import { Send, Mail, Loader2 } from 'lucide-react';
 import FadeIn from './FadeIn';
 import { useTranslation } from 'react-i18next';
 
 const NewsletterCTA = () => {
     const { t } = useTranslation();
     const [email, setEmail] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitted, setSubmitted] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (email) setSubmitted(true);
+        if (!email) return;
+
+        setIsSubmitting(true);
+        try {
+            await fetch('https://api.enakoos.com/api/v1/outreach/applications', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    type: 'NEWSLETTER',
+                    email: email,
+                    applicantName: 'Newsletter Subscriber'
+                })
+            });
+            setSubmitted(true);
+        } catch (err) {
+            console.error('Newsletter error:', err);
+            setSubmitted(true);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -85,9 +105,20 @@ const NewsletterCTA = () => {
                                         </div>
                                         <button
                                             type="submit"
-                                            className="btn-pill btn-pill-primary w-full justify-center text-sm"
+                                            disabled={isSubmitting}
+                                            className="btn-pill btn-pill-primary w-full justify-center text-sm disabled:opacity-50 flex items-center gap-2 cursor-pointer"
                                         >
-                                            {t('components.newsletter_cta.btn')} <Send className="w-4 h-4" />
+                                            {isSubmitting ? (
+                                                <>
+                                                    <Loader2 className="w-4 h-4 animate-spin" />
+                                                    <span>Subscribing...</span>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <span>{t('components.newsletter_cta.btn')}</span>
+                                                    <Send className="w-4 h-4" />
+                                                </>
+                                            )}
                                         </button>
                                         <p className="text-[10px] font-bold text-center uppercase tracking-widest" style={{ color: '#94A3B8' }}>
                                             {t('components.newsletter_cta.privacy')}

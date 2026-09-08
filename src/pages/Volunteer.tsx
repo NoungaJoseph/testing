@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
     Users, GraduationCap, ChevronRight, CheckCircle2, Award, Heart,
-    ShieldCheck, Sparkles, Send, FileText, ArrowRight, User, Mail, Phone, Briefcase
+    ShieldCheck, Sparkles, Send, FileText, ArrowRight, User, Mail, Phone, Briefcase, Loader2
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -416,8 +416,17 @@ const VolunteerPage = () => {
                                         disabled={isSubmitting}
                                         className="w-full py-4 bg-[#001B44] hover:bg-[#1eb4d4] text-white font-extrabold text-xs uppercase tracking-widest rounded-lg shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                                     >
-                                        <Send className="w-4 h-4" />
-                                        <span>{isSubmitting ? 'Submitting Application...' : 'Submit Volunteer Application'}</span>
+                                        {isSubmitting ? (
+                                            <>
+                                                <Loader2 className="w-4 h-4 animate-spin" />
+                                                <span>Submitting Application...</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Send className="w-4 h-4" />
+                                                <span>Submit Volunteer Application</span>
+                                            </>
+                                        )}
                                     </button>
                                 </form>
                             )}
