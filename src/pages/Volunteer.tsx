@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import {
-    Users, GraduationCap, ChevronRight, CheckCircle2, Award, Heart,
-    ShieldCheck, Sparkles, Send, FileText, ArrowRight, User, Mail, Phone, Briefcase, Loader2
+    Users, GraduationCap, CheckCircle2, Award,
+    Send, FileText, ArrowRight, User, Mail, Phone, Briefcase, Loader2
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -20,7 +19,15 @@ const VolunteerPage = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isComplete, setIsComplete] = useState(false);
 
-    const submitVolunteer = async () => {
+    const scrollToApply = (roleTitle?: string) => {
+        if (roleTitle) {
+            setForm((prev) => ({ ...prev, role: roleTitle }));
+        }
+        document.getElementById('apply')?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    const submitVolunteer = async (e: React.FormEvent) => {
+        e.preventDefault();
         setIsSubmitting(true);
         try {
             const payload = {
@@ -121,13 +128,14 @@ const VolunteerPage = () => {
                             </p>
 
                             <div className="flex flex-wrap gap-4 mt-8">
-                                <a
-                                    href="#apply"
-                                    className="px-8 py-3.5 bg-[#1eb4d4] hover:bg-[#1c4980] text-white font-bold text-xs uppercase tracking-wider rounded-[2px] transition-all shadow-md flex items-center gap-2"
+                                <button
+                                    type="button"
+                                    onClick={() => scrollToApply()}
+                                    className="px-8 py-3.5 bg-[#1eb4d4] hover:bg-[#1c4980] text-white font-bold text-xs uppercase tracking-wider rounded-[2px] transition-all shadow-md flex items-center gap-2 cursor-pointer"
                                 >
                                     <span>{t('volunteer.hero.btn_start', 'Apply To Volunteer')}</span>
                                     <ArrowRight className="w-4 h-4" />
-                                </a>
+                                </button>
                                 <Link
                                     to="/impact"
                                     className="px-8 py-3.5 bg-white/10 hover:bg-white/20 text-white border border-white/30 font-bold text-xs uppercase tracking-wider rounded-[2px] backdrop-blur-sm transition-all"
@@ -229,13 +237,13 @@ const VolunteerPage = () => {
                                                 <Briefcase className="w-3.5 h-3.5 text-[#1eb4d4]" />
                                                 {role.location}
                                             </span>
-                                            <a
-                                                href="#apply"
-                                                onClick={() => setForm((prev) => ({ ...prev, role: role.title }))}
-                                                className="text-[#001B44] font-bold uppercase hover:text-[#1eb4d4] transition-colors"
+                                            <button
+                                                type="button"
+                                                onClick={() => scrollToApply(role.title)}
+                                                className="text-[#001B44] font-bold uppercase hover:text-[#1eb4d4] transition-colors cursor-pointer bg-transparent border-none p-0"
                                             >
                                                 Apply Now →
-                                            </a>
+                                            </button>
                                         </div>
                                     </div>
                                 </FadeIn>
@@ -278,13 +286,13 @@ const VolunteerPage = () => {
                                             setDocumentBase64(null);
                                             setFileName(null);
                                         }}
-                                        className="mt-6 px-6 py-2.5 bg-[#001B44] text-white font-bold text-xs uppercase tracking-wider rounded hover:bg-[#1eb4d4] transition-all"
+                                        className="px-8 py-3.5 bg-[#001B44] text-white font-bold text-xs uppercase tracking-widest rounded-lg hover:bg-[#1eb4d4] transition-all"
                                     >
                                         Submit Another Application
                                     </button>
                                 </div>
                             ) : (
-                                <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); submitVolunteer(); }}>
+                                <form onSubmit={submitVolunteer} className="space-y-6">
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
                                             <label className="block text-xs font-bold text-[#001B44] uppercase tracking-wider mb-2">
@@ -296,7 +304,7 @@ const VolunteerPage = () => {
                                                     value={form.name}
                                                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                                                     className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm text-[#001B44] font-semibold focus:outline-none focus:border-[#1eb4d4] focus:bg-white transition-all"
-                                                    placeholder="e.g. Marie Claire Ngu"
+                                                    placeholder="e.g. Jean-Paul Mbida"
                                                     required
                                                 />
                                                 <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
@@ -448,12 +456,13 @@ const VolunteerPage = () => {
                             Join hundreds of dedicated volunteers transforming lives through education, healthcare, and community empowerment.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-                            <a
-                                href="#apply"
-                                className="px-8 py-3.5 bg-[#1eb4d4] hover:bg-white hover:text-[#001B44] text-white font-bold text-xs uppercase tracking-wider rounded-[2px] transition-all shadow-md"
+                            <button
+                                type="button"
+                                onClick={() => scrollToApply()}
+                                className="px-8 py-3.5 bg-[#1eb4d4] hover:bg-white hover:text-[#001B44] text-white font-bold text-xs uppercase tracking-wider rounded-[2px] transition-all shadow-md cursor-pointer"
                             >
                                 Submit Application
-                            </a>
+                            </button>
                             <Link
                                 to="/donate"
                                 className="px-8 py-3.5 bg-white/10 hover:bg-white/20 text-white border border-white/30 font-bold text-xs uppercase tracking-wider rounded-[2px] transition-all"

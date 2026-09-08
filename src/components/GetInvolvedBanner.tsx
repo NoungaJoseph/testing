@@ -25,7 +25,7 @@ const defaultBlocks: ActionBlock[] = [
         description: 'We are here to support widows and orphans, offering hope and resources for a brighter future.',
         buttonText: 'Learn More',
         buttonLink: '/about',
-        bgColor: '#001B44', // Dark Navy
+        bgColor: '#001B44',
         btnBgColor: '#FFFFFF',
         btnTextColor: '#001B44',
     },
@@ -34,8 +34,8 @@ const defaultBlocks: ActionBlock[] = [
         description: 'Discover how your contribution can make a real difference in their lives.',
         buttonText: 'Get Involved',
         buttonLink: '/volunteer',
-        bgColor: '#0B2545', // Medium Slate Navy
-        btnBgColor: '#1eb4d4', // Cyan
+        bgColor: '#0B2545',
+        btnBgColor: '#1eb4d4',
         btnTextColor: '#FFFFFF',
     },
     {
@@ -43,7 +43,7 @@ const defaultBlocks: ActionBlock[] = [
         description: 'Together, we can provide support, resources, and hope for brighter tomorrows.',
         buttonText: 'Donate Now',
         buttonLink: '/donate',
-        bgColor: '#133863', // Deep Blue Accent
+        bgColor: '#133863',
         btnBgColor: '#001B44',
         btnTextColor: '#FFFFFF',
     },
@@ -87,16 +87,33 @@ const GetInvolvedBanner: React.FC<GetInvolvedBannerProps> = ({
                             </div>
 
                             <div>
-                                <Link
-                                    to={block.buttonLink}
-                                    className="inline-block px-7 py-3.5 font-bold text-xs uppercase tracking-widest transition-transform duration-200 hover:scale-105 rounded-[2px] shadow-sm"
-                                    style={{
-                                        backgroundColor: block.btnBgColor || '#FFFFFF',
-                                        color: block.btnTextColor || '#001B44',
-                                    }}
-                                >
-                                    {block.buttonText}
-                                </Link>
+                                {block.buttonLink.startsWith('#') ? (
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            const targetId = block.buttonLink.replace('#', '');
+                                            document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+                                        }}
+                                        className="inline-block px-7 py-3.5 font-bold text-xs uppercase tracking-widest transition-transform duration-200 hover:scale-105 rounded-[2px] shadow-sm cursor-pointer"
+                                        style={{
+                                            backgroundColor: block.btnBgColor || '#FFFFFF',
+                                            color: block.btnTextColor || '#001B44',
+                                        }}
+                                    >
+                                        {block.buttonText}
+                                    </button>
+                                ) : (
+                                    <Link
+                                        to={block.buttonLink}
+                                        className="inline-block px-7 py-3.5 font-bold text-xs uppercase tracking-widest transition-transform duration-200 hover:scale-105 rounded-[2px] shadow-sm"
+                                        style={{
+                                            backgroundColor: block.btnBgColor || '#FFFFFF',
+                                            color: block.btnTextColor || '#001B44',
+                                        }}
+                                    >
+                                        {block.buttonText}
+                                    </Link>
+                                )}
                             </div>
                         </div>
                     </FadeIn>
