@@ -43,7 +43,7 @@ const BlogArchives = () => {
 
     const allPosts = useMemo(() => {
         if (livePosts.length === 0) return staticBlogPosts;
-        
+
         // Format live posts to ensure compatible fields
         const formatted = livePosts.map(p => ({
             id: p.id,

@@ -8,7 +8,7 @@ const ImpactTimeline = () => {
         {
             year: t('impact_timeline.phase1_year', 'Phase 1: Launch'),
             title: t('impact_timeline.phase1_title', 'Foundation Establishment'),
-            description: t('impact_timeline.phase1_desc', 'Establishing our central mission in Africa and identifying our key community hubs for 2024.'),
+            description: t('impact_timeline.phase1_desc', 'Establishing our central mission in Cameroon and identifying our key community hubs for 2024.'),
             icon: "foundation",
             image: "/assets/images/new_assets/timeline_1.png"
         },
@@ -28,8 +28,8 @@ const ImpactTimeline = () => {
         },
         {
             year: t('impact_timeline.phase4_year', 'Phase 4: Expansion'),
-            title: t('impact_timeline.phase4_title', 'Cross-Border Scaling'),
-            description: t('impact_timeline.phase4_desc', 'Expanding our proven humanitarian models across 12 countries in the region.'),
+            title: t('impact_timeline.phase4_title', 'National Scaling'),
+            description: t('impact_timeline.phase4_desc', 'Expanding our proven humanitarian models across all 10 regions of Cameroon.'),
             icon: "public",
             image: "/assets/images/new_assets/timeline_1.png"
         }
@@ -43,7 +43,7 @@ const ImpactTimeline = () => {
                         <span className="inline-block px-4 py-1.5 mb-4 text-xs font-bold tracking-widest uppercase bg-white border border-secondary text-secondary rounded-full">{t('impact_timeline.story_badge', 'Our Story')}</span>
                         <h2 className="text-4xl lg:text-6xl font-black tracking-tight mb-6 text-navy dark:text-white">{t('impact_timeline.title', 'Our Journey of Impact')}</h2>
                         <p className="text-slate-600 dark:text-slate-400 text-lg lg:text-xl max-w-2xl mx-auto">
-                            {t('impact_timeline.desc', 'Our strategic roadmap for empowering communities and fostering education across Africa, one phase at a time.')}
+                            {t('impact_timeline.desc', 'Our strategic roadmap for empowering communities and fostering education across Cameroon, one phase at a time.')}
                         </p>
                     </div>
                 </FadeIn>

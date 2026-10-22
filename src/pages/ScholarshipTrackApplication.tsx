@@ -31,7 +31,7 @@ const ScholarshipTrackApplication = () => {
                 const apiBase = import.meta.env.VITE_API_URL 
                     ? import.meta.env.VITE_API_URL.replace(/\/$/, '')
                     : 'https://api.enakoos.com/api/v1';
-                
+
                 const url = apiBase.endsWith('/api/v1') 
                     ? `${apiBase}/public/scholarships`
                     : `${apiBase}/api/v1/public/scholarships`;
@@ -65,7 +65,7 @@ const ScholarshipTrackApplication = () => {
         secondary: isFr ? 'Bourses Secondaire' : 'Secondary Scholarships',
         university: isFr ? 'Bourses Universitaires' : 'University Scholarships'
     };
-    
+
     // Default title if no track or generic
     const pageTitle = track && trackLabels[track as keyof typeof trackLabels] 
         ? trackLabels[track as keyof typeof trackLabels] 
@@ -77,7 +77,7 @@ const ScholarshipTrackApplication = () => {
     return (
         <div className="min-h-screen flex flex-col font-body text-primary bg-background overflow-hidden selection:bg-accent selection:text-white">
             <Navbar />
-            
+
             <main className="flex-grow pt-40 lg:pt-48 pb-20 relative">
                 {/* Background decorative elements */}
                 <div className="absolute top-0 right-0 w-1/2 h-[500px] bg-accent/5 rounded-bl-[100px] -z-10 blur-3xl"></div>
@@ -115,7 +115,7 @@ const ScholarshipTrackApplication = () => {
                                         {isFr ? 'Aucune Bourse Disponible Actuellement' : 'No Active Scholarships Available'}
                                     </h3>
                                     <p className="text-secondary max-w-md mx-auto">
-                                        {isFr 
+                                {isFr 
                                             ? 'Veuillez revenir régulièrement pour consulter les prochaines sessions de candidatures.' 
                                             : 'Please check back soon for upcoming scholarship opening dates and guidelines.'}
                                     </p>
@@ -124,7 +124,7 @@ const ScholarshipTrackApplication = () => {
                                 safeScholarships.map((scholarship) => {
                                     const title = isFr && scholarship.titleFr ? scholarship.titleFr : scholarship.title;
                                     const description = isFr && scholarship.descriptionFr ? scholarship.descriptionFr : scholarship.description;
-                                    
+
                                     return (
                                         <FadeIn key={scholarship.id}>
                                             <div className="bg-white rounded-3xl p-8 border border-outline-variant/30 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col group">
@@ -139,7 +139,7 @@ const ScholarshipTrackApplication = () => {
                                                         {description}
                                                     </p>
                                                 </div>
-                                                
+
                                                 <div className="mt-auto">
                                                     {scholarship.targetSchools && scholarship.targetSchools.length > 0 && (
                                                         <div className="mb-6">
@@ -158,7 +158,7 @@ const ScholarshipTrackApplication = () => {
                                                             </div>
                                                         </div>
                                                     )}
-                                                    
+
                                                     <Link 
                                                         to={`/scholarships/${scholarship.id}`} 
                                                         className="block w-full text-center bg-primary text-white py-3 rounded-xl font-bold hover:bg-accent transition-colors"
@@ -175,7 +175,7 @@ const ScholarshipTrackApplication = () => {
                     )}
                 </div>
             </main>
-            
+
             <Footer />
         </div>
     );

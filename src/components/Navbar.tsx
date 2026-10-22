@@ -168,16 +168,16 @@ const Navbar = () => {
             // Show navbar when at the top
             if (currentScrollY < 100) {
                 setIsVisible(true);
-            } 
+            }
             // Hide navbar when scrolling down
             else if (currentScrollY > lastScrollY && currentScrollY > 100) {
                 setIsVisible(false);
-            } 
+            }
             // Show navbar when scrolling up
             else if (currentScrollY < lastScrollY) {
                 setIsVisible(true);
             }
-            
+
             setLastScrollY(currentScrollY);
         };
 
@@ -234,7 +234,7 @@ const Navbar = () => {
                             <a href="#" className="hover:text-[#1c4980] transition-colors"><Twitter className="w-4 h-4" /></a>
                             <a href="#" className="hover:text-[#1c4980] transition-colors"><Instagram className="w-4 h-4" /></a>
                             <a href="#" className="hover:text-[#1c4980] transition-colors"><Linkedin className="w-4 h-4" /></a>
-                            
+
                             {/* Language Dropdown */}
                             <div className="relative">
                                 <button
@@ -282,7 +282,7 @@ const Navbar = () => {
                 {/* ── MAIN NAVBAR ── */}
                 <header className="bg-white shadow-sm" style={navbarFontStyle}>
                     <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between lg:justify-center gap-4 min-h-[64px] lg:min-h-0">
-                        
+
                         {/* Mobile Logo & Language (hidden on lg) */}
                         <div className="lg:hidden flex items-center justify-between w-full">
                             <Link to="/" className="flex items-center gap-2 group flex-shrink-0 min-w-0">

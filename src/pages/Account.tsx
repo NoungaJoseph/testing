@@ -63,7 +63,7 @@ const Account = () => {
             setLoadingSync(true);
             try {
                 const backendUrl = import.meta.env.VITE_API_URL || 'https://api.enakoos.com/api/v1';
-                
+
                 const [donRes, appRes] = await Promise.allSettled([
                     fetch(`${backendUrl}/outreach/donations`),
                     fetch(`${backendUrl}/outreach/applications`),

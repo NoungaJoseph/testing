@@ -340,7 +340,7 @@ const VolunteerPage = () => {
                                                     value={form.phone}
                                                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
                                                     className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm text-[#001B44] font-semibold focus:outline-none focus:border-[#1eb4d4] focus:bg-white transition-all"
-                                                    placeholder="e.g. +237 670 000 000"
+                                                    placeholder="e.g. +237 6 70 67 12 49"
                                                     required
                                                 />
                                                 <Phone className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />

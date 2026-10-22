@@ -12,9 +12,9 @@ const stories = [
     {
         id: 1,
         category: 'Student Success',
-        title: '"From a Village Classroom to a University in Douala"',
+        title: '"From a Village Classroom to a University in Yaoundé"',
         author: 'Abena Osei, Scholarship Recipient',
-        country: 'Ghana',
+        country: 'Cameroon',
         image: '/assets/images/new_assets/story_student.png',
         excerpt: 'When I was selected as the top student in my district, I never imagined it would open doors I had only dreamed of. The Enako Outreach scholarship didn\'t just pay my fees - it changed my entire family\'s trajectory.',
         featured: true,
@@ -24,7 +24,7 @@ const stories = [
         category: 'Teacher Award',
         title: '"Being Recognized Changed How I Teach"',
         author: 'Mr. Emmanuel Asante, Teacher',
-        country: 'Nigeria',
+        country: 'Cameroon',
         image: '/assets/images/new_assets/story_teacher.png',
         excerpt: 'The award was more than money; it was validation. For the first time in 15 years of teaching, someone said "we see you." My students noticed the change in my energy immediately.',
         featured: false,
@@ -34,7 +34,7 @@ const stories = [
         category: 'Community Impact',
         title: '"Our Village Now Has Clean Water"',
         author: 'Chief Yaw Darko, Community Leader',
-        country: 'Kenya',
+        country: 'Cameroon',
         image: '/assets/images/new_assets/story_water.png',
         excerpt: 'Before Enako came, our children walked 3 km each morning just to reach water. Now that borehole in our compound has freed our children to attend school instead.',
         featured: false,
@@ -156,7 +156,7 @@ const StoriesPage = () => {
                                     <span className="text-[#1eb4d4]">{t('stories.hero.title_highlight', 'TRANSFORMATION')}</span>
                                 </h1>
                                 <p className="text-slate-200 text-base md:text-lg font-normal max-w-2xl mt-4 leading-relaxed">
-                                    {t('stories.hero.desc', 'Real narratives of change from students, teachers, and communities across Africa.')}
+                                    {t('stories.hero.desc', 'Real narratives of change from students, teachers, and communities across Cameroon.')}
                                 </p>
 
                                 <div className="flex flex-wrap gap-4 mt-8">

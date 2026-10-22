@@ -261,7 +261,7 @@ const SignUp = () => {
                                                     type="tel"
                                                     value={phone}
                                                     onChange={(e) => setPhone(e.target.value)}
-                                                    placeholder="+237 670 000 000"
+                                                    placeholder="+237 6 70 67 12 49"
                                                     required
                                                     className="w-full h-12 pl-10 pr-4 bg-slate-50 border border-slate-300 rounded text-slate-900 text-sm font-medium focus:bg-white focus:border-[#1c4980] focus:outline-none transition-colors"
                                                 />

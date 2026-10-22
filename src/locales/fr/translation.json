@@ -1330,7 +1330,7 @@
       "badge": "Récits Communautaires",
       "title": "Voix de la",
       "title_highlight": "Transformation.",
-      "desc": "De véritables histoires de changement de la part d'étudiants, d'enseignants et de communautés à travers l'Afrique.",
+      "desc": "De véritables histoires de changement de la part d'étudiants, d'enseignants et de communautés à travers le Cameroun.",
       "btn_explore": "Explorer les Récits",
       "btn_impact": "Notre Rapport d'Impact"
     },
@@ -1361,23 +1361,23 @@
     "items": [
       {
         "category": "Réussite Étudiante",
-        "title": "\"D'une Salle de Classe de Village à une Université à Accra\"",
+        "title": "\"D'une Salle de Classe de Village à une Université à Douala\"",
         "author": "Abena Osei, Boursière",
-        "country": "Ghana",
+        "country": "Cameroon",
         "excerpt": "Lorsque j'ai été sélectionnée comme la meilleure élève de mon district, je n'aurais jamais imaginé que cela m'ouvrirait des portes dont je n'avais fait que rêver. La bourse Enako Outreach n'a pas seulement payé mes frais de scolarité, elle a changé la trajectoire de toute ma famille."
       },
       {
         "category": "Prix de l'Enseignant",
         "title": "\"Être Reconnu a Changé ma Façon d'Enseigner\"",
         "author": "M. Emmanuel Asante, Enseignant",
-        "country": "Nigeria",
+        "country": "Cameroon",
         "excerpt": "Le prix était plus que de l'argent ; c'était une validation. Pour la première fois en 15 ans d'enseignement, quelqu'un m'a dit « nous vous voyons ». Mes élèves ont immédiatement remarqué le changement dans mon énergie."
       },
       {
         "category": "Impact Communautaire",
         "title": "\"Notre Village a Maintenant de l'Eau Potable\"",
         "author": "Chef Yaw Darko, Chef Communautaire",
-        "country": "Kenya",
+        "country": "Cameroon",
         "excerpt": "Avant l'arrivée d'Enako, nos enfants marchaient 3 km chaque matin juste pour aller chercher de l'eau. Maintenant, ce forage dans notre enceinte a libéré nos enfants pour qu'ils puissent aller à l'école."
       }
     ],

@@ -205,7 +205,7 @@ const SchoolRegistrationPage = () => {
                                                     <select value={form.country} onChange={(e) => setForm({ ...form, country: e.target.value })}
                                                         className="w-full h-12 px-4 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-secondary text-navy bg-white" required>
                                                         <option value="">Select country...</option>
-                                                        {['Cameroon', 'Ghana', 'Nigeria', 'Kenya', 'Uganda', 'Tanzania', 'Ethiopia', 'Rwanda', 'Senegal', "Côte d'Ivoire", 'Other'].map(c => (
+                                                        {['Cameroon', 'Cameroon', 'Cameroon', 'Cameroon', 'Uganda', 'Tanzania', 'Ethiopia', 'Rwanda', 'Senegal', "Côte d'Ivoire", 'Other'].map(c => (
                                                             <option key={c}>{c}</option>
                                                         ))}
                                                     </select>

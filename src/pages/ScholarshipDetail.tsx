@@ -26,7 +26,7 @@ const ScholarshipDetail = () => {
     const [scholarship, setScholarship] = useState<Scholarship | null>(null);
     const [loading, setLoading] = useState(true);
     const [isComplete, setIsComplete] = useState(false);
-    
+
     // Form state
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -35,7 +35,7 @@ const ScholarshipDetail = () => {
     const [documentBase64, setDocumentBase64] = useState<string | null>(null);
 
     const [customFormData, setCustomFormData] = useState<Record<string, any>>({});
-    
+
     useEffect(() => {
         const fetchScholarship = async () => {
             try {
@@ -94,10 +94,10 @@ const ScholarshipDetail = () => {
         e.preventDefault();
         try {
             const baseUrl = import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace(/\/api\/v1\/?$/, '') : 'https://api.enakoos.com';
-            
+
             const dynamicDocuments: string[] = [];
             const customDetails: Record<string, string> = {};
-            
+
             Object.entries(customFormData).forEach(([key, val]) => {
                 if (typeof val === 'object' && val.base64) {
                     dynamicDocuments.push(val.base64);
@@ -166,11 +166,11 @@ const ScholarshipDetail = () => {
     return (
         <div className="min-h-screen flex flex-col font-body text-primary bg-background overflow-hidden selection:bg-accent selection:text-white">
             <Navbar />
-            
+
             <main className="flex-grow pt-40 lg:pt-48 pb-20 relative">
                 <div className="max-w-4xl mx-auto px-6 relative z-10">
                     <Link to="/apply/scholarship" className="text-accent underline font-bold mb-6 inline-block">&larr; {isFr ? 'Retour aux Bourses' : 'Back to Scholarships'}</Link>
-                    
+
                     <FadeIn>
                         <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-outline-variant/30 mb-12">
                             <p className="text-sm font-bold text-accent mb-4">
@@ -180,7 +180,7 @@ const ScholarshipDetail = () => {
                             </p>
                             <h1 className="font-display text-4xl md:text-5xl font-black text-primary mb-6">{title}</h1>
                             <p className="text-lg text-secondary leading-relaxed mb-8">{description}</p>
-                            
+
                             <div className="bg-blue-50 border border-blue-100 rounded-xl p-6 mb-8">
                                 <h3 className="font-display font-bold text-xl mb-4 text-blue-900">{isFr ? 'Écoles Cibles' : 'Target Schools'}</h3>
                                 {scholarship.targetSchools && scholarship.targetSchools.length > 0 ? (
@@ -268,7 +268,7 @@ const ScholarshipDetail = () => {
                     </FadeIn>
                 </div>
             </main>
-            
+
             <Footer />
         </div>
     );

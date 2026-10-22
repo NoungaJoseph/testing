@@ -97,7 +97,7 @@ const FocusCommunities = () => {
     events.forEach(event => {
       if (!groupedEvents[event.type]) {
         groupedEvents[event.type] = [];
-      }
+}
       groupedEvents[event.type].push(event);
     });
 
@@ -107,15 +107,15 @@ const FocusCommunities = () => {
       // Find matching type for the slug
       const matchingType = Object.keys(categorySlugMap).find(key => categorySlugMap[key] === item.slug);
       const activeEventsForCategory = matchingType ? groupedEvents[matchingType] : [];
-      
+
       // ONLY show if there is at least one active event created by the manager!
       if (activeEventsForCategory && activeEventsForCategory.length > 0) {
         categoriesToShow.push({
           ...item,
           events: activeEventsForCategory,
-          image: categoryImages[item.slug] || '/assets/focus communities/focus community.png',
-        });
-      }
+                image: categoryImages[item.slug] || '/assets/focus communities/focus community.png',
+    });
+}
     });
 
     // 2. Process custom / new categories
@@ -125,8 +125,8 @@ const FocusCommunities = () => {
         // This is a custom category defined by the manager
         groupedEvents[type].forEach(event => {
           customInitiatives.push(event);
-        });
-      }
+    });
+}
     });
 
     return (
@@ -226,7 +226,7 @@ const FocusCommunities = () => {
                                             <Link to={`/focus-communities/${item.slug}`} className="underline hover:text-green-600">{item.title}</Link>
                                         </h3>
                                         <p className="text-slate-600 leading-relaxed text-sm mb-4">{item.desc}</p>
-                                        
+
                                         <div className="space-y-2 mt-2">
                                           <div className="text-xs font-black text-slate-400 uppercase tracking-widest">{isFr ? 'Campagnes actives :' : 'Active Campaigns:'}</div>
                                           {item.events.map((ev: OutreachEvent) => (
@@ -251,38 +251,38 @@ const FocusCommunities = () => {
                     <span className="text-green-600 font-bold text-xs uppercase tracking-widest block mb-2">{isFr ? 'Autres initiatives' : 'Other Campaigns'}</span>
                     <h2 className="text-slate-900 font-black text-3xl md:text-4xl">{isFr ? 'Initiatives Actives Supplémentaires' : 'Additional Active Initiatives'}</h2>
                     <p className="text-slate-500 text-sm max-w-xl mx-auto mt-2">{isFr ? 'Découvrez des campagnes de secours créées sur mesure par notre équipe.' : 'Discover custom relief campaigns created on the fly by our outreach team.'}</p>
-                  </FadeIn>
+                        </FadeIn>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {customInitiatives.map((ev, i) => {
                       const typeSlug = ev.type.toLowerCase().replace(/_/g, '-');
                       const galleryArr = ev.gallery as any[];
                       const coverImage = galleryArr && galleryArr.length > 0 ? galleryArr[0].url : '/assets/focus communities/focus community.png';
-                      return (
+    return (
                         <FadeIn key={ev.id} direction="up" delay={i * 0.08}>
                           <div className="bg-white rounded-3xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-md transition-all flex flex-col h-full">
                             <div className="h-48 overflow-hidden bg-slate-100 relative">
                               <img src={coverImage} alt={ev.title} className="w-full h-full object-cover" />
                               <span className="absolute top-4 left-4 bg-green-600 text-white font-bold text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full">
                                 {ev.type.replace(/_/g, ' ')}
-                              </span>
-                            </div>
+                        </span>
+                                            </div>
                             <div className="p-6 flex-1 flex flex-col justify-between">
-                              <div>
+                                                <div>
                                 <h3 className="font-black text-slate-900 text-lg mb-2">{isFr && ev.titleFr ? ev.titleFr : ev.title}</h3>
                                 <p className="text-slate-500 text-xs leading-relaxed line-clamp-3 mb-4">{isFr && ev.descriptionFr ? ev.descriptionFr : ev.description}</p>
-                              </div>
+                                                </div>
                               <Link to={`/focus-communities/${typeSlug}`} className="text-green-600 font-bold text-xs hover:underline uppercase tracking-widest mt-2 block">
                                 {isFr ? 'En savoir plus' : 'Learn More'} &rarr;
-                              </Link>
-                            </div>
-                          </div>
-                        </FadeIn>
+                                            </Link>
+                                            </div>
+                                        </div>
+                    </FadeIn>
                       );
                     })}
-                  </div>
-                </div>
-              </section>
+                        </div>
+                    </div>
+            </section>
             )}
 
             {/* ── INTERACTIVE MAP ── */}

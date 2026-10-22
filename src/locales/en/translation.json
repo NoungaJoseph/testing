@@ -1199,7 +1199,7 @@
     "final_cta": {
       "title": "Ready to",
       "title_highlight": "Act?",
-      "desc": "Join our growing family of volunteers changing lives across 12 countries in Africa.",
+      "desc": "Join our growing family of volunteers changing lives across all 10 regions of Cameroon.",
       "btn_apply": "Apply Now",
       "btn_donate": "Donate"
     }
@@ -1209,7 +1209,7 @@
       "badge": "Institutional Collaboration",
       "title": "Building",
       "title_highlight": "Together.",
-      "desc": "We partner with forward-thinking organizations to deliver transformative education and sustainable energy solutions across Africa."
+      "desc": "We partner with forward-thinking organizations to deliver transformative education and sustainable energy solutions across Cameroon."
     },
     "types": [
       {
@@ -1330,7 +1330,7 @@
       "badge": "Community Narratives",
       "title": "Voices of",
       "title_highlight": "Transformation.",
-      "desc": "Real narratives of change from students, teachers, and communities across Africa.",
+      "desc": "Real narratives of change from students, teachers, and communities across Cameroon.",
       "btn_explore": "Explore Narratives",
       "btn_impact": "Our Impact Report"
     },
@@ -1361,23 +1361,23 @@
     "items": [
       {
         "category": "Student Success",
-        "title": "\"From a Village Classroom to a University in Accra\"",
+        "title": "\"From a Village Classroom to a University in Douala\"",
         "author": "Abena Osei, Scholarship Recipient",
-        "country": "Ghana",
+        "country": "Cameroon",
         "excerpt": "When I was selected as the top student in my district, I never imagined it would open doors I had only dreamed of. The Enako Outreach scholarship didn't just pay my fees - it changed my entire family's trajectory."
       },
       {
         "category": "Teacher Award",
         "title": "\"Being Recognized Changed How I Teach\"",
         "author": "Mr. Emmanuel Asante, Teacher",
-        "country": "Nigeria",
+        "country": "Cameroon",
         "excerpt": "The award was more than money; it was validation. For the first time in 15 years of teaching, someone said \"we see you.\" My students noticed the change in my energy immediately."
       },
       {
         "category": "Community Impact",
         "title": "\"Our Village Now Has Clean Water\"",
         "author": "Chief Yaw Darko, Community Leader",
-        "country": "Kenya",
+        "country": "Cameroon",
         "excerpt": "Before Enako came, our children walked 3 km each morning just to reach water. Now that borehole in our compound has freed our children to attend school instead."
       }
     ],

@@ -179,23 +179,23 @@ const storiesEn = {
   "items": [
     {
       "category": "Student Success",
-      "title": "\"From a Village Classroom to a University in Accra\"",
+      "title": "\"From a Village Classroom to a University in Douala\"",
       "author": "Abena Osei, Scholarship Recipient",
-      "country": "Ghana",
+      "country": "Cameroon",
       "excerpt": "When I was selected as the top student in my district, I never imagined it would open doors I had only dreamed of. The Enako Outreach scholarship didn't just pay my fees — it changed my entire family's trajectory."
     },
     {
       "category": "Teacher Award",
       "title": "\"Being Recognized Changed How I Teach\"",
       "author": "Mr. Emmanuel Asante, Teacher",
-      "country": "Nigeria",
+      "country": "Cameroon",
       "excerpt": "The award was more than money; it was validation. For the first time in 15 years of teaching, someone said \"we see you.\" My students noticed the change in my energy immediately."
     },
     {
       "category": "Community Impact",
       "title": "\"Our Village Now Has Clean Water\"",
       "author": "Chief Yaw Darko, Community Leader",
-      "country": "Kenya",
+      "country": "Cameroon",
       "excerpt": "Before Enako came, our children walked 3 km each morning just to reach water. Now that borehole in our compound has freed our children to attend school instead."
     }
   ],
@@ -234,23 +234,23 @@ const storiesFr = {
   "items": [
     {
       "category": "Réussite Étudiante",
-      "title": "\"D'une Salle de Classe de Village à une Université à Accra\"",
+      "title": "\"D'une Salle de Classe de Village à une Université à Douala\"",
       "author": "Abena Osei, Boursière",
-      "country": "Ghana",
+      "country": "Cameroon",
       "excerpt": "Lorsque j'ai été sélectionnée comme la meilleure élève de mon district, je n'aurais jamais imaginé que cela m'ouvrirait des portes dont je n'avais fait que rêver. La bourse Enako Outreach n'a pas seulement payé mes frais de scolarité, elle a changé la trajectoire de toute ma famille."
     },
     {
       "category": "Prix de l'Enseignant",
       "title": "\"Être Reconnu a Changé ma Façon d'Enseigner\"",
       "author": "M. Emmanuel Asante, Enseignant",
-      "country": "Nigeria",
+      "country": "Cameroon",
       "excerpt": "Le prix était plus que de l'argent ; c'était une validation. Pour la première fois en 15 ans d'enseignement, quelqu'un m'a dit « nous vous voyons ». Mes élèves ont immédiatement remarqué le changement dans mon énergie."
     },
     {
       "category": "Impact Communautaire",
       "title": "\"Notre Village a Maintenant de l'Eau Potable\"",
       "author": "Chef Yaw Darko, Chef Communautaire",
-      "country": "Kenya",
+      "country": "Cameroon",
       "excerpt": "Avant l'arrivée d'Enako, nos enfants marchaient 3 km chaque matin juste pour aller chercher de l'eau. Maintenant, ce forage dans notre enceinte a libéré nos enfants pour qu'ils puissent aller à l'école."
     }
   ],
